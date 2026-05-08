@@ -16,8 +16,8 @@ The reasoning trace skill collection was built from a web research pass across f
 
 Each skill uses one named reasoning strategy as the organizing frame for a public scratchpad.
 The scratchpad records visible reasoning artifacts rather than private hidden chain-of-thought.
-Each strategy has four variants so slash invocations can trade off output length and test-time compute.
-The default and medium variants require 100 numbered scratchpad lines, the small variant requires 25 lines, and the large variant requires 500+ lines.
+Each strategy has four variants so slash invocations can trade off output length and test-time effort.
+The default and medium variants target around 100 numbered scratchpad lines, the small variant targets around 25 lines, and the large variant targets around 500+ lines when the question justifies that depth.
 Every skill writes to root `memory/{question_name}.md` so traces become durable project artifacts.
 
 ## Sources Consulted

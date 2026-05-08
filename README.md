@@ -144,13 +144,8 @@ The skill name must be lowercase hyphen-case and must match the folder name.
 ## Reasoning Trace Skills
 
 This repository includes a generated collection of 100+ reasoning trace strategies, each with default, small, medium, and large slash-skill variants under `skills/`.
-Each trace skill writes a public scratchpad to `memory/{question_name}.md` and scales the scratchpad length by variant: small is 25 lines, medium is 100 lines, and large is 500+ lines.
-
-Regenerate the collection with:
-
-```bash
-npm run generate:reasoning-traces
-```
+Each trace skill writes a public scratchpad to `memory/{question_name}.md` and uses approximate scale targets rather than fixed quotas: small is around 25 numbered lines, medium and default are around 100 numbered lines, and large is around 500+ numbered lines when the question justifies that depth.
+The committed `SKILL.md` files are the source of truth for the collection; update those files directly when improving a reasoning trace.
 
 ## Verify
 

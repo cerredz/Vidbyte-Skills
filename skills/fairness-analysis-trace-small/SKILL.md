@@ -1,41 +1,51 @@
 ---
 name: fairness-analysis-trace-small
-description: "Use this skill when the user invokes /fairness-analysis-trace-small or asks for a small public reasoning trace using Fairness Analysis. It writes a structured scratchpad to root memory/{question_name}.md and scales the trace to exactly 25 numbered scratchpad lines."
+description: >
+  Use this skill when the user invokes /fairness-analysis-trace-small or asks for a small public reasoning trace using Fairness Analysis.
+  The skill writes a durable scratchpad to root memory/{question_name}.md and uses Fairness Analysis as the actual structure of the analysis.
+  Treat the scale as a rough effort target rather than a fixed quota: around 25 numbered lines or roughly 500 to 900 tokens of public scratchpad detail.
+  Use this skill when the user wants the answer shaped by equity reasoning instead of a generic response.
 ---
 
 # Fairness Analysis Reasoning Trace Small
 
 ## Goal
-Use this skill to produce a public, audit-friendly reasoning trace for the user's question using the Fairness Analysis strategy.
-Convert the question into a named investigation and write the scratchpad at the repository root under `memory/{question_name}.md`.
-Keep the trace focused on inspectable reasoning artifacts such as assumptions, subquestions, evidence, checks, intermediate conclusions, and the final answer.
-Do not expose hidden private chain-of-thought; provide a concise public scratchpad that captures the visible structure of the reasoning method.
-Make the final response point to the scratchpad file and summarize the conclusion only after the file is written.
+Use Fairness Analysis to answer the user's question through equity reasoning, not through a generic checklist or interchangeable trace.
+The trace should check who benefits, who bears costs, and whether criteria are consistent and justified, so the visible reasoning follows the same path the strategy is known for.
+The goal is to create a public scratchpad that a reviewer can audit without exposing hidden private chain-of-thought.
+Center the scratchpad on subquestions, assumptions, evidence, contrasts, tests, intermediate conclusions, and implications, because those artifacts make fairness analysis useful rather than decorative.
+Preserve the user's domain, constraints, definitions, and evidence standards so the trace stays tied to the actual task.
+Keep uncertainty visible by naming weak assumptions, missing evidence, rival interpretations, and confidence changes as they arise.
+Write the result to root memory/{question_name}.md so the reasoning trace becomes a durable project artifact.
 
 ## Instructions
-Derive `{question_name}` from the user's actual question by lowercasing it, replacing non-alphanumeric runs with hyphens, trimming extra hyphens, and using `reasoning-trace` if no safe name remains.
-Create the root `memory` directory if it does not already exist, then create or overwrite `memory/{question_name}.md` for this trace.
-Start the scratchpad by naming the question, the selected strategy, the selected scale, and the exact required line budget.
-Apply Fairness Analysis by using it to check who benefits, who bears costs, and whether criteria are consistent and justified, and make each numbered line advance that method rather than adding generic filler.
-End by writing a final answer section that is consistent with the scratchpad and states any remaining uncertainty plainly.
+Derive {question_name} from the user's actual question by lowercasing it, replacing non-alphanumeric runs with hyphens, trimming extra hyphens, and using reasoning-trace if no safe name remains.
+Create the root memory directory when needed, then write or replace memory/{question_name}.md with this trace.
+Start the file with the question, selected strategy, scale note, source constraints, and a brief statement of what the trace will inspect.
+Build the scratchpad by repeatedly applying the Fairness Analysis move: check who benefits, who bears costs, and whether criteria are consistent and justified.
+Use a short trace, usually around 25 numbered lines, and prioritize the highest-value reasoning moves.
+Prefer concise public reasoning artifacts over hidden deliberation, and make every numbered item contribute a question, observation, test, comparison, inference, or synthesis.
+End the file with a synthesis and final answer that follow from the trace, including any important uncertainty that remains.
 
 ## Background Information About The Reasoning Strategy
-Fairness Analysis is a equity reasoning strategy that gives the trace a specific shape instead of a loose stream of thoughts.
-Its core move is to check who benefits, who bears costs, and whether criteria are consistent and justified, which helps the model expose reasoning checkpoints that a reader can inspect.
-The strategy is useful when the user wants the answer to show how the conclusion was built, compared, challenged, or calibrated.
-The main failure mode is treating the framework as decorative labels, so every line should do real work inside the chosen strategy.
-The trace should preserve uncertainty, assumptions, and disconfirming evidence because those details make the final answer more trustworthy.
+Fairness Analysis is a equity reasoning strategy that gives analysis a recognizable pattern and prevents the answer from becoming an unstructured opinion.
+Its central discipline is to check who benefits, who bears costs, and whether criteria are consistent and justified, which forces the model to make the important reasoning moves visible.
+This strategy is strongest when the question benefits from decomposing a hard question into inspectable reasoning steps and when the reader needs to see why the answer follows.
+Compared with a generic scratchpad, fairness analysis changes what gets noticed, which alternatives get compared, and which assumptions receive pressure.
+A weak trace will merely label sections with the strategy name; a strong trace will let the strategy determine the order, granularity, and tests inside the analysis.
+Use the strategy to surface disconfirming evidence, unresolved ambiguity, and decision-relevant implications instead of smoothing them away.
+The final answer should feel like the compressed result of Fairness Analysis, not like a separate response pasted after the trace.
 
 ## Output Information
-Write the scratchpad as Markdown in the root `memory/{question_name}.md` file before giving the user the final answer.
-Include this exact scale statement near the top of the file: "Scale: small - this scratchpad is required to output exactly 25 lines."
-Use numbered scratchpad lines so the requested line count can be verified without guessing.
-Keep each line concise, but make it substantive enough to show the reasoning operation performed on that line.
-After the scratchpad is complete, respond to the user with the file path, the selected strategy, the scale statement, and the final answer.
+Write the scratchpad as Markdown in root memory/{question_name}.md before responding to the user.
+Include this scale note near the top of the file: "Scale: small - aim for around 25 numbered lines, or roughly 500 to 900 tokens, while keeping the reasoning compact and readable."
+Use numbered scratchpad items for scanability, but treat the number target as approximate and subordinate to usefulness.
+Keep the scratchpad public, inspectable, and concise enough per line that the structure remains easy to review.
+After writing the file, respond with the path, selected strategy, scale note, and final answer summary.
 
 ## Specify Files And Length And Structure Of Output
-The only required artifact is `memory/{question_name}.md` at the repository root, and the directory name must be exactly `memory`.
-Write exactly 25 numbered scratchpad lines, then add a short final answer after the numbered trace.
-Structure the file with the sections `Question`, `Strategy`, `Scale`, `Scratchpad`, `Synthesis`, and `Final Answer`.
-The `Scratchpad` section must contain the numbered trace lines, while `Synthesis` should compress the trace into a small set of takeaways.
-If the user gives a format, domain, or evidence constraint, preserve it inside this structure while still meeting the small length requirement.
+Write the artifact to memory/{question_name}.md at the repository root, using the literal memory directory name.
+Structure the file with the sections Question, Strategy, Scale, Scratchpad, Synthesis, and Final Answer.
+The Scratchpad section should target around 25 numbered lines or roughly 500 to 900 tokens of public scratchpad detail, adjusted reasonably for very small or unusually broad questions.
+Use subsections inside Scratchpad when the trace becomes long enough that phases, branches, hypotheses, cases, or criteria would improve readability.
+If the user supplies a domain format, evidence source, or output constraint, preserve it inside this structure while keeping the small scale approximate.

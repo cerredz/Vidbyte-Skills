@@ -1,41 +1,51 @@
 ---
 name: opportunity-cost-trace-medium
-description: "Use this skill when the user invokes /opportunity-cost-trace-medium or asks for a medium public reasoning trace using Opportunity Cost Reasoning. It writes a structured scratchpad to root memory/{question_name}.md and scales the trace to exactly 100 numbered scratchpad lines."
+description: >
+  Use this skill when the user invokes /opportunity-cost-trace-medium or asks for a medium public reasoning trace using Opportunity Cost Reasoning.
+  The skill writes a durable scratchpad to root memory/{question_name}.md and uses Opportunity Cost Reasoning as the actual structure of the analysis.
+  Treat the scale as a rough effort target rather than a fixed quota: around 100 numbered lines or roughly 2,000 to 3,500 tokens of public scratchpad detail.
+  Use this skill when the user wants the answer shaped by resource allocation instead of a generic response.
 ---
 
 # Opportunity Cost Reasoning Reasoning Trace Medium
 
 ## Goal
-Use this skill to produce a public, audit-friendly reasoning trace for the user's question using the Opportunity Cost Reasoning strategy.
-Convert the question into a named investigation and write the scratchpad at the repository root under `memory/{question_name}.md`.
-Keep the trace focused on inspectable reasoning artifacts such as assumptions, subquestions, evidence, checks, intermediate conclusions, and the final answer.
-Do not expose hidden private chain-of-thought; provide a concise public scratchpad that captures the visible structure of the reasoning method.
-Make the final response point to the scratchpad file and summarize the conclusion only after the file is written.
+Use Opportunity Cost Reasoning to answer the user's question through resource allocation, not through a generic checklist or interchangeable trace.
+The trace should make the next-best alternative explicit before choosing the current path, so the visible reasoning follows the same path the strategy is known for.
+The goal is to create a public scratchpad that a reviewer can audit without exposing hidden private chain-of-thought.
+Center the scratchpad on subquestions, assumptions, evidence, contrasts, tests, intermediate conclusions, and implications, because those artifacts make opportunity cost reasoning useful rather than decorative.
+Preserve the user's domain, constraints, definitions, and evidence standards so the trace stays tied to the actual task.
+Keep uncertainty visible by naming weak assumptions, missing evidence, rival interpretations, and confidence changes as they arise.
+Write the result to root memory/{question_name}.md so the reasoning trace becomes a durable project artifact.
 
 ## Instructions
-Derive `{question_name}` from the user's actual question by lowercasing it, replacing non-alphanumeric runs with hyphens, trimming extra hyphens, and using `reasoning-trace` if no safe name remains.
-Create the root `memory` directory if it does not already exist, then create or overwrite `memory/{question_name}.md` for this trace.
-Start the scratchpad by naming the question, the selected strategy, the selected scale, and the exact required line budget.
-Apply Opportunity Cost Reasoning by using it to make the next-best alternative explicit before choosing the current path, and make each numbered line advance that method rather than adding generic filler.
-End by writing a final answer section that is consistent with the scratchpad and states any remaining uncertainty plainly.
+Derive {question_name} from the user's actual question by lowercasing it, replacing non-alphanumeric runs with hyphens, trimming extra hyphens, and using reasoning-trace if no safe name remains.
+Create the root memory directory when needed, then write or replace memory/{question_name}.md with this trace.
+Start the file with the question, selected strategy, scale note, source constraints, and a brief statement of what the trace will inspect.
+Build the scratchpad by repeatedly applying the Opportunity Cost Reasoning move: make the next-best alternative explicit before choosing the current path.
+Use a medium trace, usually around 100 numbered lines, and give each major reasoning step room to be inspected.
+Prefer concise public reasoning artifacts over hidden deliberation, and make every numbered item contribute a question, observation, test, comparison, inference, or synthesis.
+End the file with a synthesis and final answer that follow from the trace, including any important uncertainty that remains.
 
 ## Background Information About The Reasoning Strategy
-Opportunity Cost Reasoning is a resource allocation strategy that gives the trace a specific shape instead of a loose stream of thoughts.
-Its core move is to make the next-best alternative explicit before choosing the current path, which helps the model expose reasoning checkpoints that a reader can inspect.
-The strategy is useful when the user wants the answer to show how the conclusion was built, compared, challenged, or calibrated.
-The main failure mode is treating the framework as decorative labels, so every line should do real work inside the chosen strategy.
-The trace should preserve uncertainty, assumptions, and disconfirming evidence because those details make the final answer more trustworthy.
+Opportunity Cost Reasoning is a resource allocation strategy that gives analysis a recognizable pattern and prevents the answer from becoming an unstructured opinion.
+Its central discipline is to make the next-best alternative explicit before choosing the current path, which forces the model to make the important reasoning moves visible.
+This strategy is strongest when the question benefits from decomposing a hard question into inspectable reasoning steps and when the reader needs to see why the answer follows.
+Compared with a generic scratchpad, opportunity cost reasoning changes what gets noticed, which alternatives get compared, and which assumptions receive pressure.
+A weak trace will merely label sections with the strategy name; a strong trace will let the strategy determine the order, granularity, and tests inside the analysis.
+Use the strategy to surface disconfirming evidence, unresolved ambiguity, and decision-relevant implications instead of smoothing them away.
+The final answer should feel like the compressed result of Opportunity Cost Reasoning, not like a separate response pasted after the trace.
 
 ## Output Information
-Write the scratchpad as Markdown in the root `memory/{question_name}.md` file before giving the user the final answer.
-Include this exact scale statement near the top of the file: "Scale: medium - this scratchpad is required to output exactly 100 lines."
-Use numbered scratchpad lines so the requested line count can be verified without guessing.
-Keep each line concise, but make it substantive enough to show the reasoning operation performed on that line.
-After the scratchpad is complete, respond to the user with the file path, the selected strategy, the scale statement, and the final answer.
+Write the scratchpad as Markdown in root memory/{question_name}.md before responding to the user.
+Include this scale note near the top of the file: "Scale: medium - aim for around 100 numbered lines, or roughly 2,000 to 3,500 tokens, while preserving enough detail for review."
+Use numbered scratchpad items for scanability, but treat the number target as approximate and subordinate to usefulness.
+Keep the scratchpad public, inspectable, and concise enough per line that the structure remains easy to review.
+After writing the file, respond with the path, selected strategy, scale note, and final answer summary.
 
 ## Specify Files And Length And Structure Of Output
-The only required artifact is `memory/{question_name}.md` at the repository root, and the directory name must be exactly `memory`.
-Write exactly 100 numbered scratchpad lines, then add a short final answer after the numbered trace.
-Structure the file with the sections `Question`, `Strategy`, `Scale`, `Scratchpad`, `Synthesis`, and `Final Answer`.
-The `Scratchpad` section must contain the numbered trace lines, while `Synthesis` should compress the trace into a small set of takeaways.
-If the user gives a format, domain, or evidence constraint, preserve it inside this structure while still meeting the medium length requirement.
+Write the artifact to memory/{question_name}.md at the repository root, using the literal memory directory name.
+Structure the file with the sections Question, Strategy, Scale, Scratchpad, Synthesis, and Final Answer.
+The Scratchpad section should target around 100 numbered lines or roughly 2,000 to 3,500 tokens of public scratchpad detail, adjusted reasonably for very small or unusually broad questions.
+Use subsections inside Scratchpad when the trace becomes long enough that phases, branches, hypotheses, cases, or criteria would improve readability.
+If the user supplies a domain format, evidence source, or output constraint, preserve it inside this structure while keeping the medium scale approximate.
