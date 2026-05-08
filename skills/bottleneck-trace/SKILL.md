@@ -28,13 +28,17 @@ Prefer concise public reasoning artifacts over hidden deliberation, and make eve
 End the file with a synthesis and final answer that follow from the trace, including any important uncertainty that remains.
 
 ## Background Information About The Reasoning Strategy
-Bottleneck Reasoning is a constraint analysis strategy that gives analysis a recognizable pattern and prevents the answer from becoming an unstructured opinion.
-Its central discipline is to locate the limiting factor that governs overall throughput or progress, which forces the model to make the important reasoning moves visible.
-This strategy is strongest when the question benefits from understanding interacting parts and finding where change will matter most and when the reader needs to see why the answer follows.
-Compared with a generic scratchpad, bottleneck reasoning changes what gets noticed, which alternatives get compared, and which assumptions receive pressure.
-A weak trace will merely label sections with the strategy name; a strong trace will let the strategy determine the order, granularity, and tests inside the analysis.
-Use the strategy to surface disconfirming evidence, unresolved ambiguity, and decision-relevant implications instead of smoothing them away.
-The final answer should feel like the compressed result of Bottleneck Reasoning, not like a separate response pasted after the trace.
+Bottleneck Reasoning is a reasoning strategy for turning a question into an auditable public trace instead of an unstructured opinion.
+It should give the output document a visible sequence of decisions, tests, and intermediate conclusions, so the reader can see how the answer was reached without exposing hidden private chain-of-thought.
+Use it when the problem benefits from the core move "locate the limiting factor that governs overall throughput or progress" and when the final answer needs evidence, assumptions, and uncertainty kept in view.
+A strong Bottleneck Reasoning trace lets that move determine the order and granularity of the scratchpad, then compresses the result into a concise final answer.
+
+Algorithm for the output document:
+1. Restate the user's question, constraints, and evidence standard, then derive the subquestions or working items that Bottleneck Reasoning needs to inspect.
+2. Apply the core move explicitly: locate the limiting factor that governs overall throughput or progress.
+3. For each subquestion, case, option, hypothesis, or criterion the move creates, write numbered public reasoning items that answer it before advancing.
+4. Record assumptions, missing evidence, disconfirming signals, and confidence changes where they affect the analysis.
+5. Synthesize the completed trace into the final answer, showing how the conclusion follows from Bottleneck Reasoning rather than from a generic summary.
 
 ## Output Information
 Write the scratchpad as Markdown in root memory/{question_name}.md before responding to the user.
