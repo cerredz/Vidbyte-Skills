@@ -30,6 +30,8 @@ From a local checkout:
 npm run install-skills
 ```
 
+`npx install vidbyte-skills` is not a supported npm invocation form; npm interprets that as running a separate command named `install`, not this package. The package-supported one-shot command is `npx vidbyte-skills`.
+
 ## Install Specific Skills
 
 Pass skill names as positional arguments:
@@ -138,6 +140,17 @@ Follow these steps:
 ```
 
 The skill name must be lowercase hyphen-case and must match the folder name.
+
+## Reasoning Trace Skills
+
+This repository includes a generated collection of 100+ reasoning trace strategies, each with default, small, medium, and large slash-skill variants under `skills/`.
+Each trace skill writes a public scratchpad to `memory/{question_name}.md` and scales the scratchpad length by variant: small is 25 lines, medium is 100 lines, and large is 500+ lines.
+
+Regenerate the collection with:
+
+```bash
+npm run generate:reasoning-traces
+```
 
 ## Verify
 

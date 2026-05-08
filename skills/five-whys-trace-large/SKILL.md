@@ -1,0 +1,41 @@
+---
+name: five-whys-trace-large
+description: "Use this skill when the user invokes /five-whys-trace-large or asks for a large public reasoning trace using Five Whys. It writes a structured scratchpad to root memory/{question_name}.md and scales the trace to 500 or more numbered scratchpad lines."
+---
+
+# Five Whys Reasoning Trace Large
+
+## Goal
+Use this skill to produce a public, audit-friendly reasoning trace for the user's question using the Five Whys strategy.
+Convert the question into a named investigation and write the scratchpad at the repository root under `memory/{question_name}.md`.
+Keep the trace focused on inspectable reasoning artifacts such as assumptions, subquestions, evidence, checks, intermediate conclusions, and the final answer.
+Do not expose hidden private chain-of-thought; provide a concise public scratchpad that captures the visible structure of the reasoning method.
+Make the final response point to the scratchpad file and summarize the conclusion only after the file is written.
+
+## Instructions
+Derive `{question_name}` from the user's actual question by lowercasing it, replacing non-alphanumeric runs with hyphens, trimming extra hyphens, and using `reasoning-trace` if no safe name remains.
+Create the root `memory` directory if it does not already exist, then create or overwrite `memory/{question_name}.md` for this trace.
+Start the scratchpad by naming the question, the selected strategy, the selected scale, and the exact required line budget.
+Apply Five Whys by using it to ask why repeatedly until the trace reaches a cause that can be acted on or tested, and make each numbered line advance that method rather than adding generic filler.
+End by writing a final answer section that is consistent with the scratchpad and states any remaining uncertainty plainly.
+
+## Background Information About The Reasoning Strategy
+Five Whys is a root cause analysis strategy that gives the trace a specific shape instead of a loose stream of thoughts.
+Its core move is to ask why repeatedly until the trace reaches a cause that can be acted on or tested, which helps the model expose reasoning checkpoints that a reader can inspect.
+The strategy is useful when the user wants the answer to show how the conclusion was built, compared, challenged, or calibrated.
+The main failure mode is treating the framework as decorative labels, so every line should do real work inside the chosen strategy.
+The trace should preserve uncertainty, assumptions, and disconfirming evidence because those details make the final answer more trustworthy.
+
+## Output Information
+Write the scratchpad as Markdown in the root `memory/{question_name}.md` file before giving the user the final answer.
+Include this exact scale statement near the top of the file: "Scale: large - this scratchpad is required to output 500+ lines."
+Use numbered scratchpad lines so the requested line count can be verified without guessing.
+Keep each line concise, but make it substantive enough to show the reasoning operation performed on that line.
+After the scratchpad is complete, respond to the user with the file path, the selected strategy, the scale statement, and the final answer.
+
+## Specify Files And Length And Structure Of Output
+The only required artifact is `memory/{question_name}.md` at the repository root, and the directory name must be exactly `memory`.
+Write 500 or more numbered scratchpad lines, then add a concise final answer after the numbered trace.
+Structure the file with the sections `Question`, `Strategy`, `Scale`, `Scratchpad`, `Synthesis`, and `Final Answer`.
+The `Scratchpad` section must contain the numbered trace lines, while `Synthesis` should compress the trace into a small set of takeaways.
+If the user gives a format, domain, or evidence constraint, preserve it inside this structure while still meeting the large length requirement.
