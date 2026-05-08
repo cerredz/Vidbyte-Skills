@@ -1,0 +1,46 @@
+{
+  "name": "vidbyte-skills",
+  "version": "0.1.0",
+  "description": "Install Vidbyte Agent Skills across Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes, and compatible harnesses.",
+  "type": "module",
+  "bin": {
+    "vidbyte-skills": "./bin/install.js"
+  },
+  "scripts": {
+    "install-skills": "node ./bin/install.js",
+    "validate": "node ./scripts/validate.js",
+    "test": "node ./scripts/validate.js && node ./scripts/smoke-test.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "scripts",
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cerredz/Vidbyte-Skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cerredz/Vidbyte-Skills/issues"
+  },
+  "homepage": "https://github.com/cerredz/Vidbyte-Skills#readme",
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "codex",
+    "gemini-cli",
+    "opencode",
+    "cursor",
+    "hermes",
+    "cline",
+    "continue",
+    "roo-code"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
