@@ -13,6 +13,7 @@
   },
   "files": [
     "bin",
+    "lib",
     "scripts",
     "skills",
     "README.md",
