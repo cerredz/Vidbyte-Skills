@@ -6,11 +6,11 @@ Repository: https://github.com/cerredz/Vidbyte-Skills
 
 ## Intended Behavior
 
-Run the installer from `npx`, npm scripts, or the package binary. By default it installs every valid skill from this repository into user-level harness directories on the local machine. You can also name one or more skills to install only those skills.
+Run the installer from `npx`, npm scripts, or the package binary. By default it installs only non-reasoning skills into user-level harness directories on the local machine. Reasoning trace skills are intentionally skipped by default because they are token-heavy; install them explicitly with the `reasoning` collection when needed.
 
 After installation, open or reload your coding harness. The skills are available from that harness according to its normal local skill or rule discovery behavior.
 
-## Install All Skills
+## Install Default Skills
 
 From npm after the package is published:
 
@@ -30,7 +30,35 @@ From a local checkout:
 npm run install-skills
 ```
 
+The default install excludes reasoning trace skills. In this repository today, all committed skills are reasoning trace skills, so the default install reports that no default skills were selected until non-reasoning skills are added.
+
 `npx install vidbyte-skills` is not a supported npm invocation form; npm interprets that as running a separate command named `install`, not this package. The package-supported one-shot command is `npx vidbyte-skills`.
+
+## Install Reasoning Trace Skills
+
+Install the token-heavy reasoning trace collection explicitly:
+
+```bash
+npx vidbyte-skills reasoning
+```
+
+The installer also accepts a package-style collection selector:
+
+```bash
+npx vidbyte-skills vidbyte-skill/reasoning
+```
+
+From a local checkout:
+
+```bash
+npm run install-reasoning
+```
+
+To install every default and reasoning skill together, use:
+
+```bash
+npx vidbyte-skills all
+```
 
 ## Install Specific Skills
 
@@ -53,7 +81,7 @@ For GitHub installs before npm publication:
 npx github:cerredz/Vidbyte-Skills my-skill
 ```
 
-The selector may also include a package-style prefix such as `vidbyte-skills/my-skill`; the installer uses the final path segment as the skill name.
+The selector may also include a package-style prefix such as `vidbyte-skills/my-skill`; the installer uses the final path segment as the skill name or collection name.
 
 ## Installer Options
 
@@ -75,7 +103,7 @@ Defaults:
 ```text
 scope: user
 platform: all
-skill selection: all skills
+skill selection: default skills only
 mode: copy
 ```
 
@@ -145,6 +173,7 @@ The skill name must be lowercase hyphen-case and must match the folder name.
 
 This repository includes a generated collection of 100+ reasoning trace strategies, each with default, small, medium, and large slash-skill variants under `skills/`.
 Each trace skill writes a public scratchpad to `memory/{question_name}.md` and uses approximate scale targets rather than fixed quotas: small is around 25 numbered lines, medium and default are around 100 numbered lines, and large is around 500+ numbered lines when the question justifies that depth.
+Reasoning trace skills are skipped by the default installer path; run `npx vidbyte-skills reasoning` to install them.
 The committed `SKILL.md` files are the source of truth for the collection; update those files directly when improving a reasoning trace.
 
 ## Verify

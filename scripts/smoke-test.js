@@ -13,9 +13,11 @@ const project = path.join(tempRoot, "project");
 const skills = path.join(tempRoot, "skills");
 const fixtureSkill = path.join(skills, "demo-skill");
 const unselectedSkill = path.join(skills, "extra-skill");
+const reasoningSkill = path.join(skills, "causal-trace");
 
 fs.mkdirSync(fixtureSkill, { recursive: true });
 fs.mkdirSync(unselectedSkill, { recursive: true });
+fs.mkdirSync(reasoningSkill, { recursive: true });
 fs.mkdirSync(project, { recursive: true });
 fs.writeFileSync(path.join(fixtureSkill, "SKILL.md"), `---
 name: demo-skill
@@ -35,24 +37,17 @@ description: Use this fixture skill to verify skill selection behavior.
 
 Follow the extra fixture instructions.
 `);
+fs.writeFileSync(path.join(reasoningSkill, "SKILL.md"), `---
+name: causal-trace
+description: Use this fixture skill to verify reasoning trace collection behavior.
+---
 
-const result = spawnSync(process.execPath, [
-  path.join(REPO_ROOT, "bin", "install.js"),
-  "demo-skill",
-  "--scope",
-  "both",
-  "--platform",
-  "all"
-], {
-  cwd: project,
-  env: {
-    ...process.env,
-    VIDBYTE_HOME: home,
-    VIDBYTE_PROJECT_ROOT: project,
-    VIDBYTE_SKILLS_SRC: skills
-  },
-  encoding: "utf8"
-});
+# Causal Trace
+
+Follow the reasoning fixture instructions.
+`);
+
+const result = runInstaller(["demo-skill", "--scope", "both", "--platform", "all"], home, project);
 
 if (result.status !== 0) {
   console.error(result.stdout);
@@ -85,6 +80,9 @@ for (const expected of expectedSkillFiles) {
 const unexpectedSkill = path.join(home, ".codex", "skills", "extra-skill", "SKILL.md");
 assert.equal(fs.existsSync(unexpectedSkill), false, `Did not expect ${unexpectedSkill}`);
 
+const unexpectedReasoningSkill = path.join(home, ".codex", "skills", "causal-trace", "SKILL.md");
+assert.equal(fs.existsSync(unexpectedReasoningSkill), false, `Did not expect ${unexpectedReasoningSkill}`);
+
 const windsurfRule = path.join(project, ".windsurf", "rules", "vidbyte-skills.md");
 assert.equal(fs.existsSync(windsurfRule), true, "Expected Windsurf project rule");
 assert.match(fs.readFileSync(windsurfRule, "utf8"), /demo-skill/);
@@ -101,5 +99,39 @@ for (const expected of expectedRuleFiles) {
   assert.match(fs.readFileSync(expected, "utf8"), /demo-skill/);
 }
 
+const defaultHome = path.join(tempRoot, "default-home");
+const defaultProject = path.join(tempRoot, "default-project");
+fs.mkdirSync(defaultProject, { recursive: true });
+const defaultResult = runInstaller(["--scope", "user", "--platform", "codex"], defaultHome, defaultProject);
+assert.equal(defaultResult.status, 0);
+assert.equal(fs.existsSync(path.join(defaultHome, ".codex", "skills", "demo-skill", "SKILL.md")), true);
+assert.equal(fs.existsSync(path.join(defaultHome, ".codex", "skills", "extra-skill", "SKILL.md")), true);
+assert.equal(fs.existsSync(path.join(defaultHome, ".codex", "skills", "causal-trace", "SKILL.md")), false);
+
+const reasoningHome = path.join(tempRoot, "reasoning-home");
+const reasoningProject = path.join(tempRoot, "reasoning-project");
+fs.mkdirSync(reasoningProject, { recursive: true });
+const reasoningResult = runInstaller(["vidbyte-skill/reasoning", "--scope", "user", "--platform", "codex"], reasoningHome, reasoningProject);
+assert.equal(reasoningResult.status, 0);
+assert.equal(fs.existsSync(path.join(reasoningHome, ".codex", "skills", "causal-trace", "SKILL.md")), true);
+assert.equal(fs.existsSync(path.join(reasoningHome, ".codex", "skills", "demo-skill", "SKILL.md")), false);
+assert.equal(fs.existsSync(path.join(reasoningHome, ".codex", "skills", "extra-skill", "SKILL.md")), false);
+
 fs.rmSync(tempRoot, { recursive: true, force: true });
 console.log("Smoke test passed.");
+
+function runInstaller(args, vidbyteHome, projectRoot) {
+  return spawnSync(process.execPath, [
+    path.join(REPO_ROOT, "bin", "install.js"),
+    ...args
+  ], {
+    cwd: projectRoot,
+    env: {
+      ...process.env,
+      VIDBYTE_HOME: vidbyteHome,
+      VIDBYTE_PROJECT_ROOT: projectRoot,
+      VIDBYTE_SKILLS_SRC: skills
+    },
+    encoding: "utf8"
+  });
+}
