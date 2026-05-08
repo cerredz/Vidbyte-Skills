@@ -12,8 +12,10 @@ const home = path.join(tempRoot, "home");
 const project = path.join(tempRoot, "project");
 const skills = path.join(tempRoot, "skills");
 const fixtureSkill = path.join(skills, "demo-skill");
+const unselectedSkill = path.join(skills, "extra-skill");
 
 fs.mkdirSync(fixtureSkill, { recursive: true });
+fs.mkdirSync(unselectedSkill, { recursive: true });
 fs.mkdirSync(project, { recursive: true });
 fs.writeFileSync(path.join(fixtureSkill, "SKILL.md"), `---
 name: demo-skill
@@ -24,9 +26,19 @@ description: Use this fixture skill to verify installer behavior.
 
 Follow the fixture instructions.
 `);
+fs.writeFileSync(path.join(unselectedSkill, "SKILL.md"), `---
+name: extra-skill
+description: Use this fixture skill to verify skill selection behavior.
+---
+
+# Extra Skill
+
+Follow the extra fixture instructions.
+`);
 
 const result = spawnSync(process.execPath, [
   path.join(REPO_ROOT, "bin", "install.js"),
+  "demo-skill",
   "--scope",
   "both",
   "--platform",
@@ -69,6 +81,9 @@ const expectedSkillFiles = [
 for (const expected of expectedSkillFiles) {
   assert.equal(fs.existsSync(expected), true, `Expected ${expected}`);
 }
+
+const unexpectedSkill = path.join(home, ".codex", "skills", "extra-skill", "SKILL.md");
+assert.equal(fs.existsSync(unexpectedSkill), false, `Did not expect ${unexpectedSkill}`);
 
 const windsurfRule = path.join(project, ".windsurf", "rules", "vidbyte-skills.md");
 assert.equal(fs.existsSync(windsurfRule), true, "Expected Windsurf project rule");
