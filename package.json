@@ -8,6 +8,7 @@
   },
   "scripts": {
     "install-skills": "node ./bin/install.js",
+    "install-reasoning": "node ./bin/install.js reasoning",
     "validate": "node ./scripts/validate.js",
     "test": "node ./scripts/validate.js && node ./scripts/smoke-test.js"
   },
