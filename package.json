@@ -4,15 +4,17 @@
   "description": "Install Vidbyte Agent Skills across Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes, and compatible harnesses.",
   "type": "module",
   "bin": {
+    "vidbyte": "./bin/vidbyte.js",
     "vidbyte-skills": "./bin/install.js"
   },
   "scripts": {
     "install-skills": "node ./bin/install.js",
     "validate": "node ./scripts/validate.js",
-    "test": "node ./scripts/validate.js && node ./scripts/smoke-test.js"
+    "test": "node ./scripts/validate.js && node ./scripts/smoke-test.js && node ./scripts/cli-smoke-test.js"
   },
   "files": [
     "bin",
+    "cli",
     "lib",
     "scripts",
     "skills",
