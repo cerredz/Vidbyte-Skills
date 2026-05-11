@@ -85,6 +85,22 @@ Supported platforms:
 claude-code, codex, gemini, opencode, cursor, hermes, universal, windsurf, cline, continue, roo-code
 ```
 
+## Vidbyte CLI
+
+This package also exposes a `vidbyte` command for skill-to-backend submissions. Skills should call the CLI instead of constructing backend requests directly in prompt text.
+
+```bash
+vidbyte feedback submit --file feedback-log-2026-05-11-example.md --domain software-engineering --conversation-id example
+```
+
+The CLI signs requests with `VIDBYTE_SKILL_SECRET`, sends traffic only to `https://vidbyte.pro`, and adds the Vidbyte skill authentication headers. Copy `.env.example` to `.env` for local development; real `.env` files are ignored by git.
+
+Use `--dry-run` to validate command input without sending a network request:
+
+```bash
+vidbyte feedback submit --file feedback-log.md --domain software-engineering --conversation-id local-test --dry-run
+```
+
 ## Install Locations
 
 Skill-directory integrations receive a copy or symlink of each selected skill folder:
