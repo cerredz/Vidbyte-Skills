@@ -1,9 +1,30 @@
 import json
+from functools import wraps
 from pathlib import Path
 
 from .usage import usage  # noqa: F401 — re-export for callers
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+
+
+def sanitize_file_content(func):
+    """Decorator that reads a file from options, sanitizes it, and stores the result.
+
+    The decorated method must accept ``(self, options: dict)``.  The decorator
+    reads ``options["file"]``, runs it through :class:`Sanitizer`, and stores
+    the sanitized text in ``options["_sanitized_content"]`` so the method body
+    can consume it without repeating the sanitizer boilerplate.
+    """
+    @wraps(func)
+    def wrapper(self, options: dict):
+        file_path = options.get("file", "")
+        if file_path:
+            from ..auth.sanitize import Sanitizer
+            sanitizer = Sanitizer()
+            content = sanitizer.sanitize(Path(file_path).read_text(encoding="utf-8"))
+            options["_sanitized_content"] = content
+        return func(self, options)
+    return wrapper
 
 
 def read_package_version() -> str:

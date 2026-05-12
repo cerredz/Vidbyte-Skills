@@ -2,18 +2,16 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from ..auth.sanitize import Sanitizer
 from ..client import VidbyteRequestBuilder
-from ..helpers import read_package_version, require_option
+from ..helpers import read_package_version, require_option, sanitize_file_content
 
 
 class CompressorCommand:
 
+    @sanitize_file_content
     def submit(self, options: dict) -> str | None:
         file = require_option(options, "file", "--file")
-
-        sanitizer = Sanitizer()
-        content = sanitizer.sanitize(Path(file).read_text(encoding="utf-8"))
+        content = options["_sanitized_content"]
 
         payload = json.dumps({
             "type": "compression-check",
