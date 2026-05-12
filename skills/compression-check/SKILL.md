@@ -19,13 +19,13 @@ Your questions are framed as alignment checks, never as quizzes. You never use t
 
 You understand when to stay silent. If the user is debugging, writing a long spec, already explaining their reasoning, or giving a simple yes/no confirmation — you skip. You wait for a better opening. These skip rules exist because some moments are already rich with metacognition and an interruption would be noise.
 
-When the user responds with their bullet points, you evaluate their summary internally against the actual conversation. You never display this evaluation inline. Instead, you write the evaluation to a temporary file and call the `python3 -m cli compressor submit --file <tempfile>` command to persist the full breakdown to Vidbyte, and display the one-line response returned by the CLI. The feedback page on Vidbyte shows the full breakdown — what they got right, what they missed, what concepts they are shaky on, and a suggested follow-up question — and lives in their learning history over time, so they can eventually see patterns across sessions.
+When the user responds with their bullet points, you evaluate their summary internally against the actual conversation. You never display this evaluation inline. Instead, you write the evaluation to a temporary file and call the `vidbyte compressor submit --file <tempfile>` command to persist the full breakdown to Vidbyte, and display the one-line response returned by the CLI. The feedback page on Vidbyte shows the full breakdown — what they got right, what they missed, what concepts they are shaky on, and a suggested follow-up question — and lives in their learning history over time, so they can eventually see patterns across sessions.
 
 The feedback you submit should reference the `/feedback` skill so the user's feedback page on Vidbyte connects back to their contextual learning artifacts. Include a `feedback_skill_ref: "/feedback"` in every submission.
 
 ## Goal
 
-Trigger compression/articulation moments at randomized intervals to force the user to retrieve and explain what they built and why. Evaluate their self-explanation against actual conversation context across four dimensions — accuracy, gaps (completeness), misconceptions, and depth of understanding. Persist the evaluation to Vidbyte via the `python3 -m cli compressor submit --file <tempfile>` command so feedback compounds into a longitudinal learning history. The CLI returns a one-line response that you display to the user.
+Trigger compression/articulation moments at randomized intervals to force the user to retrieve and explain what they built and why. Evaluate their self-explanation against actual conversation context across four dimensions — accuracy, gaps (completeness), misconceptions, and depth of understanding. Persist the evaluation to Vidbyte via the `vidbyte compressor submit --file <tempfile>` command so feedback compounds into a longitudinal learning history. The CLI returns a one-line response that you display to the user.
 
 Every compression check must be:
 - **Unpredictable** — randomized 5-8 prompt cadence so the user cannot brace for it
@@ -164,17 +164,21 @@ When a user message arrives and `check_state == "awaiting_response"`:
 
 2. **Write the payload to a temporary file.** Dump the structured evaluation to a temp file (e.g., under `/tmp` on macOS/Linux or `%TEMP%` on Windows). The file should contain the full evaluation — the model's internal notes, not a compressed summary.
 
-3. **Submit to the Vidbyte CLI.** Invoke the compressor command:
+3. **Submit to the Vidbyte CLI.** Invoke the compressor command using the `vidbyte` npm binary (preferred) or direct Python invocation as fallback:
 
    ```
-   python3 -m cli compressor submit --file <tempfile>
+   if command -v vidbyte >/dev/null 2>&1; then
+     vidbyte compressor submit --file <tempfile>
+   elif command -v python3 >/dev/null 2>&1; then
+     python3 -m cli compressor submit --file <tempfile>
+   elif command -v python >/dev/null 2>&1; then
+     python -m cli compressor submit --file <tempfile>
+   fi
    ```
 
-   This is the only supported invocation pattern. The CLI handles signing, headers, backend routing, and transport. Do not construct headers or call URLs directly.
+   This is the supported invocation pattern. The CLI handles signing, headers, backend routing, and transport. Do not construct headers or call URLs directly.
 
-   If the `python3` command is not available, try `python` instead. If neither is available, fail silently.
-
-   If the CLI is not installed (command not found), fail silently. Do not display an error. Proceed to Step 6.
+   If the CLI is not installed (none of the above commands found), fail silently. Do not display an error. Proceed to Step 6.
 
 4. **Parse the output.** The CLI prints exactly one line on success. The format depends on what the backend returns:
    - If a URL is present: `Check out the full response to your summary on https://vidbyte.pro/artifacts/<id>`
@@ -230,7 +234,7 @@ Return to Step 1 for the next user message.
 - The normal response is always delivered complete and intact — the question is additive, never a replacement.
 - The user's bullet-point response is evaluated internally across all four dimensions (accuracy, gaps, misconceptions, depth).
 - The evaluation is NEVER displayed inline. All feedback detail goes to the Vidbyte CLI.
-- The `python3 -m cli compressor submit --file <tempfile>` command is called with the full evaluation payload including `/feedback` reference.
+- The `vidbyte compressor submit --file <tempfile>` command is called with the full evaluation payload including `/feedback` reference.
 - When the CLI succeeds, the output line returned by the CLI is displayed to the user exactly as-is.
 - When the CLI fails or is unavailable, the skill fails silently — no error messages, no disruption.
 - The tone of every question is curious and collaborative, never judgmental or interrogative.

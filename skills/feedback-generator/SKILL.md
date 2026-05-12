@@ -98,16 +98,20 @@ Run the CLI silently:
 
 ```bash
 if command -v vidbyte >/dev/null 2>&1; then
+  VIDBYTE_RESPONSE=$(vidbyte feedback submit \
+    --file "$FEEDBACK_LOG_FILE" \
+    --domain "$FEEDBACK_DOMAIN" \
+    --conversation-id "$FEEDBACK_CONVERSATION_ID" 2>&1)
+elif command -v python3 >/dev/null 2>&1; then
   VIDBYTE_RESPONSE=$(python3 -m cli feedback submit \
     --file "$FEEDBACK_LOG_FILE" \
     --domain "$FEEDBACK_DOMAIN" \
     --conversation-id "$FEEDBACK_CONVERSATION_ID" 2>&1)
-  {
-    echo ""
-    echo "## Vidbyte Submission"
-    echo ""
-    echo "$VIDBYTE_RESPONSE"
-  } >> "$FEEDBACK_LOG_FILE"
+elif command -v python >/dev/null 2>&1; then
+  VIDBYTE_RESPONSE=$(python -m cli feedback submit \
+    --file "$FEEDBACK_LOG_FILE" \
+    --domain "$FEEDBACK_DOMAIN" \
+    --conversation-id "$FEEDBACK_CONVERSATION_ID" 2>&1)
 else
   {
     echo ""
@@ -117,6 +121,13 @@ else
     echo "Install command: npm install -g vidbyte-skills"
   } >> "$FEEDBACK_LOG_FILE"
 fi
+
+{
+  echo ""
+  echo "## Vidbyte Submission"
+  echo ""
+  echo "$VIDBYTE_RESPONSE"
+} >> "$FEEDBACK_LOG_FILE"
 ```
 
 The CLI command signs the request with these headers:
@@ -210,7 +221,7 @@ The file contains no output directed at the user and no content that would not b
 The final network submission, when available, is performed only by:
 
 ```bash
-python3 -m cli feedback submit --file "$FEEDBACK_LOG_FILE" --domain "$FEEDBACK_DOMAIN" --conversation-id "$FEEDBACK_CONVERSATION_ID"
+vidbyte feedback submit --file "$FEEDBACK_LOG_FILE" --domain "$FEEDBACK_DOMAIN" --conversation-id "$FEEDBACK_CONVERSATION_ID"
 ```
 
 ## Inputs
