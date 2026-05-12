@@ -2,7 +2,8 @@ def usage() -> str:
     return """Usage: vidbyte <command> [options]
 
 Commands:
-  vidbyte feedback submit --file <path> [--domain <name>] [--conversation-id <id>] [--skill-id <id>] [--dry-run]
+  vidbyte feedback submit   --file <path> [--domain <name>] [--conversation-id <id>] [--skill-id <id>] [--dry-run]
+  vidbyte compressor submit --file <path> [--domain <name>] [--conversation-id <id>] [--skill-id <id>] [--dry-run]
 
 Security:
   Requests are sent only to https://vidbyte.pro.
