@@ -3,6 +3,9 @@ def usage() -> str:
 
 Commands:
   vidbyte feedback submit --file <path> [--domain <name>] [--conversation-id <id>] [--skill-id <id>] [--dry-run]
+  vidbyte auth login
+  vidbyte auth logout
+  vidbyte auth status
 
 Security:
   Requests are sent only to https://vidbyte.pro.
