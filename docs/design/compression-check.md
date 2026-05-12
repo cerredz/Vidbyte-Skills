@@ -9,7 +9,7 @@
 
 ## 1. Overview
 
-The `compression-check` skill is a silent background coach that periodically asks the user to articulate what they just built and why — then evaluates their response against the actual conversation, submits the evaluation to the Vidbyte backend via the `vidbyte feedback submit` CLI, and returns a clean one-line URL where the user can review a full breakdown of their strengths, gaps, and misconceptions. Over time, these compression checks compound into a learning history that reveals patterns across sessions: which concepts the user can implement but cannot explain. The terminal stays clean, the workflow is barely touched, and the feedback lives on Vidbyte as a persistent artifact.
+The `compression-check` skill is a silent background coach that periodically asks the user to articulate what they just built and why — then evaluates their response against the actual conversation, submits the evaluation to the Vidbyte backend via the `python3 -m cli compressor submit --file <tempfile>` command, and displays the one-line response returned by the CLI. Over time, these compression checks compound into a learning history that reveals patterns across sessions: which concepts the user can implement but cannot explain. The terminal stays clean, the workflow is barely touched, and the feedback lives on Vidbyte as a persistent artifact.
 
 ---
 
@@ -21,8 +21,8 @@ The `compression-check` skill is a silent background coach that periodically ask
 - At threshold, inject a single alignment-framed question asking the user to bullet-point what they built and why
 - Evaluate the user bullet-point summary against actual conversation context (accuracy, gaps, misconceptions, depth)
 - Package the evaluation along with the user summary and conversation context
-- Invoke `vidbyte feedback submit` to persist the evaluation to the Vidbyte backend
-- Receive and display a one-line URL: "Feedback on your summary is ready -> vidbyte.com/feedback/<id>"
+- Invoke `python3 -m cli compressor submit --file <tempfile>` to persist the evaluation to the Vidbyte backend
+- Receive and display the one-line output returned by the CLI (e.g., "Check out the full response to your summary on https://vidbyte.pro/artifacts/<id>")
 - Ensure the normal workflow is minimally interrupted — the question is additive, not disruptive
 - Reference the `/feedback` skill and Vidbyte feedback page so the user has a full learning chain
 
@@ -85,9 +85,9 @@ The referenced `/feedback` skill (on Vidbyte) provides the feedback viewing expe
     - A condensed representation of the relevant conversation context (the work actually done)
     - The model evaluation: what they got right, what they missed, concepts they are shaky on, and a suggested follow-up question
     - References to the `/feedback` skill for full viewing context
-11. The skill SHALL invoke the `vidbyte feedback submit` CLI command, piping the evaluation payload as input (via stdin, a temp file, or command arguments as supported by the CLI).
-12. The skill SHALL parse the output of `vidbyte feedback submit` to extract the returned URL (expected format: `vidbyte.com/feedback/<id>`).
-13. The skill SHALL display exactly one clean line to the user: "Feedback on your summary is ready -> vidbyte.com/feedback/<id>"
+11. The skill SHALL invoke the `python3 -m cli compressor submit --file <tempfile>` command, writing the evaluation payload to a temp file first.
+12. The skill SHALL display the CLI output line exactly as-is to the user (no modification or wrapping).
+13. The skill SHALL display exactly one clean line to the user: the output returned by the CLI.
 14. The skill SHALL NOT display the evaluation inline. All feedback detail lives at the URL.
 15. The skill SHALL NOT persist any state to disk. All state (prompt counter, threshold, check history) is session-local.
 16. The skill SHALL NOT use the words "quiz", "test", "summarize", or "summary" in the injected question. Framing is always "alignment check" or "compression check."
@@ -95,11 +95,11 @@ The referenced `/feedback` skill (on Vidbyte) provides the feedback viewing expe
 
 ### Non-Functional Requirements
 
-- **Performance**: Negligible overhead. The skill CLI invocation (`vidbyte feedback submit`) is the only external call and runs asynchronously. Context processing is limited to the relevant conversation segment.
+- **Performance**: Negligible overhead. The CLI invocation (`python3 -m cli compressor submit --file <tempfile>`) is the only external call and runs asynchronously. Context processing is limited to the relevant conversation segment.
 - **Scalability**: No persistent state. Each session is independent. The Vidbyte backend handles persistence.
 - **Security**: The CLI invocation passes evaluation data to the Vidbyte backend. No credentials or secrets are stored in the SKILL.md. The CLI is assumed to be pre-authenticated by the user.
 - **Observability**: The question injection and URL display are the only visible outputs.
-- **Reliability**: If the `vidbyte feedback submit` CLI fails or is unavailable, the skill SHALL silently skip the submission and continue. If the CLI succeeds but returns an unexpected format, the skill SHALL display a generic "feedback submitted" line. Conservative fallback prevents workflow disruption.
+- **Reliability**: If the CLI fails or is unavailable, the skill SHALL silently skip the submission and continue. If the CLI succeeds but returns an unexpected format, the skill SHALL display the raw output as-is. Conservative fallback prevents workflow disruption.
 
 ---
 
@@ -150,7 +150,7 @@ User Prompt -> [Agent with compression-check skill loaded]
                    |           (summary + context + evaluation + follow-up)
                    |             |
                    |             v
-                   |           Run: vidbyte feedback submit <payload>
+                   |           Run: python3 -m cli compressor submit --file <tempfile>
                    |             |
                    |    +--------+--------+
                    |    v                 v
@@ -161,9 +161,10 @@ User Prompt -> [Agent with compression-check skill loaded]
                    |   from output      (no disruption)
                    |    |
                    |    v
-                   |   Display:
-                   |   "Feedback on your summary is ready
-                   |    -> vidbyte.com/feedback/a3f9x2"
+                   |   Display CLI output:
+                   |   "Check out the full response
+                   |    to your summary on
+                   |    https://vidbyte.pro/artifacts/abc123"
                    |    |
                    |    v
                    |   Randomize next threshold (5-8)
@@ -175,7 +176,7 @@ User Prompt -> [Agent with compression-check skill loaded]
 
 1. **Randomized cadence (5-8, not 5-10 like why)**: The compression check is more frequent because it targets articulation of recently completed work rather than probing assumptions mid-work. A shorter interval ensures checks happen while context is still fresh.
 
-2. **External CLI for persistence**: Unlike `do-not-repeat` file-based tracking, feedback persistence is delegated to `vidbyte feedback submit`. This keeps the skill simple (no file I/O logic) and enables the Vidbyte web dashboard experience. The CLI is assumed to be installed and authenticated.
+2. **External CLI for persistence**: Unlike `do-not-repeat` file-based tracking, feedback persistence is delegated to `python3 -m cli compressor submit --file <tempfile>`. This keeps the skill simple (no file I/O logic besides temp file creation) and enables the Vidbyte web dashboard experience. The CLI handles signing, headers, and transport — the SKILL.md does not construct headers or call URLs directly.
 
 3. **URL-only display**: The evaluation is never displayed inline. This keeps the terminal clean (one line) and drives the user to the Vidbyte feedback page, where the full breakdown is formatted for consumption and stored in their learning history.
 
@@ -219,7 +220,7 @@ Body sections:
 3. **Step-by-Step Execution** — 6 steps (Initialize, Count, Evaluate Skip Rules, Inject Question, Evaluate Response, Submit Feedback).
 4. **Question Format** — Exact phrasing and formatting rules for the compression check question.
 5. **Evaluation Framework** — The four dimensions: accuracy, gaps, misconceptions, depth. How to score each.
-6. **Feedback Payload Structure** — What gets submitted to `vidbyte feedback submit`.
+6. **Feedback Payload Structure** — What gets submitted via the CLI.
 7. **Skip Rules** — 6 rules with detailed descriptions.
 8. **Constraints** — Guardrails (no inline feedback, no persistent files, no judgment, no cascade checks).
 9. **Success Criteria** — Verifiable outcomes.
@@ -330,43 +331,35 @@ Full feedback breakdown available via /feedback
    - The evaluation from Step 4 (all four dimensions + suggested follow-up)
    - Metadata: session timestamp, skill version, reference to `/feedback` skill
 
-2. Invoke the Vidbyte CLI. Use the most reliable method available:
+2. Write the payload to a temporary file and invoke the compressor CLI command:
 
-   **Primary method (preferred):**
    ```
-   vidbyte feedback submit --type compression-check --summary "<user summary>" --context "<condensed context>" --evaluation "<evaluation>"
-   ```
-
-   **Fallback method (if arguments are too long):**
-   Write the payload to a temporary file and pass it:
-   ```
-   vidbyte feedback submit --file /tmp/vidbyte-compression-check.json
+   python3 -m cli compressor submit --file <tempfile>
    ```
 
-   **Minimal fallback (if CLI signature is unknown):**
-   ```
-   echo "<payload>" | vidbyte feedback submit
-   ```
+   This is the only supported invocation pattern. The CLI handles signing (HMAC-SHA256 with skill secret), header construction, backend routing, and transport via `POST /api/skills/compressor`. Do not construct headers or call URLs directly.
 
-   Attempt the primary method first. If the CLI returns an error about unknown flags, fall back to the pipe method. If all methods fail, proceed to failure handling.
+   If `python3` is not available, try `python`. If neither is available, fail silently.
 
-3. Parse the CLI output:
-   - Expected format: a line containing a URL like `vidbyte.com/feedback/<id>` or `https://vidbyte.com/feedback/<id>`
-   - Extract the full URL using regex: `(?:https?://)?vidbyte\.com/feedback/[a-zA-Z0-9]+`
-   - If a URL is found, store it.
+3. Parse the CLI output. The CLI prints exactly one line on success:
+   - With URL in response: `Check out the full response to your summary on https://vidbyte.pro/artifacts/<id>`
+   - With only message: the backend's human-readable status message
+   - With neither: the raw JSON response body
+
+   Display the CLI output line exactly as-is to the user. Do not modify or wrap it.
 
 4. Handling outcomes:
-   - **Success with URL**: Display: "Feedback on your summary is ready -> <url>" (remove https:// if present for cleaner display)
-   - **CLI succeeds but no URL in output**: Display: "Feedback submitted. Check your Vidbyte dashboard for the breakdown."
-   - **CLI not found**: Silently skip. Display nothing.
-   - **CLI returns error**: Silently skip. Display nothing.
+   - **CLI succeeds**: Display the CLI output line alongside the normal response.
+   - **CLI not found or fails**: Silently skip. Display nothing.
    - **Any other failure**: Silently skip. Display nothing.
 
-5. If feedback was submitted, display the result alongside the normal response. If feedback failed silently, just deliver the normal response.
+5. Clean up the temporary file immediately after the CLI call completes.
+
+6. Proceed to Step 6.
 
 **Step 6 — Return to normal operation:**
 - Deliver the normal response (the model answer to whatever the user just asked).
-- If feedback was submitted, the URL line appears above or below the normal response, cleanly separated.
+- If the CLI succeeded, the output line appears above or below the normal response, cleanly separated.
 - The prompt counter continues incrementing normally.
 - The next check will trigger when the counter reaches the (already-set) new threshold.
 
@@ -399,7 +392,7 @@ N/A — The skill maintains no persistent data within the repo. All persistent d
 
 ## 8. API Changes
 
-N/A — No API endpoints are created, modified, or deprecated. The skill consumes the Vidbyte backend API indirectly through the `vidbyte feedback submit` CLI, which is an external dependency.
+N/A — No API endpoints are created, modified, or deprecated. The skill consumes the Vidbyte backend API indirectly through the `python3 -m cli compressor submit --file <tempfile>` command, which handles transport and signing.
 
 ---
 
@@ -446,7 +439,7 @@ N/A — The skill operates within the LLM session context. The Vidbyte CLI and b
 
 6. **User provides bullet-point summary**: Given a compression check question was injected, when the user responds with bullet points summarizing what they built, then the model evaluates accuracy, gaps, misconceptions, and depth internally.
 
-7. **Feedback submission success**: Given a valid evaluation payload and a working `vidbyte` CLI, when feedback is submitted, then the output contains a URL and the user sees "Feedback on your summary is ready -> vidbyte.com/feedback/<id>".
+7. **Feedback submission success**: Given a valid evaluation payload and a working CLI, when feedback is submitted, then the output contains a friendly message with the artifacts URL and the user sees a one-line response.
 
 8. **Feedback submission failure (CLI not found)**: Given the `vidbyte` CLI is not installed, when the evaluation is complete, then no feedback is submitted and no error is shown to the user.
 
@@ -468,8 +461,8 @@ N/A — The skill operates within the LLM session context. The Vidbyte CLI and b
 
 | Dependency | Version / Endpoint | Purpose | Risk |
 |------------|--------------------|---------|------|
-| `vidbyte` CLI | Latest | Submits feedback payload to Vidbyte backend | **Medium** — If not installed or authenticated, feedback is silently lost. The skill degrades gracefully (question still asked for metacognitive benefit). |
-| Vidbyte Backend API | vidbyte.com/feedback/* | Receives evaluation data, returns permalink URL | **Low** — Called indirectly via CLI. If unreachable, error is handled silently. |
+| `vidbyte` CLI | Latest (included in this repo at `cli/`) | Submits feedback payload to Vidbyte backend via `python3 -m cli compressor submit --file <tempfile>` | **Medium** — If Python or the CLI module is not available, feedback is silently lost. The skill degrades gracefully (question still asked for metacognitive benefit). |
+| Vidbyte Backend API | vidbyte.pro/api/skills/compressor | Receives evaluation data, returns permalink URL in response | **Low** — Called indirectly via CLI. If unreachable, error is handled silently. |
 | None (skill internal) | N/A | The skill itself has zero npm/code dependencies | None |
 
 ---
@@ -485,7 +478,7 @@ N/A — The skill operates within the LLM session context. The Vidbyte CLI and b
 
 ## 13. Open Questions
 
-- [ ] What are the exact flags and input format for `vidbyte feedback submit`? The CLI may accept `--type`, `--summary`, `--context`, `--evaluation`, or it may accept a single JSON blob. **Recommendation**: Design the skill to attempt multiple invocation patterns (flags-based, then pipe-based), falling back gracefully.
+- [x] What are the exact flags and input format for the CLI? **Resolved**: The CLI uses `python3 -m cli compressor submit --file <tempfile>`. The file contains the structured evaluation JSON.
 - [ ] Should the skill display the URL immediately after the user bullet-point response, or in the following response? **Recommendation**: Immediately after the user response — the URL is shown alongside the next normal answer, so the user sees it right after they have articulated.
 - [ ] Should the emoji marker be fixed or configurable? **Recommendation**: Fixed — consistent with the `why` skill fixed emoji delimiter. Zero-config is preferred.
 - [ ] Should the evaluation dimensions be weighted or scored numerically? **Recommendation**: Qualitative only. Numerical scores would require calibration and consistency that a prompt-based system cannot reliably deliver.

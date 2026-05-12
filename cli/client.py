@@ -7,6 +7,7 @@ from .auth.config import EnvLoader
 
 ENDPOINTS = {
     "feedback": "/api/skills/feedback",
+    "compressor": "/api/skills/compressor",
 }
 
 

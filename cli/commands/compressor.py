@@ -4,10 +4,10 @@ from pathlib import Path
 
 from ..auth.sanitize import Sanitizer
 from ..client import VidbyteRequestBuilder
-from ..helpers import read_package_version, require_option, format_response
+from ..helpers import read_package_version, require_option
 
 
-class FeedbackCommand:
+class CompressorCommand:
 
     def submit(self, options: dict) -> str | None:
         file = require_option(options, "file", "--file")
@@ -16,7 +16,7 @@ class FeedbackCommand:
         content = sanitizer.sanitize(Path(file).read_text(encoding="utf-8"))
 
         payload = json.dumps({
-            "type": "feedback",
+            "type": "compression-check",
             "domain": options.get("domain", "unknown"),
             "conversation_id": options.get("conversation-id", ""),
             "file_name": Path(file).name,
@@ -27,7 +27,7 @@ class FeedbackCommand:
         builder = VidbyteRequestBuilder(
             body=payload,
             cli_version=read_package_version(),
-            endpoint_name="feedback",
+            endpoint_name="compressor",
             skill_id=options.get("skill-id"),
         )
 
@@ -39,5 +39,7 @@ class FeedbackCommand:
         response = builder.request()
         url = response.get("url", "")
         if url:
-            return f"Check out the full feedback breakdown on {url}"
-        return format_response(response)
+            return f"Check out the full response to your summary on {url}"
+        if response.get("message"):
+            return response["message"]
+        return json.dumps(response)
