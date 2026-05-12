@@ -1,6 +1,6 @@
 {
   "name": "vidbyte-skills",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Install Vidbyte Agent Skills across Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes, and compatible harnesses.",
   "type": "module",
   "bin": {
