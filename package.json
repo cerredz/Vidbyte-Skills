@@ -8,6 +8,7 @@
     "vidbyte-skills": "./bin/install.js"
   },
   "scripts": {
+    "postinstall": "python3 -m pip install --quiet . 2>NUL || python -m pip install --quiet . 2>NUL || (echo Vidbyte CLI: Python/pip not found. The 'vidbyte' npm binary will still work. >&2) & exit 0",
     "install-skills": "node ./bin/install.js",
     "validate": "node ./scripts/validate.js",
     "test": "node ./scripts/validate.js && node ./scripts/smoke-test.js && node ./scripts/cli-smoke-test.js"
