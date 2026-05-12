@@ -3,7 +3,22 @@ from pathlib import Path
 
 from ..constants.auth import OFFICIAL_API_ORIGIN, DEFAULT_SKILL_ID, DEFAULT_TIMEOUT_MS
 
-REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+
+def _resolve_repo_root() -> Path:
+    env_root = os.environ.get("VIDBYTE_REPO_ROOT")
+    if env_root and Path(env_root).is_dir():
+        return Path(env_root)
+
+    current = Path(__file__).resolve().parent
+    for _ in range(6):
+        if (current / "package.json").is_file():
+            return current
+        current = current.parent
+
+    return Path(__file__).resolve().parent.parent.parent
+
+
+REPO_ROOT = _resolve_repo_root()
 
 
 class EnvLoader:
