@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "vidbyte-skills"
+version = "0.1.0"
+description = "Vidbyte CLI — submit feedback and compression-check artifacts to the Vidbyte backend"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["cli*"]
+
+[project.scripts]
+vidbyte-cli = "cli.__main__:main"
