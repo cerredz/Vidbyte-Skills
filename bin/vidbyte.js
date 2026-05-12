@@ -19,6 +19,10 @@ for (const py of candidates) {
   const result = spawnSync(py, ["-m", "cli", ...process.argv.slice(2)], {
     stdio: "inherit",
     cwd: REPO_ROOT,
+    env: {
+      ...process.env,
+      VIDBYTE_REPO_ROOT: REPO_ROOT,
+    },
     encoding: "utf8",
   });
   if (result.error) {
