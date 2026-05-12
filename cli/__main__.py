@@ -3,7 +3,8 @@
 
 import sys
 
-from .helpers import execute_feedback_submit, parse_options, usage
+from .helpers import parse_options, usage
+from .router import CommandRouter
 
 
 def main() -> None:
@@ -20,14 +21,11 @@ def _main(argv: list[str]) -> None:
         return
 
     resource, action, *rest = argv
-
-    if resource == "feedback" and action == "submit":
-        result = execute_feedback_submit(parse_options(rest))
-        if result:
-            print(result)
-        return
-
-    raise RuntimeError(f"Unknown command: {' '.join(argv)}\n\n{usage()}")
+    options = parse_options(rest)
+    router = CommandRouter()
+    result = router.route(resource, action, options)
+    if result:
+        print(result)
 
 
 if __name__ == "__main__":

@@ -132,6 +132,59 @@ X-Vidbyte-CLI-Version
 
 The skill must never construct those headers itself. Header creation belongs to the CLI `auth` layer.
 
+## CLI Return Data
+
+The CLI prints the backend response to stdout when a submission succeeds. The returned data depends on the mode:
+
+### Normal mode (live submission)
+
+The CLI prints one of these, in priority order:
+
+- **`url`** — the URL of the stored artifact on the Vidbyte backend (if the backend returns one).
+- **`message`** — a human-readable status message from the backend.
+- **raw JSON** — the full response body as JSON if neither `url` nor `message` fields are present.
+
+Example successful output:
+```text
+https://vidbyte.pro/artifacts/abc123
+```
+
+### Dry-run mode (`--dry-run`)
+
+The CLI prints a JSON object with validation metadata and does **not** send a network request:
+
+```json
+{
+  "endpoint": "feedback",
+  "file": "/absolute/path/to/feedback-log.md",
+  "header_names": [
+    "Content-Type",
+    "X-Skill-Id",
+    "X-Skill-Timestamp",
+    "X-Skill-Nonce",
+    "X-Skill-Body-SHA256",
+    "X-Skill-Signature",
+    "X-Vidbyte-CLI-Version"
+  ],
+  "skill_id": "feedback-generator-v1",
+  "bytes": 247,
+  "signed": true
+}
+```
+
+| Field | Description |
+|-------|-------------|
+| `endpoint` | The backend route name (e.g. `"feedback"`) |
+| `file` | Absolute path to the submitted file |
+| `header_names` | Ordered list of headers that would be sent |
+| `skill_id` | The resolved skill identifier |
+| `bytes` | Size of the JSON payload in bytes |
+| `signed` | Always `true` in dry-run mode |
+
+### Error output
+
+If the CLI encounters an error (missing required option, missing secret, backend rejection), it prints the error message to stderr and exits with a non-zero status code. The feedback skill should capture stderr (`2>&1`) when capturing the CLI output so error details are preserved in the submission log.
+
 ## Things Not To Do
 
 Do not surface any feedback, observation, or status message to the user during the session. This is the primary behavioral constraint and the one most likely to be violated under edge cases - for instance, when the user asks a direct question, when an error is severe enough that it feels urgent to flag, or when the model defaults to its conversational role out of habit. None of these conditions override the silence requirement. The user interacts with a separate agent. This agent writes to a file.

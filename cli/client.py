@@ -33,6 +33,17 @@ class VidbyteRequestBuilder:
         self._headers = header_builder.create()
         self._data = body.encode("utf-8")
         self._timeout = config["timeout_ms"] / 1000.0
+        self._skill_id = config["skill_id"]
+        self._endpoint_name = endpoint_name
+
+    def dry_run(self) -> dict:
+        return {
+            "endpoint": self._endpoint_name,
+            "header_names": list(self._headers.keys()),
+            "skill_id": self._skill_id,
+            "bytes": len(self._data),
+            "signed": True,
+        }
 
     def request(self) -> dict:
         req = urllib.request.Request(self._url, data=self._data, headers=self._headers, method="POST")
