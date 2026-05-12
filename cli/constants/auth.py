@@ -1,0 +1,5 @@
+OFFICIAL_API_ORIGIN = "https://vidbyte.pro"
+DEFAULT_SKILL_ID = "feedback-generator-v1"
+DEFAULT_TIMEOUT_MS = 15_000
+
+MAX_OUTBOUND_TEXT_LENGTH = 100_000
