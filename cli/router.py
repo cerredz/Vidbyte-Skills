@@ -17,8 +17,8 @@ class CommandRouter:
             return cmd.submit(options)
 
         if resource == "retain" and action == "submit":
-            cmd = RetainCommand()
-            return cmd.submit(options)
+            cmd = RetainCommand(options)
+            return cmd.submit()
 
         if resource == "auth" and action in ("login", "logout", "status"):
             cmd = AuthCommand()

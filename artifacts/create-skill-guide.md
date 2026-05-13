@@ -1,766 +1,457 @@
 # Create Skill Guide
 
-This guide explains how to create Vidbyte skills in this repository and how to choose the right skill type before writing a `SKILL.md`.
+This guide explains the Vidbyte skill taxonomy and the end-to-end process for creating each skill type. Use it to decide which type to build, what belongs in the `SKILL.md` prompt, what belongs in the CLI, and how backend-bound learning artifacts flow from prompt instructions to Vidbyte's API.
 
-All Vidbyte skills share the same filesystem contract, but they do not all have the same job. Some skills change the way the model reasons. Some skills change the shape of a single answer. Some skills run across an entire session, write learning artifacts, and submit those artifacts to Vidbyte through the local CLI. Treat those as different products with different design constraints.
+---
 
 ## Skill System Overview
 
-Vidbyte skills live under `skills/`:
+Every skill in this repository lives under `skills/<name>/SKILL.md` and is discovered automatically by the installer. The only requirements are:
 
-```text
-skills/<skill-name>/
-  SKILL.md
-  scripts/
-  references/
-  assets/
-```
+- A `SKILL.md` file with YAML frontmatter containing `name` and `description`.
+- The `name` field must be lowercase hyphen-case and match the parent folder name.
+- The `description` field must be non-empty and describe when the skill activates.
+- The body must be non-empty (at least one line of instruction after the frontmatter).
 
-Only `SKILL.md` is required. The other folders are optional and should exist only when the skill actually needs reusable scripts, reference material, or assets.
+Optionally, a skill folder may contain `scripts/`, `references/`, or `assets/` subdirectories. These are preserved by the installer and available to the skill at runtime.
 
-`SKILL.md` must start with YAML frontmatter:
+Run `npm test` to validate all skills and run smoke tests.
+
+---
+
+## Shared Skill Contract
+
+Every `SKILL.md` must begin with:
 
 ```markdown
 ---
 name: my-skill
-description: Use this skill when the user asks for the workflow this skill handles.
+description: Use this skill when the user asks for a specific workflow.
 ---
 
 # My Skill
 
-Skill instructions go here.
+Instructions here...
 ```
 
-The skill name must:
+The `description` field serves as the trigger hint for harnesses that support automatic skill activation. Write it as a completion of "Use this skill when..." so the harness can match user intent to the right skill.
 
-- be lowercase hyphen-case
-- match the folder name exactly
-- match `^[a-z0-9]+(-[a-z0-9]+)*$`
-- have a non-empty `description`
-- have a non-empty body
+---
 
-The installer discovers skills automatically through `lib/skill-catalog.js`. Adding a normal skill does not require a registry edit. Validation happens in `lib/skill-validation.js` and `scripts/validate.js`.
+## Skill Type Decision Table
 
-Run validation with:
+| If the user wants... | Build this type | Example |
+|---|---|---|
+| A public reasoning artifact written to `memory/` | Reasoning trace skill | `abductive-trace` |
+| A structured inline response (no files, no CLI) | Prompt skill | `/counterargument`, `/explain` |
+| Session-long observation, artifact writing, and CLI submission to Vidbyte | Learning/background skill | `feedback-generator`, `compression-check`, `retain` |
+
+---
+
+## Type 1: Reasoning Trace Skills
+
+**When to use:** The skill produces a public scratchpad of step-by-step reasoning, typically written to `memory/{question_name}.md`. The user invokes it explicitly (slash command or direct request) and expects a transparent reasoning artifact as the output.
+
+**Activation:** Slash command or explicit request (e.g., "use abductive reasoning on this problem").
+
+**What the prompt owns:**
+- The reasoning strategy (abductive, deductive, analogical, etc.).
+- The trace format (numbered steps, assumptions, evidence, conclusions).
+- Scale variants: small (~25 lines), medium/default (~100 lines), large (~500+ lines).
+- Instructions to write to `memory/{question_name}.md`.
+
+**What the prompt does NOT own:**
+- No CLI calls. No backend submission. No session state tracking. No files beyond the reasoning artifact.
+
+**Testing:** Metadata validation (`npm test`) plus manual invocation against sample questions.
+
+**Template:**
+
+```markdown
+---
+name: my-reasoning-skill
+description: Use this skill when the user wants a structured reasoning trace for a specific problem.
+---
+
+# My Reasoning Skill
+
+## Identity
+You are a [strategy] reasoner. When invoked, produce a step-by-step trace...
+
+## Goal
+Write a structured reasoning artifact to `memory/{question_name}.md`...
+
+## Steps
+1. ...
+2. ...
+
+## Scale Variants
+- Small (~25 lines): [when and how]
+- Default (~100 lines): [when and how]
+- Large (~500+ lines): [when and how]
+```
+
+---
+
+## Type 2: Prompt Skills
+
+**When to use:** The skill shapes the model's inline response without writing files, calling the CLI, or maintaining session state. Common examples are slash commands that restructure output (e.g., `/counterargument`, `/explain`, `/mental-model`).
+
+**Activation:** Slash command or pattern match on user intent.
+
+**What the prompt owns:**
+- Output structure (sections, formatting, tone constraints).
+- Banned phrases and style rules.
+- Fallback behavior when input is insufficient.
+
+**What the prompt does NOT own:**
+- No files. No CLI. No backend. No session state.
+
+**Testing:** Metadata validation plus manual response-shape checks.
+
+**Template:**
+
+```markdown
+---
+name: my-prompt-skill
+description: Use this skill when the user wants a specific response format.
+---
+
+# My Prompt Skill
+
+## Identity
+You format responses as...
+
+## Output Structure
+- Section 1: ...
+- Section 2: ...
+
+## Constraints
+- Do not...
+- Always...
+```
+
+---
+
+## Type 3: Learning and Background Skills
+
+**When to use:** The skill runs across an entire session, observes conversation context, and submits structured artifacts to Vidbyte through the Python CLI. These skills either run silently in the background (`feedback-generator`, `compression-check`) or activate on an explicit slash command (`/retain`).
+
+**Activation:**
+- **Background skills:** Automatic at session start, continuous monitoring, no user invocation.
+- **Explicit skills:** Slash command (`/retain`).
+
+**What the prompt owns:**
+- Session lifecycle (start, per-message, close).
+- State variables (counters, thresholds, check state).
+- Skip rules and interruption policy.
+- Artifact generation from conversation context.
+- ONE thing: calling the CLI. The prompt never constructs headers, signs requests, or calls `curl`.
+
+**What the CLI owns:**
+- Input validation and sanitization.
+- JSON payload assembly.
+- HMAC signing (X-Skill-Signature, nonce, timestamp, body hash).
+- Fixed endpoint routing (`/api/skills/{endpoint}`).
+- Network transport (only to `https://vidbyte.pro`).
+- Dry-run validation (`--dry-run`).
+- Secret management (`VIDBYTE_SKILL_SECRET` from environment or `.env`).
+
+**What the backend owns (outside this repo):**
+- Signature verification and replay protection.
+- Schema validation.
+- Storage and rendering.
+- Premium entitlement gating.
+
+---
+
+## CLI and Backend Integration
+
+### Current CLI Commands
+
+```text
+vidbyte feedback submit   --file <path> [--domain] [--conversation-id] [--skill-id] [--dry-run]
+vidbyte compressor submit --file <path> [--domain] [--conversation-id] [--skill-id] [--dry-run]
+vidbyte retain            --concept1-name <text> --concept1-distillation <text> --concept1-anchor <text> --concept1-hook <text> --question1 <text> --answer1 <text> [--dry-run]
+vidbyte auth login | logout | status
+```
+
+### Architecture
+
+```text
+SKILL.md (prompt instructions)
+    |
+    v
+python3 -m cli <resource> <action> [options]
+    |
+    v
+cli/commands/<resource>.py  ── validates, sanitizes, builds payload
+    |
+    v
+cli/dataclasses/<resource>.py ── defines the structured payload schema
+    |
+    v
+cli/client.py (VidbyteRequestBuilder) ── signs and sends to Vidbyte
+    |
+    v
+Vidbyte backend ── verifies, stores, returns URL
+```
+
+### Security Boundary
+
+Skills MUST call the CLI. They must NEVER:
+- Construct HMAC headers directly.
+- Access `VIDBYTE_SKILL_SECRET` or include it in prompt text.
+- Call arbitrary URLs or use `curl`.
+- Store secrets in `SKILL.md`, committed artifacts, or generated files.
+
+---
+
+## CLI Dataclasses
+
+Every CLI command that submits structured data to the backend defines its payload schema as classes in `cli/dataclasses/<resource>.py`. These dataclass files serve as the single source of truth for what the backend expects to receive. The command files (`cli/commands/<resource>.py`) import from the dataclass module and call `to_json()` to serialize the payload.
+
+### Why Dataclasses
+
+- **Single source of truth:** The backend schema is defined in one place, not spread across dict literals in command files.
+- **Validation at construction:** Required fields and relationships are enforced when the dataclass object is created, not when the JSON is serialized.
+- **Reusable:** The same dataclass can be used by tests, dry-run validation, and the live submission path.
+- **Discoverable:** A new contributor can open `cli/dataclasses/` and immediately see the data contract for every backend-bound skill.
+
+### Dataclass Pattern
+
+Each file in `cli/dataclasses/` defines one or more classes representing the structured objects the backend receives. Each class has:
+
+1. An `__init__` that accepts validated inputs and assigns them to `__slots__`.
+2. A `to_dict()` method that returns a plain dict for embedding in larger structures.
+3. A `to_json()` method on the top-level payload class that serializes the full request body.
+
+Example structure for a typical payload:
+
+```python
+# cli/dataclasses/example.py
+import json
+from datetime import datetime, timezone
+
+class ExampleItem:
+    __slots__ = ("id", "name", "value")
+    def __init__(self, item_id: str, name: str, value: str):
+        self.id = item_id
+        self.name = name
+        self.value = value
+
+    def to_dict(self) -> dict:
+        return {"id": self.id, "name": self.name, "value": self.value}
+
+class ExamplePayload:
+    __slots__ = ("domain", "items", "generated_at")
+    def __init__(self, domain: str, items: list[ExampleItem]):
+        self.domain = domain
+        self.items = items
+        self.generated_at = datetime.now(timezone.utc).isoformat()
+
+    def to_json(self) -> str:
+        return json.dumps({
+            "type": "example",
+            "domain": self.domain,
+            "items": [i.to_dict() for i in self.items],
+            "generated_at": self.generated_at,
+        })
+```
+
+The command class then uses it:
+
+```python
+# cli/commands/example.py
+from ..dataclasses.example import ExamplePayload
+
+class ExampleCommand:
+    def submit(self, options: dict) -> str | None:
+        items = [...]  # collect from options
+        payload = ExamplePayload(domain=options.get("domain", "unknown"), items=items)
+
+        builder = VidbyteRequestBuilder(
+            body=payload.to_json(),
+            cli_version=read_package_version(),
+            endpoint_name="example",
+            skill_id=options.get("skill-id"),
+        )
+        ...
+```
+
+### Existing Dataclasses
+
+| File | Classes | Backend Endpoint |
+|---|---|---|
+| `cli/dataclasses/feedback.py` | `FeedbackPayload` | `/api/skills/feedback` |
+| `cli/dataclasses/compressor.py` | `CompressorPayload` | `/api/skills/compressor` |
+| `cli/dataclasses/retain.py` | `RetainConcept`, `RetainQuestion`, `RetainProblem`, `RetainReview`, `RetainModule`, `RetainPayload` | `/api/skills/retain` |
+
+---
+
+## What Belongs in a Background Skill Prompt
+
+A learning/background skill `SKILL.md` should include the following sections:
+
+1. **Identity / Persona:** What role the model takes when this skill is active.
+2. **Goal:** The concrete output or behavior the skill produces.
+3. **Activation / Lifecycle:** When the skill starts, what triggers it, when it stops.
+4. **State Variables:** Counters, thresholds, flags (session-local, not persisted to disk).
+5. **Per-Message Algorithm:** What the model does on every user message (count, evaluate skip rules, inject questions, append artifacts).
+6. **Skip Rules:** Conditions where the skill should defer or stay silent.
+7. **Artifact Schema:** The structure of any files or payloads the skill produces.
+8. **CLI Command:** The exact `python3 -m cli ...` invocation, with fallback instructions.
+9. **CLI Install Context:** Instructions for when the CLI is not available:
+   ```text
+   If the Vidbyte CLI is not installed, the user can install it globally with:
+   npm install -g vidbyte-skills
+   ```
+10. **Failure Modes:** What happens when the CLI is unavailable, the network fails, or validation errors occur.
+11. **Privacy / Security Constraints:** Secrets, URLs, and header rules.
+12. **Success Criteria:** Measurable outcomes that define when the skill worked correctly.
+
+---
+
+## Adding a New CLI-Backed Skill
+
+Follow these steps in order:
+
+### 1. Define the Backend Artifact Type
+
+Decide the endpoint name and payload shape. The endpoint name goes in `cli/client.py` `ENDPOINTS` dict. The payload shape becomes a dataclass in `cli/dataclasses/<resource>.py`.
+
+### 2. Create the Dataclass
+
+Create `cli/dataclasses/<resource>.py` with classes representing the backend objects. Include `to_dict()` on item classes and `to_json()` on the top-level payload class.
+
+### 3. Create the Command Class
+
+Create `cli/commands/<resource>.py` with a class that:
+- Accepts options and builds a payload using the dataclass.
+- Creates a `VidbyteRequestBuilder` with the payload JSON.
+- Handles `--dry-run` by returning builder metadata plus validation fields.
+- Handles live mode by calling `builder.request()` and formatting the response.
+- Sanitizes all user-provided strings through the existing `Sanitizer`.
+
+For commands with many CLI flags (like `retain`), pass options to `__init__` and do validation/collection there. For simpler file-based commands, use `submit(self, options)`.
+
+### 4. Add Route
+
+In `cli/router.py`, add a new `if` branch before the unknown command error:
+
+```python
+if resource == "<name>" and action == "submit":
+    cmd = <Name>Command()
+    return cmd.submit(options)
+```
+
+### 5. Add Endpoint
+
+In `cli/client.py`, add the endpoint to `ENDPOINTS`:
+
+```python
+ENDPOINTS = {
+    ...
+    "<name>": "/api/skills/<name>",
+}
+```
+
+### 6. Update Usage Text
+
+In `cli/helpers/usage.py`, add the command to the usage string.
+
+### 7. Add Smoke Test
+
+In `scripts/cli-smoke-test.py`, add a dry-run invocation and assertions:
+- Assert `endpoint` matches.
+- Assert `skill_id` matches.
+- Assert `signed` is True.
+- Assert module-specific counts (concept count, question count, etc.) if applicable.
+- Assert `header_names` match the expected signature headers.
+
+### 8. Write the Skill Prompt
+
+Create `skills/<name>/SKILL.md` following the background skill prompt template above. Include:
+
+- The exact CLI invocation the model should use.
+- A CLI install context block:
+  ```bash
+  if command -v vidbyte >/dev/null 2>&1; then
+    python3 -m cli <resource> <action> [...flags]
+  else
+    echo "Vidbyte CLI is not installed. Install it with: npm install -g vidbyte-skills"
+  fi
+  ```
+- Security constraints (never construct headers, never use curl, never include secrets).
+- Failure behavior.
+
+### 9. Run Tests
 
 ```bash
 npm test
 ```
 
-## Skill Type Decision Table
+The test suite validates all skill metadata and runs the CLI smoke test with `--dry-run`.
 
-| Question | Build This Type | Core Output | State | CLI Needed |
-|----------|-----------------|-------------|-------|------------|
-| Should the user get an auditable reasoning artifact shaped by a strategy? | Reasoning trace skill | Markdown scratchpad in `memory/` | Usually none beyond the artifact | No |
-| Should the next answer follow a specific structure, tone, or epistemic standard? | Prompt skill | Inline chat response | Usually stateless | No |
-| Should the skill observe a whole session, collect learning data, or persist a feedback artifact? | Learning/background skill | Local artifact and/or Vidbyte submission | Session-local or artifact-backed | Usually yes |
-
-Use the smallest type that solves the problem. Do not add CLI code to a prompt skill. Do not make a background skill if a direct slash command is enough. Do not make a reasoning trace skill if the user only needs a shaped answer in the chat.
-
-## Shared Skill Contract
-
-Every skill should answer these questions in its prompt:
-
-- **When does it activate?** Explicit slash command, semantic trigger, or automatic session start.
-- **What is its role?** Reasoning strategy, response formatter, background observer, coach, evaluator, etc.
-- **What does it produce?** Inline answer, scratchpad file, feedback file, CLI submission, URL, or no user-facing output.
-- **What state does it keep?** None, session-local counters, local files, temp files, or backend records.
-- **What must it never do?** Examples: reveal hidden reasoning, expose secrets, call arbitrary URLs, interrupt debugging, or display background feedback inline.
-- **How does it fail?** Usage message, silent skip, dry-run result, CLI error capture, or no-op.
-
-Good skills are narrow. The `description` should tell the harness when to load the skill, and the body should tell the model exactly how to behave after the skill is loaded.
-
-## Type 1: Reasoning Trace Skills
-
-Reasoning trace skills make the model answer through a named reasoning strategy and write a public, durable scratchpad. These are simple reasoning skills in the sense that their core value is the reasoning procedure itself.
-
-Examples in this repo include:
-
-- `abductive-trace`
-- `analysis-of-competing-hypotheses-trace`
-- `causal-trace`
-- `first-principles-trace`
-- `swot-trace`
-
-### What They Do
-
-A reasoning trace skill should:
-
-1. detect the user's question or explicit slash command
-2. derive a safe `question_name`
-3. create `memory/` when needed
-4. write or replace `memory/{question_name}.md`
-5. structure the scratchpad around the named reasoning strategy
-6. end with a synthesis and final answer
-7. respond to the user with the path and a concise final summary
-
-The public scratchpad is not hidden chain-of-thought. It is an inspectable artifact containing subquestions, assumptions, tests, comparisons, intermediate conclusions, and uncertainty.
-
-### Scale Variants
-
-Many reasoning trace skills have variants:
-
-| Variant | Typical Target | Use When |
-|---------|----------------|----------|
-| `-small` | around 25 numbered lines | The question is narrow or the user asks for a quick pass |
-| default or `-medium` | around 100 numbered lines | The question benefits from structured analysis |
-| `-large` | 500+ numbered lines when justified | The question is broad, high-stakes, or explicitly asks for depth |
-
-These are effort targets, not quotas. The trace should adapt to the real complexity of the question.
-
-### Prompt Contents
-
-A reasoning trace skill prompt should include:
-
-- strategy identity and goal
-- trigger conditions
-- output file path
-- safe filename derivation
-- required document sections
-- scale note
-- the reasoning strategy's core move
-- final response format
-
-Template:
-
-```markdown
 ---
-name: strategy-name-trace
-description: >
-  Use this skill when the user invokes /strategy-name-trace or asks for a public reasoning trace using Strategy Name.
-  The skill writes a durable scratchpad to root memory/{question_name}.md.
----
-
-# Strategy Name Reasoning Trace
-
-## Goal
-Use Strategy Name to answer the user's question through [core move], not through a generic checklist.
-
-## Instructions
-Derive {question_name} from the user's actual question by lowercasing it, replacing non-alphanumeric runs with hyphens, trimming extra hyphens, and using reasoning-trace if no safe name remains.
-Create the root memory directory when needed, then write or replace memory/{question_name}.md.
-Build the scratchpad by repeatedly applying [strategy-specific move].
-
-## Output
-Write the artifact before responding to the user.
-Respond with the path, selected strategy, scale note, and final answer summary.
-```
-
-### Testing
-
-Minimum testing:
-
-- `npm test`
-- manual invocation in a harness
-- confirm `memory/{question_name}.md` is created
-- confirm the trace uses the named strategy instead of a generic outline
-
-## Type 2: Prompt Skills
-
-Prompt skills are response contracts. Their core functionality lives in the prompt instructions and output format, not in files, scripts, CLI commands, or backend state.
-
-Examples of this type include planned or existing prompt workflows such as:
-
-- `/counterargument`
-- `/mental-model`
-- `/research`
-- `/explain`
-- `/question`
-
-### What They Do
-
-A prompt skill should:
-
-1. activate on a clear user invocation or semantic trigger
-2. extract the user's input
-3. produce an inline response in the required structure
-4. enforce tone, evidence, formatting, or reasoning constraints
-5. show usage if invoked without required input
-6. avoid writing files unless the skill explicitly becomes a trace or artifact skill
-
-Prompt skills are useful when the user wants the answer a specific way:
-
-- adversarial critique
-- mental model construction
-- sourced research brief
-- layered explanation
-- structured Q&A
-- counterargument
-- misconception correction
-
-### Prompt Contents
-
-A prompt skill should include:
-
-- exact trigger
-- input handling rules
-- output sections in order
-- hard constraints
-- usage fallback
-- examples of banned weak behavior
-- edge cases
-
-Template:
-
-```markdown
----
-name: counterargument
-description: >
-  Use when the user invokes /counterargument. Stress-tests an idea with adversarial rigor.
----
-
-# /counterargument
-
-## Activation
-Activate only when the user's prompt starts with /counterargument.
-
-## Output Format
-Produce these sections in order:
-1. The Opposing Position
-2. Logical Vulnerabilities
-3. Practical Failure Modes
-4. Edge Cases That Break It
-5. The Strongest Single Point
-
-## Constraints
-Do not soften, balance, or validate the user's original position.
-Every criticism must identify a specific mechanism of failure.
-
-## Empty Invocation
-If the user invokes /counterargument with no input, show the usage format.
-```
-
-### What Prompt Skills Should Not Do
-
-Prompt skills should not:
-
-- write background logs
-- maintain long-running session state
-- call Vidbyte
-- construct API requests
-- add CLI commands
-- persist secrets
-- turn every future answer into the same format unless explicitly designed as a background style skill
-
-### Testing
-
-Minimum testing:
-
-- `npm test`
-- manual invocation with normal input
-- manual invocation with empty input
-- response-shape inspection against the required sections
-- scan for banned phrases or prohibited behavior if the skill defines them
-
-## Type 3: Learning And Background Skills
-
-Learning/background skills run across a session. They watch the user's interaction pattern, collect learning signals, create local artifacts, and sometimes submit those artifacts to Vidbyte through the CLI.
-
-Examples in this repo:
-
-- `feedback-generator`
-- `compression-check`
-- `anti-passive`
-
-The user-facing examples are often described as `/feedback` and `/compression`, but the important architectural point is the same: the skill's prompt owns observation and artifact creation; the CLI owns backend submission.
-
-### What They Do
-
-A background learning skill may:
-
-1. initialize at session start
-2. infer the session domain
-3. keep session-local counters or flags
-4. monitor each user message
-5. apply skip rules
-6. write a local artifact incrementally
-7. evaluate the user's response or behavior against the conversation
-8. submit the final artifact through the Vidbyte CLI
-9. display nothing, or display only a one-line CLI result
-
-Background skills need stricter prompts than normal prompt skills because they can easily become disruptive. The prompt must say when to stay silent, when to interrupt, what to write, what to submit, and how to fail.
-
-### Background Skill Lifecycle
-
-Use this lifecycle unless the skill has a specific reason to differ:
-
-```text
-Session starts
-  |
-  v
-Initialize state
-  |
-  v
-For each user message:
-  - update counters or observations
-  - classify the moment
-  - apply skip rules
-  - write artifact entries when useful
-  - optionally inject one prompt or continue silently
-  |
-  v
-At checkpoint or session close:
-  - finalize artifact
-  - call Vidbyte CLI if backend persistence is needed
-  - display only the allowed user-facing output
-```
-
-### What Belongs In The Background Skill Prompt
-
-A learning/background `SKILL.md` should include these sections:
-
-- **Identity / Persona:** The precise role, such as silent observer, compression coach, or passive-consumption detector.
-- **Activation:** Whether it starts automatically, only on slash command, or after explicit user opt-in.
-- **State Variables:** Counters, thresholds, current check state, domain, artifact path, recurrence map, or last prompt window.
-- **Per-Message Algorithm:** What happens before every response.
-- **Skip Rules:** Conditions where the skill must not interrupt or log.
-- **Artifact Schema:** The exact Markdown or JSON structure to write.
-- **CLI Command:** The exact `vidbyte ...` or `python -m cli ...` command to call.
-- **Failure Handling:** Silent skip, local-only fallback, captured stderr, or visible one-line failure.
-- **Privacy / Security Constraints:** No secrets in prompt or artifact; no raw sensitive content if unnecessary.
-- **User-Facing Output Rules:** Silence, one-line URL, injected question, or normal response plus marker.
-- **Success Criteria:** Concrete observable outcomes.
-
-### State Models
-
-There are three common state models:
-
-| State Model | Use When | Example |
-|-------------|----------|---------|
-| Stateless session monitor | The skill only needs current and recent messages | Passive-consumption detection |
-| Session-local state | The skill needs counters, thresholds, or temporary check state | Compression checks |
-| Artifact-backed state | The skill needs a durable log to submit later | Feedback generation |
-
-Use session-local state for temporary behavior. Use local artifacts for things the CLI will submit or a later reader must inspect. Do not invent a local database unless the skill truly needs one.
-
-### Interruption Policy
-
-Most background skills should default to silence. Interrupt only when the moment is useful and the prompt defines clear skip rules.
-
-Common skip rules:
-
-- the user is debugging an active error
-- the user wrote a long specification
-- the user is already explaining their reasoning
-- the user is answering a question from the assistant
-- the prompt is a simple confirmation
-- the user explicitly opts out
-- the current task is urgent or flow-sensitive
-
-When in doubt, skip. A missed learning moment is usually cheaper than a badly timed interruption.
-
-## CLI And Backend Integration
-
-The Vidbyte CLI is the trusted local boundary between prompt-written artifacts and the Vidbyte backend. Skills should call the CLI instead of constructing backend requests directly.
-
-Current commands:
-
-```bash
-vidbyte feedback submit --file <path> --domain <name> --conversation-id <id>
-vidbyte compressor submit --file <path> --domain <name> --conversation-id <id>
-```
-
-Local development invocation:
-
-```bash
-python -m cli feedback submit --file feedback-log.md --domain software-engineering --conversation-id local-test --dry-run
-python -m cli compressor submit --file compression-check.md --domain software-engineering --conversation-id local-test --dry-run
-```
-
-Some environments use `python3`; Windows often uses `python`. The repo's smoke-test wrapper tries the appropriate candidates.
-
-### Why The CLI Exists
-
-The prompt is not a security boundary. It is text in a model context. It can be copied, injected, or misunderstood. Therefore, the prompt should not:
-
-- store secrets
-- construct HMAC signatures
-- build auth headers
-- call `curl` directly for Vidbyte submissions
-- send requests to user-provided URLs
-- decide whether a backend request is authenticated
-
-The CLI should:
-
-- read the local artifact file
-- sanitize outbound content
-- build the JSON payload
-- resolve the official endpoint
-- load secrets from environment or `.env`
-- compute request hashes and signatures
-- send traffic only to Vidbyte's official API origin
-- return a concise backend result
-
-The backend should:
-
-- verify signatures independently
-- reject replayed or stale requests
-- validate schemas
-- apply rate limits
-- store accepted artifacts
-- return a URL or status
-
-### Current CLI Flow
-
-The Python CLI is intentionally small and uses the standard library.
-
-```text
-cli/__main__.py
-  parses argv into resource, action, options
-  |
-  v
-cli/router.py
-  maps (resource, action) to a command class
-  |
-  v
-cli/commands/<resource>.py
-  reads sanitized file content and builds JSON payload
-  |
-  v
-cli/client.py
-  resolves endpoint name and builds request
-  |
-  v
-cli/auth/headers.py
-  creates signed Vidbyte headers
-  |
-  v
-https://vidbyte.pro
-```
-
-Current endpoint map in `cli/client.py`:
-
-```text
-feedback      -> /api/skills/feedback
-compressor    -> /api/skills/compressor
-auth-validate -> /api/auth/validate
-auth-session  -> /api/auth/session
-```
-
-Skill submissions use signed skill headers:
-
-```text
-Content-Type
-X-Skill-Id
-X-Skill-Timestamp
-X-Skill-Nonce
-X-Skill-Body-SHA256
-X-Skill-Signature
-X-Vidbyte-CLI-Version
-```
-
-The canonical signature input is:
-
-```text
-METHOD
-/api/path
-timestamp
-nonce
-body-sha256
-```
-
-The CLI signs that canonical string with `VIDBYTE_SKILL_SECRET` using HMAC-SHA256.
-
-### CLI Configuration
-
-Skill submission reads:
-
-- `VIDBYTE_SKILL_SECRET`: required for signed skill submission
-- `VIDBYTE_SKILL_ID`: optional override, defaults to the configured skill id
-- `VIDBYTE_TIMEOUT_MS`: optional timeout override
-- `.env`: local development file loaded from the working directory or repo root
-
-Do not commit real `.env` files. Use `.env.example` for setup documentation.
-
-### Dry Run
-
-Every backend-bound command should support `--dry-run`. Dry run validates command input, builds headers, and returns metadata without sending a network request.
-
-Example:
-
-```bash
-python -m cli feedback submit --file feedback-log.md --domain software-engineering --conversation-id local-test --dry-run
-```
-
-Expected shape:
-
-```json
-{
-  "endpoint": "feedback",
-  "header_names": ["Content-Type", "X-Skill-Id"],
-  "skill_id": "feedback-generator-v1",
-  "bytes": 247,
-  "signed": true,
-  "file": "/absolute/path/to/feedback-log.md"
-}
-```
-
-The actual `header_names` array contains every signed header. Tests should verify the full list.
-
-## Adding A New CLI-Backed Skill
-
-Add CLI integration only when the skill needs backend persistence or a backend-generated result. If the skill only changes the response format, keep it as a prompt skill.
-
-### Step 1: Define The Artifact Contract
-
-Before writing CLI code, decide:
-
-- artifact type name
-- local file format
-- required metadata
-- backend endpoint name
-- expected backend response fields
-- user-facing output rule
-- failure behavior
-
-Example:
-
-```json
-{
-  "type": "compression-check",
-  "domain": "software-engineering",
-  "conversation_id": "abc123",
-  "file_name": "compression-check.md",
-  "content": "...",
-  "generated_at": "2026-05-13T00:00:00Z"
-}
-```
-
-### Step 2: Create A Command Class
-
-Create `cli/commands/<resource>.py`.
-
-Command classes should:
-
-- receive parsed `options`
-- validate required options with `require_option`
-- use `@sanitize_file_content` when reading user/model-authored files
-- build a JSON payload
-- instantiate `VidbyteRequestBuilder`
-- return dry-run metadata when `--dry-run` is set
-- format the backend response into the approved user-facing line
-
-Skeleton:
-
-```python
-import json
-from datetime import datetime, timezone
-from pathlib import Path
-
-from ..client import VidbyteRequestBuilder
-from ..helpers import read_package_version, require_option, sanitize_file_content
-
-
-class NewResourceCommand:
-
-    @sanitize_file_content
-    def submit(self, options: dict) -> str | None:
-        file = require_option(options, "file", "--file")
-        content = options["_sanitized_content"]
-
-        payload = json.dumps({
-            "type": "new-resource",
-            "domain": options.get("domain", "unknown"),
-            "conversation_id": options.get("conversation-id", ""),
-            "file_name": Path(file).name,
-            "content": content,
-            "generated_at": datetime.now(timezone.utc).isoformat(),
-        })
-
-        builder = VidbyteRequestBuilder(
-            body=payload,
-            cli_version=read_package_version(),
-            endpoint_name="new-resource",
-            skill_id=options.get("skill-id"),
-        )
-
-        if options.get("dry-run"):
-            result = builder.dry_run()
-            result["file"] = str(Path(file).resolve())
-            return json.dumps(result, indent=2)
-
-        response = builder.request()
-        if response.get("url"):
-            return f"View the result on {response['url']}"
-        if response.get("message"):
-            return response["message"]
-        return json.dumps(response)
-```
-
-### Step 3: Route The Command
-
-Update `cli/router.py`:
-
-```python
-from .commands.new_resource import NewResourceCommand
-
-if resource == "new-resource" and action == "submit":
-    cmd = NewResourceCommand()
-    return cmd.submit(options)
-```
-
-Keep the router explicit. The router is the single place to know which command resources exist.
-
-### Step 4: Add The Endpoint
-
-Update `ENDPOINTS` in `cli/client.py`:
-
-```python
-ENDPOINTS = {
-    "new-resource": "/api/skills/new-resource",
-}
-```
-
-Only fixed endpoint names should be used. Do not let prompt text or user input choose the destination URL.
-
-### Step 5: Update Usage Text
-
-Update `cli/helpers/usage.py` so users can discover the command:
-
-```text
-vidbyte new-resource submit --file <path> [--domain <name>] [--conversation-id <id>] [--skill-id <id>] [--dry-run]
-```
-
-### Step 6: Add Smoke Test Coverage
-
-Add or extend a smoke test that:
-
-- creates a temporary artifact file
-- runs `python -m cli new-resource submit --file ... --dry-run`
-- sets `VIDBYTE_SKILL_SECRET` to a test value
-- parses stdout as JSON
-- asserts endpoint name, file path, signed status, skill id, and header names
-
-### Step 7: Document The CLI Command In The Skill Prompt
-
-The `SKILL.md` must say exactly how to submit:
-
-````markdown
-After the artifact is complete, submit it through the Vidbyte CLI:
-
-```bash
-python -m cli new-resource submit --file "$ARTIFACT_FILE" --domain "$DOMAIN" --conversation-id "$CONVERSATION_ID"
-```
-
-Do not construct headers, call `curl`, or send requests directly. The CLI owns signing, sanitization, endpoint routing, and transport.
-````
-
-If the command should be silent, say so. If the user should see the returned URL, say exactly how to display it.
-
-## Backend Requirements For CLI-Backed Skills
-
-Backend implementation is outside this repo, but every new CLI-backed skill implies a backend route. The backend should independently enforce:
-
-- HTTPS-only transport
-- raw-body hash verification
-- HMAC signature verification
-- timestamp freshness window
-- nonce replay prevention
-- skill id lookup
-- route-specific schema validation
-- request size limits
-- rate limits
-- audit logging
-- safe persistence
-
-The backend must verify the request. It should not trust the CLI merely because the CLI claims the request is signed.
-
-## Validation And Testing
-
-Use these checks by skill type:
-
-| Skill Type | Required Checks |
-|------------|-----------------|
-| Reasoning trace | `npm test`, manual invocation, memory file exists, strategy-specific trace shape |
-| Prompt skill | `npm test`, empty invocation behavior, normal invocation response shape, banned behavior scan |
-| Background skill without CLI | `npm test`, manual session simulation, skip-rule checks, output silence/interruption checks |
-| Background skill with CLI | `npm test`, CLI dry-run smoke test, artifact schema check, failure behavior check |
-
-For CLI changes, test both success-shaped dry run output and missing required options.
 
 ## Authoring Checklists
 
 ### Reasoning Trace Skill Checklist
 
-- [ ] Skill name is lowercase hyphen-case and matches the folder.
-- [ ] Description names the slash command or trigger.
-- [ ] Prompt names the reasoning strategy's core move.
-- [ ] Prompt writes to `memory/{question_name}.md`.
-- [ ] Prompt derives safe filenames.
-- [ ] Prompt defines scale target.
-- [ ] Prompt tells the model what to say after writing the file.
-- [ ] `npm test` passes.
+- [ ] Frontmatter: `name` (lowercase hyphen-case, matches folder) and `description`.
+- [ ] Identity section: what strategy, what output.
+- [ ] Steps: numbered algorithm.
+- [ ] Output: writes to `memory/{question_name}.md`.
+- [ ] Scale variants: small, medium/default, large with approximate line counts.
+- [ ] Run `npm test` and confirm metadata validation passes.
 
 ### Prompt Skill Checklist
 
-- [ ] Trigger is explicit.
-- [ ] Empty invocation has a usage response.
-- [ ] Output sections are listed in order.
-- [ ] Tone and format constraints are explicit.
-- [ ] Banned weak behavior is named.
-- [ ] Skill is stateless unless explicitly justified.
-- [ ] No CLI or backend behavior is included.
-- [ ] `npm test` passes.
+- [ ] Frontmatter: `name` and `description`.
+- [ ] Output structure defined with sections.
+- [ ] Tone constraints and banned phrases.
+- [ ] Fallback behavior for insufficient input.
+- [ ] No file paths, no CLI commands, no backend references.
+- [ ] Run `npm test` and confirm metadata validation passes.
 
-### Learning / Background Skill Checklist
+### Learning/Background Skill Checklist
 
-- [ ] Identity and session role are clear.
-- [ ] Activation model is explicit.
-- [ ] State variables are named.
-- [ ] Per-message algorithm is defined.
-- [ ] Skip rules are conservative.
-- [ ] Artifact schema is specified.
-- [ ] User-facing output rules are strict.
-- [ ] Failure behavior is defined.
-- [ ] Secrets are never placed in the prompt or artifact.
-- [ ] CLI submission uses an approved command if backend persistence is needed.
-- [ ] `npm test` passes.
+- [ ] Frontmatter: `name` and `description`.
+- [ ] Identity, goal, lifecycle sections.
+- [ ] State variables (session-local, not persisted).
+- [ ] Per-message algorithm with skip rules.
+- [ ] Artifact schema or CLI flag contract.
+- [ ] Exact CLI invocation with install fallback instructions.
+- [ ] Failure modes: what happens when CLI is unavailable.
+- [ ] Security: no secrets, no header construction, no curl, no arbitrary URLs.
+- [ ] Success criteria.
+- [ ] Dataclass created in `cli/dataclasses/<resource>.py`.
+- [ ] Command class created in `cli/commands/<resource>.py`.
+- [ ] Route added in `cli/router.py`.
+- [ ] Endpoint added in `cli/client.py`.
+- [ ] Usage text updated in `cli/helpers/usage.py`.
+- [ ] Smoke test added in `scripts/cli-smoke-test.py`.
+- [ ] Run `npm test` and confirm all checks pass.
 
-### CLI-Backed Skill Checklist
-
-- [ ] Artifact contract is defined before code.
-- [ ] Command class exists in `cli/commands/`.
-- [ ] Router maps `(resource, action)` explicitly.
-- [ ] Endpoint name is added to `cli/client.py`.
-- [ ] Usage text is updated.
-- [ ] Command uses shared sanitization.
-- [ ] Command supports `--dry-run`.
-- [ ] Smoke test validates dry-run JSON.
-- [ ] Skill prompt calls the CLI and never builds headers.
-- [ ] Backend route verifies signature, replay protection, schema, and limits.
+---
 
 ## Common Mistakes
 
-### Mistake: Treating All Skills As Prompt Skills
+1. **Overloading one skill with multiple behaviors.** If a skill does two unrelated things, split it into two skills. Each `SKILL.md` should have a single clear purpose.
 
-If a skill needs to run all session, create files, or submit to Vidbyte, it is not just a response formatter. Give it lifecycle instructions and failure rules.
+2. **Making background skills chatty.** Background skills should be invisible unless they have a specific reason to surface output. Every line a background skill prints to the user is a line that distracts from the user's task.
 
-### Mistake: Putting Security Logic In `SKILL.md`
+3. **Using `curl` instead of the CLI.** The CLI is the security boundary. Direct `curl` calls bypass signing, sanitization, and endpoint validation.
 
-Prompts must not contain signing secrets, HMAC code, auth headers, or backend URLs beyond the fixed CLI command. Security logic belongs in the CLI and backend.
+4. **Persisting secrets in prompt text.** Secrets belong in environment variables or `.env` files. Never hardcode them in `SKILL.md`, generated artifacts, or command arguments.
 
-### Mistake: Calling `curl` From A Skill
+5. **Skipping dry-run tests.** Every CLI-backed skill must have a `--dry-run` smoke test. It is the fastest way to catch payload shape mismatches and missing required options before they hit the backend.
 
-Do not call Vidbyte directly from prompt instructions. Use the CLI so sanitization, endpoint pinning, signing, version headers, and error handling stay centralized.
+6. **Failing to define failure behavior.** What happens when the CLI is not installed? When the network is down? When the backend returns a 429? Define these behaviors explicitly in the skill prompt so the model handles them consistently.
 
-### Mistake: Making Background Skills Too Talkative
+7. **Putting validation logic only in the command file.** Validation should live in the dataclass constructors where possible. This ensures that any code path that creates a dataclass object gets the same validation.
 
-Background skills should be quiet by default. If they interrupt, the prompt must define exactly when and why.
+8. **Defining the backend payload shape as dict literals in command files.** Use the dataclass pattern instead. Dicts scattered across command files make the backend contract invisible and impossible to audit.
 
-### Mistake: Logging Everything
-
-Feedback artifacts should be high-signal. Logging trivial stylistic choices or every small mistake creates noisy artifacts that are less useful for learning.
-
-### Mistake: Mixing Multiple Skill Types In One Skill
-
-If a skill tries to be a reasoning trace, background observer, and response formatter at once, it will be hard for the model to follow. Split the workflow unless the behaviors are inseparable.
-
-### Mistake: Skipping Dry Run
-
-Every CLI-backed skill should support a local dry run so command parsing, payload building, header construction, and file handling can be tested without network traffic.
-
-## Practical Rule
-
-Put judgment in the prompt, enforcement in the CLI, and authority in the backend.
-
-The prompt can notice, reason, ask, evaluate, and write artifacts. The CLI can sanitize, sign, pin endpoints, and transport. The backend can verify, reject, persist, and return durable URLs. Keep those responsibilities separate and the skill system stays simple, inspectable, and safe to extend.
+9. **Generating the backend payload inside the prompt skill.** The model generates content. The CLI structures, validates, signs, and sends it. Do not have the prompt produce JSON payloads - have it produce the CLI flags and let the CLI do assembly.
