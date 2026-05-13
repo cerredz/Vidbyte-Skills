@@ -189,6 +189,8 @@ Follow these steps:
 
 The skill name must be lowercase hyphen-case and must match the folder name.
 
+For a deeper guide to choosing and authoring reasoning trace, prompt, and background/CLI-backed skills, see `artifacts/create-skill-guide.md`.
+
 ## Reasoning Trace Skills
 
 This repository includes a generated collection of 100+ reasoning trace strategies, each with default, small, medium, and large slash-skill variants under `skills/`.
