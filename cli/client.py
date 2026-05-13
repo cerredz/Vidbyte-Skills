@@ -10,6 +10,7 @@ from .constants.auth import OFFICIAL_API_ORIGIN, DEFAULT_TIMEOUT_MS
 ENDPOINTS = {
     "feedback": "/api/skills/feedback",
     "compressor": "/api/skills/compressor",
+    "retain": "/api/skills/retain",
     "auth-validate": "/api/auth/validate",
     "auth-session": "/api/auth/session",
 }
