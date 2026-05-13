@@ -64,30 +64,15 @@ A clear, self-contained definition or explanation of the topic. Assume the reade
 
 ### ## Why
 
-The reasoning, context, and importance. Answer:
-- Why does this matter? What problem does it solve?
-- What happens if you ignore or misuse it?
-- Where does it show up in practice (real-world scenarios)?
-- How does it connect to other concepts the user might already know?
+Explain the reasoning, context, and importance of the topic. Start by addressing why this matters — what problem does it solve and what would go wrong if it were ignored or misused? Ground the explanation in real-world scenarios where the concept shows up in practice, so the reader understands not just what it is but why they should care. Finally, connect it to other concepts the reader might already know, situating it within the broader mental model of the domain.
 
 ### ## Critical Thinking
 
-Deeper analysis and nuance. Surface what is not obvious. Consider:
-- **Tradeoffs** — When is this the right approach, and when is it the wrong one?
-- **Common misconceptions** — What do people frequently get wrong about this?
-- **Competing perspectives** — Are there respected alternative views or approaches?
-- **Edge cases** — Where does the conventional wisdom break down?
-- **Historical context** — If relevant, how did this concept evolve?
-- **Uncertainty** — Acknowledge what is settled vs. what is actively debated
+Go deeper than the surface explanation by examining the tradeoffs, misconceptions, and nuance that a quick summary would miss. Start with the tradeoffs: when is this the right approach and when is it the wrong one — what scenario characteristics make the difference? Surface common misconceptions that people frequently get wrong about this topic, because knowing what a concept is not is often as valuable as knowing what it is. Present competing perspectives or respected alternative views where they exist, and identify edge cases where the conventional wisdom breaks down. If the concept has a meaningful history, briefly trace how it evolved and what problems drove its development. Throughout, be honest about uncertainty: acknowledge what is settled consensus versus what is actively debated, so the reader knows where the field stands and where it is still moving.
 
 ### ## Best Practices
 
-Industry standards, patterns, and actionable guidelines. Include code examples where relevant. Structure as:
-- Concrete do's and don'ts
-- Common patterns or idioms
-- Tooling or automation recommendations (if applicable)
-
-Omit this section only when the question has no actionable best practices (e.g., a purely philosophical question). When in doubt, include it — even theoretical topics often have a "how to apply this" angle.
+Provide industry standards, patterns, and actionable guidelines that the reader can apply immediately. Include concrete do's and don'ts — specific practices to adopt and pitfalls to avoid — backed by reasoning rather than presented as arbitrary rules. Cover common patterns or idioms that experienced practitioners use, and include code examples where they make the guidance clearer. Where relevant, recommend specific tooling, linters, libraries, or automation that can enforce or facilitate the best practices described. Omit this section only when the question genuinely has no applicable best practices (e.g., a purely philosophical question). When in doubt, include it — even theoretical topics usually have a "how to apply this" dimension worth exploring.
 
 ### ## More Resources
 
