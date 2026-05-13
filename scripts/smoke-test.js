@@ -17,6 +17,7 @@ const unselectedSkill = path.join(skills, "extra-skill");
 fs.mkdirSync(fixtureSkill, { recursive: true });
 fs.mkdirSync(unselectedSkill, { recursive: true });
 fs.mkdirSync(project, { recursive: true });
+fs.writeFileSync(path.join(project, "AGENTS.md"), "Existing project instructions.\n");
 fs.writeFileSync(path.join(fixtureSkill, "SKILL.md"), `---
 name: demo-skill
 description: Use this fixture skill to verify installer behavior.
@@ -75,7 +76,17 @@ const expectedSkillFiles = [
   path.join(project, ".cursor", "skills", "demo-skill", "SKILL.md"),
   path.join(home, ".hermes", "skills", "demo-skill", "SKILL.md"),
   path.join(home, ".agents", "skills", "demo-skill", "SKILL.md"),
-  path.join(project, ".agents", "skills", "demo-skill", "SKILL.md")
+  path.join(project, ".agents", "skills", "demo-skill", "SKILL.md"),
+  path.join(home, ".copilot", "skills", "demo-skill", "SKILL.md"),
+  path.join(project, ".github", "skills", "demo-skill", "SKILL.md"),
+  path.join(home, ".warp", "skills", "demo-skill", "SKILL.md"),
+  path.join(project, ".warp", "skills", "demo-skill", "SKILL.md"),
+  path.join(home, ".factory", "skills", "demo-skill", "SKILL.md"),
+  path.join(project, ".factory", "skills", "demo-skill", "SKILL.md"),
+  path.join(home, ".config", "crush", "skills", "demo-skill", "SKILL.md"),
+  path.join(project, ".crush", "skills", "demo-skill", "SKILL.md"),
+  path.join(home, ".openclaw", "skills", "demo-skill", "SKILL.md"),
+  path.join(project, "skills", "demo-skill", "SKILL.md")
 ];
 
 for (const expected of expectedSkillFiles) {
@@ -93,13 +104,80 @@ const expectedRuleFiles = [
   path.join(home, "Documents", "Cline", "Rules", "vidbyte-skills.md"),
   path.join(project, ".clinerules", "vidbyte-skills.md"),
   path.join(project, ".continue", "rules", "vidbyte-skills.md"),
-  path.join(project, ".roo", "rules", "vidbyte-skills.md")
+  path.join(project, ".roo", "rules", "vidbyte-skills.md"),
+  path.join(home, ".augment", "rules", "vidbyte-skills.md"),
+  path.join(project, ".augment", "rules", "vidbyte-skills.md")
 ];
 
 for (const expected of expectedRuleFiles) {
   assert.equal(fs.existsSync(expected), true, `Expected ${expected}`);
   assert.match(fs.readFileSync(expected, "utf8"), /demo-skill/);
 }
+
+const expectedManagedFiles = [
+  path.join(project, "AGENTS.md"),
+  path.join(home, "AGENTS.md"),
+  path.join(project, ".github", "copilot-instructions.md"),
+  path.join(project, ".augment-guidelines"),
+  path.join(home, ".config", "kilo", "AGENTS.md"),
+  path.join(project, ".rules"),
+  path.join(project, "replit.md"),
+  path.join(project, ".openhands", "microagents", "repo.md"),
+  path.join(project, "QWEN.md"),
+  path.join(home, "GEMINI.md"),
+  path.join(project, "GEMINI.md"),
+  path.join(project, ".junie", "guidelines.md"),
+  path.join(project, ".kiro", "guidelines.md"),
+  path.join(project, "CONVENTIONS.md")
+];
+
+for (const expected of expectedManagedFiles) {
+  assert.equal(fs.existsSync(expected), true, `Expected ${expected}`);
+  const content = fs.readFileSync(expected, "utf8");
+  assert.match(content, /vidbyte-skills:start/);
+  assert.match(content, /demo-skill/);
+}
+
+const agentsContent = fs.readFileSync(path.join(project, "AGENTS.md"), "utf8");
+assert.match(agentsContent, /Existing project instructions\./);
+assert.equal((agentsContent.match(/vidbyte-skills:start/g) || []).length, 1);
+assert.equal((agentsContent.match(/vidbyte-skills:end/g) || []).length, 1);
+
+const aiderConfig = path.join(project, ".aider.conf.yml");
+assert.equal(fs.existsSync(aiderConfig), true, "Expected Aider config");
+assert.match(fs.readFileSync(aiderConfig, "utf8"), /CONVENTIONS\.md/);
+
+const selfCopyRoot = path.join(tempRoot, "self-copy-project");
+const selfCopySkills = path.join(selfCopyRoot, "skills");
+const selfCopySkill = path.join(selfCopySkills, "demo-skill");
+fs.mkdirSync(selfCopySkill, { recursive: true });
+fs.writeFileSync(path.join(selfCopySkill, "SKILL.md"), fs.readFileSync(path.join(fixtureSkill, "SKILL.md"), "utf8"));
+
+const selfCopyResult = spawnSync(process.execPath, [
+  path.join(REPO_ROOT, "bin", "install.js"),
+  "demo-skill",
+  "--scope",
+  "project",
+  "--platform",
+  "openclaw"
+], {
+  cwd: selfCopyRoot,
+  env: {
+    ...process.env,
+    VIDBYTE_HOME: home,
+    VIDBYTE_PROJECT_ROOT: selfCopyRoot,
+    VIDBYTE_SKILLS_SRC: selfCopySkills
+  },
+  encoding: "utf8"
+});
+
+if (selfCopyResult.status !== 0) {
+  console.error(selfCopyResult.stdout);
+  console.error(selfCopyResult.stderr);
+}
+assert.equal(selfCopyResult.status, 0);
+assert.match(selfCopyResult.stdout, /skip:/);
+assert.equal(fs.existsSync(path.join(selfCopySkill, "SKILL.md")), true, "Expected self-copy source skill to survive");
 
 fs.rmSync(tempRoot, { recursive: true, force: true });
 console.log("Smoke test passed.");
