@@ -20,7 +20,15 @@ def _main(argv: list[str]) -> None:
         print(usage())
         return
 
-    resource, action, *rest = argv
+    if argv[0] == "retain":
+        resource = "retain"
+        action = "submit"
+        rest = argv[1:]
+    elif len(argv) >= 2:
+        resource, action, *rest = argv
+    else:
+        raise RuntimeError(usage())
+
     options = parse_options(rest)
     router = CommandRouter()
     result = router.route(resource, action, options)

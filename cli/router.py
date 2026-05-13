@@ -1,6 +1,7 @@
 from .commands.auth import AuthCommand
 from .commands.feedback import FeedbackCommand
 from .commands.compressor import CompressorCommand
+from .commands.retain import RetainCommand
 from .helpers import usage
 
 
@@ -13,6 +14,10 @@ class CommandRouter:
 
         if resource == "compressor" and action == "submit":
             cmd = CompressorCommand()
+            return cmd.submit(options)
+
+        if resource == "retain" and action == "submit":
+            cmd = RetainCommand()
             return cmd.submit(options)
 
         if resource == "auth" and action in ("login", "logout", "status"):
