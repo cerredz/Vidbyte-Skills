@@ -1,6 +1,6 @@
 # Vidbyte Skills
 
-Vidbyte Skills is a portable skill installer for local coding harnesses. The repository owns the skill source files under `skills/`; the installer copies or links those skills into the filesystem locations that Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes, Cline, Continue, Roo Code, Windsurf, and `.agents`-compatible tools read from.
+Vidbyte Skills is a portable skill installer for local coding harnesses. The repository owns the skill source files under `skills/`; the installer copies or links those skills into native skill directories and writes generated rule files for Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes, GitHub Copilot, Warp, Factory, Crush, Aider, Augment, Cline, Continue, Roo Code, Windsurf, and AGENTS.md-compatible tools.
 
 Repository: https://github.com/cerredz/Vidbyte-Skills
 
@@ -83,6 +83,9 @@ Supported platforms:
 
 ```text
 claude-code, codex, gemini, opencode, cursor, hermes, universal, windsurf, cline, continue, roo-code
+github-copilot, vscode-copilot, copilot-cli, warp, factory, crush, openclaw, aider
+augment-code, auggie, kilo-code, jules, zed, replit-agent, devin, openhands
+qwen-code, gemini-memory, jetbrains-ai, junie, kiro, amp, piebald, open-harness, agents-md
 ```
 
 ## Vidbyte CLI
@@ -119,6 +122,11 @@ OpenCode: ~/.config/opencode/skill, ~/.config/opencode/skills, <project>/.openco
 Cursor: ~/.cursor/skills or <project>/.cursor/skills
 Hermes: ~/.hermes/skills
 Universal: ~/.agents/skills or <project>/.agents/skills
+GitHub Copilot / VS Code Copilot / Copilot CLI: ~/.copilot/skills or <project>/.github/skills
+Warp: ~/.warp/skills or <project>/.warp/skills
+Factory Droid: ~/.factory/skills or <project>/.factory/skills
+Crush: ~/.config/crush/skills, %LOCALAPPDATA%/crush/skills on Windows, or <project>/.crush/skills
+OpenClaw: ~/.openclaw/skills or <project>/skills
 ```
 
 Rule-file integrations receive a generated Markdown rule file that flattens the selected skills into one document:
@@ -128,9 +136,27 @@ Windsurf: <project>/.windsurf/rules/vidbyte-skills.md
 Cline: ~/Documents/Cline/Rules/vidbyte-skills.md or <project>/.clinerules/vidbyte-skills.md
 Continue: <project>/.continue/rules/vidbyte-skills.md
 Roo Code: <project>/.roo/rules/vidbyte-skills.md
+Augment Code / Auggie: ~/.augment/rules/vidbyte-skills.md or <project>/.augment/rules/vidbyte-skills.md
 ```
 
-Hermes is user-scoped only. Windsurf, Continue, and Roo Code are project-scoped only. Cline supports both user and project rules.
+Managed instruction-file integrations insert or replace only the block between `<!-- vidbyte-skills:start -->` and `<!-- vidbyte-skills:end -->`, preserving existing project instructions outside that block:
+
+```text
+AGENTS.md-compatible tools: ~/AGENTS.md or <project>/AGENTS.md
+GitHub Copilot instructions: <project>/.github/copilot-instructions.md
+Aider: ~/CONVENTIONS.md or <project>/CONVENTIONS.md, plus .aider.conf.yml read configuration when safe
+Augment guidelines: <project>/.augment-guidelines
+Kilo Code: ~/.config/kilo/AGENTS.md or <project>/AGENTS.md
+Zed: <project>/.rules
+Replit Agent: <project>/replit.md
+OpenHands: <project>/.openhands/microagents/repo.md
+Qwen Code: <project>/QWEN.md
+Gemini memory: ~/GEMINI.md or <project>/GEMINI.md
+Junie: <project>/.junie/guidelines.md
+Kiro: <project>/.kiro/guidelines.md
+```
+
+Hermes is user-scoped only. Windsurf, Continue, Roo Code, Jules, Zed, Replit Agent, OpenHands, Qwen Code, JetBrains AI, Junie, Kiro, Amp, Piebald, and Open Harness are project-scoped only. Cline supports both user and project rules. `--scope user --platform agents-md` writes a managed block to `~/AGENTS.md`; use `--scope project` if you only want repository-local instructions.
 
 ## Add A Skill
 

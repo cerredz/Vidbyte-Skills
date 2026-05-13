@@ -1,7 +1,7 @@
 {
   "name": "vidbyte-skills",
   "version": "0.2.0",
-  "description": "Install Vidbyte Agent Skills across Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes, and compatible harnesses.",
+  "description": "Install Vidbyte Agent Skills across Claude Code, Codex, Gemini CLI, GitHub Copilot, Warp, Factory, Crush, and compatible harnesses.",
   "type": "module",
   "bin": {
     "vidbyte": "./bin/vidbyte.js",
@@ -39,7 +39,14 @@
     "hermes",
     "cline",
     "continue",
-    "roo-code"
+    "roo-code",
+    "github-copilot",
+    "warp",
+    "factory",
+    "crush",
+    "aider",
+    "augment-code",
+    "agents-md"
   ],
   "license": "MIT",
   "engines": {
