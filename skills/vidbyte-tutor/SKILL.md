@@ -4,7 +4,7 @@ description: >
   Use this skill as the central orchestrator for Vidbyte's non-reasoning learning skills
   when the user wants help choosing, routing, combining, or understanding skills such as
   misconceptions, daily-review, compression-check, feedback-generator, do-not-repeat,
-  anti-passive, why, and vidbyte-auth.
+  anti-passive, why, vidbyte-auth, explain-away-others, define-success, and no-conclusions.
 ---
 
 # /vidbyte-tutor - Vidbyte Skill Orchestrator
@@ -22,9 +22,12 @@ Only orchestrate these non-reasoning Vidbyte skills:
 - `anti-passive`
 - `compression-check`
 - `daily-review`
+- `define-success`
 - `do-not-repeat`
+- `explain-away-others`
 - `feedback-generator`
 - `misconceptions`
+- `no-conclusions`
 - `vidbyte-auth`
 - `why`
 
@@ -137,6 +140,39 @@ Use when the user needs occasional context-specific why questions to prevent aut
 
 Choose this for metacognitive reflection. It asks one contextual question at sparse intervals and does not evaluate the answer.
 
+### `explain-away-others`
+
+Use when the user needs to force deliberate alternative evaluation before committing to an approach, or when the user is defaulting to the first approach without genuinely considering why alternatives would fail. Route here for prompts like:
+
+- "Challenge my approach before I proceed."
+- "What alternatives should I be considering?"
+- "Force me to explain why other approaches won't work."
+- "Don't let me commit to this until I've ruled out the alternatives."
+
+Invoke as `/ruled-out` or `/explain-away-others`. The skill identifies 2-3 genuine competitive alternatives, presents them, and blocks until the user provides context-specific, mechanism-level explanations for why each fails. Generic dismissals are returned. The model picks the alternatives — not the user.
+
+### `define-success`
+
+Use when the user should define third-party evaluable success criteria before beginning any task — preventing unbounded work, subjective completion, and drift. Route here for prompts like:
+
+- "Define what done looks like before we start."
+- "What does success look like for this task?"
+- "Set the completion criteria first."
+- "Before I do this, let me know what would make this acceptable."
+
+Invoke as `/define-success`. The skill blocks until the user provides free-form third-party evaluable stop conditions, such as metrics, examples, artifacts, tests, output shape, review checks, or scope boundaries. It does not force a fixed WHAT/HOW/THRESHOLD/DEADLINE response shape.
+
+### `no-conclusions`
+
+Use when the user wants pure information and mechanism descriptions without recommendations, diagnoses, or decisions — forcing the user to synthesize conclusions from presented data. Route here for prompts like:
+
+- "Just give me the data, don't tell me what it means."
+- "Describe what this code does without telling me what's wrong."
+- "Present the facts without a recommendation."
+- "Explain the mechanisms but let me draw the conclusions."
+
+Invoke as `/no-conclusions`. The model first uses only permitted vocabulary (observations, data, mechanisms, patterns) and avoids conclusions, recommendations, diagnoses, identifications, or evaluations. It redirects the first push for conclusions, then gives the answer on a second direct push and anchors it to the observations already shown. Surfaces contradictory data when the user's stated conclusion is demonstrably incorrect.
+
 ## Tie-Break Rules
 
 - If the user names an included skill, use that exact skill.
@@ -148,6 +184,9 @@ Choose this for metacognitive reflection. It asks one contextual question at spa
 - If the user is repeating the same conceptual error, choose `do-not-repeat`.
 - If the user is consuming explanations without building or deciding, choose `anti-passive`.
 - If the user is making choices without reflecting on why, choose `why`.
+- If the user wants to eliminate unchosen alternatives before proceeding, choose `explain-away-others`.
+- If the user needs to define completion criteria before starting work, choose `define-success`.
+- If the user wants data and mechanisms without conclusions or recommendations, choose `no-conclusions`.
 
 When two skills seem close, use the user's desired output to decide:
 
@@ -158,6 +197,9 @@ When two skills seem close, use the user's desired output to decide:
 - A repeated-error intervention means `do-not-repeat`.
 - An implementation nudge means `anti-passive`.
 - A reflective why question means `why`.
+- Forced alternative evaluation before proceeding means `explain-away-others`.
+- Defining what done looks like with third-party evaluable criteria means `define-success`.
+- Data presentation without conclusions or recommendations means `no-conclusions`.
 
 ## Response Behavior
 
@@ -169,7 +211,7 @@ If the user asks which skill to use, answer with:
 
 If the user gives a substantive task and the right skill is clear, state the selected skill briefly and proceed with that skill's workflow.
 
-If the user asks for all included skills, list only the eight included non-reasoning skills and their short use cases. Do not list reasoning trace skills.
+If the user asks for all included skills, list only the eleven included non-reasoning skills and their short use cases. Do not list reasoning trace skills.
 
 If skill selection is ambiguous, ask one concise clarifying question. Do not ask a questionnaire.
 
@@ -179,9 +221,9 @@ If skill selection is ambiguous, ask one concise clarifying question. Do not ask
 - The tutor routes explicit included-skill requests exactly.
 - The tutor chooses one primary skill for ordinary requests.
 - The tutor explains routing decisions briefly without dumping the full catalog by default.
-- The tutor distinguishes misconception tracking, daily review, compression checks, feedback artifacts, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, and Vidbyte authentication.
+- The tutor distinguishes misconception tracking, daily review, compression checks, feedback artifacts, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, Vidbyte authentication, alternative elimination, success-criteria definition, and conclusion-free information provision.
 - The selected skill's own instructions remain authoritative after routing.
 
 ## Input
 
-Primary input is the user's routing request, explicit slash-skill request, or learning-loop goal. Recent conversation context may be used to infer whether the user needs authentication, misconception tracking, daily review, compression checks, feedback generation, repeated-error prevention, passive-consumption interruption, or metacognitive why prompts.
+Primary input is the user's routing request, explicit slash-skill request, or learning-loop goal. Recent conversation context may be used to infer whether the user needs authentication, misconception tracking, daily review, compression checks, feedback generation, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, alternative elimination, success-criteria definition, or conclusion-free information provision.
