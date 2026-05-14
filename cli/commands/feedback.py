@@ -1,9 +1,9 @@
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 
 from ..client import VidbyteRequestBuilder
 from ..helpers import read_package_version, require_option, format_response, sanitize_file_content
+from ..dataclasses.feedback import FeedbackPayload
 
 
 class FeedbackCommand:
@@ -11,19 +11,15 @@ class FeedbackCommand:
     @sanitize_file_content
     def submit(self, options: dict) -> str | None:
         file = require_option(options, "file", "--file")
-        content = options["_sanitized_content"]
-
-        payload = json.dumps({
-            "type": "feedback",
-            "domain": options.get("domain", "unknown"),
-            "conversation_id": options.get("conversation-id", ""),
-            "file_name": Path(file).name,
-            "content": content,
-            "generated_at": datetime.now(timezone.utc).isoformat(),
-        })
+        payload = FeedbackPayload(
+            file_path=file,
+            content=options["_sanitized_content"],
+            domain=options.get("domain", "unknown"),
+            conversation_id=options.get("conversation-id", ""),
+        )
 
         builder = VidbyteRequestBuilder(
-            body=payload,
+            body=payload.to_json(),
             cli_version=read_package_version(),
             endpoint_name="feedback",
             skill_id=options.get("skill-id"),

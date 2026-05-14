@@ -1,9 +1,9 @@
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 
 from ..client import VidbyteRequestBuilder
 from ..helpers import read_package_version, require_option, sanitize_file_content
+from ..dataclasses.compressor import CompressorPayload
 
 
 class CompressorCommand:
@@ -11,19 +11,15 @@ class CompressorCommand:
     @sanitize_file_content
     def submit(self, options: dict) -> str | None:
         file = require_option(options, "file", "--file")
-        content = options["_sanitized_content"]
-
-        payload = json.dumps({
-            "type": "compression-check",
-            "domain": options.get("domain", "unknown"),
-            "conversation_id": options.get("conversation-id", ""),
-            "file_name": Path(file).name,
-            "content": content,
-            "generated_at": datetime.now(timezone.utc).isoformat(),
-        })
+        payload = CompressorPayload(
+            file_path=file,
+            content=options["_sanitized_content"],
+            domain=options.get("domain", "unknown"),
+            conversation_id=options.get("conversation-id", ""),
+        )
 
         builder = VidbyteRequestBuilder(
-            body=payload,
+            body=payload.to_json(),
             cli_version=read_package_version(),
             endpoint_name="compressor",
             skill_id=options.get("skill-id"),

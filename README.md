@@ -96,18 +96,26 @@ This package also exposes a `vidbyte` command for skill-to-backend submissions. 
 vidbyte feedback submit --file feedback-log-2026-05-11-example.md --domain software-engineering --conversation-id example
 ```
 
+The `/retain` skill uses an argument-shaped command so the model can pass the generated exercise fields directly:
+
+```bash
+vidbyte retain --title "Retain this session" --domain software-engineering --conversation-id example --concept1-name "CLI signing boundary" --concept1-distillation "The prompt generates content while the CLI owns signing and transport." --concept1-anchor "A locked dispatch box with a public label and a private key under the desk." --concept1-hook "This matches webhook signing, where the algorithm is public but the shared secret is private." --question1 "Why should the prompt not construct Vidbyte HMAC headers itself?" --answer1 "A strong answer says prompt text is not a trust boundary, while the CLI keeps secrets and signs requests in code."
+```
+
 The CLI is implemented in Python (stdlib only, no dependencies). It signs requests with `VIDBYTE_SKILL_SECRET`, sends traffic only to `https://vidbyte.pro`, and adds the Vidbyte skill authentication headers. Copy `.env.example` to `.env` for local development; real `.env` files are ignored by git.
 
 Use `--dry-run` to validate command input without sending a network request:
 
 ```bash
 vidbyte feedback submit --file feedback-log.md --domain software-engineering --conversation-id local-test --dry-run
+vidbyte retain --concept1-name "Concept" --concept1-distillation "Mechanism" --concept1-anchor "Vivid image" --concept1-hook "Personal hook" --question1 "Question?" --answer1 "Answer key" --dry-run
 ```
 
 The CLI can also be invoked directly via Python:
 
 ```bash
 python3 -m cli feedback submit --file feedback-log.md --domain software-engineering --conversation-id local-test --dry-run
+python3 -m cli retain --concept1-name "Concept" --concept1-distillation "Mechanism" --concept1-anchor "Vivid image" --concept1-hook "Personal hook" --question1 "Question?" --answer1 "Answer key" --dry-run
 ```
 
 ## Install Locations

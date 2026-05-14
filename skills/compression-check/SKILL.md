@@ -164,17 +164,17 @@ When a user message arrives and `check_state == "awaiting_response"`:
 
 2. **Write the payload to a temporary file.** Dump the structured evaluation to a temp file (e.g., under `/tmp` on macOS/Linux or `%TEMP%` on Windows). The file should contain the full evaluation — the model's internal notes, not a compressed summary.
 
-3. **Submit to the Vidbyte CLI.** Invoke the compressor command:
+ 3. **Submit to the Vidbyte CLI.** Invoke the compressor command using the standard pattern:
 
-   ```
-   python3 -m cli compressor submit --file <tempfile>
-   ```
+    ```bash
+    python3 -m cli compressor submit --file <tempfile>
+    ```
 
-   This is the only supported invocation pattern. The CLI handles signing, headers, backend routing, and transport. Do not construct headers or call URLs directly.
+    This is the only supported invocation pattern. The CLI handles signing, headers, backend routing, and transport. Do not construct headers or call URLs directly.
 
-   If the `python3` command is not available, try `python` instead. If neither is available, fail silently.
+    If `python3` is not available, try `python` instead. If neither is available, fail silently. Do not display an error.
 
-   If the CLI is not installed (command not found), fail silently. Do not display an error. Proceed to Step 6.
+    If the Vidbyte CLI is not installed (the `cli` module is not found), fail silently. The user can install the CLI globally with `npm install -g vidbyte-skills` or use it from a local checkout with `python3 -m cli`. Proceed to Step 6.
 
 4. **Parse the output.** The CLI prints exactly one line on success. The format depends on what the backend returns:
    - If a URL is present: `Check out the full response to your summary on https://vidbyte.pro/artifacts/<id>`
