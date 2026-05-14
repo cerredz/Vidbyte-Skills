@@ -4,7 +4,7 @@ description: >
   Use this skill as the central orchestrator for Vidbyte's non-reasoning learning skills
   when the user wants help choosing, routing, combining, or understanding skills such as
   misconceptions, daily-review, compression-check, feedback-generator, do-not-repeat,
-  anti-passive, why, and vidbyte-auth.
+  anti-passive, why, vidbyte-auth, and no-abstraction.
 ---
 
 # /vidbyte-tutor - Vidbyte Skill Orchestrator
@@ -25,6 +25,7 @@ Only orchestrate these non-reasoning Vidbyte skills:
 - `do-not-repeat`
 - `feedback-generator`
 - `misconceptions`
+- `no-abstraction`
 - `vidbyte-auth`
 - `why`
 
@@ -137,6 +138,17 @@ Use when the user needs occasional context-specific why questions to prevent aut
 
 Choose this for metacognitive reflection. It asks one contextual question at sparse intervals and does not evaluate the answer.
 
+### `no-abstraction`
+
+Use when the user needs every term in a request to be concrete and observable before any work begins — scanning for qualitative comparisons without baselines, vague quantities, undefined time horizons, unspecified subjects, process nouns, and experiential terms. Route here for prompts like:
+
+- "Make sure this request is concrete before I start."
+- "Don't let me use abstract language."
+- "Force me to define what I actually mean."
+- "Check my request for hand-waving or vague terms."
+
+Invoke as `/no-abstraction`. The skill returns every abstract term with a category-tagged rejection and specific questions. Includes a three-round escalation pattern for repeated abstraction and a legitimate exception for operationalization requests. Applies the same standard to the model's own output.
+
 ## Tie-Break Rules
 
 - If the user names an included skill, use that exact skill.
@@ -148,6 +160,7 @@ Choose this for metacognitive reflection. It asks one contextual question at spa
 - If the user is repeating the same conceptual error, choose `do-not-repeat`.
 - If the user is consuming explanations without building or deciding, choose `anti-passive`.
 - If the user is making choices without reflecting on why, choose `why`.
+- If the user needs every term concretized before any task begins, choose `no-abstraction`.
 
 When two skills seem close, use the user's desired output to decide:
 
@@ -158,6 +171,7 @@ When two skills seem close, use the user's desired output to decide:
 - A repeated-error intervention means `do-not-repeat`.
 - An implementation nudge means `anti-passive`.
 - A reflective why question means `why`.
+- Abstraction detection and enforcement of concrete terms means `no-abstraction`.
 
 ## Response Behavior
 
@@ -169,7 +183,7 @@ If the user asks which skill to use, answer with:
 
 If the user gives a substantive task and the right skill is clear, state the selected skill briefly and proceed with that skill's workflow.
 
-If the user asks for all included skills, list only the eight included non-reasoning skills and their short use cases. Do not list reasoning trace skills.
+If the user asks for all included skills, list only the nine included non-reasoning skills and their short use cases. Do not list reasoning trace skills.
 
 If skill selection is ambiguous, ask one concise clarifying question. Do not ask a questionnaire.
 
@@ -179,9 +193,9 @@ If skill selection is ambiguous, ask one concise clarifying question. Do not ask
 - The tutor routes explicit included-skill requests exactly.
 - The tutor chooses one primary skill for ordinary requests.
 - The tutor explains routing decisions briefly without dumping the full catalog by default.
-- The tutor distinguishes misconception tracking, daily review, compression checks, feedback artifacts, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, and Vidbyte authentication.
+- The tutor distinguishes misconception tracking, daily review, compression checks, feedback artifacts, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, Vidbyte authentication, and abstraction enforcement.
 - The selected skill's own instructions remain authoritative after routing.
 
 ## Input
 
-Primary input is the user's routing request, explicit slash-skill request, or learning-loop goal. Recent conversation context may be used to infer whether the user needs authentication, misconception tracking, daily review, compression checks, feedback generation, repeated-error prevention, passive-consumption interruption, or metacognitive why prompts.
+Primary input is the user's routing request, explicit slash-skill request, or learning-loop goal. Recent conversation context may be used to infer whether the user needs authentication, misconception tracking, daily review, compression checks, feedback generation, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, or abstraction enforcement.
