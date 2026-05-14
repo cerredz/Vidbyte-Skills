@@ -34,6 +34,10 @@ execution-critical missing decision explicit before work begins.
   detail.
 - Apply beyond software engineering to writing, strategy, design, research, and
   planning tasks.
+- Include 25+ concrete examples of execution gaps across software engineering,
+  legal, finance, social media, marketing, and sales.
+- Include before/after prompt examples showing how vague prompts become
+  execution-ready prompts after the skill's clarification process.
 - Enforce a hard constraint: no partial help, no answering the clear parts, and
   no "best guess" mode while `/no-assumptions` is active.
 - Follow existing `SKILL.md` conventions: YAML frontmatter, procedural
@@ -120,6 +124,14 @@ begin until the request itself is precise enough to execute.
 12. When the user responds with clarifications, the skill SHALL re-check the
     combined original request and clarifications. The loop continues until the
     request is fully specified.
+
+13. The skill SHALL include at least 25 examples of execution gaps across common
+    domains including software engineering, legal, finance, social media,
+    marketing, and sales.
+
+14. The skill SHALL include before/after prompt examples where the before prompt
+    is vague and the after prompt is specific enough to execute without filling
+    in missing decisions.
 
 ### Non-Functional Requirements
 
@@ -214,6 +226,22 @@ Before producing output, the model privately asks:
 
 Any answer that reveals a missing decision becomes a checklist question.
 
+The skill includes a broad example set so the model does not overfit the
+behavior to software prompts. The examples cover software engineering, legal,
+finance, social media, marketing, and sales, and each one names the specific
+details that would change the final output if left unspecified.
+
+#### Before and After Prompt Examples
+
+The skill includes concrete before/after prompt pairs. The before prompt shows a
+typical vague invocation, such as asking to make an endpoint faster or improve a
+landing page. The after prompt shows the clarified version after the user has
+answered the blocking questions: concrete scope, audience, constraints, success
+criteria, inputs, outputs, and standards to avoid.
+
+These examples are not answer templates. They teach the precision bar for a
+prompt that is ready to execute.
+
 #### Refusal Format
 
 When gaps exist, the response is:
@@ -294,31 +322,41 @@ N/A. This skill has no API endpoints, CLI integration, or network communication.
      which surfaces are in scope, what product constraints exist, and how
      success is measured.
 
-5. **No category output**
+5. **Domain-diverse gap examples**
+   - Given: The skill file is inspected
+   - Then: It includes 25+ examples spanning software engineering, legal,
+     finance, social media, marketing, and sales.
+
+6. **No category output**
    - Given: Any vague `/no-assumptions` request
    - Then: Response is a single checklist and does not contain fixed headings
      such as "Undefined Terms" or "Missing Subject."
 
-6. **Precise request**
+7. **Before/after prompt examples**
+   - Given: The skill file is inspected
+   - Then: It includes examples of vague before prompts and clarified after
+     prompts that remove execution gaps.
+
+8. **Precise request**
    - Given: `/no-assumptions add a rate limiter to GET /api/users allowing 100 requests per minute per API key, returning HTTP 429 when exceeded, using Redis counters with a 1-minute fixed window`
    - Then: Skill acknowledges no execution gaps and answers normally.
 
-7. **Partial clarification loop**
+9. **Partial clarification loop**
    - Given: User answers only some checklist items
    - Then: Skill re-checks and asks only the remaining or newly introduced
      execution-gap questions.
 
-8. **User rejects precision contract**
+10. **User rejects precision contract**
    - Given: User responds with "just do it anyway"
    - Then: Skill explains that `/no-assumptions` is precision-first and asks the
      user to re-issue without the prefix for a normal answer.
 
-9. **No softening**
+11. **No softening**
    - Given: A vague `/no-assumptions` request
    - Then: Response does not contain partial-answer language such as "here's a
      starting point" or "while you clarify."
 
-10. **Non-invocation silence**
+12. **Non-invocation silence**
     - Given: A normal prompt without `/no-assumptions`
     - Then: Skill does not activate.
 
@@ -347,8 +385,9 @@ N/A. This skill has no API endpoints, CLI integration, or network communication.
 - [ ] Should the skill support a strictness flag? RESOLVED: Not in v1. A
   leniency flag undermines the precision-first contract.
 - [ ] Should the skill provide examples of good clarification responses?
-  RESOLVED: No. The checklist questions should be specific enough to guide the
-  user.
+  RESOLVED: Yes, but only as before/after prompt examples that demonstrate the
+  precision bar. The runtime response still remains a checklist, not an answer
+  plus examples.
 - [ ] Should the skill maintain domain-specific safe-word lists? RESOLVED: Not
   in v1. The model should use judgment and only flag terms that are ambiguous in
   context.

@@ -115,16 +115,83 @@ questions the user can answer.
 
 Examples of gaps to surface:
 
-- "make this better" - What specific outcome should improve, and how will that
-  improvement be judged?
-- "clean up this code" - Which code is in scope, and what kind of cleanup is
-  allowed: naming, structure, behavior, performance, tests, or all of them?
-- "write this in our style" - What is the style, who is the audience, and what
-  examples define it?
-- "build the onboarding" - Which users are onboarding, what first successful
-  action should they reach, and what product constraints already exist?
-- "make it production ready" - What reliability, security, observability,
-  deployment, and testing standards must be met?
+- Software engineering: "make this endpoint faster" - Which endpoint is in
+  scope, what latency metric matters, what is the current baseline, and what
+  target must be reached?
+- Software engineering: "clean up this component" - Which component is in scope,
+  and are behavior changes allowed or only naming, structure, and readability
+  changes?
+- Software engineering: "make the auth flow production ready" - Which auth
+  methods, session model, security requirements, error states, tests, and
+  deployment constraints define production ready?
+- Software engineering: "fix the flaky tests" - Which tests are flaky, what
+  failure signatures have been observed, and should the fix target test
+  isolation, timing, data setup, or product code?
+- Software engineering: "refactor the data layer" - Which modules are in scope,
+  what public API must remain stable, and what outcome should the refactor
+  improve?
+- Legal: "review this contract" - Which jurisdiction applies, what role the
+  user has in the agreement, and what risks or clauses should be prioritized?
+- Legal: "make this policy compliant" - Which law, regulation, internal policy,
+  or audit standard defines compliant for this request?
+- Legal: "summarize the legal risks" - What decision will the summary support,
+  what risk tolerance applies, and should the output be business-facing or
+  attorney-facing?
+- Legal: "rewrite this clause to be safer" - Safer for which party, against
+  which risk, and what negotiation constraints must be preserved?
+- Legal: "prepare questions for counsel" - What matter, jurisdiction, timeline,
+  and desired legal decision should the questions address?
+- Finance: "analyze this investment" - What asset, time horizon, benchmark,
+  risk tolerance, data sources, and decision criteria should drive the analysis?
+- Finance: "make the budget more realistic" - Which budget period, revenue
+  assumptions, fixed costs, variable costs, and target margin should be used?
+- Finance: "explain why revenue is down" - Which revenue metric, reporting
+  period, comparison period, segments, and known business changes are in scope?
+- Finance: "forecast next quarter" - Which model assumptions, scenario ranges,
+  historical data, seasonality, and confidence level should be used?
+- Finance: "clean up this financial model" - Should formulas, layout,
+  assumptions, controls, formatting, or all of them be changed, and what outputs
+  must remain identical?
+- Social media: "make this post go viral" - Which platform, audience, brand
+  voice, content format, topic constraints, and success metric define viral?
+- Social media: "rewrite this caption" - Which platform, character limit,
+  audience, tone, call to action, hashtags, and claims must be included or
+  avoided?
+- Social media: "create a content calendar" - Which channels, posting cadence,
+  campaign goals, content pillars, approvals, and measurement window are in
+  scope?
+- Social media: "respond to this comment" - What relationship does the commenter
+  have to the brand, what escalation policy applies, and what outcome should the
+  reply achieve?
+- Social media: "improve engagement" - Which engagement metric matters, what
+  baseline exists, what audience segment is targeted, and what tactics are off
+  limits?
+- Marketing: "write a campaign" - Which product, target segment, offer, channel,
+  funnel stage, budget, timeline, and conversion goal define the campaign?
+- Marketing: "make this landing page better" - Which page, traffic source,
+  audience intent, conversion event, brand constraints, and test plan should
+  guide changes?
+- Marketing: "position this product" - Which market category, buyer persona,
+  competitors, differentiators, proof points, and excluded claims should shape
+  positioning?
+- Marketing: "write our launch announcement" - Who is the audience, what changed,
+  what value should be emphasized, what proof is available, and what action
+  should readers take?
+- Marketing: "improve the email sequence" - Which sequence, lifecycle stage,
+  open or conversion target, list segment, compliance constraints, and voice
+  should be used?
+- Sales: "write a better cold email" - Which buyer persona, pain point, offer,
+  proof point, call to action, length, and compliance constraints should govern
+  the email?
+- Sales: "create a discovery script" - Which product, buyer role, qualification
+  method, required fields, disqualifiers, and handoff criteria should be covered?
+- Sales: "handle this objection" - What exact objection was raised, by whom,
+  at which sales stage, and what proof or concessions are acceptable?
+- Sales: "score these leads" - Which lead data, scoring model, positive signals,
+  negative signals, threshold, and routing rules should be used?
+- Sales: "improve the pitch deck" - Which audience, deal stage, meeting length,
+  proof points, competitive context, and desired next step should drive the
+  rewrite?
 
 ## Execution
 
@@ -206,6 +273,122 @@ To continue with /no-assumptions, resolve the items above.
 
 Do not silently switch to normal mode. Do not produce an answer. The user must
 explicitly re-issue without the prefix to get a normal assumption-filled answer.
+
+## Before and After Prompt Examples
+
+These examples show what a request can look like before `/no-assumptions`
+surfaces execution gaps, and what the prompt can look like after the user has
+answered the blocking questions. The after examples are not the answer. They are
+the clarified prompt that is specific enough to execute.
+
+### Software Engineering
+
+Before:
+
+```
+/no-assumptions make this endpoint faster
+```
+
+After:
+
+```
+/no-assumptions optimize GET /api/reports in the Node/Express service. The
+current p95 latency is 2.4s for accounts with 10,000+ reports, and the target is
+under 700ms p95 without changing the response shape. Focus on database query
+performance and in-process serialization. Do not add Redis or new external
+services. Add or update tests that prove the response contract stays unchanged.
+```
+
+### Legal
+
+Before:
+
+```
+/no-assumptions review this contract
+```
+
+After:
+
+```
+/no-assumptions review the attached vendor SaaS agreement from the buyer's
+perspective under Indiana law. Focus on termination rights, auto-renewal,
+indemnity, limitation of liability, data protection, and unilateral price
+changes. Produce a business-facing risk memo with severity ratings and specific
+questions to send to counsel. Do not provide legal advice or rewrite clauses as
+final language.
+```
+
+### Finance
+
+Before:
+
+```
+/no-assumptions forecast next quarter
+```
+
+After:
+
+```
+/no-assumptions forecast Q3 2026 subscription revenue using the uploaded
+January-June 2026 monthly recurring revenue, churn, expansion, contraction, and
+new-logo booking data. Provide base, upside, and downside scenarios; state every
+assumption; compare against the Q3 target of $4.2M ARR; and flag the top three
+drivers that would change the forecast by more than 5%.
+```
+
+### Social Media
+
+Before:
+
+```
+/no-assumptions make this post better
+```
+
+After:
+
+```
+/no-assumptions rewrite this LinkedIn post for B2B SaaS founders who are
+considering SOC 2 for the first time. Keep it under 1,200 characters, preserve
+the claim that audit readiness starts before vendor selection, use a direct
+operator voice, avoid fear-based language, include one practical takeaway, and
+end with a soft question rather than a sales call to action.
+```
+
+### Marketing
+
+Before:
+
+```
+/no-assumptions improve the landing page
+```
+
+After:
+
+```
+/no-assumptions revise the hero, proof section, and primary CTA on the pricing
+landing page for self-serve teams arriving from paid search. The conversion goal
+is starting a free trial. Preserve the current visual layout, avoid unsupported
+ROI claims, use the three customer proof points in the brief, and recommend copy
+variants for an A/B test against the current page.
+```
+
+### Sales
+
+Before:
+
+```
+/no-assumptions write a better cold email
+```
+
+After:
+
+```
+/no-assumptions write a cold email to VP Sales buyers at 200-500 employee B2B
+SaaS companies. The offer is a 20-minute pipeline hygiene audit. Use the prospect
+list fields company_name, first_name, recent_hiring_signal, and crm_stack. Keep
+the email under 110 words, avoid exaggerated revenue claims, include one
+personalized opening line, and end with a low-friction meeting question.
+```
 
 ## Hard Constraints
 
