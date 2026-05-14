@@ -4,7 +4,8 @@ description: >
   Use this skill as the central orchestrator for Vidbyte's non-reasoning learning skills
   when the user wants help choosing, routing, combining, or understanding skills such as
   misconceptions, daily-review, compression-check, feedback-generator, do-not-repeat,
-  anti-passive, why, vidbyte-auth, explain-away-others, define-success, and no-conclusions.
+  anti-passive, why, vidbyte-auth, explain-away-others, define-success,
+  no-conclusions, and no-abstraction.
 ---
 
 # /vidbyte-tutor - Vidbyte Skill Orchestrator
@@ -27,6 +28,7 @@ Only orchestrate these non-reasoning Vidbyte skills:
 - `explain-away-others`
 - `feedback-generator`
 - `misconceptions`
+- `no-abstraction`
 - `no-conclusions`
 - `vidbyte-auth`
 - `why`
@@ -173,6 +175,17 @@ Use when the user wants pure information and mechanism descriptions without reco
 
 Invoke as `/no-conclusions`. The model first uses only permitted vocabulary (observations, data, mechanisms, patterns) and avoids conclusions, recommendations, diagnoses, identifications, or evaluations. It redirects the first push for conclusions, then gives the answer on a second direct push and anchors it to the observations already shown. Surfaces contradictory data when the user's stated conclusion is demonstrably incorrect.
 
+### `no-abstraction`
+
+Use when the user needs every term in a request to be concrete and observable before any work begins — scanning for qualitative comparisons without baselines, vague quantities, undefined time horizons, unspecified subjects, process nouns, and experiential terms. Route here for prompts like:
+
+- "Make sure this request is concrete before I start."
+- "Don't let me use abstract language."
+- "Force me to define what I actually mean."
+- "Check my request for hand-waving or vague terms."
+
+Invoke as `/no-abstraction`. The skill returns every abstract term with a category-tagged rejection and specific questions. Includes a three-round escalation pattern for repeated abstraction and a legitimate exception for operationalization requests. Applies the same standard to the model's own output.
+
 ## Tie-Break Rules
 
 - If the user names an included skill, use that exact skill.
@@ -187,6 +200,7 @@ Invoke as `/no-conclusions`. The model first uses only permitted vocabulary (obs
 - If the user wants to eliminate unchosen alternatives before proceeding, choose `explain-away-others`.
 - If the user needs to define completion criteria before starting work, choose `define-success`.
 - If the user wants data and mechanisms without conclusions or recommendations, choose `no-conclusions`.
+- If the user needs every term concretized before any task begins, choose `no-abstraction`.
 
 When two skills seem close, use the user's desired output to decide:
 
@@ -200,6 +214,7 @@ When two skills seem close, use the user's desired output to decide:
 - Forced alternative evaluation before proceeding means `explain-away-others`.
 - Defining what done looks like with third-party evaluable criteria means `define-success`.
 - Data presentation without conclusions or recommendations means `no-conclusions`.
+- Abstraction detection and enforcement of concrete terms means `no-abstraction`.
 
 ## Response Behavior
 
@@ -211,7 +226,7 @@ If the user asks which skill to use, answer with:
 
 If the user gives a substantive task and the right skill is clear, state the selected skill briefly and proceed with that skill's workflow.
 
-If the user asks for all included skills, list only the eleven included non-reasoning skills and their short use cases. Do not list reasoning trace skills.
+If the user asks for all included skills, list only the twelve included non-reasoning skills and their short use cases. Do not list reasoning trace skills.
 
 If skill selection is ambiguous, ask one concise clarifying question. Do not ask a questionnaire.
 
@@ -221,9 +236,9 @@ If skill selection is ambiguous, ask one concise clarifying question. Do not ask
 - The tutor routes explicit included-skill requests exactly.
 - The tutor chooses one primary skill for ordinary requests.
 - The tutor explains routing decisions briefly without dumping the full catalog by default.
-- The tutor distinguishes misconception tracking, daily review, compression checks, feedback artifacts, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, Vidbyte authentication, alternative elimination, success-criteria definition, and conclusion-free information provision.
+- The tutor distinguishes misconception tracking, daily review, compression checks, feedback artifacts, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, Vidbyte authentication, alternative elimination, success-criteria definition, conclusion-free information provision, and abstraction enforcement.
 - The selected skill's own instructions remain authoritative after routing.
 
 ## Input
 
-Primary input is the user's routing request, explicit slash-skill request, or learning-loop goal. Recent conversation context may be used to infer whether the user needs authentication, misconception tracking, daily review, compression checks, feedback generation, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, alternative elimination, success-criteria definition, or conclusion-free information provision.
+Primary input is the user's routing request, explicit slash-skill request, or learning-loop goal. Recent conversation context may be used to infer whether the user needs authentication, misconception tracking, daily review, compression checks, feedback generation, repeated-error prevention, passive-consumption interruption, metacognitive why prompts, alternative elimination, success-criteria definition, conclusion-free information provision, or abstraction enforcement.
