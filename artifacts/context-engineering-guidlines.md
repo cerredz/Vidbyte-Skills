@@ -26,6 +26,18 @@ The `intuition` section explains the deeper logic behind the prompt. It describe
 
 This section should clarify the conceptual pattern that makes the task work. It can explain the failure mode the prompt is trying to avoid, the leverage point it is trying to use, or the behavior it is trying to create. In the response, intuition should show up as coherent judgment when the situation is messy or incomplete. The answer should reflect the purpose behind the instructions, not just the literal wording of each step.
 
+## definition
+
+The `definition` section pins down a term, concept, or standard that could otherwise be interpreted in multiple plausible ways. It is useful when a prompt depends on words like depth, transfer, evidence, coverage, autonomy, quality, or success that sound clear but carry different meanings across domains. The intent is to prevent the model from silently choosing one interpretation and then building the rest of the response on that hidden choice. A definition section should state what the term means in this prompt and what it does not mean.
+
+This section should make the final response more stable by giving the model a shared reference point for judgment. It should be concrete enough to guide decisions, but not so narrow that it removes necessary flexibility. Use it for concepts that are open to interpretation, not for ordinary words whose meaning is already obvious in context. The user should notice fewer vague labels and more consistent application of the defined idea.
+
+## things to look for
+
+The `things to look for` section gives the model a scanning checklist of signals, patterns, or failure modes that should be noticed during the task. It is useful when the model needs to observe behavior over time, audit a prompt, review an artifact, or catch repeated blind spots that are easy to miss in a single pass. The intent is to turn vague awareness into explicit attention targets. Each item should describe a signal and explain why it matters.
+
+This section should make the response or artifact more observant and less generic. It should not become a loose list of advice; every item should point to something the model can actually detect in user input, work products, or session flow. For background skills, the list can guide what gets logged without interrupting the user. The user should notice that repeated patterns are captured more precisely and that feedback is tied to observable behavior.
+
 ## checklist
 
 The `checklist` section lists concrete actions or checks the model should remember while doing the work. It is different from success criteria because it focuses on execution steps rather than final stopping conditions. The intent is to keep important obligations visible so the model does not drop them while concentrating on the main answer. A checklist is useful for repeated tasks, common omissions, and quality controls that are easy to forget.
