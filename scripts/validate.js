@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const REPO_ROOT = path.resolve(path.join(path.dirname(fileURLToPath(import.meta.url)), ".."));
 const SKILLS_DIR = path.join(REPO_ROOT, "skills");
+const MANIFEST_PATH = path.join(REPO_ROOT, "skills-manifest.json");
 const VALID_SKILL_NAME = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 
 function main() {
@@ -28,12 +29,70 @@ function main() {
     }
   }
 
+  validateManifest(errors);
+
   if (errors.length > 0) {
     console.error(`Validation failed:\n${errors.map((error) => `- ${error}`).join("\n")}`);
     process.exit(1);
   }
 
   console.log("Validation passed.");
+}
+
+function validateManifest(errors) {
+  if (!fs.existsSync(MANIFEST_PATH)) {
+    errors.push("Missing skills-manifest.json at repo root.");
+    return;
+  }
+
+  let manifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
+  } catch {
+    errors.push("skills-manifest.json is not valid JSON.");
+    return;
+  }
+
+  const categories = ["learning", "reasoning"];
+  let allManifestSkills = [];
+
+  for (const category of categories) {
+    if (!Array.isArray(manifest[category])) {
+      errors.push(`skills-manifest.json is missing "${category}" array.`);
+      continue;
+    }
+    allManifestSkills.push(...manifest[category]);
+  }
+
+  const manifestSet = new Set(allManifestSkills);
+
+  const duplicate = allManifestSkills.filter((name, index) => allManifestSkills.indexOf(name) !== index);
+  if (duplicate.length > 0) {
+    errors.push(`skills-manifest.json has duplicate entries: ${[...new Set(duplicate)].join(", ")}.`);
+  }
+
+  if (!fs.existsSync(SKILLS_DIR)) {
+    return;
+  }
+
+  const skillDirs = fs.readdirSync(SKILLS_DIR, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .filter((entry) => !entry.name.startsWith("."))
+    .map((entry) => entry.name);
+
+  const dirSet = new Set(skillDirs);
+
+  for (const dir of skillDirs) {
+    if (!manifestSet.has(dir)) {
+      errors.push(`skills/${dir} is not listed in skills-manifest.json.`);
+    }
+  }
+
+  for (const name of manifestSet) {
+    if (!dirSet.has(name)) {
+      errors.push(`skills-manifest.json references "${name}" but no skills/${name} directory exists.`);
+    }
+  }
 }
 
 function validateSkill(directoryName, errors) {
