@@ -5,7 +5,9 @@
   "type": "module",
   "bin": {
     "vidbyte": "./bin/vidbyte.js",
-    "vidbyte-skills": "./bin/install.js"
+    "vidbyte-skills": "./bin/install.js",
+    "vidbyte-learning-skills": "./bin/learning.js",
+    "vidbyte-reasoning-skills": "./bin/reasoning.js"
   },
   "scripts": {
     "install-skills": "node ./bin/install.js",
@@ -18,6 +20,7 @@
     "lib",
     "scripts",
     "skills",
+    "skills-manifest.json",
     "README.md",
     "LICENSE"
   ],
