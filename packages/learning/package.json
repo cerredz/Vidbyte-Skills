@@ -1,0 +1,26 @@
+{
+  "name": "vidbyte-learning-skills",
+  "version": "0.1.0",
+  "description": "Install Vidbyte learning & retention skills across coding harnesses",
+  "type": "module",
+  "bin": {
+    "vidbyte-learning-skills": "./bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "skills/",
+    "skills-manifest.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cerredz/Vidbyte-Skills.git",
+    "directory": "packages/learning"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
