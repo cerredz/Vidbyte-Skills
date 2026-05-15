@@ -8,7 +8,7 @@ Note: the filename intentionally uses `guidlines` to match the requested artifac
 
 ## How To Use This Guide
 
-Use these sections as building blocks. A small prompt may only need `identity`, `goal`, and `success criteria`. A complex prompt may also need `intuition`, `algorithm`, `checklist`, `cross-domain examples`, `before / after examples`, `internal_monolog`, and `internal reasoning` so the model understands both the concept and the execution standard.
+Use these sections as building blocks. A small prompt may only need `identity`, `goal`, and `success criteria`. A complex prompt may also need `intuition`, `definition`, `algorithm`, `checklist`, `things to look for`, `cross-domain examples`, `before / after examples`, `internal_monolog`, `internal reasoning`, and `output style` so the model understands both the concept and the execution standard.
 
 Write each section for the task at hand. Avoid generic expert language that could apply to any domain. A useful section names the real task, the real constraints, the expected output, and the stopping conditions.
 
@@ -17,13 +17,16 @@ Recommended order:
 1. `identity`
 2. `goal`
 3. `intuition`
-4. `success criteria`
-5. `algorithm`
-6. `checklist`
-7. `cross-domain examples`
-8. `before / after examples`
-9. `internal_monolog`
-10. `internal reasoning`
+4. `definition`
+5. `success criteria`
+6. `algorithm`
+7. `checklist`
+8. `things to look for`
+9. `cross-domain examples`
+10. `before / after examples`
+11. `internal_monolog`
+12. `internal reasoning`
+13. `output style`
 
 ## Section Pattern
 
@@ -125,6 +128,28 @@ Write 1-2 paragraphs. Each paragraph should contain 6-8 sentences. The writing s
 This prompt is trying to [conceptual purpose], not merely [surface task]. The core idea is that [underlying logic]. The model should treat [important signal] as evidence of [deeper pattern]. The prompt prevents [failure mode] by forcing [useful behavior]. The sections work together by [relationship between identity, goal, criteria, and checklist]. When uncertain, the model should preserve [principle] rather than defaulting to [weak default].
 ```
 
+## definition
+
+### Description
+
+The `definition` section pins down a term, concept, or standard that could otherwise be interpreted in multiple plausible ways. It is useful when a prompt depends on words like depth, transfer, evidence, coverage, autonomy, quality, or success that sound clear but carry different meanings across domains. The intent is to prevent the model from silently choosing one interpretation and then building the rest of the response on that hidden choice. A definition section should state what the term means in this prompt and what it does not mean.
+
+### Intuition
+
+Models can silently adopt one interpretation of an ambiguous term and commit the entire response to that frame. When critical words are left undefined, the user may receive an answer that sounds correct but is built on a misalignment. A definition section creates a shared reference point for judgment, making the final response more stable by reducing interpretive drift. It also makes the prompt more reusable across users who may have different background assumptions about the same terms.
+
+### Output Style
+
+Write one paragraph per term being defined. Each paragraph should state what the term means for this task and what it does not mean. Be concrete enough to guide decisions, but not so narrow that it removes necessary flexibility. Use it for concepts that are genuinely open to interpretation, not for ordinary words whose meaning is already obvious in context.
+
+### Template
+
+```markdown
+## definition
+
+**[Term]:** In this task, [term] means [specific meaning]. It does not mean [common misinterpretation]. The model should apply this definition when deciding [decision point], checking [criterion], or evaluating [output quality].
+```
+
 ## algorithm
 
 ### Description
@@ -177,6 +202,29 @@ Use a bulleted list. Each bullet should start with a concrete verb when possible
 - Check [edge case or failure mode].
 - Compare the output against [quality standard].
 - Remove anything that does not help [goal].
+```
+
+## things to look for
+
+### Description
+
+The `things to look for` section gives the model a scanning checklist of signals, patterns, or failure modes that should be noticed during the task. It is useful when the model needs to observe behavior over time, audit a prompt, review an artifact, or catch repeated blind spots that are easy to miss in a single pass. The intent is to turn vague awareness into explicit attention targets. Each item should describe a signal and explain why it matters.
+
+### Intuition
+
+Models are good at processing what you ask them directly but can miss patterns that require sustained attention across a session. Explicit attention targets help the model notice drift, inconsistency, missing context, or repeated errors that would otherwise pass through. By naming specific signals and explaining their significance, the model becomes an observer of the process rather than just a responder to each message.
+
+### Output Style
+
+Use a bulleted list. Each bullet should name a specific signal or pattern and briefly state why it matters. Avoid loose lists of advice; every item should point to something the model can actually detect in user input, work products, or session flow. For background skills, the list can guide what gets logged without interrupting the user.
+
+### Template
+
+```markdown
+## things to look for
+
+- **[Signal or pattern]:** [Brief description of what to notice]. Why it matters: [explanation of the consequence].
+- **[Another signal]:** [Brief description]. Why it matters: [explanation of the consequence].
 ```
 
 ## cross-domain examples
@@ -293,6 +341,28 @@ Use bullets or a compact paragraph. Each instruction should describe a reasoning
 - Surface only the useful rationale, uncertainty, and decision points in the final answer.
 ```
 
+## output style
+
+### Description
+
+The `output style` section tells the model how the final response should look and feel when delivered to the user. It is about the shape, tone, density, organization, and presentation of the model's answer. Its purpose is to match the response to the task, audience, and use case instead of defaulting to a generic assistant format.
+
+### Intuition
+
+Without explicit output style guidance, models tend to converge on a generic assistant voice: polite, helpful, and medium-length. Different tasks demand different delivery: a code review needs precision, a strategy memo needs structure, a creative brief needs inspiration, and a terminal response needs conciseness. The output style section aligns the model's delivery with the real communication context.
+
+### Output Style
+
+Write one paragraph describing the desired response qualities: prose versus bullets, concise versus detailed, formal versus direct, explanatory versus artifact-focused. Avoid restating the goal. Focus only on how the final answer should be delivered.
+
+### Template
+
+```markdown
+## output style
+
+Respond in [format: bullets / prose / markdown sections]. Keep the response [concise / detailed]. Use [tone: direct / formal / conversational]. Prefer [delivery quality] over [lower-priority quality]. The response should feel like [target feel] rather than [avoided feel]. Do not include unnecessary preamble, self-description, or process narration unless the user explicitly asks.
+```
+
 ## Quality Bar
 
 A strong context-engineering prompt section is:
@@ -309,10 +379,13 @@ A strong context-engineering prompt section is:
 - `identity` defines who the model should be.
 - `goal` defines what the model is trying to accomplish.
 - `intuition` defines why the prompt is structured this way.
+- `definition` defines the specific meaning of key terms.
 - `success criteria` defines when the model can stop.
 - `algorithm` defines the ordered procedure the model follows.
 - `checklist` defines what the model should remember to do.
+- `things to look for` defines what signals, patterns, or failure modes the model should notice.
 - `cross-domain examples` defines how the same behavior looks across domains.
 - `before / after examples` defines what weak behavior looks like and what should replace it.
 - `internal_monolog` defines what the model should privately attend to.
 - `internal reasoning` defines how the model should privately test its work.
+- `output style` defines how the final response should be delivered to the user.
