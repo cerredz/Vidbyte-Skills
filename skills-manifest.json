@@ -48,6 +48,7 @@
     "assumption-ladder-trace-large",
     "assumption-ladder-trace-medium",
     "assumption-ladder-trace-small",
+    "autoreasoner",
     "backward-chaining-trace",
     "backward-chaining-trace-large",
     "backward-chaining-trace-medium",
