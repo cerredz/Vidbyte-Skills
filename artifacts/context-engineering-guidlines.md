@@ -24,9 +24,9 @@ This section should describe what must be true about the final answer, artifact,
 
 ## algorithm
 
-The `algorithm` section gives the model an ordered sequence of steps to follow during execution. It is the procedural core of the prompt: what to check first, what to do next, what branch to take when information is missing, and when to stop. The intent is to turn the prompt from a loose set of preferences into a repeatable procedure that handles normal cases, missing-context cases, and failure cases.
+The `algorithm` section gives the model an ordered sequence of steps to follow during execution. It is the procedural core of the prompt: what to check first, what to do next, what branch to take when information is missing, and when to stop. Without an algorithm, the model may start working before it has the right information, skip a validation step, or forget to stop when the work is done. The intent is to turn the prompt from a loose set of preferences into a repeatable procedure that handles normal cases, missing-context cases, and failure cases. An algorithm is most useful when the task has a natural dependency order, when missing information changes what should happen next, or when the work spans multiple tools or rounds of interaction. It turns a good prompt into a reliable one by making execution predictable.
 
-This section should use numbered steps with clear branch conditions. Each step should name an action and the condition that triggers the next step. Keep the steps literal enough that another prompt author could simulate the model's path through the task. In the response, the algorithm should produce consistent execution order and predictable branching. The user should notice that the model handles edge cases, missing information, and completion in a structured way rather than improvising.
+This section should use numbered steps with clear branch conditions. Each step should name an action and the condition that triggers the next step. Keep the steps literal enough that another prompt author could simulate the model's path through the task. An algorithm should cover the happy path, the missing-context path, and at least one failure path so the model never stalls or guesses. It works best when paired with a success criteria section that defines when the algorithm has reached completion. In the response, the algorithm should produce consistent execution order and predictable branching. The user should notice that the model handles edge cases, missing information, and completion in a structured way rather than improvising.
 
 ## intuition
 
@@ -76,11 +76,15 @@ The `context` section gives the model the background information it needs to ans
 
 This section should include only information that affects the answer materially. Avoid dumping irrelevant history or organizational trivia that the model does not need. The best context is specific, verifiable, and directly tied to a decision the model must make. In the response, good context should show up as decisions that fit the actual situation rather than generic best-practice answers. The model should reference the context only when it changes the recommendation.
 
+**Short example:** `Context: The CRM is Salesforce Enterprise Edition with 2,000 licensed users. The integration must use the REST API via a connected app with OAuth 2.0. The middleware is Node.js 20 on AWS Lambda. The sync must complete within 60 seconds of a contact being updated. The data volume is approximately 50,000 contacts and 5,000 accounts.`
+
 ## scope
 
 The `scope` section defines what the task covers and what it explicitly excludes. It prevents the model from expanding the work into adjacent areas that were not requested. The intent is to set a clear boundary so the model knows where its responsibility ends. This is especially important for open-ended tasks like reviews, audits, and investigations where the natural tendency is to keep going.
 
 This section should name the files, modules, features, domains, or topics that are in scope and those that are out of scope. It should be specific enough that the model can recognize when it is about to cross the boundary. In the response, scope should show up as focused work that stays within the defined limits. The model should pause and ask before expanding beyond the stated scope, even when the adjacent work seems related or valuable.
+
+**Short example:** `Scope: In scope — the payment processing module (src/payments/), specifically credit card validation, charge creation, and refund handling. Out of scope — the subscription billing UI, the invoice PDF generator, the webhook handlers from Stripe, and any changes to the database schema for the payments table.`
 
 ## constraints
 
@@ -88,11 +92,15 @@ The `constraints` section lists external limits the model must respect. These ca
 
 This section should name each constraint explicitly and explain why it exists when the reason is not obvious. A constraint like "no new dependencies" is clearer when accompanied by "because the security review process adds three weeks per dependency." In the response, constraints should show up as realistic answers that work within the real limits. The model should not argue against constraints or propose workarounds unless the user explicitly asks for alternatives.
 
+**Short example:** `Constraints: No new npm dependencies (security review adds 2 weeks per package). No database schema changes (migrations require DBA approval with a 5-day lead time). The public API must remain backward-compatible (three mobile app versions in the field depend on the current response shape). The solution must work within the existing Express.js server (no new services or infrastructure). Deadline is Friday end of day.`
+
 ## assumptions
 
 The `assumptions` section names what the model should take as given rather than questioning or verifying. It is the opposite of a things-to-look-for section: instead of telling the model what to check, it tells the model what to trust. The intent is to save time and focus by signaling which parts of the problem are settled and which parts are still open.
 
 This section should list each assumption clearly and state its scope. An assumption like "the database schema is stable" is stronger than "we're using Postgres" because it signals what the model should not question. In the response, assumptions should show up as confident forward progress on settled ground and appropriate caution on open ground. The model should still flag an assumption if it detects evidence that the assumption may be false for the specific situation at hand.
+
+**Short example:** `Assumptions: The PostgreSQL connection pool handles up to 50 concurrent connections safely. The Redis cache is available and has no TTL eviction issues under current load. The third-party payment API is stable and its v2 endpoint has been tested in staging. These assumptions were verified in the last quarter. If any assumption fails, the model should flag it before proceeding.`
 
 ## edge cases
 
@@ -100,17 +108,23 @@ The `edge cases` section lists specific unusual scenarios the model must handle 
 
 This section should name edge cases concretely rather than abstractly. "Handle empty input" is weaker than "handle an empty CSV file with headers but zero data rows" because the concrete version gives the model a specific scenario to imagine. In the response, edge cases should show up as robust handling and explicit acknowledgment of limits. The model should not claim completeness for an edge case it cannot verify with the available information.
 
+**Short example:** `Edge cases: An empty CSV file with headers but no data rows, a row where the email field contains a pipe character, a row where the date is in DD/MM/YYYY format instead of ISO, a row where the amount field contains a currency symbol, duplicate rows with identical transaction IDs, and a file where the column order differs from the expected schema. Each edge case must have a defined resolution: skip, transform, or reject with a specific error message.`
+
 ## tone
 
 The `tone` section defines the voice, density, vocabulary, and emotional posture the model should use in its response. It is about how the model communicates, not what it communicates. The intent is to match the response to the audience and situation: a support engineer needs a different tone than a strategy consultant, and a postmortem author needs a different tone than a marketing copywriter.
 
 This section should describe tone in observable terms rather than vague adjectives. "Professional" is too broad; "concise, direct, no cheerleading, every claim backed by evidence" is specific enough for the model to execute. In the response, tone should show up as the natural voice of the answer. The user should feel the right register without noticing that it was specified. The model should maintain the tone consistently throughout the entire response, not just in the opening paragraph.
 
+**Short example:** `Tone: Concise and direct — prefer short sentences with concrete nouns. No cheerleading phrases like "Great question!" or "I'd be happy to help with that." No hedging with phrases like "you might want to consider" when the prompt calls for a recommendation. Every claim about code behavior is backed by a line reference or a runnable command. The tone should feel like a senior colleague who values the reader's time.`
+
 ## iteration
 
 The `iteration` section defines how the model should handle rounds of revision, feedback, or progressive refinement. It sets expectations about how many rounds are acceptable, what kind of feedback to expect, and when to consider the work done even if it is not perfect. The intent is to prevent both premature finalization and infinite polishing. This section is especially useful for writing, design, code review, and planning tasks where the first pass is rarely the final answer.
 
 This section should specify the maximum number of revision rounds, the type of feedback the model should solicit, and the stopping condition for iteration. It should also define what the model should preserve across rounds and what should evolve. In the response, iteration should show up as progressive refinement without loss of earlier gains. The model should track what changed between rounds so the user can see the evolution.
+
+**Short example:** `Iteration: Maximum two rounds. After the first draft, ask the user to confirm three specific dimensions: (1) does the structure match their mental model, (2) are the recommended actions specific enough to execute, and (3) is anything important missing. Incorporate the user's answers into one revision. After that revision, assume the document is final unless the user explicitly requests another pass.`
 
 ## cross-domain examples
 
