@@ -30,6 +30,7 @@ function main() {
   }
 
   validateManifest(errors);
+  validateVersionManifest(errors);
 
   if (errors.length > 0) {
     console.error(`Validation failed:\n${errors.map((error) => `- ${error}`).join("\n")}`);
@@ -163,6 +164,41 @@ function readFrontmatterValue(frontmatter, key) {
 
 function cleanYamlScalar(value) {
   return value.trim().replace(/^['"]|['"]$/g, "");
+}
+
+function validateVersionManifest(errors) {
+  const manifestPath = path.join(REPO_ROOT, "lib", "skill-versions.json");
+  if (!fs.existsSync(manifestPath)) {
+    errors.push("Missing lib/skill-versions.json.");
+    return;
+  }
+
+  let manifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  } catch (error) {
+    errors.push(`lib/skill-versions.json: invalid JSON — ${error.message}`);
+    return;
+  }
+
+  for (const [version, skillNames] of Object.entries(manifest)) {
+    if (!/^\d+$/.test(version)) {
+      errors.push(`lib/skill-versions.json: version key "${version}" must be a numeric string.`);
+    }
+    if (!Array.isArray(skillNames)) {
+      errors.push(`lib/skill-versions.json: version ${version} value must be an array.`);
+      continue;
+    }
+    for (const name of skillNames) {
+      if (!VALID_SKILL_NAME.test(name)) {
+        errors.push(`lib/skill-versions.json: version ${version} references "${name}" which is not a valid skill name.`);
+      }
+      const skillFile = path.join(SKILLS_DIR, name, "SKILL.md");
+      if (!fs.existsSync(skillFile)) {
+        errors.push(`lib/skill-versions.json: version ${version} references "${name}" but skills/${name}/SKILL.md does not exist.`);
+      }
+    }
+  }
 }
 
 function relative(file) {
