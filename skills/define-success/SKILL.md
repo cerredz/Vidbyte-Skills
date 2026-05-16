@@ -239,6 +239,156 @@ User: `/define-success improve onboarding`
 
 Model asks for user action criteria, metric targets, baseline comparison, and edge-case coverage. A passing response might require first-action completion to increase from 34% to 50% in the next cohort, three-screen maximum, and screenshots for mobile and desktop review.
 
+### Example 6 - API Migration
+
+User: `/define-success migrate the billing API to v2`
+
+Model asks for backward compatibility, migration completeness, verification commands, and rollback criteria. A passing response names the endpoints that must keep working, the client versions that must be supported, the test suite or contract checks to run, and the condition under which v1 can be removed.
+
+### Example 7 - Database Indexing
+
+User: `/define-success speed up the customer search query`
+
+Model asks for metric targets, baseline comparison, regression guards, and verification method. A passing response names the current p95 latency, the target p95 latency, the dataset size used for measurement, and the exact query plan or benchmark command that must pass.
+
+### Example 8 - Security Review
+
+User: `/define-success review this auth flow for security issues`
+
+Model asks for threat-scope boundaries, evidence standards, severity definitions, and traceability criteria. A passing response requires every finding to include file and line references, exploit preconditions, impact, severity, and a remediation path, while explicitly excluding unrelated style review.
+
+### Example 9 - Accessibility Audit
+
+User: `/define-success audit this settings page for accessibility`
+
+Model asks for source standard, checklist completion, edge-case coverage, and artifact delivery. A passing response requires WCAG 2.2 AA checks for keyboard navigation, focus order, accessible names, color contrast, and screen-reader labels, with each failure tied to a visible element.
+
+### Example 10 - Incident Postmortem
+
+User: `/define-success write a postmortem for yesterday's outage`
+
+Model asks for timeline completeness, evidence threshold, action-item ownership, and exclusion criteria. A passing response requires timestamps in UTC, confirmed facts separated from hypotheses, at least one contributing factor, owner and due date for every action item, and no blame language.
+
+### Example 11 - Prompt Rewrite
+
+User: `/define-success improve this customer-support prompt`
+
+Model asks for before/after demonstration, behavior change, example-first standard, and regression guard. A passing response requires the revised prompt to handle three named support scenarios, avoid promising unavailable refunds, preserve the brand tone, and include one sample response for each scenario.
+
+### Example 12 - Data Cleanup
+
+User: `/define-success clean this CSV`
+
+Model asks for artifact delivery, error condition removal, transformation rules, and verification method. A passing response names the columns to normalize, the duplicate definition, the invalid-row handling rule, and the expected row count or validation command after cleanup.
+
+### Example 13 - Legal Memo
+
+User: `/define-success draft a legal research memo`
+
+Model asks for jurisdiction, source standard, issue coverage, and reviewability criteria. A passing response requires controlling authority first, persuasive authority clearly labeled, open questions separated from conclusions, and citations for every rule statement.
+
+### Example 14 - Financial Model
+
+User: `/define-success build a cash runway model`
+
+Model asks for output shape, assumptions, sensitivity analysis, and decision support criteria. A passing response requires a monthly runway table, explicit burn assumptions, three revenue scenarios, a break-even date when applicable, and a list of inputs the user can change.
+
+### Example 15 - Hiring Rubric
+
+User: `/define-success create an interview rubric for senior engineers`
+
+Model asks for audience fit, evaluation dimensions, scoring anchors, and bias controls. A passing response requires at least five competencies, a 1-5 scoring scale with behavioral anchors, evidence fields for interviewers, and excluded criteria that should not affect evaluation.
+
+### Example 16 - Training Plan
+
+User: `/define-success create a study plan for calculus`
+
+Model asks for learner baseline, completeness boundary, user action criteria, and iteration limit. A passing response requires diagnostic coverage of prerequisite algebra, weekly topics, practice problem counts, spaced review, and a checkpoint quiz threshold before advancing.
+
+### Example 17 - Documentation Refresh
+
+User: `/define-success update the setup docs`
+
+Model asks for user action criteria, verification command, scope boundary, and before/after demonstration. A passing response requires a new developer to install dependencies, set environment variables, run tests, and start the app using only the README, with commands tested in a clean checkout.
+
+### Example 18 - UI Redesign
+
+User: `/define-success redesign the dashboard`
+
+Model asks for user workflows, visual constraints, responsive coverage, and review artifacts. A passing response requires the top three workflows to be visible without scrolling on desktop, mobile layouts for 390px width, no loss of existing filters, and screenshots for review.
+
+### Example 19 - Research Summary
+
+User: `/define-success summarize the evidence on sleep and memory`
+
+Model asks for source standard, threshold of evidence, contradiction handling, and audience fit. A passing response requires at least three peer-reviewed studies, distinction between correlation and causation, limitations named explicitly, and plain-language explanations for a non-specialist.
+
+### Example 20 - Sales Email
+
+User: `/define-success write an outbound sales email`
+
+Model asks for output shape, audience fit, exclusion criteria, and reviewability. A passing response requires one subject line, one email under 120 words, a concrete customer pain point, a single call to action, and no unsupported ROI claims.
+
+### Example 21 - Policy Draft
+
+User: `/define-success write an internal AI-use policy`
+
+Model asks for scope boundary, risk tolerance, reviewability, and enforcement criteria. A passing response requires covered use cases, prohibited data types, approval paths for high-risk use, audit responsibilities, and examples of acceptable and unacceptable use.
+
+### Example 22 - Medical Patient Education
+
+User: `/define-success explain this medication to a patient`
+
+Model asks for audience fit, source standard, safety constraints, and output shape. A passing response requires plain-language purpose, dosing instructions from the provided prescription, common side effects, red-flag symptoms that require contacting a clinician, and no diagnosis beyond the supplied context.
+
+### Example 23 - Architecture Decision Record
+
+User: `/define-success write an ADR for choosing Postgres`
+
+Model asks for decision support, alternatives considered, traceability, and reviewability. A passing response requires context, decision, at least two rejected alternatives with reasons, consequences, owner, date, and links or references to relevant constraints.
+
+### Example 24 - Test Plan
+
+User: `/define-success create a test plan for checkout`
+
+Model asks for completeness boundary, edge-case coverage, acceptance tests, and regression guards. A passing response requires happy path, payment failure, inventory failure, tax calculation, coupon handling, guest checkout, logged-in checkout, and one verification method per case.
+
+### Example 25 - Performance Budget
+
+User: `/define-success set a performance budget for the landing page`
+
+Model asks for metric targets, measurement method, device profile, and stop condition. A passing response requires LCP, CLS, INP, JS bundle size, test device/network profile, and the Lighthouse or WebPageTest command used to evaluate the budget.
+
+### Example 26 - Content Strategy
+
+User: `/define-success create a content strategy for the blog`
+
+Model asks for audience fit, output shape, decision support, and metric targets. A passing response requires three audience segments, five topic pillars, publishing cadence, success metrics for 90 days, and examples of topics that should be excluded.
+
+### Example 27 - Ops Runbook
+
+User: `/define-success write a runbook for failed imports`
+
+Model asks for user action criteria, escalation rules, verification steps, and rollback criteria. A passing response requires detection signals, triage steps, commands to inspect failed jobs, retry conditions, escalation owner, and confirmation that data was not duplicated.
+
+### Example 28 - Literature Review
+
+User: `/define-success review the literature on retrieval practice`
+
+Model asks for source standard, completeness boundary, contradiction handling, and traceability. A passing response requires at least eight sources, separation of meta-analyses from individual studies, claims mapped to citations, and unresolved debates listed separately.
+
+### Example 29 - Personal Workflow
+
+User: `/define-success help me design a weekly planning system`
+
+Model asks for user action criteria, minimum viable outcome, iteration limit, and failure-mode inventory. A passing response requires a 30-minute weekly routine, a daily check under five minutes, a definition of what gets planned, and a two-week trial criterion.
+
+### Example 30 - Release Checklist
+
+User: `/define-success prepare this feature for release`
+
+Model asks for checklist completion, rollback plan, regression guard, and artifact delivery. A passing response requires tests passing, feature flag state documented, monitoring dashboard link, rollback owner, customer-facing changelog text, and a go/no-go decision record.
+
 ## Success Criteria
 
 - The skill asks for success criteria in a free-form shape, not a mandatory four-field template.
