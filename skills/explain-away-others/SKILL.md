@@ -363,6 +363,246 @@ Each explanation must be specific to this story's structure, the information you
 Generic dismissals will be sent back.
 ```
 
+### Example 6: Education
+
+Teacher: `/ruled-out I should teach this unit through lectures`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Retrieval practice** - frequent low-stakes recall tasks would force students to reconstruct the material rather than recognize it passively
+2. **Worked examples with fading support** - step-by-step examples would show the reasoning process before gradually transferring work to students
+3. **Peer instruction** - structured student explanations would expose misconceptions that a lecture may leave hidden
+
+Each explanation must be specific to these students, the unit goals, and the assessment constraints.
+Generic dismissals will be sent back.
+```
+
+### Example 7: Product Analytics
+
+Product manager: `/ruled-out we should measure onboarding success with activation rate`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Time-to-first-value** - measures how quickly a new user reaches the first meaningful outcome rather than whether they touched a selected feature
+2. **Cohort retention** - measures whether onboarding produces durable behavior after the first session
+3. **Task completion funnel** - shows where users drop during the setup sequence instead of collapsing the flow into one aggregate number
+
+Each explanation must be specific to this product's onboarding flow, user segments, and business objective.
+Generic dismissals will be sent back.
+```
+
+### Example 8: DevOps
+
+Engineer: `/ruled-out we should deploy this service on Kubernetes`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Managed PaaS** - would provide deployment, scaling, logging, and rollback without requiring cluster operations
+2. **Serverless functions** - would remove server management for event-driven workloads and scale to zero during idle periods
+3. **Single VM or container host** - would reduce operational complexity if the service has simple scaling and availability requirements
+
+Each explanation must be specific to your workload shape, reliability targets, team operations capacity, and cost constraints.
+Generic dismissals will be sent back.
+```
+
+### Example 9: Data Science
+
+Analyst: `/ruled-out we should use a random forest model`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Regularized logistic regression** - provides interpretable coefficients and may perform well when the signal is mostly linear
+2. **Gradient boosted trees** - often improve tabular predictive performance through sequential error correction
+3. **Rule-based scoring** - may satisfy the business need if transparency and stability matter more than marginal accuracy
+
+Each explanation must be specific to the dataset size, feature types, interpretability requirements, and deployment constraints.
+Generic dismissals will be sent back.
+```
+
+### Example 10: Healthcare Operations
+
+Clinic administrator: `/ruled-out we should add another physician to reduce wait times`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Schedule redesign** - changing appointment lengths, buffers, and same-day slots may reduce bottlenecks without adding headcount
+2. **Triage protocol changes** - routing simple visits to nurses or physician assistants may free physician capacity for complex cases
+3. **Patient intake automation** - collecting history and forms before arrival may reduce rooming delays and idle exam-room time
+
+Each explanation must be specific to the clinic's demand pattern, staffing mix, visit types, and wait-time data.
+Generic dismissals will be sent back.
+```
+
+### Example 11: Contract Drafting
+
+Attorney: `/ruled-out we should add a broad non-compete clause`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Narrow non-solicitation clause** - may protect customer and employee relationships while facing fewer enforceability problems
+2. **Confidentiality and trade-secret provisions** - target misuse of sensitive information without restricting post-employment work broadly
+3. **Garden leave or paid restriction period** - may make a restrictive covenant more defensible by compensating the affected employee
+
+Each explanation must be specific to the jurisdiction, role, protected business interest, and enforcement risk.
+Generic dismissals will be sent back.
+```
+
+### Example 12: Customer Support
+
+Support lead: `/ruled-out we should hire more support agents`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Self-serve documentation improvements** - could reduce repeated tickets by answering common questions before users contact support
+2. **Ticket triage automation** - could route or resolve predictable cases without increasing staffing linearly
+3. **Product fixes for top contact drivers** - could remove the underlying issues that generate the highest-volume support requests
+
+Each explanation must be specific to ticket volume, issue categories, response-time targets, and product ownership constraints.
+Generic dismissals will be sent back.
+```
+
+### Example 13: Marketing
+
+Marketing lead: `/ruled-out we should spend the next quarter on paid ads`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **SEO and content compounding** - may build durable acquisition if search intent exists and the buying cycle is research-heavy
+2. **Partner channels** - may reach qualified buyers through trusted distribution that paid ads cannot efficiently target
+3. **Lifecycle email** - may convert existing leads or users at lower marginal cost than buying new traffic
+
+Each explanation must be specific to your audience, CAC target, sales cycle, budget, and time horizon.
+Generic dismissals will be sent back.
+```
+
+### Example 14: Research Methods
+
+Researcher: `/ruled-out we should run a survey`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Semi-structured interviews** - would reveal mechanisms and language behind responses that fixed survey options may miss
+2. **Behavioral data analysis** - would show what users actually do rather than what they self-report
+3. **Controlled experiment** - would test causal impact if the research question is about whether an intervention changes behavior
+
+Each explanation must be specific to the research question, sample access, evidence standard, and decision the study must support.
+Generic dismissals will be sent back.
+```
+
+### Example 15: Personal Productivity
+
+User: `/ruled-out I should create a stricter daily schedule`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Environment design** - removing friction and cues may change behavior without relying on minute-by-minute discipline
+2. **Task reduction** - cutting low-value commitments may address overload more directly than scheduling the same workload tighter
+3. **Accountability system** - external check-ins may handle follow-through better than a private schedule if the failure is adherence
+
+Each explanation must be specific to your actual failure pattern, energy constraints, obligations, and reason previous systems did not stick.
+Generic dismissals will be sent back.
+```
+
+### Example 16: Architecture And Construction
+
+Architect: `/ruled-out we should build a new facility`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Retrofit of the existing facility** - may satisfy space and workflow needs while preserving sunk infrastructure and permitting history
+2. **Adaptive reuse of another building** - may reduce schedule and cost if an existing structure matches the required footprint
+3. **Phased renovation** - may let operations continue while addressing the highest-value constraints first
+
+Each explanation must be specific to the site, budget, timeline, code requirements, and operational disruption tolerance.
+Generic dismissals will be sent back.
+```
+
+### Example 17: Manufacturing
+
+Operations manager: `/ruled-out we should automate this production step`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Process redesign** - may remove unnecessary handoffs or rework before investing in equipment
+2. **Quality control changes** - may reduce downstream defects if the bottleneck is caused by inconsistent inputs
+3. **Supplier specification changes** - may eliminate variation entering the line before it reaches the production step
+
+Each explanation must be specific to cycle time, defect data, labor cost, equipment cost, and bottleneck location.
+Generic dismissals will be sent back.
+```
+
+### Example 18: Public Policy
+
+Policy analyst: `/ruled-out the city should ban short-term rentals`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Licensing and caps** - could reduce housing-market pressure while preserving limited tourism or owner-occupied use cases
+2. **Tax and fee incentives** - could shift owner behavior by changing the economics without a full prohibition
+3. **Targeted enforcement of nuisance rules** - could address noise, safety, and neighborhood disruption without restricting all rentals
+
+Each explanation must be specific to the city's housing data, enforcement capacity, legal authority, and policy objective.
+Generic dismissals will be sent back.
+```
+
+### Example 19: Nonprofit Strategy
+
+Executive director: `/ruled-out we should expand direct services`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Advocacy and policy work** - may change the conditions creating demand for services at a larger scale
+2. **Partner capacity building** - may multiply impact by helping existing local organizations serve more people
+3. **Targeted grantmaking** - may support specialized providers without requiring your organization to operate every program directly
+
+Each explanation must be specific to the beneficiary need, funding restrictions, organizational strengths, and impact measurement standard.
+Generic dismissals will be sent back.
+```
+
+### Example 20: Climate Planning
+
+Sustainability lead: `/ruled-out we should buy carbon offsets`
+
+Model response:
+```
+Before proceeding, explain why you are not using:
+
+1. **Direct emissions reduction** - removes emissions from your own operations instead of compensating through external projects
+2. **Electrification** - may permanently reduce fossil-fuel dependence in buildings, fleets, or industrial processes
+3. **Demand reduction** - may lower energy or travel needs before compensating for remaining emissions
+
+Each explanation must be specific to your emissions inventory, reduction targets, capital budget, timeline, and offset quality standard.
+Generic dismissals will be sent back.
+```
+
 ## Success Criteria
 
 - The user's approach is clearly identified before alternatives are generated.
