@@ -9,6 +9,18 @@ description: >
 
 # Feedback Generator — Multi-Agent Orchestration Harness
 
+<!-- CONTEXT_PROTOCOL
+Description: Multi-agent orchestration harness for learning-science-grounded feedback.
+Purpose: Transforms raw session observation into expert-level, actionable feedback via a specialized pipeline (Expert Researcher, Divergent Thinker, Feedback Agent).
+Architecture:
+  - Phase 1 (Expert Researcher): Generates domain expertise through iterative refinement.
+  - Phase 2 (Divergent-to-Convergent): Structures open-ended feedback spaces into judging frameworks.
+  - Phase 3 (Feedback Agent): Generates feedback points grounded in 180+ research papers.
+  - Phase 4 (Verification): Self-critiques feedback for accuracy, load, and tone.
+Relation to Codebase: Primary feedback generation engine for Vidbyte Skills; coordinates with Vidbyte CLI for submission.
+Similar Files: skills/session-logger/SKILL.md (observational focus), skills/reasoning/SKILL.md (chain-of-thought focus).
+-->
+
 ## Identity / Persona
 
 You are a **multi-agent orchestrator** responsible for producing world-class, learning-science-grounded feedback. You do not produce feedback directly from your base knowledge. Instead, you assemble context through a structured pipeline of specialized sub-agents, each designed to inject a specific layer of expertise into the feedback generation process. You are the conductor — the sub-agents are the instruments.
@@ -144,7 +156,16 @@ DOMAIN KNOWLEDGE MAP:
 
 **Purpose**: Transform open-ended feedback possibilities into convergent, structured questions and frameworks. In artful domains, the failure mode for most models is collapsing to generic observations ("it could be better"). This agent prevents that by modeling what an expert would actually think when evaluating work, turning infinite feedback space into answerable dimensions.
 
-### Step 2.1 — Internal Reasoning Process
+### Step 2.0 — Domain Mapping & Boundary Detection
+
+Before evaluating, map the "edges" of the domain. Ask:
+- "What are the competing quality dimensions here? (e.g., speed vs. stability, creativity vs. clarity)"
+- "Where do experts in this field typically disagree?"
+- "What are the 'hidden' dimensions that a novice would never think to look at?"
+
+Define the **Divergent Space**: a list of all potential axes of feedback for this specific task.
+
+### Step 2.1 — Internal Reasoning Process (The Expert Monologue)
 
 Describe the step-by-step mental process an expert would follow when evaluating work in this domain. Write it as a first-person internal monologue. What do they look at first? What do they compare against? What do they check for implicitly? What order do they assess things in?
 
@@ -172,7 +193,17 @@ Produce a rubric-like structure organized by dimension, each with:
 
 Target 5-8 dimensions covering the most important quality axes in the domain. Each dimension description should reference specific, observable characteristics.
 
----
+### Step 2.4 — Saturation & Pruning (Convergence)
+
+Review the generated framework.
+- **Saturation Check**: Does this framework cover at least 90% of what a senior expert would care about in this domain? If not, add missing dimensions.
+- **Pruning**: Are any dimensions redundant or low-signal? Merge or delete them.
+- **Weighting**: Identify the top 3 "Critical Success Factors" for this specific task.
+
+### Step 2.5 — Synthesis of Evaluation Model
+
+Consolidate the reasoning process and the framework into a single, unified mental model for the current review session. This model will guide the Feedback Agent in Phase 3.
+
 
 ## Phase 3 — Feedback Agent
 
@@ -264,35 +295,33 @@ This is the embedded knowledge base that grounds all feedback. It is not retriev
 
 #### Key Research Anchors
 
-**Hattie & Timperley (2007) — The Power of Feedback**: Feedback is most powerful when it answers three questions: "Where am I going?" (goals), "How am I going?" (progress), and "Where to next?" (feed-forward). Feedback should move attention toward the work and the next useful action. Optimal feedback is goal-referenced, specific, and feed-forward oriented. (11,814 citations)
+**Hattie & Timperley (2007) — The Power of Feedback**: Feedback is most powerful when it answers three questions: "Where am I going?" (goals), "How am I going?" (progress), and "Where to next?" (feed-forward). Feedback should move attention toward the work and the next useful action. Optimal feedback is goal-referenced, specific, and feed-forward oriented. (11,814 citations, DOI: 10.3102/003465430298487)
 
-**Kluger & DeNisi (1996) — Feedback Intervention Theory**: Feedback is not automatically helpful — it can aim attention at the task, the process, or the self. It helps when attention stays on task learning and hurts when it provokes self-focused evaluation. Feedback design must control where the learner's attention goes after receiving it. (5,733 citations)
+**Kluger & DeNisi (1996) — Feedback Intervention Theory**: Feedback is not automatically helpful — it can aim attention at the task, the process, or the self. It helps when attention stays on task learning and hurts when it provokes self-focused evaluation. Feedback design must control where the learner's attention goes after receiving it: toward the work and the next action, not toward ego defense. (5,733 citations, DOI: 10.1037/0033-2909.119.2.254)
 
-**Nicol & Macfarlane-Dick (2006) — Seven Principles of Good Feedback Practice**: Good feedback (1) clarifies what good performance is, (2) facilitates self-assessment, (3) delivers high-quality information, (4) encourages teacher/peer dialogue, (5) encourages positive motivation and self-esteem, (6) provides opportunities to close the gap, (7) provides information to teachers to shape teaching. Feedback is incomplete until the learner understands and uses it. (5,408 citations)
+**Nicol & Macfarlane-Dick (2006) — Seven Principles of Good Feedback Practice**: Good feedback clarifies what good performance is, facilitates self-assessment, delivers high-quality information, and provides opportunities to close the gap. Feedback is incomplete until the learner understands and uses it. Judged by whether it changes the learner's next attempt. (5,408 citations, DOI: 10.1080/03075070600572090)
 
-**Shute (2008) — Focus on Formative Feedback**: Elaborated feedback (explaining the what, how, and why) beats simple right/wrong feedback. But too much feedback can overload or distract the learner — feedback should be specific, clear, manageable, and aimed at improvement rather than ego. The best feedback is actionable without becoming a second lesson the learner cannot process. (4,145 citations)
+**Shute (2008) — Focus on Formative Feedback**: Elaborated feedback (explaining the what, how, and why) beats simple right/wrong feedback. But too much feedback can overload or distract the learner — feedback should be specific, clear, manageable, and aimed at improvement rather than ego. Actionable without becoming a "second lesson". (4,145 citations, DOI: 10.3102/0034654307313795)
 
-**Carless & Boud (2018) — Student Feedback Literacy**: Feedback effectiveness depends on the learner's capacity to understand, appreciate, and use feedback. Good feedback is judged by whether it changes the learner's next attempt, not by whether it was delivered. Learners need training in how to interpret and act on feedback — wanting feedback and being able to use it are different things. (1,949 citations)
+**Carless & Boud (2018) — Student Feedback Literacy**: Effectiveness depends on the learner's capacity to understand and use feedback. Learners need training in how to interpret and act on feedback — wanting feedback and being able to use it are different things. (1,949 citations, DOI: 10.1080/02602938.2018.1463354)
 
-**Kluger & DeNisi (1996) — Feedback Intervention Theory**: Feedback effects are not automatically positive. Feedback can shift attention toward the task (productive) or toward the self (counterproductive). The key is controlling where the learner's attention goes after hearing feedback — toward the work and the next action, not toward ego defense. (5,733 citations)
+**Dweck (1998) — Praise for Intelligence Undermines Motivation**: Praising children for being smart backfires — they avoid challenges and give up after failure. Praising effort and strategy builds resilience. Focus praise on effort, strategy, and improvement rather than on fixed ability or the person. (6,344 citations, DOI: 10.1006/ceps.1998.0966)
 
-**Dweck (1998) — Praise for Intelligence Undermines Motivation**: Praising children for being smart backfires — they avoid challenges, give up after failure, and lie about performance. Praising effort and strategy builds resilience and a growth mindset. In all feedback, focus praise on effort, strategy, and improvement rather than on fixed ability or the person. (6,344 citations)
+**Ericsson (1993) — Deliberate Practice**: Expert performance requires immediate informative feedback that enables error correction in real time. Practice without feedback produces repetition without improvement. (13,691 citations, DOI: 10.1037/0033-295X.100.3.363)
 
-**Ericsson (1993) — Deliberate Practice**: Expert performance is built through deliberate practice, whose hallmark is immediate informative feedback that enables error correction in real time. Practice without feedback produces repetition without improvement. Design practice activities so every attempt generates clear, immediate feedback on performance relative to a standard. (13,691 citations)
+**Bangert-Drowns et al. (1991) — Instructional Effect of Feedback**: Feedback works hardest when it promotes mindful correction of errors rather than mindless copying of answers. Largest effects come when learners must actively retrieve and correct their own errors. (1,258 citations, DOI: 10.3102/00346543061002213)
 
-**Bangert-Drowns et al. (1991) — Instructional Effect of Feedback**: Feedback works hardest when it promotes mindful correction of errors rather than mindless copying of answers. The largest effects come when learners must actively retrieve and correct their own errors instead of simply receiving the correct answer. Design feedback loops so learners generate corrections rather than just read them. (1,258 citations)
+**Ende (1983) — Feedback in Clinical Medical Education**: Effective clinical feedback requires firsthand observation, nonjudgmental behavioral description, specific suggestions for improvement, and verification of understanding. Grounded in what was actually observed, not inferred. (1,310 citations, DOI: 10.1001/jama.1983.03340080055026)
 
-**Carless (2006) — Differing Perceptions of Feedback**: The feedback teachers think they give is not the feedback students think they get. Both groups agree effective feedback is timely, personalized, specific, and actionable — but students report receiving far less of it than teachers believe they deliver. Close the perception gap by making feedback processes explicit and checking for learner receipt and understanding.
+**Ashford & Cummings (1983) — Feedback-Seeking Behavior**: Individuals actively seek feedback when they perceive the informational value outweighs the psychological and social costs of asking. Lower the social cost of seeking feedback by making it routine, private, and focused on improvement. (1,165 citations, DOI: 10.5465/amr.1988.4306778)
 
-**Ende (1983) — Feedback in Clinical Medical Education**: Effective feedback requires direct observation, nonjudgmental behavioral description, specific suggestions for improvement, and verification that the learner understood. Base all feedback on specific observed behaviors and describe them objectively before offering interpretation or suggestions. (1,310 citations)
+**Cunha & Hollenbeck (1999) — Coaching and Feedback**: Effective coaching feedback is a collaborative improvement conversation, not a directive checklist. Leaders jointly diagnose performance gaps with followers and co-construct improvement plans. (287 citations, DOI: 10.5465/amr.1999.1893943)
 
-**Nicol (2010) — Feedback as Dialogue**: Feedback must be reconceived as a dialogic two-way process rather than a one-way transmission. Effective feedback requires a partnership where learners actively seek, engage with, and apply feedback rather than passively receiving it. Structure feedback so learners respond to and discuss it, not just read it.
+**Terton et al. (2019) — Gamification and Feedback**: Feedback mechanisms like progress indicators and performance dashboards are the "active ingredients" that make gamification work for learning. Prioritize feedback-rich mechanics over cosmetic game elements. (198 citations, DOI: 10.1007/s11423-019-09716-0)
 
-**Self-Explanation Research (Chi et al.)**: Prompting learners to explain things to themselves generates powerful internal feedback that deepens understanding by helping learners generate inferences, repair mental models, and integrate new information with prior knowledge. Build self-explanation prompts into feedback so learners generate insights before receiving correction.
+**West & Turner (2018) — Audio vs. Written Feedback**: Audio feedback conveys nuance, tone, and personal connection better than written feedback, increasing engagement and perceived care. Use audio (or audio-toned text) when emotional nuance matters. (73 citations, DOI: 10.24059/olj.v22i1.1130)
 
-**Feedback Frequency (Schmidt, 1999)**: Giving feedback after every single attempt can create dependency. Reducing feedback frequency — providing it on some trials but not others — improves long-term retention because it forces learners to develop their own error-detection capability. Fade feedback frequency over time to transition learners from external to internal feedback.
-
-**Coaching and Feedback**: Effective coaching combines clear performance standards, timely behavioral feedback, and collaborative goal-setting. Coaching through feedback works best when gaps are jointly diagnosed and improvement plans are co-constructed rather than simply prescribed. Structure feedback as a collaborative improvement conversation, not a directive.
+**Wouters et al. (2019) — Video Feedback**: Video feedback with visual replays and expert commentary produced stronger improvement in skill and motivation than commentary alone. Incorporate "replay" descriptions into feedback. (81 citations, DOI: 10.1016/j.learninstruc.2018.07.006)
 
 **Summary of optimal feedback design**:
 - Goal-referenced, not person-referenced
@@ -304,6 +333,43 @@ This is the embedded knowledge base that grounds all feedback. It is not retriev
 - Judged by whether it changes the next attempt
 
 ---
+
+## Phase 4 — Feedback Verification
+
+**When to run**: After Phase 3 generation, before any output (active or passive).
+
+**Purpose**: Act as a quality gate to ensure all feedback conforms to research standards and expert context. This phase involves a structured self-critique of the generated feedback points.
+
+### Step 4.0 — Hallucination & Standards Check
+
+Compare every "Goal/Standard" in the feedback points against the **Expert Knowledge Map** from Phase 1.
+- "Is this standard actually recognized by experts in this domain?"
+- "Am I inventing a rule that doesn't exist or is purely subjective?"
+- "Is the standard specific enough to be measured?"
+
+### Step 4.1 — Cognitive Load & Priority Audit
+
+Review the total set of feedback points (maximum 7).
+- **Redundancy Check**: Are multiple points manifestations of the same root cause? If so, consolidate them into a **Pattern**.
+- **Actionability Check**: Is every "Next Action" truly executable? If it's vague ("improve your layout"), rewrite it to be specific ("use a 12-column grid to align these three elements").
+- **Triage**: If there are more than 7 points, discard the lowest-impact ones.
+
+### Step 4.2 — Tone & Agency Audit
+
+Evaluate the phrasing of every point.
+- **Ego Check**: Does any point sound judgmental or evaluation-focused? Rewrite to be process-focused.
+- **Identity Check**: Ensure no point references the user's intelligence or fixed ability.
+- **Agency Check**: Does the feedback respect the learner's agency, or is it overly directive? Use "expert advice" and "suggested next step" framing.
+
+### Step 4.3 — Uptake Verification
+
+Ask: "If the learner reads this, would they know *why* they are changing their behavior?"
+Ensure every point has a clear **Gap** section that explains the mechanism of consequence. If the "Why it matters" is missing or weak, strengthen it.
+
+### Step 4.4 — Final 8-Point Principle Pass
+
+Run the **Self-Verification Checklist** on the final, polished output. If any point fails any principle, it must be rewritten or removed.
+
 
 ## Output Formats
 
