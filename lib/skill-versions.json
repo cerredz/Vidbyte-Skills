@@ -1,5 +1,17 @@
 {
+  "_context_protocol": {
+    "description": "Index mapping CLI version tiers to active, validated agentic skills.",
+    "purpose": "Controls which skills are bundled, recommended, and tested for specific major versions of the Vidbyte CLI codebase.",
+    "architecture": "A JSON object mapping numeric version strings to arrays of skill directory names.",
+    "key_elements": [
+      "1, 2, 3 keys: arrays of certified skill names for the corresponding major CLI release version."
+    ],
+    "relation_to_codebase": "Read by `./scripts/validate.js` to ensure version consistency, and CLI installation commands to select version-compatible skills.",
+    "similar_files": [
+      "skills-manifest.json"
+    ]
+  },
   "1": ["anti-passive", "no-assumptions", "question", "explain-away-others", "mental-model"],
   "2": [],
-  "3": []
+  "3": ["find-papers", "read-paper"]
 }
