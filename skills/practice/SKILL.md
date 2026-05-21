@@ -264,3 +264,49 @@ Privately identify the smallest useful unit of practice for the user's requested
 - Empty invocations return usage guidance.
 - No files are created, read, or written.
 
+---
+
+## Self-Improving
+
+<!--
+  Context Protocol
+  Description: Self-improvement protocol for /practice.
+  Purpose: Allow the skill to accumulate UX learnings over time so its exercise
+           format, rep count guidance, feedback criteria phrasing, and difficulty
+           calibration improve from real usage without changing the core
+           approachable-volume-over-difficulty design principle.
+  Architecture: A two-subsection block — Protocol (instructions) and Things to
+                Remember (the live append zone). The agent appends after sessions
+                where the user reacts to the output shape.
+  Relations: no-assumptions, question, explain-away-others, mental-model — all
+             share the same Self-Improving pattern.
+  Similar files: All other non-reasoning learning skill SKILL.md files.
+-->
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- The ideal number of reps to present by default for a given domain (e.g.,
+  "for social media writing practice, 15 reps is a better default than 10")
+- How feedback criteria should be phrased — as pass/fail rules, open questions,
+  or exemplar comparisons
+- Whether exercises should include an example answer for the first rep
+- How constraint-setting in exercises should be worded (specific word counts,
+  formats, rules)
+- The preferred tone when offering a "next round" prompt at the end of a set
+
+Observations must **not** propose changes to:
+- The core design principle: easy and high-volume over hard and low-volume
+- The activation rule (`/practice` prefix or equivalent invocation phrases)
+- The constraint that no files are written to disk
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

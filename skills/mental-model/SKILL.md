@@ -260,3 +260,53 @@ Deliver the nine-section mental model as the complete response. No intro, no clo
 **Required — invocation:** `/mental-model <concept>` — Sent by the user. The more specific the concept, the more precise the mental model.
 
 **Implicit — user's prior knowledge:** Inferred from the conversation context. Used in the Connections section to link the new model to what the user already knows.
+
+---
+
+## Self-Improving
+
+<!--
+  Context Protocol
+  Description: Self-improvement protocol for /mental-model.
+  Purpose: Allow the skill to accumulate UX learnings over time so its nine-section
+           format, diagram style, analogy selection, and consolidation note improve
+           from real usage without changing the neuroscience-grounded structure.
+  Architecture: A two-subsection block — Protocol (instructions) and Things to
+                Remember (the live append zone). The agent appends after sessions
+                where the user reacts to the output shape.
+  Relations: no-assumptions, question, explain-away-others, practice — all share
+             the same Self-Improving pattern.
+  Similar files: All other non-reasoning learning skill SKILL.md files.
+-->
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- The style and density of ASCII diagrams or visual representations in the
+  Diagram section (e.g., "users prefer simpler diagrams with labeled nodes over
+  dense box-and-arrow structures")
+- How analogies in the Anchor section should be calibrated to the user's domain
+  background
+- Preferred length for the Core Insight ("Simply Put") summary sentences
+- Whether the Connections section should reference the user's recent conversation
+  topics or draw broader cross-domain links
+- How the Consolidation Note at the end should be toned — directive, reflective,
+  or question-based
+
+Observations must **not** propose changes to:
+- The nine-section structure and its order
+- The neuroscience principles that drive each section
+- The activation rule (`/mental-model` prefix)
+- The core mission of building a durable, retrievable mental representation
+  rather than a summary
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

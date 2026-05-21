@@ -173,3 +173,53 @@ Struggle log updated: struggle-log.json
 - [ ] The final artifact is JSON, not Markdown.
 - [ ] The skill stays silent during ordinary tracked messages.
 - [ ] The log captures common blind spots without labeling the user broadly.
+
+---
+
+## Self-Improving
+
+<!--
+  Context Protocol
+  Description: Self-improvement protocol for struggle.
+  Purpose: Allow the skill to accumulate UX learnings over time so its blind-spot
+           observation phrasing, why-it-matters explanations, and artifact
+           readability improve from real usage without changing the pattern-detection
+           logic or JSON format.
+  Architecture: A two-subsection block — Protocol (instructions) and Things to
+                Remember (the live append zone). The agent appends after sessions
+                where the user reacts to the observations logged.
+  Relations: no-assumptions, question, explain-away-others, mental-model, practice,
+             do-not-repeat, question-builder, transfer-signals, concept-coverage —
+             all share the same Self-Improving pattern.
+  Similar files: All other non-reasoning learning skill SKILL.md files.
+-->
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- How blind-spot entries should be phrased — as behavior descriptions, missing
+  step labels, or named patterns
+- Whether the why-it-matters field should use concrete consequences or general
+  principles
+- The preferred length for future-support suggestions
+- How the notes view (text format) should rank or sequence entries (e.g., by
+  count, recency, or severity)
+- Whether patterns that appear only twice should be included or held for a
+  third occurrence before logging
+
+Observations must **not** propose changes to:
+- The threshold logic for distinguishing patterns from one-off mistakes
+- The JSON artifact format or field names
+- The activation commands (`/struggle`, `/struggle-notes`, `/struggle-end`)
+- The rule that model-caused problems are excluded from logging
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->
