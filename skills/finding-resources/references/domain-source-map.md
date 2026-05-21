@@ -1,0 +1,19 @@
+# Domain Source Map
+
+Use this map to choose better search targets for common domains. It is a seed
+map, not an exhaustive list.
+
+| Domain | Academic Sources | Publisher / Book Sources | Standards / Docs | Practitioner / Case Study Sources | Conference / Talk Sources |
+|--------|------------------|--------------------------|------------------|-----------------------------------|---------------------------|
+| Computer science and software engineering | ACM Digital Library, IEEE Xplore, USENIX, arXiv, Semantic Scholar | MIT Press, O'Reilly, Manning, No Starch, Addison-Wesley | Language docs, framework docs, RFCs, W3C, IETF | Google, Netflix, Meta, Cloudflare, Shopify, Stripe, Martin Fowler | USENIX, Strange Loop, QCon, GOTO, Devoxx, PyCon |
+| Distributed systems | ACM SIGOPS, USENIX OSDI/SOSP, VLDB, arXiv, Semantic Scholar | MIT Press, O'Reilly, Addison-Wesley | IETF RFCs, Kubernetes docs, database docs | Jepsen, Cockroach Labs, FoundationDB, Cloudflare, Netflix | OSDI, SOSP, USENIX ATC, Strange Loop, QCon |
+| Machine learning and AI | arXiv, Semantic Scholar, NeurIPS, ICML, ICLR, JMLR, ACL Anthology | MIT Press, Cambridge, O'Reilly, Manning | Framework docs, model cards, NIST AI RMF | OpenAI, Anthropic, Google DeepMind, Hugging Face, Meta AI, Microsoft Research | NeurIPS, ICML, ICLR, ACL, CVPR, PyData |
+| Medicine and public health | PubMed, PMC, Cochrane Library, JAMA, NEJM, Lancet, WHO | Oxford, Cambridge, Springer, Elsevier, Wolters Kluwer | WHO, CDC, NIH, NICE, FDA | Hospital system case studies, WHO reports, public health agencies | JAMA Network, NEJM events, medical society meetings |
+| Psychology and cognitive science | APA PsycNet, PubMed, Annual Reviews, Cognitive Science Society, Semantic Scholar | MIT Press, Cambridge, Oxford, Psychology Press | APA guidelines, NIH, clinical guideline bodies | Behavioral science teams, education labs, clinical institutions | Cognitive Science Society, APS, APA, CHI |
+| Economics and finance | NBER, AEA, SSRN, RePEc, World Bank, IMF | MIT Press, Princeton, Oxford, Cambridge, University of Chicago Press | FRED, SEC, BIS, IMF, World Bank, OECD | Stripe, Visa, central banks, consulting research with data transparency | AEA meetings, NBER lectures, Jackson Hole, CFA Institute |
+| Education research | ERIC, IES, What Works Clearinghouse, AERA, Learning and Instruction | Routledge, Harvard Education Press, Teachers College Press | IES, Department of Education, OECD, UNESCO | School district case studies, edtech implementation reports | AERA, Learning at Scale, LAK, EDUCAUSE |
+| Law and policy | SSRN, HeinOnline, Google Scholar, Brookings, RAND, NBER for policy economics | Oxford, Cambridge, Harvard, Yale, University of Chicago Press | Cornell LII, government agencies, court opinions, regulatory bodies | Government reports, think tank reports with methods, NGO case studies | Law review symposia, policy institute talks, academic conferences |
+| Product, design, and business strategy | HBR, MIT Sloan, CHI, ACM, SSRN where relevant | Harvard Business Review Press, MIT Press, Wiley, O'Reilly | Platform docs, design system docs, ISO usability standards | Airbnb, Intercom, Stripe, Shopify, Figma, GOV.UK, Nielsen Norman Group | CHI, Mind the Product, Config, UX conferences, SaaStr |
+| Data science and statistics | JASA, IMS, arXiv stat, Semantic Scholar, ASA, Journal of Statistical Software | CRC Press, Springer, Cambridge, Chapman and Hall, O'Reilly | R docs, Python scientific stack docs, NIST statistics handbook | Stitch Fix, Netflix, Airbnb, Uber, Databricks, Observable | useR!, PyData, JSM, KDD, Strata archives |
+| Cybersecurity and cryptography | USENIX Security, IEEE S&P, ACM CCS, NDSS, IACR ePrint | No Starch, O'Reilly, CRC Press, Cambridge | NIST, OWASP, IETF RFCs, CIS benchmarks, vendor security docs | Cloudflare, Google Project Zero, Trail of Bits, NCC Group, Microsoft Security | Black Hat, DEF CON, CCC, USENIX Security, Real World Crypto |
+
