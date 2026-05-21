@@ -1,4 +1,17 @@
 {
+  "_context_protocol": {
+    "description": "Skills registry manifest listing all active learning-oriented and reasoning-oriented agentic skills.",
+    "purpose": "Provides a single source of truth for all valid, installable skills, facilitating dynamic discovery, categorisation, and installation by the CLI installer script.",
+    "architecture": "A JSON object mapping categories ('learning', 'reasoning') to arrays of registered skill directory names.",
+    "key_elements": [
+      "learning: Array of skill directory names under the active learning domain",
+      "reasoning: Array of skill directory names under the reasoning trace/coaching domain"
+    ],
+    "relation_to_codebase": "Read by `./scripts/validate.js` to verify that all skill directories have been registered, and by installation scripts to discover available skills.",
+    "similar_files": [
+      "lib/skill-versions.json"
+    ]
+  },
   "learning": [
     "blindspots",
     "compression-check",
@@ -12,6 +25,7 @@
     "question-builder",
     "research",
     "retain",
+    "scope",
     "struggle",
     "transfer-signals",
     "vidbyte-auth",
