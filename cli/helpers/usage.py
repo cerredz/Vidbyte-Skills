@@ -9,6 +9,10 @@ Commands:
   vidbyte auth logout
   vidbyte auth status
 
+Skill Installer:
+  vidbyte-skills [skill-name ...] [options]   Install skills into all harnesses
+  vidbyte-skills update                       Update to the latest version and reinstall skills
+
 Security:
   Requests are sent only to https://vidbyte.pro.
   Set VIDBYTE_SKILL_SECRET in your environment or a local .env file before submitting.
