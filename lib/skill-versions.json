@@ -1,5 +1,5 @@
 {
-  "1": ["anti-passive", "no-assumptions", "question", "explain-away-others", "mental-model"],
+  "1": ["anti-passive", "no-assumptions", "question", "explain-away-others", "mental-model", "visualize"],
   "2": [],
-  "3": []
+  "3": ["visualize"]
 }
