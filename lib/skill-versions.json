@@ -14,5 +14,5 @@
   "1": ["anti-passive", "no-assumptions", "question", "explain-away-others", "mental-model"],
   "2": [],
   "3": ["theoretical-feedback", "learn-from-video", "find-papers", "read-paper", "docs-tldr"],
-  "4": ["jargon", "scope"]
+  "4": ["jargon", "scope", "unit"]
 }
