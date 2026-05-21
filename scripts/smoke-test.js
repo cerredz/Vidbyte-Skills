@@ -1,10 +1,21 @@
 #!/usr/bin/env node
+/*
+CONTEXT PROTOCOL HEADER
+Description: Smoke testing suite for the Vidbyte CLI installation layer.
+Purpose: Validates that skill files, global environment configurations, editor integrations, and project instruction hooks are successfully deployed and robust.
+Architecture: Node.js execution script spawning sub-processes and utilizing native node:assert/strict libraries for output validations.
+Key Functions:
+  - Spawns dry-run installers and asserts file output existences under simulated home and project directories.
+Relation to Codebase: Serving as a core structural validation executed during local npm testing and repository continuous integration pipelines.
+Similar Files: scripts/validate.js, scripts/cli-smoke-test.js.
+*/
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { parseScopeArgs } from "../skills/scope/scripts/parse-scope-args.js";
 
 const REPO_ROOT = path.resolve(path.join(path.dirname(fileURLToPath(import.meta.url)), ".."));
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "vidbyte-skills-"));
@@ -178,6 +189,24 @@ if (selfCopyResult.status !== 0) {
 assert.equal(selfCopyResult.status, 0);
 assert.match(selfCopyResult.stdout, /skip:/);
 assert.equal(fs.existsSync(path.join(selfCopySkill, "SKILL.md")), true, "Expected self-copy source skill to survive");
+
+// Unit tests for /scope parseScopeArgs helper
+console.log("Running unit tests for parseScopeArgs...");
+const parsed1 = parseScopeArgs(["distributed", "systems", "--depth", "deep", "--focus", "databases"]);
+assert.equal(parsed1.cleanInput, "distributed systems");
+assert.equal(parsed1.depth, "deep");
+assert.equal(parsed1.focus, "databases");
+
+const parsed2 = parseScopeArgs(["philosophy", "-d", "high-level", "-f", "ethics"]);
+assert.equal(parsed2.cleanInput, "philosophy");
+assert.equal(parsed2.depth, "high-level");
+assert.equal(parsed2.focus, "ethics");
+
+const parsed3 = parseScopeArgs(null);
+assert.equal(parsed3.cleanInput, "");
+assert.equal(parsed3.depth, "high-level");
+assert.equal(parsed3.focus, "");
+console.log("parseScopeArgs unit tests passed.");
 
 fs.rmSync(tempRoot, { recursive: true, force: true });
 console.log("Smoke test passed.");
