@@ -15,7 +15,8 @@
     "struggle",
     "transfer-signals",
     "vidbyte-auth",
-    "vidbyte-tutor"
+    "vidbyte-tutor",
+    "motivate"
   ],
   "reasoning": [
     "a3-problem-solving-trace",
