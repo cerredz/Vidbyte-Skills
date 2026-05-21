@@ -477,3 +477,52 @@ The trolley problem is valuable precisely because it makes the structure of thes
 **Format:** `/question <question text>`
 
 **No user-facing lifecycle:** The skill has no session start/end hooks, no initialization, and no cleanup. It is stateless per invocation.
+
+---
+
+## Self-Improving
+
+<!--
+  Context Protocol
+  Description: Self-improvement protocol for /question.
+  Purpose: Allow the skill to accumulate UX learnings over time so its five-section
+           format, depth calibration, example selection, and tone improve from
+           real usage without changing the section structure or activation rule.
+  Architecture: A two-subsection block — Protocol (instructions) and Things to
+                Remember (the live append zone). The agent appends after sessions
+                where the user reacts to the output shape.
+  Relations: no-assumptions, explain-away-others, mental-model, practice — all
+             share the same Self-Improving pattern.
+  Similar files: All other non-reasoning learning skill SKILL.md files.
+-->
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- The ideal depth for each section (e.g., "users prefer the Why section to be
+  no longer than 3 paragraphs before the Critical Thinking section")
+- Whether More Resources should lead with books, papers, or web links for
+  certain types of questions
+- How code examples in Best Practices should be sized and commented
+- Whether the What section should lead with a definition or an analogy first
+- Preferred tone in the Critical Thinking section (e.g., "users respond better
+  to named misconceptions than to bulleted tradeoffs")
+- Whether section headings should use level-2 (`##`) or level-3 (`###`) in
+  specific harness environments
+
+Observations must **not** propose changes to:
+- The five-section format (What, Why, Critical Thinking, Best Practices, More Resources)
+- The rule that Best Practices is the only optional section
+- The activation rule (`/question` prefix only)
+- The constraint that files are never written to disk
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

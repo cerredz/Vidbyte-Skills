@@ -468,3 +468,49 @@ types `/no-assumptions` followed by request text.
 
 **No user-facing lifecycle:** The skill has no session start/end hooks, no
 initialization, and no cleanup. It is stateless per invocation.
+
+---
+
+## Self-Improving
+
+<!--
+  Context Protocol
+  Description: Self-improvement protocol for /no-assumptions.
+  Purpose: Allow the skill to accumulate UX learnings over time so its refusal
+           checklist format, question phrasing, and tone improve from real usage
+           without changing core blocking logic.
+  Architecture: A two-subsection block — Protocol (instructions) and Things to
+                Remember (the live append zone). The agent appends after sessions
+                where the user reacts to the output shape.
+  Relations: anti-passive (excluded), question, explain-away-others, mental-model,
+             practice — all share the same Self-Improving pattern.
+  Similar files: All other non-reasoning learning skill SKILL.md files.
+-->
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- The phrasing or tone of the checklist items (e.g., "users prefer numbered
+  items over `[ ]` checkboxes for shorter lists")
+- The wording of the opening refusal line
+- How quoted phrases from the user's request should be formatted
+- How many checklist items feel right before the list becomes overwhelming
+- Whether the "I will not proceed" closing line should be softened or hardened
+  in specific contexts
+
+Observations must **not** propose changes to:
+- The blocking rule (when the skill fires and when it does not)
+- The clarification loop logic
+- The categories of gaps that qualify for blocking
+- The "No partial answers" or "No softening" hard constraints
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

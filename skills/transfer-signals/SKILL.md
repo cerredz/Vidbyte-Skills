@@ -189,3 +189,55 @@ Transfer Signals log updated: transfer-signals-log.json
 - [ ] The final artifact is JSON, not Markdown.
 - [ ] The skill stays silent during ordinary tracked messages.
 - [ ] Missed transfer entries identify both source field and current field.
+
+---
+
+## Self-Improving
+
+<!--
+  Context Protocol
+  Description: Self-improvement protocol for transfer-signals.
+  Purpose: Allow the skill to accumulate UX learnings over time so its cross-field
+           connection phrasing, missed-transfer entry structure, and notes view
+           format improve from real usage without changing the transfer-learning
+           detection logic or JSON format.
+  Architecture: A two-subsection block — Protocol (instructions) and Things to
+                Remember (the live append zone). The agent appends after sessions
+                where the user reacts to transfer observations.
+  Relations: no-assumptions, question, explain-away-others, mental-model, practice,
+             do-not-repeat, question-builder, struggle, concept-coverage — all
+             share the same Self-Improving pattern.
+  Similar files: All other non-reasoning learning skill SKILL.md files.
+-->
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- How missed-transfer opportunities should be introduced (e.g., "users prefer
+  a one-sentence bridge sentence before the connection is named")
+- Whether the source field and current field should be named first or last in a
+  missed-transfer entry
+- How the portable-structure field should be described — as a named pattern
+  (e.g., "feedback loop") or as a description of the shared mechanism
+- How the notes view should group entries — by field, by concept, or by date
+- Whether successful transfer signals should be highlighted or listed alongside
+  missed ones
+
+Observations must **not** propose changes to:
+- The definition of transfer learning used by this skill (shared structure, not
+  shallow analogies)
+- The JSON artifact format or field names
+- The activation commands (`/transfer-signals`, `/transfer-signals-notes`,
+  `/transfer-signals-end`)
+- The rule that private reasoning is never written to the artifact
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

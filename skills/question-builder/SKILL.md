@@ -194,3 +194,54 @@ Question Builder log updated: question-builder-log.json
 - [ ] The user can ask for notes and receive the accumulated questions in text format.
 - [ ] The skill stays silent during ordinary tracked messages.
 - [ ] Future questions help the user see what to do next, not only what to remember.
+
+---
+
+## Self-Improving
+
+<!--
+  Context Protocol
+  Description: Self-improvement protocol for question-builder.
+  Purpose: Allow the skill to accumulate UX learnings over time so its question
+           phrasing, source-moment citation style, and artifact layout improve
+           from real usage without changing the retention/future question split
+           or JSON artifact format.
+  Architecture: A two-subsection block — Protocol (instructions) and Things to
+                Remember (the live append zone). The agent appends after sessions
+                where the user reacts to the question set.
+  Relations: no-assumptions, question, explain-away-others, mental-model, practice,
+             do-not-repeat, struggle, transfer-signals, concept-coverage — all
+             share the same Self-Improving pattern.
+  Similar files: All other non-reasoning learning skill SKILL.md files.
+-->
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- How retention questions should be phrased (e.g., "users prefer 'What was the
+  reason you chose X?' over 'Why was X chosen?'")
+- Whether the source-moment field in each question should be a direct quote,
+  a paraphrase, or a timestamp-style label
+- How many questions per session feels like the right density before the log
+  becomes overwhelming
+- The preferred tone for future questions — directive ("Do this next") vs.
+  exploratory ("Consider whether...")
+- How the notes view (text format) should group or sequence questions
+
+Observations must **not** propose changes to:
+- The split between retention questions and future questions
+- The JSON artifact format or field names
+- The activation commands (`/question-builder`, `/question-builder-notes`,
+  `/question-builder-end`)
+- The constraint that private reasoning is never written to the artifact
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->
