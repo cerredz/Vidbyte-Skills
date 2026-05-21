@@ -806,5 +806,8 @@
     "why-because-analysis-trace-large",
     "why-because-analysis-trace-medium",
     "why-because-analysis-trace-small"
+  ],
+  "utility": [
+    "docs-tldr"
   ]
 }
