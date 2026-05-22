@@ -37,7 +37,7 @@ def main() -> int:
             capture_output=True,
             text=True,
             cwd=str(REPO_ROOT),
-            env={**os.environ, "VIDBYTE_SKILL_SECRET": "test-secret"},
+            env={**os.environ, "VIDBYTE_HOME": temp_root},
         )
 
         if result.returncode != 0:
@@ -47,16 +47,16 @@ def main() -> int:
 
         dry_run = json.loads(result.stdout)
         assert dry_run["endpoint"] == "feedback", f"Expected endpoint 'feedback', got {dry_run['endpoint']}"
-        assert dry_run["skill_id"] == "feedback-generator-v1", f"skill_id mismatch: {dry_run['skill_id']}"
+        assert dry_run["skill_id"] == "feedback", f"skill_id mismatch: {dry_run['skill_id']}"
         assert dry_run["signed"] is True, "signed should be True"
         assert dry_run["file"] == str(feedback_file.resolve()), f"file mismatch: {dry_run['file']}"
         assert dry_run["header_names"] == [
             "Content-Type",
+            "User-Agent",
             "X-Skill-Id",
-            "X-Skill-Timestamp",
-            "X-Skill-Nonce",
             "X-Skill-Body-SHA256",
-            "X-Skill-Signature",
+            "X-Skill-Request-Nonce",
+            "X-Vidbyte-Installation-Id",
             "X-Vidbyte-CLI-Version",
         ], f"header_names mismatch: {dry_run['header_names']}"
 
@@ -99,7 +99,7 @@ def main() -> int:
             capture_output=True,
             text=True,
             cwd=str(REPO_ROOT),
-            env={**os.environ, "VIDBYTE_SKILL_SECRET": "test-secret"},
+            env={**os.environ, "VIDBYTE_HOME": temp_root},
         )
 
         if retain_result.returncode != 0:
@@ -109,7 +109,7 @@ def main() -> int:
 
         retain_dry_run = json.loads(retain_result.stdout)
         assert retain_dry_run["endpoint"] == "retain", f"Expected endpoint 'retain', got {retain_dry_run['endpoint']}"
-        assert retain_dry_run["skill_id"] == "retain-v1", f"skill_id mismatch: {retain_dry_run['skill_id']}"
+        assert retain_dry_run["skill_id"] == "retain", f"skill_id mismatch: {retain_dry_run['skill_id']}"
         assert retain_dry_run["signed"] is True, "retain signed should be True"
         assert retain_dry_run["validated"] is True, "retain validated should be True"
         assert retain_dry_run["concept_count"] == 1, f"concept_count mismatch: {retain_dry_run['concept_count']}"
@@ -118,11 +118,11 @@ def main() -> int:
         assert retain_dry_run["review_count"] == 1, f"review_count mismatch: {retain_dry_run['review_count']}"
         assert retain_dry_run["header_names"] == [
             "Content-Type",
+            "User-Agent",
             "X-Skill-Id",
-            "X-Skill-Timestamp",
-            "X-Skill-Nonce",
             "X-Skill-Body-SHA256",
-            "X-Skill-Signature",
+            "X-Skill-Request-Nonce",
+            "X-Vidbyte-Installation-Id",
             "X-Vidbyte-CLI-Version",
         ], f"retain header_names mismatch: {retain_dry_run['header_names']}"
 

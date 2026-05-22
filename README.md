@@ -99,10 +99,10 @@ vidbyte feedback submit --file feedback-log-2026-05-11-example.md --domain softw
 The `/retain` skill uses an argument-shaped command so the model can pass the generated exercise fields directly:
 
 ```bash
-vidbyte retain --title "Retain this session" --domain software-engineering --conversation-id example --concept1-name "CLI signing boundary" --concept1-distillation "The prompt generates content while the CLI owns signing and transport." --concept1-anchor "A locked dispatch box with a public label and a private key under the desk." --concept1-hook "This matches webhook signing, where the algorithm is public but the shared secret is private." --question1 "Why should the prompt not construct Vidbyte HMAC headers itself?" --answer1 "A strong answer says prompt text is not a trust boundary, while the CLI keeps secrets and signs requests in code."
+vidbyte retain --title "Retain this session" --domain software-engineering --conversation-id example --concept1-name "CLI auth boundary" --concept1-distillation "The prompt generates content while the CLI owns authenticated transport." --concept1-anchor "A locked dispatch box with a public label and a short-lived pass inside." --concept1-hook "This matches short-lived deployment credentials, where the long-lived account session only mints scoped one-use credentials." --question1 "Why should the prompt not construct Vidbyte auth headers itself?" --answer1 "A strong answer says prompt text is not a trust boundary, while the CLI keeps account sessions and requests short-lived invocation tokens in code."
 ```
 
-The CLI is implemented in Python (stdlib only, no dependencies). It signs requests with `VIDBYTE_SKILL_SECRET`, sends traffic only to `https://vidbyte.pro`, and adds the Vidbyte skill authentication headers. Copy `.env.example` to `.env` for local development; real `.env` files are ignored by git.
+The CLI is implemented in Python (stdlib only, no dependencies). It authenticates with a Vidbyte session, mints short-lived invocation tokens for backend writes, sends traffic only to `https://vidbyte.pro`, and never asks prompts to construct auth headers. Copy `.env.example` to `.env` for local development; real `.env` files are ignored by git.
 
 Use `--dry-run` to validate command input without sending a network request:
 
