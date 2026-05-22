@@ -61,11 +61,11 @@ Check the current harness tools for browser automation. Treat the following as b
 - Claude Code computer/browser capability
 - Any tool whose name contains `browser`, `navigate`, `playwright`, or `puppeteer`
 
-You may use `scripts/detect-browser-tools.js` as a helper if the harness exposes a list of tool names. If the tool list is only visible in the model context, inspect it directly.
+You may inspect the available tool list directly. Adapt the browser control approach to the actual browser tool exposed by the harness.
 
 If no browser tool is found and `--no-browser` is absent, display this message and stop:
 
-```text
+```
 ------------------------------------------------------------
     /learn-from-video
 ------------------------------------------------------------
@@ -76,29 +76,31 @@ If no browser tool is found and `--no-browser` is absent, display this message a
   the video and run active learning checkpoints. Without it,
   the full skill cannot function.
 
-  Install one of these:
+  You have several options to enable browser control:
 
   Option 1 - Playwright MCP (recommended)
   https://github.com/microsoft/playwright-mcp
   Install: npx @playwright/mcp@latest
 
-  Option 2 - Browser Use
+  Option 2 - Puppeteer MCP
+  https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer
+  Install: npx @modelcontextprotocol/server-puppeteer
+
+  Option 3 - Browser Use
   https://github.com/browser-use/browser-use
   Install: pip install browser-use
 
-  Option 3 - Browserbase MCP
+  Option 4 - Browserbase MCP
   https://docs.browserbase.com/mcp
   Install: npx @browserbasehq/mcp
-
-  Option 4 - Puppeteer MCP
-  https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer
-  Install: npx @modelcontextprotocol/server-puppeteer
 
   Would you like me to install one of these for you?
   Say "yes, install Playwright" or name the option you prefer.
 
 ------------------------------------------------------------
 ```
+
+If the user says yes, run the chosen installer command if tool execution is allowed, then re-check availability. If installation is not allowed, give the exact command and stop. If installation succeeds, proceed to Phase 1.
 
 If the user says yes, run the chosen installer command if tool execution is allowed in the harness, then re-check availability. If installation is not allowed, give the exact command and stop.
 
@@ -214,7 +216,12 @@ Question rules:
 - Default depth: one question per segment; use two only for unusually dense segments.
 - `--depth deep`: two questions per segment, favoring `apply` and `decide`.
 
-Use `references/question-type-guide.md` for examples.
+Question types and when to use them:
+
+- **explain**: Ask the user to describe a mechanism, concept, or process in their own words. Use when the segment introduces a new idea. Example: "In your own words, what problem does X solve?"
+- **apply**: Ask the user to take the concept and use it in a new context or with a new example. Use when the segment shows a technique or pattern. Example: "How would you apply this technique to [different scenario]?"
+- **decide**: Ask the user to make a choice between alternatives based on the content. Use when the segment presents tradeoffs or comparisons. Example: "Given what was discussed, would you use approach A or B for [specific case]? Why?"
+- **predict**: Ask the user to forecast what happens next or what would happen under different conditions. Use when the segment builds toward a conclusion or reveals a mechanism. Example: "Based on what you've seen so far, what do you think will happen when [condition changes]?"
 
 ## Phase 4 - Guiding Question Intro
 
@@ -263,11 +270,11 @@ Browser mode:
 
 1. Navigate to `https://www.youtube.com/watch?v=<VIDEO_ID>&t=<segment.start_seconds>s`.
 2. Start or resume playback if needed.
-3. Monitor `document.querySelector('video').currentTime`.
+3. Monitor the video element's currentTime property.
 4. Pause when current time reaches `segment.pause_at_seconds`.
 5. Present the checkpoint.
 
-The `scripts/control-video.js` file provides browser-evaluate snippets, but adapt to the actual browser tool exposed by the harness.
+Adapt video control commands to the actual browser tool exposed by the harness.
 
 No-browser mode:
 

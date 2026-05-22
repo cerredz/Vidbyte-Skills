@@ -199,21 +199,7 @@ Question Builder log updated: question-builder-log.json
 
 ## Self-Improving
 
-<!--
-  Context Protocol
-  Description: Self-improvement protocol for question-builder.
-  Purpose: Allow the skill to accumulate UX learnings over time so its question
-           phrasing, source-moment citation style, and artifact layout improve
-           from real usage without changing the retention/future question split
-           or JSON artifact format.
-  Architecture: A two-subsection block — Protocol (instructions) and Things to
-                Remember (the live append zone). The agent appends after sessions
-                where the user reacts to the question set.
-  Relations: no-assumptions, question, explain-away-others, mental-model, practice,
-             do-not-repeat, struggle, transfer-signals, concept-coverage — all
-             share the same Self-Improving pattern.
-  Similar files: All other non-reasoning learning skill SKILL.md files.
--->
+This skill has a system prompt that describes a theoretical way to accomplish something. When the user interacts with this skill, the model gets to see how the skill actually performs in practice — what works, what confuses, and what the user reacts to. The self-improving mechanism works by observing the conversation and the model's outputs during real usage, then capturing those observations as notes in the "Things to Remember" section below. These notes accumulate durable UX learnings that subtly influence the skill's behavior on future invocations without altering the theoretical system prompt itself. The theoretical prompt remains stable while the practical guidance layer evolves from actual experience.
 
 ### Protocol
 

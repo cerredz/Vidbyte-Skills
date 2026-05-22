@@ -3,15 +3,6 @@ name: read-paper
 description: Use this skill when the user wants to read a research paper (via arXiv, DOI, direct PDF, Semantic Scholar, PubMed/PMC), strip noise, extract the core 6-field signal, and undergo an active learning gate check.
 ---
 
-<!--
-CONTEXT PROTOCOL HEADER
-Description: Main active learning system prompt for the read-paper skill.
-Purpose: Instructs the agent on how to resolve, fetch, noise-strip, structure, and gate research paper reading sessions inline.
-Architecture: Documented YAML metadata frontmatter followed by procedural instruction markdown.
-Functions/Key Elements: Covers noise stripping guidelines, structure parsing patterns, section active-learning gates, and final handoff synthesis.
-Relation to Codebase: Discovered by installer, copied to harness platform destinations, and integrated with the space retention cli command.
-Similar Files: skills/learn-from-video/SKILL.md, skills/retain/SKILL.md.
--->
 
 # Skill: `/read-paper`
 

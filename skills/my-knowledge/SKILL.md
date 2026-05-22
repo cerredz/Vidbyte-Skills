@@ -221,6 +221,93 @@ When a behavior could be interpreted as either solid or surface, default to Surf
 - **Default to Surface when evidence is ambiguous.** Conservative classification prevents the more costly error of overestimating understanding.
 - **Do not use the same questioning angle twice in the probe.** If the first question asks "what are the principles of X?", the second should ask something structurally different — "how would you implement Y?" or "why does Z happen?"
 
+## Few-Shot Conversation Examples
+
+These examples demonstrate how the skill scans a conversation, detects signals, and produces its assessment.
+
+### Example 1: Independent Programming Session
+
+**Conversation:**
+> User: "I need to build a REST API for a task management app. I want to use Express with PostgreSQL."
+> Agent: "Great choice. Would you like me to scaffold the project structure?"
+> User: "No, I already set up the project. Here's my current schema: [schema code]. I'm getting a foreign key constraint error when I try to cascade deletes. I think the issue is in my migration order."
+> Agent: "That's a good instinct. Let's look at your migration files."
+> User: "Actually, I found it — my down migration drops the child table before the parent, but the FK is on the child. I fixed the order and it works now."
+> Agent: "Nice catch. Is there anything else?"
+> User: "Yes, I need to add pagination and filtering. I know cursor-based is better than offset, but I'm not sure how to implement it with raw SQL queries."
+> Agent: "Cursor-based pagination uses a WHERE clause on the sorted column..."
+> User: "Got it, let me try implementing it myself first."
+
+**Assessment:**
+- **Solid: PostgreSQL migrations** — User independently generated a fix, identified the root cause (migration order), and self-corrected. Evidence: "I found it — my down migration drops the child table before the parent... I fixed the order and it works now."
+- **Surface: Cursor-based pagination** — User knows the concept ("cursor-based is better than offset") but deferred implementation to the agent. Evidence: "I'm not sure how to implement it" followed by "let me try implementing it myself first" (no independent generation demonstrated yet).
+- **Gap: Express middleware patterns** — Mentioned in passing but never explored beyond naming the framework.
+
+**Probe Questions:**
+1. (Solid check) "What are three common causes of foreign key constraint failures during migrations, and how would you diagnose each?"
+2. (Surface check) "Without looking back at our conversation, write a SQL query that implements cursor-based pagination for a `tasks` table ordered by `created_at DESC` with a page size of 20."
+
+---
+
+### Example 2: Explanation-Heavy Learning Session
+
+**Conversation:**
+> User: "Explain how garbage collection works in JavaScript."
+> Agent: "JavaScript uses a mark-and-sweep algorithm. Here's how it works: [detailed explanation]"
+> User: "Makes sense. So the garbage collector finds objects that are no longer reachable from the root?"
+> Agent: "Exactly. The root is the global object, and any object not reachable through references from the root is collected."
+> User: "Got it. And what about memory leaks — how do those happen if GC is automatic?"
+> Agent: "Memory leaks in JS typically happen through unintended references: global variables, forgotten timers, closures holding references, and detached DOM nodes. [detailed explanation with examples]"
+> User: "That's really helpful, I understand now. Can you explain how the event loop works?"
+
+**Assessment:**
+- **Surface: JavaScript garbage collection** — User engaged actively with follow-up questions but never generated an explanation in their own words. Evidence: "Makes sense", "Got it", "I understand now" (passive agreement signals). User asked a definition-chasing follow-up ("how do memory leaks happen") rather than applying the concept. JOL inflation: intrinsic (answer was visible alongside the question) and mnemonic (explanation was fluent and easy to follow).
+- **Solid: None.** No topics met the threshold for independent understanding.
+
+**Probe Questions:**
+1. (Surface check) "In your own words, explain what happens during the mark phase and the sweep phase of garbage collection. What distinguishes a reachable object from an unreachable one?"
+2. (Surface check) "You have a React component that fetches data in useEffect. After unmounting, the component's memory is never freed. What are two possible causes, and how would you fix each?"
+
+---
+
+### Example 3: Mixed Implementation and Exploration
+
+**Conversation:**
+> User: "I want to add Redis caching to my Node app. How do I set it up?"
+> Agent: "First install the ioredis package. Here's a basic setup: [code example]"
+> User: "Thanks. I added it and it's working. But I'm not sure when I should cache versus when I should just query the database. What's the rule of thumb?"
+> Agent: "Cache when the data is read frequently and changes infrequently, or when the query is expensive. Don't cache when data must be real-time accurate or when the dataset is small enough that the database handles it fine."
+> User: "That makes sense. I'll cache my product catalog since it changes once a week, but leave order status real-time."
+> Agent: "That's a solid strategy."
+> User: "One more thing — how do I handle cache invalidation when a product does change?"
+> Agent: "You have a few options: [explains TTL, write-through, cache-aside patterns]"
+> User: "I think cache-aside with a TTL fallback would work best for us. Let me implement that."
+
+**Assessment:**
+- **Solid: Redis caching setup** — User independently implemented the setup from instructions and extended it to their context. Evidence: "I added it and it's working."
+- **Developing (Surface): Cache strategy decisions** — User made a correct application decision ("I'll cache my product catalog... but leave order status real-time") showing contextual application, but relied on agent for the invalidation strategy. Mixed signals: 1 solid (contextual application) + 1 surface (dependency-seeking on invalidation). Conservative classification: Surface with developing trajectory.
+- **Gap: None.** All discussed topics show at least surface-level engagement.
+
+**Probe Questions:**
+1. (Solid-ish check) "A teammate suggests caching the user session data in Redis with no TTL. What are two problems with this approach?"
+2. (Surface check) "Without looking back, describe how the cache-aside pattern works and when you would choose it over write-through caching."
+
+### Example 4: Debugging Session
+
+**Conversation:**
+> User: "My React app is rendering twice on every state update."
+> Agent: "That's likely React StrictMode in development. It intentionally double-invokes certain functions to help detect side effects."
+> User: "Oh, right — StrictMode. I forgot I had that enabled. Thanks."
+
+**Assessment (invoked after this short exchange):**
+- Note: "This session has limited interaction to assess from. The assessment below is based on 3 exchanges and should be treated as provisional."
+- **Surface: React StrictMode** — User recognized the explanation but did not independently identify the cause. Evidence: "Oh, right — I forgot I had that enabled" (passive agreement after agent explanation).
+- **Gap: React rendering lifecycle** — The double-render was a symptom of not understanding development vs production rendering behavior.
+
+**Probe Questions:**
+1. (Surface check) "What are three behaviors that StrictMode intentionally alters in development mode, and why does it alter them?"
+2. (Surface check) "If you disable StrictMode, what guarantees do you lose about your components' correctness?"
+
 ## Success Criteria
 
 - The skill activates only on explicit `/my-knowledge` invocation, not on similar phrases or automatically.
