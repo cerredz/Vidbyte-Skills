@@ -410,4 +410,3 @@ The handoff must include the user's own checkpoint answers. Do not replace them 
 Primary input is `$ARGUMENTS`.
 
 Use conversation context only to infer domain, user level, and a useful `vidbyte retain` command. The video transcript and user checkpoint answers are the authoritative learning source for the handoff.
-

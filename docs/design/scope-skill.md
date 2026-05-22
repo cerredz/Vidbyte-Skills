@@ -9,10 +9,10 @@ Similar Files: docs/design/jargon-skill.md, docs/design/read-find-papers-skills.
 
 # Design Doc: /scope Utility Skill
 
-**Status:** Draft  
-**Author:** Antigravity  
-**Created:** 2026-05-21  
-**Last Updated:** 2026-05-21  
+**Status:** Draft
+**Author:** Antigravity
+**Created:** 2026-05-21
+**Last Updated:** 2026-05-21
 
 ---
 
@@ -95,8 +95,8 @@ The `/scope` utility is integrated into the CLI's category registries. When a us
 ## 6. Detailed Design
 
 ### 6.1 `skills/scope/SKILL.md`
-**File:** `skills/scope/SKILL.md`  
-**Type:** New file  
+**File:** `skills/scope/SKILL.md`
+**Type:** New file
 
 #### What it does
 Houses the system prompt contract guiding the LLM on how to act as a boundary cartographer, parse user fields/topics, map the core, adjacent, and misattributed elements, and structure terminal outputs.
@@ -118,8 +118,8 @@ Purpose: Coordinates how the agent defines domain scopes, identifies adjacent fi
 ---
 
 ### 6.2 `skills/scope/references/scope-field-map.md`
-**File:** `skills/scope/references/scope-field-map.md`  
-**Type:** New file  
+**File:** `skills/scope/references/scope-field-map.md`
+**Type:** New file
 
 #### What it does
 Provides seed mappings for key disciplines (e.g. Systems Design, Economics, Machine Learning, Philosophy) to serve as high-signal templates for boundary generation.
@@ -130,8 +130,8 @@ Structured markdown tables containing Core Pillars, Adjacent Fields, and Common 
 ---
 
 ### 6.3 `skills/scope/scripts/parse-scope-args.js`
-**File:** `skills/scope/scripts/parse-scope-args.js`  
-**Type:** New file  
+**File:** `skills/scope/scripts/parse-scope-args.js`
+**Type:** New file
 
 #### What it does
 Parses CLI command arguments like `--depth` and `--focus`, handles input sanitization, and structures options for the prompt.
@@ -147,8 +147,8 @@ export function parseScopeArgs(argsArray) {
 ---
 
 ### 6.4 Registry Registrations
-**Files:** `skills-manifest.json`, `lib/skill-versions.json`  
-**Type:** Modified  
+**Files:** `skills-manifest.json`, `lib/skill-versions.json`
+**Type:** Modified
 
 #### What it does
 Integrates `scope` into the system-wide CLI registries under category `learning` and Version `4`.

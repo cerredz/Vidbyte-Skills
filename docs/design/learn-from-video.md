@@ -690,4 +690,3 @@ This repository does not currently use a unit test framework for skill logic. Th
 
 - What: Add a Node Playwright script that opens YouTube and controls playback.
 - Why rejected: The repo has no Playwright dependency and the skill is intended to use harness-provided browser tools. Adding Playwright to `package.json` would increase installation weight and still not guarantee compatibility with MCP/browser-tool environments.
-

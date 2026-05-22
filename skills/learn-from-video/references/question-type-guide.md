@@ -84,4 +84,3 @@ Deep mode:
 - Two questions per segment.
 - Prefer `apply` and `decide`.
 - Make the user transfer or choose, not merely summarize.
-

@@ -12,7 +12,7 @@ export function stripCitationClusters(text) {
   // Regex to capture bracketed citations like (Smith, 2019; Jones et al., 2020)
   // or [1, 2, 3] and replace them with [N refs] or [N] references.
   const parenthesizedCitation = /\((?:[A-Za-z]+(?:\s+et\s+al\.?)?,\s*\d{4};?\s*)+\)/g;
-  
+
   return text.replace(parenthesizedCitation, (match) => {
     const count = match.split(";").length;
     return `[${count} ref${count > 1 ? "s" : ""}]`;
@@ -23,11 +23,11 @@ export function stripBibliography(text) {
   // Find "References" or "Bibliography" headings and slice off the content
   const refsRegex = /\n(?:References|Bibliography|Works\s+Cited)\r?\n/i;
   const match = text.match(refsRegex);
-  
+
   if (match && match.index) {
     return text.substring(0, match.index) + "\n\n[Bibliography list stripped - replaced with Key References section]";
   }
-  
+
   return text;
 }
 

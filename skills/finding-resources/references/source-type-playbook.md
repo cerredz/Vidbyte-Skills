@@ -210,4 +210,3 @@ Reject:
 Do not include content farms, listicles, shallow explainers, unauthorized copies,
 scraper mirrors, or pages that do not reveal original expertise. Use weak pages
 only as leads to find the primary source.
-

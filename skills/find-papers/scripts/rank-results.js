@@ -42,7 +42,7 @@ export function getTierWeight(tier) {
 export function getCitationWeight(citationCount, year) {
   const currentYear = new Date().getFullYear();
   const age = Math.max(1, currentYear - Number(year) || 1);
-  
+
   // Citations per year (velocity)
   const velocity = citationCount / age;
 

@@ -198,4 +198,3 @@ def try_youtube_transcript_api(video_id: str) -> list[dict] | None:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

@@ -9,10 +9,10 @@ Similar Files: docs/design/read-find-papers-skills.md.
 
 # Design Doc: /jargon Utility Skill
 
-**Status:** Draft  
-**Author:** Antigravity  
-**Created:** 2026-05-21  
-**Last Updated:** 2026-05-21  
+**Status:** Draft
+**Author:** Antigravity
+**Created:** 2026-05-21
+**Last Updated:** 2026-05-21
 
 ---
 
@@ -64,7 +64,7 @@ Currently, the Vidbyte CLI features powerful active learning skills, but lacks a
 The `/jargon` utility is discovered and packed by the CLI compiler. When a user invokes the skill via the command line or conversational agent with `/jargon <input>`, the skill acts as a vocabulary priming pipeline.
 
 ```text
-[Input: Text/Topic/Field] 
+[Input: Text/Topic/Field]
        │
        ▼
 [Infer Domain & Load Maps] ──► (Using jargon-field-map.md local maps)
@@ -84,8 +84,8 @@ The `/jargon` utility is discovered and packed by the CLI compiler. When a user 
 ## 6. Detailed Design
 
 ### 6.1 `skills/jargon/SKILL.md`
-**File:** `skills/jargon/SKILL.md`  
-**Type:** New file  
+**File:** `skills/jargon/SKILL.md`
+**Type:** New file
 
 #### What it does
 Exposes the main system prompt guiding the assistant on how to act as a vocabulary primer, parse inputs, rewrite complex jargon terms into plain language, predict expert terminologies, and structure the terminal console output.
@@ -102,8 +102,8 @@ description: Surface domain-specific jargon, translate it to plain language, and
 ---
 
 ### 6.2 `skills/jargon/scripts/extract-jargon.js`
-**File:** `skills/jargon/scripts/extract-jargon.js`  
-**Type:** New file  
+**File:** `skills/jargon/scripts/extract-jargon.js`
+**Type:** New file
 
 #### What it does
 Implements local heuristics and string cleanups to extract potentially difficult or dense terms from the input text before passing them to the translation model.
@@ -117,8 +117,8 @@ export function extractPotentialTerms(text) { ... }
 ---
 
 ### 6.3 `skills/jargon/references/jargon-field-map.md`
-**File:** `skills/jargon/references/jargon-field-map.md`  
-**Type:** New file  
+**File:** `skills/jargon/references/jargon-field-map.md`
+**Type:** New file
 
 #### What it does
 Provides standard vocabulary mappings and seed terms for high-friction domains (e.g. Distributed Systems, Immunology, Mathematical Physics, Corporate Finance, Smart Contracts) to facilitate predictive priming when a user inputs a field name rather than a dense text block.
@@ -126,8 +126,8 @@ Provides standard vocabulary mappings and seed terms for high-friction domains (
 ---
 
 ### 6.4 `skills-manifest.json`
-**File:** `skills-manifest.json`  
-**Type:** Modified  
+**File:** `skills-manifest.json`
+**Type:** Modified
 
 #### What it does
 Registers `"jargon"` under the `"learning"` array alphabetically, and embeds the top-level `_context_protocol` header key.
@@ -135,8 +135,8 @@ Registers `"jargon"` under the `"learning"` array alphabetically, and embeds the
 ---
 
 ### 6.5 `lib/skill-versions.json`
-**File:** `lib/skill-versions.json`  
-**Type:** Modified  
+**File:** `lib/skill-versions.json`
+**Type:** Modified
 
 #### What it does
 Registers `"jargon"` under the new version `"4"` array, and embeds the top-level `_context_protocol` header key.
@@ -144,8 +144,8 @@ Registers `"jargon"` under the new version `"4"` array, and embeds the top-level
 ---
 
 ### 6.6 `scripts/validate.js`
-**File:** `scripts/validate.js`  
-**Type:** Modified  
+**File:** `scripts/validate.js`
+**Type:** Modified
 
 #### What it does
 Incorporate a Context Protocol Header block at the top of the file, and ensure that the validator skips `_context_protocol` key within `lib/skill-versions.json` without failing tests.

@@ -41,4 +41,3 @@ This skill applies active learning by:
 ## Contributor Notes
 
 The checkpoint gate is the central behavior. Do not weaken it by allowing partial, vague, or reassuring answers to advance the session. A `PARTIAL` or `MISS` should produce a hint and another attempt, not a pass.
-

@@ -85,7 +85,7 @@ The skill will be placed in the Version 3 index of the repository. This showcase
 
 ## 5. High-Level Design
 
-The `/theoretical-feedback` skill is structured as a stateless prompt skill. It resides under `skills/theoretical-feedback/`. 
+The `/theoretical-feedback` skill is structured as a stateless prompt skill. It resides under `skills/theoretical-feedback/`.
 
 ```text
 vidbyte-cli/

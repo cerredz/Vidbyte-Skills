@@ -302,4 +302,3 @@ where high-quality material lives.
 - Content farms, listicles, and shallow explainers are excluded from final
   resources.
 - The final answer includes a recommended reading order and caveats.
-

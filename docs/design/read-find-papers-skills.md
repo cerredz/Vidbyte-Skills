@@ -50,7 +50,7 @@ Both skills are stateless prompt skills package-linked into the Vidbyte Ecosyste
 
 ## 3. Background & Context
 
-Modern researchers and developers struggle with "Volume Noise" (unhelpful boilerplate, repetitive introductions, and dense citation clusters) and "Comprehension Illusion" (believing they understood a paper when reading passively, only to forget it shortly after). 
+Modern researchers and developers struggle with "Volume Noise" (unhelpful boilerplate, repetitive introductions, and dense citation clusters) and "Comprehension Illusion" (believing they understood a paper when reading passively, only to forget it shortly after).
 
 Currently, the `vidbyte-cli` repo has background skills and simple prompt skills, but lacks deep research tools. `/find-papers` and `/read-paper` act as the top of the research funnel. Together, they create a highly effective workflow:
 1. Discover papers with `/find-papers "<topic>"`
@@ -407,7 +407,7 @@ We will run the project's validation suite which runs structural linting and met
    - Given the user invokes `/read-paper https://arxiv.org/abs/2301.10140`, the model should resolve the URL, fetch metadata via Semantic Scholar or arXiv HTML, display the header, and show section 1 (Research Question + Why It Matters).
    - The model must halt and ask a "Decide" question.
    - The user must provide an explanation, and the model must validate and issue a "PASS" before displaying Section 2 (What They Did) and the next gate.
-   
+
 2. **Abstract-Only Mode**:
    - Given the user invokes `/read-paper https://example.com/paywalled.pdf --abstract-only` or when a full-text fetch fails, the skill must explicitly notify the user: *"Full text not accessible — working from abstract and metadata. Results will be less detailed."* and present abstract-level extraction.
 

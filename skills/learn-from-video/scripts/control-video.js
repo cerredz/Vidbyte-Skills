@@ -78,4 +78,3 @@ function main(argv) {
 if (process.argv[1] && import.meta.url.endsWith(process.argv[1].replaceAll("\\", "/"))) {
   main(process.argv.slice(2));
 }
-

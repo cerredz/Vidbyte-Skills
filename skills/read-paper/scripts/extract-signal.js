@@ -10,15 +10,15 @@ Similar Files: skills/read-paper/scripts/strip-noise.js.
 
 export function classifyStructure(rawText) {
   const lowercase = rawText.toLowerCase();
-  
+
   if (lowercase.includes("methods") && lowercase.includes("results") && lowercase.includes("discussion")) {
     return "IMRaD";
   }
-  
+
   if (lowercase.includes("introduction") && lowercase.includes("conclusion")) {
     return "Standard";
   }
-  
+
   return "Theory/Review";
 }
 

@@ -34,7 +34,7 @@ export async function searchArXiv(query, options = {}) {
       const idMatch = entry.match(/<id>([\s\S]*?)<\/id>/);
       const summaryMatch = entry.match(/<summary>([\s\S]*?)<\/summary>/);
       const publishedMatch = entry.match(/<published>([\s\S]*?)<\/published>/);
-      
+
       const title = titleMatch ? titleMatch[1].trim().replace(/\s+/g, " ") : "Unknown Title";
       const idUrl = idMatch ? idMatch[1].trim() : "";
       const arxivId = idUrl ? idUrl.substring(idUrl.lastIndexOf("/") + 1).split("v")[0] : "";
