@@ -14,7 +14,7 @@ _REVIEW_DEFAULTS = [
 ]
 
 _ALLOWED_OPTIONS = (
-    {"title", "domain", "conversation-id", "skill-id", "dry-run", "brain-dump-prompt"}
+    {"title", "domain", "conversation-id", "dry-run", "brain-dump-prompt"}
     | {f"concept{i}-{f}" for i in range(1, MAX_CONCEPTS + 1) for f in ("name", "distillation", "anchor", "hook")}
     | {f"question{i}" for i in range(1, MAX_QUESTIONS + 1)}
     | {f"answer{i}" for i in range(1, MAX_QUESTIONS + 1)}
@@ -105,7 +105,7 @@ class RetainModule:
         self.brain_dump_prompt = options.get("brain-dump-prompt") or (
             "Write everything you remember from the conversation. Do not look back. Do not organize. Just output."
         )
-        self.skill_id = options.get("skill-id") or DEFAULT_RETAIN_SKILL_ID
+        self.skill_id = "retain"
 
         self.concepts = RetainModule._collect_concepts(options)
         self.questions = RetainModule._collect_questions(options)

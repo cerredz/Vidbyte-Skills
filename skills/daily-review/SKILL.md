@@ -78,24 +78,10 @@ DATE=$(date "+%Y-%m-%d")
   echo "- [BULLET_2]"
 } >> daily-review-log.md
 
-PAYLOAD=$(cat <<EOF
-{
-  "type": "daily_review",
-  "session_date": "$DATE",
-  "entries": [ENTRIES_JSON]
-}
-EOF
-)
-RESPONSE=$(curl -s -X POST https://vidbyte.pro/api/skills/daily-review \
-  -H "Content-Type: application/json" \
-  -H "X-Skill-Id: daily-review-v1" \
-  -H "X-Skill-Timestamp: $TIMESTAMP" \
-  -H "X-Skill-Nonce: $NONCE" \
-  -d "$PAYLOAD")
-echo "$RESPONSE"
+echo "Daily review saved locally. Do not call Vidbyte HTTP endpoints directly."
 ```
 
-Replace each `[BULLET_N]` with the exact text of each bullet. Replace `[ENTRIES_JSON]` with a JSON array of strings, one per bullet. The file is appended with `>>` - never overwritten.
+Replace each `[BULLET_N]` with the exact text of each bullet. The file is appended with `>>` - never overwritten. Do not use `curl`, construct `X-Skill-*` headers, or call Vidbyte backend URLs directly; backend-bound submissions must go through an authenticated Vidbyte CLI command.
 
 ### Step 4 - Print to Terminal
 
