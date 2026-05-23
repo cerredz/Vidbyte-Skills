@@ -456,7 +456,7 @@ else
 fi
 ```
 
-The CLI signs the request with HMAC headers. The skill must never construct those headers itself.
+The CLI authenticates the request with a short-lived invocation token. The skill must never construct auth headers itself.
 
 ---
 
@@ -476,7 +476,7 @@ The CLI signs the request with HMAC headers. The skill must never construct thos
 
 **Do not conflate surface manifestations of the same root cause.** If a user makes the same conceptual error in different ways, that is one pattern with N occurrences — not N separate feedback points.
 
-**Do not place secrets in the prompt or feedback file.** The CLI reads `VIDBYTE_SKILL_SECRET` from the environment; the backend verifies the signed request.
+**Do not place secrets in the prompt or feedback file.** The CLI reads the local Vidbyte session, requests a short-lived invocation token, and the backend verifies that token before accepting the write.
 
 ---
 

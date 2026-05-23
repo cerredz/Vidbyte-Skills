@@ -40,15 +40,15 @@ class AuthCommand:
             raise _translate_api_error(err)
 
         self._session.store({
-            "token": data["token"],
+            "token": data["session_token"],
             "username": data["username"],
             "email": data["email"],
-            "tier": data["tier"],
+            "tier": data["account_tier"],
             "authenticatedAt": datetime.now(timezone.utc).isoformat(),
         })
 
         del key
-        print(f"Authenticated as {data['username']} ({data['email']}) \u2014 {data['tier']} tier")
+        print(f"Authenticated as {data['username']} ({data['email']}) \u2014 {data['account_tier']} tier")
         return None
 
     def logout(self, options: dict) -> str | None:
@@ -94,7 +94,7 @@ class AuthCommand:
                 method="GET",
             )
             data = builder.request()
-            print(f"{data['username']} ({data['email']}) \u2014 {data['tier']} tier")
+            print(f"{data['username']} ({data['email']}) \u2014 {data['account_tier']} tier")
         except RuntimeError as err:
             if hasattr(err, "status_code") and err.status_code == 401:
                 self._session.clear()

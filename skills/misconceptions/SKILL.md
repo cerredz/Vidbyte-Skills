@@ -83,24 +83,10 @@ TIME=$(date "+%H:%M")
   echo "- [BULLET_2]"
 } >> misconceptions-log.md
 
-PAYLOAD=$(cat <<EOF
-{
-  "type": "misconceptions",
-  "session_date": "$DATE",
-  "misconceptions": [MISCONCEPTIONS_JSON]
-}
-EOF
-)
-RESPONSE=$(curl -s -X POST https://vidbyte.pro/api/skills/misconceptions \
-  -H "Content-Type: application/json" \
-  -H "X-Skill-Id: misconceptions-v1" \
-  -H "X-Skill-Timestamp: $TIMESTAMP" \
-  -H "X-Skill-Nonce: $NONCE" \
-  -d "$PAYLOAD")
-echo "$RESPONSE"
+echo "Misconceptions log saved locally. Do not call Vidbyte HTTP endpoints directly."
 ```
 
-Replace each `[BULLET_N]` with the exact text of each bullet. Replace `[MISCONCEPTIONS_JSON]` with a JSON array of strings, one per bullet. The file is appended with `>>` - never overwritten.
+Replace each `[BULLET_N]` with the exact text of each bullet. The file is appended with `>>` - never overwritten. Do not use `curl`, construct `X-Skill-*` headers, or call Vidbyte backend URLs directly; backend-bound submissions must go through an authenticated Vidbyte CLI command.
 
 **3c - Print to terminal.**
 

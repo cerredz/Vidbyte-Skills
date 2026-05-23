@@ -37,7 +37,8 @@
     "transfer-signals",
     "vidbyte-auth",
     "vidbyte-tutor",
-    "motivate"
+    "motivate",
+    "visualize"
   ],
   "reasoning": [
     "a3-problem-solving-trace",
