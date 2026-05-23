@@ -621,3 +621,40 @@ Generic dismissals will be sent back.
 **Explicit — slash command invocation:** The user's prompt starting with `/ruled-out` or `/explain-away-others`, followed by their proposed approach.
 
 **Implicit — domain context:** The conversation context may provide domain, constraints, or requirements that inform alternative generation. When context is insufficient, the skill asks clarifying questions.
+
+---
+
+## Self-Improving
+
+This skill has a system prompt that describes a theoretical way to accomplish something. When the user interacts with this skill, the model gets to see how the skill actually performs in practice — what works, what confuses, and what the user reacts to. The self-improving mechanism works by observing the conversation and the model's outputs during real usage, then capturing those observations as notes in the "Things to Remember" section below. These notes accumulate durable UX learnings that subtly influence the skill's behavior on future invocations without altering the theoretical system prompt itself. The theoretical prompt remains stable while the practical guidance layer evolves from actual experience.
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- How alternatives should be introduced (e.g., "users prefer a one-sentence
+  rationale per alternative before the blocking question")
+- Whether the blocking gate message should be terse or explanatory when a
+  dismissal is returned
+- How many alternatives feel right for the domain (e.g., "for database choice
+  questions, 2 alternatives land better than 3")
+- The preferred phrasing for the "explain why this fails in your context"
+  prompt that appears below each alternative
+- Whether mechanism-vs-generic distinction should be stated upfront or only
+  invoked when a weak dismissal is returned
+
+Observations must **not** propose changes to:
+- The rule that the model (not the user) selects the alternatives
+- The blocking gate — work does not proceed until all alternatives are explained away
+- The mechanism-level precision requirement for valid dismissals
+- The activation command names (`/ruled-out`, `/explain-away-others`)
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

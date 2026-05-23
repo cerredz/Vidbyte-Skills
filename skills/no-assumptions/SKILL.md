@@ -468,3 +468,37 @@ types `/no-assumptions` followed by request text.
 
 **No user-facing lifecycle:** The skill has no session start/end hooks, no
 initialization, and no cleanup. It is stateless per invocation.
+
+---
+
+## Self-Improving
+
+This skill has a system prompt that describes a theoretical way to accomplish something. When the user interacts with this skill, the model gets to see how the skill actually performs in practice — what works, what confuses, and what the user reacts to. The self-improving mechanism works by observing the conversation and the model's outputs during real usage, then capturing those observations as notes in the "Things to Remember" section below. These notes accumulate durable UX learnings that subtly influence the skill's behavior on future invocations without altering the theoretical system prompt itself. The theoretical prompt remains stable while the practical guidance layer evolves from actual experience.
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- The phrasing or tone of the checklist items (e.g., "users prefer numbered
+  items over `[ ]` checkboxes for shorter lists")
+- The wording of the opening refusal line
+- How quoted phrases from the user's request should be formatted
+- How many checklist items feel right before the list becomes overwhelming
+- Whether the "I will not proceed" closing line should be softened or hardened
+  in specific contexts
+
+Observations must **not** propose changes to:
+- The blocking rule (when the skill fires and when it does not)
+- The clarification loop logic
+- The categories of gaps that qualify for blocking
+- The "No partial answers" or "No softening" hard constraints
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

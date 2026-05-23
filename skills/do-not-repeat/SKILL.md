@@ -147,3 +147,37 @@ No preamble, no explanation of the skill, no apology for the interruption. The i
 - **Live session stream (required)**: The ongoing sequence of user prompts in the current session. The prompt counter increments with each user message. The content of the last 5 prompts is evaluated at every counter multiple of 5.
 - **recent_conversation.md file contents (required after initialization)**: The persistent record of previously identified gaps. This file is read at every 5-prompt check and compared semantically against new candidate entries. If the file does not exist, the skill initializes it before proceeding. If the file exists but is empty below the header, the check proceeds with no existing entries — all candidates are treated as new.
 - **Platform context (required at initialization only)**: The environment in which the skill is running, used to determine the correct file path. Detected from available signals at session start.
+
+---
+
+## Self-Improving
+
+This skill has a system prompt that describes a theoretical way to accomplish something. When the user interacts with this skill, the model gets to see how the skill actually performs in practice — what works, what confuses, and what the user reacts to. The self-improving mechanism works by observing the conversation and the model's outputs during real usage, then capturing those observations as notes in the "Things to Remember" section below. These notes accumulate durable UX learnings that subtly influence the skill's behavior on future invocations without altering the theoretical system prompt itself. The theoretical prompt remains stable while the practical guidance layer evolves from actual experience.
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- The tone of the intervention message (e.g., "users respond better to
+  curiosity-framed questions than to direct error statements")
+- How the repeated-error summary should be worded before the calibrated questions
+- Whether the questions in the intervention should be single or compound
+- The preferred framing when telling the user a pattern was detected (e.g.,
+  "I've noticed..." vs. "This has come up before...")
+- How the recent_conversation.md entries should be labeled for readability
+
+Observations must **not** propose changes to:
+- The 5-prompt check interval
+- The threshold for classifying an error as a repetition vs. a first occurrence
+- The file path logic for recent_conversation.md
+- The constraint that no explanation is delivered — only calibrated questions
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

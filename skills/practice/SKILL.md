@@ -264,3 +264,36 @@ Privately identify the smallest useful unit of practice for the user's requested
 - Empty invocations return usage guidance.
 - No files are created, read, or written.
 
+---
+
+## Self-Improving
+
+This skill has a system prompt that describes a theoretical way to accomplish something. When the user interacts with this skill, the model gets to see how the skill actually performs in practice — what works, what confuses, and what the user reacts to. The self-improving mechanism works by observing the conversation and the model's outputs during real usage, then capturing those observations as notes in the "Things to Remember" section below. These notes accumulate durable UX learnings that subtly influence the skill's behavior on future invocations without altering the theoretical system prompt itself. The theoretical prompt remains stable while the practical guidance layer evolves from actual experience.
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- The ideal number of reps to present by default for a given domain (e.g.,
+  "for social media writing practice, 15 reps is a better default than 10")
+- How feedback criteria should be phrased — as pass/fail rules, open questions,
+  or exemplar comparisons
+- Whether exercises should include an example answer for the first rep
+- How constraint-setting in exercises should be worded (specific word counts,
+  formats, rules)
+- The preferred tone when offering a "next round" prompt at the end of a set
+
+Observations must **not** propose changes to:
+- The core design principle: easy and high-volume over hard and low-volume
+- The activation rule (`/practice` prefix or equivalent invocation phrases)
+- The constraint that no files are written to disk
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

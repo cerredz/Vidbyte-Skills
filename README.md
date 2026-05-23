@@ -88,6 +88,27 @@ augment-code, auggie, kilo-code, jules, zed, replit-agent, devin, openhands
 qwen-code, gemini-memory, jetbrains-ai, junie, kiro, amp, piebald, open-harness, agents-md
 ```
 
+## Updating Skills
+
+Run the update command to pull the latest published version of `vidbyte-skills` from npm and reinstall all skills into your harnesses automatically:
+
+```bash
+vidbyte-skills update
+```
+
+Or via npx without a local install:
+
+```bash
+npx vidbyte-skills update
+```
+
+The update command:
+1. Reads your current installed version from `package.json`.
+2. Fetches the latest version from the npm registry.
+3. Exits cleanly with "Already up to date" if no new version is available.
+4. Runs `npm install --global vidbyte-skills@latest` if a newer version exists.
+5. Reinstalls all skills into your harnesses using the installer defaults (user scope, all platforms, version 1).
+
 ## Vidbyte CLI
 
 This package also exposes a `vidbyte` command for skill-to-backend submissions. Skills should call the CLI instead of constructing backend requests directly in prompt text.

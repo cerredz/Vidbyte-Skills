@@ -260,3 +260,41 @@ Deliver the nine-section mental model as the complete response. No intro, no clo
 **Required — invocation:** `/mental-model <concept>` — Sent by the user. The more specific the concept, the more precise the mental model.
 
 **Implicit — user's prior knowledge:** Inferred from the conversation context. Used in the Connections section to link the new model to what the user already knows.
+
+---
+
+## Self-Improving
+
+This skill has a system prompt that describes a theoretical way to accomplish something. When the user interacts with this skill, the model gets to see how the skill actually performs in practice — what works, what confuses, and what the user reacts to. The self-improving mechanism works by observing the conversation and the model's outputs during real usage, then capturing those observations as notes in the "Things to Remember" section below. These notes accumulate durable UX learnings that subtly influence the skill's behavior on future invocations without altering the theoretical system prompt itself. The theoretical prompt remains stable while the practical guidance layer evolves from actual experience.
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- The style and density of ASCII diagrams or visual representations in the
+  Diagram section (e.g., "users prefer simpler diagrams with labeled nodes over
+  dense box-and-arrow structures")
+- How analogies in the Anchor section should be calibrated to the user's domain
+  background
+- Preferred length for the Core Insight ("Simply Put") summary sentences
+- Whether the Connections section should reference the user's recent conversation
+  topics or draw broader cross-domain links
+- How the Consolidation Note at the end should be toned — directive, reflective,
+  or question-based
+
+Observations must **not** propose changes to:
+- The nine-section structure and its order
+- The neuroscience principles that drive each section
+- The activation rule (`/mental-model` prefix)
+- The core mission of building a durable, retrievable mental representation
+  rather than a summary
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

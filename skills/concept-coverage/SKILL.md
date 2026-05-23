@@ -268,3 +268,41 @@ Concept Coverage log updated: concept-coverage-log.json
 - [ ] The skill stays silent during ordinary tracked messages.
 - [ ] The examples cover 20+ domains or task shapes.
 - [ ] The log improves future review by showing where concept coverage is shallow, developing, applied, or integrated.
+
+---
+
+## Self-Improving
+
+This skill has a system prompt that describes a theoretical way to accomplish something. When the user interacts with this skill, the model gets to see how the skill actually performs in practice — what works, what confuses, and what the user reacts to. The self-improving mechanism works by observing the conversation and the model's outputs during real usage, then capturing those observations as notes in the "Things to Remember" section below. These notes accumulate durable UX learnings that subtly influence the skill's behavior on future invocations without altering the theoretical system prompt itself. The theoretical prompt remains stable while the practical guidance layer evolves from actual experience.
+
+### Protocol
+
+After any session where the user reacts to this skill's output — positively,
+negatively, or with a stated preference — append a single, concise observation
+to **Things to Remember** below. The observation must be about *how* this skill
+presents its output:
+
+- How the four coverage depth labels (shallow, developing, applied, integrated)
+  should be described or renamed to feel more natural to the user
+- Whether depth gaps should be listed with examples of what a deeper prompt
+  would look like, or only identified by name
+- How the notes view (text format) should order or group coverage entries
+- Whether low-coverage signals for one-off exploratory prompts should be
+  filtered out or logged with a note
+- The preferred phrasing for the "what to practice next" suggestion at the end
+  of the session artifact
+
+Observations must **not** propose changes to:
+- The signal that determines shallow vs. deep coverage (specificity, constraints,
+  examples, causal detail, conceptual relatedness)
+- The JSON artifact format or field names
+- The activation commands (`/concept-coverage`, `/concept-coverage-notes`,
+  `/concept-coverage-end`)
+- The rule that the skill does not interrupt the user's workflow while tracking
+
+Do not remove existing observations. Do not rewrite core skill sections above.
+Append only.
+
+### Things to Remember
+
+<!-- Append UX observations here after sessions where user preferences surface. -->

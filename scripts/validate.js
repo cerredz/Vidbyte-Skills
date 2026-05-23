@@ -1,4 +1,17 @@
 #!/usr/bin/env node
+/*
+CONTEXT PROTOCOL HEADER
+Description: Validation engine for Vidbyte Skills repository.
+Purpose: Ensures all skills have valid YAML frontmatter, are correctly registered under categories in skills-manifest.json, and are mapped to proper version tiers in lib/skill-versions.json.
+Architecture: Node.js ES Module script utilizing fs and path to traverse, read, parse, and validate JSON/Markdown files dynamically.
+Key Functions:
+  - main: entrypoint executing skill directories, manifest, and version checks.
+  - validateSkill: parses frontmatter of SKILL.md and checks directory name matching.
+  - validateManifest: checks skills-manifest.json category compliance and duplicate items.
+  - validateVersionManifest: validates lib/skill-versions.json numeric keys and skill availability.
+Relation to Codebase: Serves as the primary validation script executed during git pre-commit/PR pipelines and local testing via `npm test`.
+Similar Files: scripts/smoke-test.js, scripts/cli-smoke-test.js.
+*/
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -54,7 +67,7 @@ function validateManifest(errors) {
     return;
   }
 
-  const categories = ["learning", "reasoning"];
+  const categories = ["learning", "reasoning", "utility"];
   let allManifestSkills = [];
 
   for (const category of categories) {
@@ -182,6 +195,9 @@ function validateVersionManifest(errors) {
   }
 
   for (const [version, skillNames] of Object.entries(manifest)) {
+    if (version === "_context_protocol") {
+      continue;
+    }
     if (!/^\d+$/.test(version)) {
       errors.push(`lib/skill-versions.json: version key "${version}" must be a numeric string.`);
     }
