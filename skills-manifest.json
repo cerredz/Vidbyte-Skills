@@ -36,7 +36,8 @@
     "theoretical-feedback",
     "transfer-signals",
     "vidbyte-auth",
-    "vidbyte-tutor"
+    "vidbyte-tutor",
+    "visualize"
   ],
   "reasoning": [
     "a3-problem-solving-trace",
