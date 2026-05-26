@@ -814,6 +814,9 @@
   ],
   "utility": [
     "docs-tldr",
-    "unit"
+    "unit",
+    "mcp-setup",
+    "mcp-create-prompt",
+    "mcp-export-prompts"
   ]
 }
