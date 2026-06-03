@@ -1,11 +1,13 @@
 {
   "_context_protocol": {
-    "description": "Skills registry manifest listing all active learning-oriented and reasoning-oriented agentic skills.",
+    "description": "Skills registry manifest listing all active learning-oriented, reasoning-oriented, utility, and roleplay agentic skills.",
     "purpose": "Provides a single source of truth for all valid, installable skills, facilitating dynamic discovery, categorisation, and installation by the CLI installer script.",
-    "architecture": "A JSON object mapping categories ('learning', 'reasoning') to arrays of registered skill directory names.",
+    "architecture": "A JSON object mapping categories ('learning', 'reasoning', 'utility', 'roleplay') to arrays of registered skill directory names.",
     "key_elements": [
       "learning: Array of skill directory names under the active learning domain",
-      "reasoning: Array of skill directory names under the reasoning trace/coaching domain"
+      "reasoning: Array of skill directory names under the reasoning trace/coaching domain",
+      "utility: Array of general productivity or decomp utility skills",
+      "roleplay: Array of interactive communication practice and character simulation skills"
     ],
     "relation_to_codebase": "Read by `./scripts/validate.js` to verify that all skill directories have been registered, and by installation scripts to discover available skills.",
     "similar_files": [
@@ -38,9 +40,7 @@
     "vidbyte-auth",
     "vidbyte-tutor",
     "motivate",
-    "visualize",
-    "roleplay",
-    "create-roleplay"
+    "visualize"
   ],
   "reasoning": [
     "a3-problem-solving-trace",
@@ -817,5 +817,9 @@
   "utility": [
     "docs-tldr",
     "unit"
+  ],
+  "roleplay": [
+    "roleplay",
+    "create-roleplay"
   ]
 }
