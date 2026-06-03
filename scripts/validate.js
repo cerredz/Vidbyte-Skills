@@ -67,7 +67,7 @@ function validateManifest(errors) {
     return;
   }
 
-  const categories = ["learning", "reasoning", "utility"];
+  const categories = ["learning", "reasoning", "utility", "roleplay"];
   let allManifestSkills = [];
 
   for (const category of categories) {
