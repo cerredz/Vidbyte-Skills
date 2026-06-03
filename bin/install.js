@@ -3,15 +3,15 @@
  * Context Protocol
  * Description: npm bin shim for the `vidbyte-skills` command. Routes incoming
  *              argv to the correct handler: auth delegates to the Python CLI,
- *              update delegates to lib/updater.js, and all other invocations
- *              delegate to lib/installer.js for skill installation.
+ *              update delegates to lib/updater.js, roleplay shimming to roleplay category,
+ *              and all other invocations delegate to lib/installer.js for skill installation.
  * Purpose: Single entry point that keeps skill install, auth, and update
  *          concerns separated while sharing the same binary name.
- * Architecture: Sequential argv[0] checks. Auth and update are handled inline
- *              before falling through to the default installVidbyteSkills call.
+ * Architecture: Sequential argv[0] checks. Auth, update, and roleplay category shims
+ *              are handled inline before falling through to the default installVidbyteSkills call.
  * Relations: lib/installer.js (install), lib/updater.js (update), Python cli
  *            module (auth). Listed as a bin entry in package.json.
- * Similar files: bin/vidbyte.js (Python shim), bin/learning.js, bin/reasoning.js.
+ * Similar files: bin/vidbyte.js (Python shim), bin/learning.js, bin/reasoning.js, bin/roleplay.js.
  */
 
 import { spawnSync } from "node:child_process";
@@ -64,7 +64,16 @@ else if (argv[0] === "auth") {
 // ── install (default) ────────────────────────────────────────────────────────
 else {
   try {
-    installVidbyteSkills(argv);
+    if (argv[0] === "roleplay") {
+      const restArgs = argv.slice(1);
+      const hasVersion = restArgs.some(arg => arg.startsWith('--version'));
+      if (!hasVersion) {
+        restArgs.push('--version', 'all');
+      }
+      installVidbyteSkills(restArgs, "roleplay");
+    } else {
+      installVidbyteSkills(argv);
+    }
   } catch (error) {
     console.error(error.message);
     process.exit(1);
