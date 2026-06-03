@@ -38,7 +38,9 @@
     "vidbyte-auth",
     "vidbyte-tutor",
     "motivate",
-    "visualize"
+    "visualize",
+    "roleplay",
+    "create-roleplay"
   ],
   "reasoning": [
     "a3-problem-solving-trace",
