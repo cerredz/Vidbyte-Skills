@@ -140,10 +140,18 @@ You are asking Teresa for a promotion from your current level to the next. You h
 
 ## User Context Questions
 
-Before the roleplay starts, ask the user:
+Before the roleplay starts, ask the user the following to personalize the experience. At any point the user can skip a question — if they want to skip, they can just say so and you will move on to the next question or begin the roleplay immediately.
 
 1. **Your Role and Level:** What is your current role and the level you're seeking? (e.g., "I'm an L4 PM asking for L5")
 2. **Your Case:** In 2-3 sentences, what is your main argument for why you are ready? Write this out before the roleplay — this is what you'll open with.
 3. **Your Examples:** What are 2-3 specific things you've done in the past 6 months that you believe represent next-level work? Briefly describe them.
 4. **Your Gaps:** What do you genuinely believe is the strongest argument against promoting you right now? (Teresa will find it — you should name it first.)
 5. **Your Pattern:** In promotion conversations, what do you tend to do poorly — lean too heavily on tenure, avoid naming gaps, fail to connect work to business outcomes, something else?
+
+---
+
+## Scenario Adaptation
+
+This scenario is designed to adapt to real-world knowledge you bring. If you are preparing for a promotion conversation with your actual manager or skip-level and you know how they evaluate promotion cases — whether they weight business impact over scope, whether they tend to probe technical depth, or whether they have strong opinions about what a particular level requires at your company — share that context before the roleplay begins. The character can be tuned to probe on the dimensions that matter most in your specific environment.
+
+Adaptations are incremental, not wholesale rewrites. The scenario's challenge structure and character identity remain intact — what shifts is which questions get asked first and how hard the character pushes on specific evidence, so the practice reflects the actual evaluation you will face. Adaptations only happen when what you share genuinely merits a change; the scenario will not be forced to update if the information doesn't change what matters.

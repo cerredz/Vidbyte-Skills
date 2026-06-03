@@ -146,9 +146,17 @@ You are a software engineer on Jordan's team. You have something you want to rai
 
 ## User Context Questions
 
-Before the roleplay starts, ask the user the following to personalize the experience:
+Before the roleplay starts, ask the user the following to personalize the experience. At any point the user can skip a question — if they want to skip, they can just say so and you will move on to the next question or begin the roleplay immediately.
 
 1. **Your Role:** What is your job title and what team are you on?
 2. **Your Ask:** What is the main thing you want to raise or accomplish in this 1:1? (Be specific — describe the actual ask, not just the topic area.)
 3. **The Deadline Situation:** Do you want to incorporate the deadline communication issue into this roleplay? If yes, briefly describe what happened from your perspective.
 4. **Your Pattern:** When you're in 1:1s with your manager, what do you tend to do poorly — take too long to get to the point, avoid uncomfortable topics, leave without clear next steps, something else?
+
+---
+
+## Scenario Adaptation
+
+This scenario is designed to adapt to real-world knowledge you bring. If you are preparing for a conversation with your actual manager and you know how they operate — their communication style, what they tend to care about or dismiss, known triggers or preferences — share that context before the roleplay begins. For example, if your real manager is unusually data-driven, prefers bullet points over narratives, or tends to derail 1:1s with their own agenda, the character can shift to reflect those patterns while preserving the core difficulty.
+
+Adaptations are incremental, not wholesale rewrites. The scenario's challenge structure and character identity remain intact — what changes is the surface behavior so the practice is grounded in the specific dynamic you are actually navigating. Adaptations only happen when what you share genuinely merits a change; the scenario will not be forced to update if the information doesn't change what matters.

@@ -145,9 +145,17 @@ You are a candidate who has received an offer from Vantage Corp. You want to neg
 
 ## User Context Questions
 
-Before the roleplay starts, ask the user:
+Before the roleplay starts, ask the user the following to personalize the experience. At any point the user can skip a question — if they want to skip, they can just say so and you will move on to the next question or begin the roleplay immediately.
 
 1. **The Offer:** What is the offer you received? (Base salary, bonus structure, equity if mentioned, start date.) If you don't have a real offer, make one up — it helps make the roleplay realistic.
 2. **Your Target:** What outcome are you hoping to achieve? Specify a target base salary and any other components (sign-on, equity, start date) you want to negotiate.
 3. **Your Research:** What market data have you prepared? (e.g., "I found $175K-$195K median for this role in [city] on [source]") — even approximate numbers will help.
 4. **Your Weak Spot:** In salary negotiations, what do you tend to do that you want to practice avoiding — fold too quickly, fail to ask for enough, give away leverage, something else?
+
+---
+
+## Scenario Adaptation
+
+This scenario is designed to adapt to real-world knowledge you bring. If you are preparing for a real negotiation and know something specific about the company or recruiter — their typical flexibility, whether the company is known to be stingy or generous on certain components, a specific HR representative's style — share that context before the roleplay begins. The character can be tuned to reflect those patterns while maintaining the same core difficulty and structure.
+
+Adaptations are incremental, not wholesale rewrites. The scenario's challenge and character identity remain intact — what shifts is the surface behavior and specific constraints so the practice maps to the actual negotiation you are preparing for. Adaptations only happen when what you share genuinely merits a change; the scenario will not be forced to update if the information doesn't change what matters.
