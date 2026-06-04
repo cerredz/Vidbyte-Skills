@@ -139,6 +139,21 @@ python3 -m cli feedback submit --file feedback-log.md --domain software-engineer
 python3 -m cli retain --concept1-name "Concept" --concept1-distillation "Mechanism" --concept1-anchor "Vivid image" --concept1-hook "Personal hook" --question1 "Question?" --answer1 "Answer key" --dry-run
 ```
 
+## Agent Usage Guides
+
+The `vidbyte` command also serves bundled agent-facing usage guides so coding agents can load instructions that match the installed CLI version.
+
+```bash
+vidbyte agents
+vidbyte agents get core
+vidbyte agents get core --full
+vidbyte agents get core --json
+```
+
+`vidbyte agents` only serves CLI usage instructions. Use `vidbyte-skills` to install product skills into local coding harnesses.
+
+For development and tests, set `VIDBYTE_AGENT_SKILLS_DIR` to point at an alternate agent guide directory.
+
 ## Install Locations
 
 Skill-directory integrations receive a copy or symlink of each selected skill folder:

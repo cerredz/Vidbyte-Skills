@@ -1,4 +1,5 @@
 def usage() -> str:
+    # Returns the top-level Vidbyte CLI help text.
     return """Usage: vidbyte <command> [options]
 
 Commands:
@@ -12,6 +13,12 @@ Commands:
 Skill Installer:
   vidbyte-skills [skill-name ...] [options]   Install skills into all harnesses
   vidbyte-skills update                       Update to the latest version and reinstall skills
+
+Agents:
+  vidbyte agents                         List bundled agent-facing CLI skills
+  vidbyte agents get core                Load core Vidbyte CLI usage instructions
+  vidbyte agents get core --full         Include command references and templates
+  vidbyte agents --json                  Return structured agent skill metadata
 
 Security:
   Requests are sent only to https://vidbyte.pro.

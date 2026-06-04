@@ -12,9 +12,10 @@
   "scripts": {
     "install-skills": "node ./bin/install.js",
     "validate": "node ./scripts/validate.js",
-    "test": "node ./scripts/validate.js && node ./scripts/smoke-test.js && node ./scripts/cli-smoke-test.js && node ./scripts/cli-security-test.js"
+    "test": "node ./scripts/validate.js && node ./scripts/smoke-test.js && node ./scripts/cli-smoke-test.js && node ./scripts/cli-security-test.js && python ./scripts/test-agent-facing-cli-skills.py"
   },
   "files": [
+    "agent-skills",
     "bin",
     "cli",
     "lib",
