@@ -21,15 +21,17 @@ const ROLEPLAY_ROOT = path.join(REPO_ROOT, "skills", "roleplay");
 
 const SCENARIOS = [
   "academic-integrity-defense",
-  "addressing-poor-code-quality",
   "appealing-exam-grade",
-  "asking-for-a-raise",
-  "asking-professor-letter-of-recommendation",
+  "asking-for-raise",
+  "asking-professor-recommendation",
+  "bad-code-feedback",
+  "citation-plagiarism-accusation",
   "discussing-professional-burnout",
   "emergency-deadline-extension",
   "handling-missed-deliverable",
   "joining-competitive-research-lab",
   "negotiating-remote-work",
+  "over-promised-deadline-crisis",
   "resigning-from-job"
 ];
 

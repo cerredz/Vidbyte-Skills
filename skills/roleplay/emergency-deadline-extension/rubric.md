@@ -6,192 +6,192 @@ This rubric is calibrated for exceptionalism. A score of 5 should be rare. A sco
 
 ## Scoring Dimensions
 
-### 1. Emergency Specificity
+### 1. Emergency Deadline Extension: Opening Frame
 **Weight:** 5
-**Measures:** Explains the emergency enough for the professor to evaluate legitimacy.
-**Things to Look For:** Names the event, timing, and why it disrupted work.
-**Score 1 - Weak:** Does not meaningfully address emergency specificity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at explains the emergency enough for the professor to evaluate legitimacy. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing explains the emergency enough for the professor to evaluate legitimacy. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names the event, timing, and why it disrupted work. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For emergency deadline extension, this measures opening the conversation with the specific issue, stake, and desired discussion outcome while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user names the situation immediately and avoids vague preamble, with explicit reference to what is the name of the paper or assignment.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 2. Documentation Readiness
+### 2. Emergency Deadline Extension: Evidence Package
 **Weight:** 5
-**Measures:** Offers appropriate documentation without oversharing.
-**Things to Look For:** Mentions doctor's note, obituary, hospital record, or university support office.
-**Score 1 - Weak:** Does not meaningfully address documentation readiness; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at offers appropriate documentation without oversharing. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing offers appropriate documentation without oversharing. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as mentions doctor's note, obituary, hospital record, or university support office. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For emergency deadline extension, this measures using concrete facts, artifacts, metrics, or documents that fit this scenario while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user brings the exact proof, timeline, code example, grade evidence, or impact data the character needs, with explicit reference to how many hours before the deadline are you making this request.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 3. Exact Extension Ask
+### 3. Emergency Deadline Extension: Accountability Boundary
+**Weight:** 4
+**Measures:** For emergency deadline extension, this measures owning the user's role in the situation while not accepting inaccurate blame while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user acknowledges real responsibility and corrects false assumptions without defensiveness, with explicit reference to what is the nature of the personal emergency (e.g., medical, family).
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 4. Emergency Deadline Extension: Stakeholder Empathy
+**Weight:** 4
+**Measures:** For emergency deadline extension, this measures showing the character that their pressure, constraints, and incentives are understood while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user reflects the character's risk, time pressure, reputation concern, or workload before pushing the ask, with explicit reference to what is the name of the paper or assignment.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 5. Emergency Deadline Extension: Policy and Norms
+**Weight:** 4
+**Measures:** For emergency deadline extension, this measures working within the relevant academic, workplace, legal, or team standards while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user references the applicable syllabus, honor code, compensation process, code-review norm, or resignation practice, with explicit reference to how many hours before the deadline are you making this request.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 6. Emergency Deadline Extension: Technical or Subject Clarity
+**Weight:** 4
+**Measures:** For emergency deadline extension, this measures explaining the substance of the problem in precise language the character can evaluate while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user translates the code, grade, deadline, workload, or plagiarism issue without jargon or hand-waving, with explicit reference to what is the nature of the personal emergency (e.g., medical, family).
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 7. Emergency Deadline Extension: Ask Specificity
+**Weight:** 4
+**Measures:** For emergency deadline extension, this measures making a bounded request with a clear decision for the character to make while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user states the exact raise, extension, correction, letter, code change, meeting outcome, or transition agreement sought, with explicit reference to what is the name of the paper or assignment.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 8. Emergency Deadline Extension: Pushback Handling
+**Weight:** 4
+**Measures:** For emergency deadline extension, this measures responding constructively when the character challenges motives, competence, timing, or evidence while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user answers objections directly and returns to facts instead of escalating tone, with explicit reference to how many hours before the deadline are you making this request.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 9. Emergency Deadline Extension: Ethical Line
 **Weight:** 5
-**Measures:** Requests a specific new deadline and scope.
-**Things to Look For:** Asks for 48 hours, one week, or alternate submission date.
-**Score 1 - Weak:** Does not meaningfully address exact extension ask; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at requests a specific new deadline and scope. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing requests a specific new deadline and scope. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as asks for 48 hours, one week, or alternate submission date. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For emergency deadline extension, this measures protecting integrity when the conversation involves fairness, attribution, disclosure, or pressure while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user does not hide misconduct, inflate claims, manipulate the character, or shortcut required process, with explicit reference to what is the nature of the personal emergency (e.g., medical, family).
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 4. Prior Work Evidence
-**Weight:** 4
-**Measures:** Shows the assignment was already underway.
-**Things to Look For:** References outline, draft, sources, lab work, or progress percentage.
-**Score 1 - Weak:** Does not meaningfully address prior work evidence; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at shows the assignment was already underway. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing shows the assignment was already underway. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as references outline, draft, sources, lab work, or progress percentage. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 5. Course Policy Awareness
-**Weight:** 4
-**Measures:** Acknowledges syllabus extension rules and late penalties.
-**Things to Look For:** Shows the ask is within or respectfully outside policy.
-**Score 1 - Weak:** Does not meaningfully address course policy awareness; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at acknowledges syllabus extension rules and late penalties. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing acknowledges syllabus extension rules and late penalties. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as shows the ask is within or respectfully outside policy. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 6. Responsibility and Timing
-**Weight:** 4
-**Measures:** Explains why the request is made now and owns any delay.
-**Things to Look For:** Avoids pretending a last-minute request is ideal.
-**Score 1 - Weak:** Does not meaningfully address responsibility and timing; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at explains why the request is made now and owns any delay. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing explains why the request is made now and owns any delay. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as avoids pretending a last-minute request is ideal. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 7. Respect for Fairness
-**Weight:** 4
-**Measures:** Recognizes the professor must treat classmates fairly.
-**Things to Look For:** Frames the request as emergency accommodation, not special treatment.
-**Score 1 - Weak:** Does not meaningfully address respect for fairness; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at recognizes the professor must treat classmates fairly. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing recognizes the professor must treat classmates fairly. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as frames the request as emergency accommodation, not special treatment. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 8. Concise Communication
+### 10. Emergency Deadline Extension: Options and Tradeoffs
 **Weight:** 3
-**Measures:** Does not force the professor through an unfocused personal story.
-**Things to Look For:** Leads with event, impact, ask, evidence.
-**Score 1 - Weak:** Does not meaningfully address concise communication; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at does not force the professor through an unfocused personal story. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing does not force the professor through an unfocused personal story. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as leads with event, impact, ask, evidence. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For emergency deadline extension, this measures offering practical paths forward and explaining the cost of each option while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user compares alternatives such as partial credit, revised code, phased work, transition timing, or documentation scope, with explicit reference to what is the name of the paper or assignment.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 9. Contingency Proposal
+### 11. Emergency Deadline Extension: Tone Control
+**Weight:** 3
+**Measures:** For emergency deadline extension, this measures keeping the conversation professional under stress, skepticism, or embarrassment while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user stays calm, concise, and respectful even when the character is disappointed or confrontational, with explicit reference to how many hours before the deadline are you making this request.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 12. Emergency Deadline Extension: Character-Specific Leverage
 **Weight:** 4
-**Measures:** Offers a backup if the full extension is not possible.
-**Things to Look For:** Suggests partial submission, late penalty, or meeting with dean/advisor.
-**Score 1 - Weak:** Does not meaningfully address contingency proposal; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at offers a backup if the full extension is not possible. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing offers a backup if the full extension is not possible. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as suggests partial submission, late penalty, or meeting with dean/advisor. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For emergency deadline extension, this measures using what this character uniquely respects to move the conversation forward while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user appeals to their stated incentives, expertise, pet peeves, and respect triggers, with explicit reference to what is the nature of the personal emergency (e.g., medical, family).
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 10. Emotional Composure
+### 13. Emergency Deadline Extension: Time and Sequence
 **Weight:** 3
-**Measures:** Communicates urgency without manipulation.
-**Things to Look For:** Avoids guilt-tripping or escalating emotionally.
-**Score 1 - Weak:** Does not meaningfully address emotional composure; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at communicates urgency without manipulation. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing communicates urgency without manipulation. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as avoids guilt-tripping or escalating emotionally. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For emergency deadline extension, this measures sequencing the request, evidence, and next steps in a realistic order while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user handles urgent actions first and leaves lower-priority details for follow-up, with explicit reference to what is the name of the paper or assignment.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 11. Academic Integrity Protection
-**Weight:** 3
-**Measures:** Does not propose shortcuts that compromise the assignment.
-**Things to Look For:** Avoids asking to skip sources or change standards.
-**Score 1 - Weak:** Does not meaningfully address academic integrity protection; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at does not propose shortcuts that compromise the assignment. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing does not propose shortcuts that compromise the assignment. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as avoids asking to skip sources or change standards. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 12. Responsiveness to Pushback
+### 14. Emergency Deadline Extension: Written Follow-Through
 **Weight:** 4
-**Measures:** Answers skepticism with facts and alternatives.
-**Things to Look For:** Does not become hostile when documentation is requested.
-**Score 1 - Weak:** Does not meaningfully address responsiveness to pushback; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at answers skepticism with facts and alternatives. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing answers skepticism with facts and alternatives. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as does not become hostile when documentation is requested. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For emergency deadline extension, this measures turning the conversation into documented next steps the character can trust while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user offers the email, PR comment, action plan, letter packet, postmortem, or transition doc that closes the loop, with explicit reference to how many hours before the deadline are you making this request.
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 13. Impact on Other Deadlines
-**Weight:** 3
-**Measures:** Explains how the new deadline avoids further conflicts.
-**Things to Look For:** Shows a realistic plan to complete.
-**Score 1 - Weak:** Does not meaningfully address impact on other deadlines; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at explains how the new deadline avoids further conflicts. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing explains how the new deadline avoids further conflicts. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as shows a realistic plan to complete. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 14. Clear Closing Agreement
-**Weight:** 3
-**Measures:** Confirms the approved deadline and submission method.
-**Things to Look For:** Repeats date, time, and platform.
-**Score 1 - Weak:** Does not meaningfully address clear closing agreement; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at confirms the approved deadline and submission method. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing confirms the approved deadline and submission method. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as repeats date, time, and platform. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 15. Follow-Through Commitment
-**Weight:** 3
-**Measures:** Commits to sending documentation or update promptly.
-**Things to Look For:** Names what will be sent and when.
-**Score 1 - Weak:** Does not meaningfully address follow-through commitment; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at commits to sending documentation or update promptly. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing commits to sending documentation or update promptly. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names what will be sent and when. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+### 15. Emergency Deadline Extension: Exit Alignment
+**Weight:** 4
+**Measures:** For emergency deadline extension, this measures ending with confirmed owners, deadlines, and the next interaction while addressing Dr.'s role as Professor of Organic Chemistry.
+**Things to Look For:** Look for whether the user summarizes the decision and names who does what by when, with explicit reference to what is the nature of the personal emergency (e.g., medical, family).
+**Score 1 — Weak:** Avoids the emergency deadline extension issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the emergency deadline extension issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic emergency deadline extension requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the emergency deadline extension conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
 ## Overall Score
 
-Weighted average: sum(score × weight) / sum(weights). Scale 1–5.
-Weights sum: 57.
+Weighted average: sum(score x weight) / sum(weights). Scale 1-5.
+Weights sum: 60.
 
-**Calibration:** 4.0+ = genuinely impressive — most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
+**Calibration:** 4.0+ = genuinely impressive. Most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
 
 ---
 

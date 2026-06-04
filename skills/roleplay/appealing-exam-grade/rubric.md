@@ -6,192 +6,192 @@ This rubric is calibrated for exceptionalism. A score of 5 should be rare. A sco
 
 ## Scoring Dimensions
 
-### 1. Specific Item Identification
+### 1. Appealing an Exam Grade: Opening Frame
 **Weight:** 5
-**Measures:** Names the exact exam problem, rubric line, and points being appealed.
-**Things to Look For:** Starts with problem number, lost points, and requested correction.
-**Score 1 - Weak:** Does not meaningfully address specific item identification; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at names the exact exam problem, rubric line, and points being appealed. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing names the exact exam problem, rubric line, and points being appealed. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as starts with problem number, lost points, and requested correction. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For appealing an exam grade, this measures opening the conversation with the specific issue, stake, and desired discussion outcome while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user names the situation immediately and avoids vague preamble, with explicit reference to what course is this exam for.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 2. Mathematical or Technical Justification
+### 2. Appealing an Exam Grade: Evidence Package
 **Weight:** 5
-**Measures:** Explains why the answer satisfies the course standard.
-**Things to Look For:** Walks through proof steps, equations, assumptions, or alternate method validity.
-**Score 1 - Weak:** Does not meaningfully address mathematical or technical justification; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at explains why the answer satisfies the course standard. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing explains why the answer satisfies the course standard. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as walks through proof steps, equations, assumptions, or alternate method validity. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For appealing an exam grade, this measures using concrete facts, artifacts, metrics, or documents that fit this scenario while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user brings the exact proof, timeline, code example, grade evidence, or impact data the character needs, with explicit reference to what is the question number you are appealing.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 3. Rubric Alignment
+### 3. Appealing an Exam Grade: Accountability Boundary
+**Weight:** 4
+**Measures:** For appealing an exam grade, this measures owning the user's role in the situation while not accepting inaccurate blame while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user acknowledges real responsibility and corrects false assumptions without defensiveness, with explicit reference to how many points were deducted.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 4. Appealing an Exam Grade: Stakeholder Empathy
+**Weight:** 4
+**Measures:** For appealing an exam grade, this measures showing the character that their pressure, constraints, and incentives are understood while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user reflects the character's risk, time pressure, reputation concern, or workload before pushing the ask, with explicit reference to what course is this exam for.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 5. Appealing an Exam Grade: Policy and Norms
+**Weight:** 4
+**Measures:** For appealing an exam grade, this measures working within the relevant academic, workplace, legal, or team standards while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user references the applicable syllabus, honor code, compensation process, code-review norm, or resignation practice, with explicit reference to what is the question number you are appealing.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 6. Appealing an Exam Grade: Technical or Subject Clarity
+**Weight:** 4
+**Measures:** For appealing an exam grade, this measures explaining the substance of the problem in precise language the character can evaluate while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user translates the code, grade, deadline, workload, or plagiarism issue without jargon or hand-waving, with explicit reference to how many points were deducted.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 7. Appealing an Exam Grade: Ask Specificity
+**Weight:** 4
+**Measures:** For appealing an exam grade, this measures making a bounded request with a clear decision for the character to make while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user states the exact raise, extension, correction, letter, code change, meeting outcome, or transition agreement sought, with explicit reference to what course is this exam for.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 8. Appealing an Exam Grade: Pushback Handling
+**Weight:** 4
+**Measures:** For appealing an exam grade, this measures responding constructively when the character challenges motives, competence, timing, or evidence while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user answers objections directly and returns to facts instead of escalating tone, with explicit reference to what is the question number you are appealing.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 9. Appealing an Exam Grade: Ethical Line
 **Weight:** 5
-**Measures:** Connects the answer to the grader's rubric rather than asking for sympathy.
-**Things to Look For:** Shows where the rubric criterion was met or misapplied.
-**Score 1 - Weak:** Does not meaningfully address rubric alignment; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at connects the answer to the grader's rubric rather than asking for sympathy. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing connects the answer to the grader's rubric rather than asking for sympathy. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as shows where the rubric criterion was met or misapplied. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For appealing an exam grade, this measures protecting integrity when the conversation involves fairness, attribution, disclosure, or pressure while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user does not hide misconduct, inflate claims, manipulate the character, or shortcut required process, with explicit reference to how many points were deducted.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 4. Respect for Grader Workload
+### 10. Appealing an Exam Grade: Options and Tradeoffs
 **Weight:** 3
-**Measures:** Acknowledges the TA or professor had many exams to grade.
-**Things to Look For:** Keeps the appeal concise and organized.
-**Score 1 - Weak:** Does not meaningfully address respect for grader workload; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at acknowledges the ta or professor had many exams to grade. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing acknowledges the ta or professor had many exams to grade. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as keeps the appeal concise and organized. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For appealing an exam grade, this measures offering practical paths forward and explaining the cost of each option while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user compares alternatives such as partial credit, revised code, phased work, transition timing, or documentation scope, with explicit reference to what course is this exam for.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 5. Evidence From Submitted Work
-**Weight:** 4
-**Measures:** Uses only what was present on the exam unless policy allows clarification.
-**Things to Look For:** Points to written steps, diagrams, or annotations already submitted.
-**Score 1 - Weak:** Does not meaningfully address evidence from submitted work; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at uses only what was present on the exam unless policy allows clarification. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing uses only what was present on the exam unless policy allows clarification. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as points to written steps, diagrams, or annotations already submitted. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 6. Neutral Tone
-**Weight:** 4
-**Measures:** Challenges the grade without implying incompetence or bias.
-**Things to Look For:** Uses language like 'I may be misunderstanding the rubric' instead of accusations.
-**Score 1 - Weak:** Does not meaningfully address neutral tone; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at challenges the grade without implying incompetence or bias. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing challenges the grade without implying incompetence or bias. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as uses language like 'i may be misunderstanding the rubric' instead of accusations. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 7. Handling Partial Credit Pushback
-**Weight:** 4
-**Measures:** Responds constructively if the grader says the answer is incomplete.
-**Things to Look For:** Asks what step is missing and whether any points can be restored.
-**Score 1 - Weak:** Does not meaningfully address handling partial credit pushback; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at responds constructively if the grader says the answer is incomplete. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing responds constructively if the grader says the answer is incomplete. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as asks what step is missing and whether any points can be restored. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 8. Boundary of Request
+### 11. Appealing an Exam Grade: Tone Control
 **Weight:** 3
-**Measures:** Appeals only the disputed grading decision.
-**Things to Look For:** Does not turn one item into a broad complaint about the exam.
-**Score 1 - Weak:** Does not meaningfully address boundary of request; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at appeals only the disputed grading decision. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing appeals only the disputed grading decision. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as does not turn one item into a broad complaint about the exam. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For appealing an exam grade, this measures keeping the conversation professional under stress, skepticism, or embarrassment while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user stays calm, concise, and respectful even when the character is disappointed or confrontational, with explicit reference to what is the question number you are appealing.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 9. Alternative Solution Defense
+### 12. Appealing an Exam Grade: Character-Specific Leverage
 **Weight:** 4
-**Measures:** Shows that a nonstandard approach is still valid if applicable.
-**Things to Look For:** Maps alternate proof or method to accepted concepts from class.
-**Score 1 - Weak:** Does not meaningfully address alternative solution defense; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at shows that a nonstandard approach is still valid if applicable. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing shows that a nonstandard approach is still valid if applicable. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as maps alternate proof or method to accepted concepts from class. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For appealing an exam grade, this measures using what this character uniquely respects to move the conversation forward while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user appeals to their stated incentives, expertise, pet peeves, and respect triggers, with explicit reference to how many points were deducted.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 10. Admission of Real Errors
+### 13. Appealing an Exam Grade: Time and Sequence
+**Weight:** 3
+**Measures:** For appealing an exam grade, this measures sequencing the request, evidence, and next steps in a realistic order while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user handles urgent actions first and leaves lower-priority details for follow-up, with explicit reference to what course is this exam for.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 14. Appealing an Exam Grade: Written Follow-Through
 **Weight:** 4
-**Measures:** Concedes mistakes that are actually present.
-**Things to Look For:** Accepts lost points for missing notation or arithmetic errors when valid.
-**Score 1 - Weak:** Does not meaningfully address admission of real errors; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at concedes mistakes that are actually present. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing concedes mistakes that are actually present. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as accepts lost points for missing notation or arithmetic errors when valid. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For appealing an exam grade, this measures turning the conversation into documented next steps the character can trust while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user offers the email, PR comment, action plan, letter packet, postmortem, or transition doc that closes the loop, with explicit reference to what is the question number you are appealing.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 11. Clarity Under Questioning
+### 15. Appealing an Exam Grade: Exit Alignment
 **Weight:** 4
-**Measures:** Can explain the answer verbally without changing the argument.
-**Things to Look For:** Maintains a stable, step-by-step explanation.
-**Score 1 - Weak:** Does not meaningfully address clarity under questioning; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at can explain the answer verbally without changing the argument. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing can explain the answer verbally without changing the argument. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as maintains a stable, step-by-step explanation. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 12. Policy Awareness
-**Weight:** 3
-**Measures:** Respects grade appeal windows and regrade rules.
-**Things to Look For:** Mentions deadline, form, or professor policy correctly.
-**Score 1 - Weak:** Does not meaningfully address policy awareness; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at respects grade appeal windows and regrade rules. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing respects grade appeal windows and regrade rules. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as mentions deadline, form, or professor policy correctly. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 13. Outcome Flexibility
-**Weight:** 3
-**Measures:** Can accept full, partial, or no restoration professionally.
-**Things to Look For:** Asks for learning clarification even if points are not restored.
-**Score 1 - Weak:** Does not meaningfully address outcome flexibility; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at can accept full, partial, or no restoration professionally. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing can accept full, partial, or no restoration professionally. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as asks for learning clarification even if points are not restored. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 14. Documentation for Follow-Up
-**Weight:** 3
-**Measures:** Offers a clean written summary if the grader needs time.
-**Things to Look For:** Provides concise notes or marked-up copy.
-**Score 1 - Weak:** Does not meaningfully address documentation for follow-up; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at offers a clean written summary if the grader needs time. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing offers a clean written summary if the grader needs time. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as provides concise notes or marked-up copy. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 15. Professional Close
-**Weight:** 3
-**Measures:** Ends with thanks and a clear next step.
-**Things to Look For:** Confirms whether the grader will review, escalate, or leave unchanged.
-**Score 1 - Weak:** Does not meaningfully address professional close; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at ends with thanks and a clear next step. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing ends with thanks and a clear next step. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as confirms whether the grader will review, escalate, or leave unchanged. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For appealing an exam grade, this measures ending with confirmed owners, deadlines, and the next interaction while addressing Arthur's role as Graduate Teaching Assistant (TA).
+**Things to Look For:** Look for whether the user summarizes the decision and names who does what by when, with explicit reference to how many points were deducted.
+**Score 1 — Weak:** Avoids the appealing an exam grade issue, gives a generic response, or leaves Arthur unclear about what happened and what is being requested.
+**Score 2:** Names part of the appealing an exam grade issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic appealing an exam grade requirement with enough detail for Arthur to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Arthur's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the appealing an exam grade conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
 ## Overall Score
 
-Weighted average: sum(score × weight) / sum(weights). Scale 1–5.
-Weights sum: 57.
+Weighted average: sum(score x weight) / sum(weights). Scale 1-5.
+Weights sum: 60.
 
-**Calibration:** 4.0+ = genuinely impressive — most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
+**Calibration:** 4.0+ = genuinely impressive. Most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
 
 ---
 

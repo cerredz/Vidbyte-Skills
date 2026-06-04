@@ -22,7 +22,9 @@ appends rows here when new scenarios are created.
 | emergency-deadline-extension | Emergency Deadline Extension | Request a critical paper deadline extension from a strict professor due to a personal emergency. |
 | appealing-exam-grade | Appealing an Exam Grade | Show a grader where they misread your math proof and requesting they reinstate lost points. |
 | joining-competitive-research-lab | Joining a Competitive Research Lab | Pitch a busy professor on why they should accept you into their highly competitive research group. |
-| addressing-poor-code-quality | Addressing Poor Code Quality | Give direct but constructive feedback to a coworker whose rushed code is creating bugs and review churn. |
-| asking-for-a-raise | Asking for a Raise | Ask your manager for a raise using impact evidence, market context, and a clear compensation request. |
-| resigning-from-job | Resigning from a Job | Resign clearly and professionally while setting transition boundaries with a manager who wants you to stay. |
-| asking-professor-letter-of-recommendation | Asking a Professor for a Letter of Recommendation | Ask a professor for a recommendation letter with enough context, timing, and evidence to make the request easy to accept. |
+| citation-plagiarism-accusation | Citation/Plagiarism Accusation | Defend your research report to your internship manager after they discover sections that match another company's public paper without proper citation. |
+| over-promised-deadline-crisis | Over-Promised Deadline Crisis | Admit to your manager that a project you claimed was '90% done' is actually barely started, hours before the final client delivery. |
+| bad-code-feedback | Bad Code Feedback | Tell a coworker their implementation is unsafe and hard to maintain, then explain the concrete code problems without making it personal. |
+| asking-for-raise | Asking for a Raise | Ask your manager for a raise using performance evidence, market context, and a clear compensation ask. |
+| resigning-from-job | Resigning from a Job | Resign from your job professionally while holding a firm final date and offering a clean transition plan. |
+| asking-professor-recommendation | Asking a Professor for a Recommendation | Ask a professor for a recommendation letter with enough context, notice, and evidence for them to write a strong letter. |

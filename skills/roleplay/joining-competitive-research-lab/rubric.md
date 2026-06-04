@@ -6,192 +6,192 @@ This rubric is calibrated for exceptionalism. A score of 5 should be rare. A sco
 
 ## Scoring Dimensions
 
-### 1. Research Fit Specificity
+### 1. Joining a Competitive Research Lab: Opening Frame
 **Weight:** 5
-**Measures:** Explains why this lab's work fits the student's interests and skills.
-**Things to Look For:** Names papers, projects, methods, or datasets from the lab.
-**Score 1 - Weak:** Does not meaningfully address research fit specificity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at explains why this lab's work fits the student's interests and skills. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing explains why this lab's work fits the student's interests and skills. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names papers, projects, methods, or datasets from the lab. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For joining a competitive research lab, this measures opening the conversation with the specific issue, stake, and desired discussion outcome while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user names the situation immediately and avoids vague preamble, with explicit reference to what is your major and year of study.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 2. Preparation on Professor's Work
+### 2. Joining a Competitive Research Lab: Evidence Package
 **Weight:** 5
-**Measures:** Shows real familiarity with the professor's recent research.
-**Things to Look For:** References a paper's question, method, and why it matters.
-**Score 1 - Weak:** Does not meaningfully address preparation on professor's work; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at shows real familiarity with the professor's recent research. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing shows real familiarity with the professor's recent research. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as references a paper's question, method, and why it matters. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For joining a competitive research lab, this measures using concrete facts, artifacts, metrics, or documents that fit this scenario while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user brings the exact proof, timeline, code example, grade evidence, or impact data the character needs, with explicit reference to what programming languages and ml frameworks are you proficient in.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 3. Skill Evidence
+### 3. Joining a Competitive Research Lab: Accountability Boundary
+**Weight:** 4
+**Measures:** For joining a competitive research lab, this measures owning the user's role in the situation while not accepting inaccurate blame while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user acknowledges real responsibility and corrects false assumptions without defensiveness, with explicit reference to which of dr. stone's recent publications did you read.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 4. Joining a Competitive Research Lab: Stakeholder Empathy
+**Weight:** 4
+**Measures:** For joining a competitive research lab, this measures showing the character that their pressure, constraints, and incentives are understood while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user reflects the character's risk, time pressure, reputation concern, or workload before pushing the ask, with explicit reference to what is your major and year of study.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 5. Joining a Competitive Research Lab: Policy and Norms
+**Weight:** 4
+**Measures:** For joining a competitive research lab, this measures working within the relevant academic, workplace, legal, or team standards while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user references the applicable syllabus, honor code, compensation process, code-review norm, or resignation practice, with explicit reference to what programming languages and ml frameworks are you proficient in.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 6. Joining a Competitive Research Lab: Technical or Subject Clarity
+**Weight:** 4
+**Measures:** For joining a competitive research lab, this measures explaining the substance of the problem in precise language the character can evaluate while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user translates the code, grade, deadline, workload, or plagiarism issue without jargon or hand-waving, with explicit reference to which of dr. stone's recent publications did you read.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 7. Joining a Competitive Research Lab: Ask Specificity
+**Weight:** 4
+**Measures:** For joining a competitive research lab, this measures making a bounded request with a clear decision for the character to make while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user states the exact raise, extension, correction, letter, code change, meeting outcome, or transition agreement sought, with explicit reference to what is your major and year of study.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 8. Joining a Competitive Research Lab: Pushback Handling
+**Weight:** 4
+**Measures:** For joining a competitive research lab, this measures responding constructively when the character challenges motives, competence, timing, or evidence while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user answers objections directly and returns to facts instead of escalating tone, with explicit reference to what programming languages and ml frameworks are you proficient in.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 9. Joining a Competitive Research Lab: Ethical Line
 **Weight:** 5
-**Measures:** Connects concrete skills to lab needs.
-**Things to Look For:** Mentions coding, statistics, lab techniques, writing, or domain background with examples.
-**Score 1 - Weak:** Does not meaningfully address skill evidence; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at connects concrete skills to lab needs. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing connects concrete skills to lab needs. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as mentions coding, statistics, lab techniques, writing, or domain background with examples. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For joining a competitive research lab, this measures protecting integrity when the conversation involves fairness, attribution, disclosure, or pressure while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user does not hide misconduct, inflate claims, manipulate the character, or shortcut required process, with explicit reference to which of dr. stone's recent publications did you read.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 4. Contribution Proposal
-**Weight:** 4
-**Measures:** Suggests a plausible way to help the lab.
-**Things to Look For:** Offers literature review, replication, data cleaning, experiments, or tooling.
-**Score 1 - Weak:** Does not meaningfully address contribution proposal; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at suggests a plausible way to help the lab. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing suggests a plausible way to help the lab. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as offers literature review, replication, data cleaning, experiments, or tooling. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 5. Learning Goals
+### 10. Joining a Competitive Research Lab: Options and Tradeoffs
 **Weight:** 3
-**Measures:** States what the student wants to learn without making the professor design everything.
-**Things to Look For:** Links growth goals to lab tasks.
-**Score 1 - Weak:** Does not meaningfully address learning goals; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at states what the student wants to learn without making the professor design everything. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing states what the student wants to learn without making the professor design everything. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as links growth goals to lab tasks. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For joining a competitive research lab, this measures offering practical paths forward and explaining the cost of each option while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user compares alternatives such as partial credit, revised code, phased work, transition timing, or documentation scope, with explicit reference to what is your major and year of study.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 6. Time Commitment Clarity
-**Weight:** 4
-**Measures:** Gives realistic weekly availability and duration.
-**Things to Look For:** Names hours, semester, summer, or long-term commitment.
-**Score 1 - Weak:** Does not meaningfully address time commitment clarity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at gives realistic weekly availability and duration. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing gives realistic weekly availability and duration. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names hours, semester, summer, or long-term commitment. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 7. Transcript and Coursework Framing
+### 11. Joining a Competitive Research Lab: Tone Control
 **Weight:** 3
-**Measures:** Uses grades/coursework honestly without overclaiming.
-**Things to Look For:** Mentions relevant classes and addresses weaknesses if needed.
-**Score 1 - Weak:** Does not meaningfully address transcript and coursework framing; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at uses grades/coursework honestly without overclaiming. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing uses grades/coursework honestly without overclaiming. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as mentions relevant classes and addresses weaknesses if needed. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For joining a competitive research lab, this measures keeping the conversation professional under stress, skepticism, or embarrassment while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user stays calm, concise, and respectful even when the character is disappointed or confrontational, with explicit reference to what programming languages and ml frameworks are you proficient in.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 8. Respect for Selectivity
-**Weight:** 3
-**Measures:** Acknowledges the lab is competitive and professor time is limited.
-**Things to Look For:** Does not act entitled to a position.
-**Score 1 - Weak:** Does not meaningfully address respect for selectivity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at acknowledges the lab is competitive and professor time is limited. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing acknowledges the lab is competitive and professor time is limited. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as does not act entitled to a position. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 9. Question Quality
+### 12. Joining a Competitive Research Lab: Character-Specific Leverage
 **Weight:** 4
-**Measures:** Asks informed questions about the lab's current needs.
-**Things to Look For:** Asks about open projects, onboarding, or prerequisites.
-**Score 1 - Weak:** Does not meaningfully address question quality; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at asks informed questions about the lab's current needs. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing asks informed questions about the lab's current needs. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as asks about open projects, onboarding, or prerequisites. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For joining a competitive research lab, this measures using what this character uniquely respects to move the conversation forward while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user appeals to their stated incentives, expertise, pet peeves, and respect triggers, with explicit reference to which of dr. stone's recent publications did you read.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 10. Independence Signal
-**Weight:** 4
-**Measures:** Shows ability to self-manage work.
-**Things to Look For:** Gives examples of independent projects or follow-through.
-**Score 1 - Weak:** Does not meaningfully address independence signal; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at shows ability to self-manage work. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing shows ability to self-manage work. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as gives examples of independent projects or follow-through. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 11. Collaboration Fit
+### 13. Joining a Competitive Research Lab: Time and Sequence
 **Weight:** 3
-**Measures:** Signals ability to work with grad students or lab teams.
-**Things to Look For:** Mentions communication habits and reliability.
-**Score 1 - Weak:** Does not meaningfully address collaboration fit; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at signals ability to work with grad students or lab teams. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing signals ability to work with grad students or lab teams. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as mentions communication habits and reliability. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For joining a competitive research lab, this measures sequencing the request, evidence, and next steps in a realistic order while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user handles urgent actions first and leaves lower-priority details for follow-up, with explicit reference to what is your major and year of study.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 12. Handling No Openings
+### 14. Joining a Competitive Research Lab: Written Follow-Through
 **Weight:** 4
-**Measures:** Responds constructively if there is no spot now.
-**Things to Look For:** Asks about future openings, reading list, or adjacent opportunities.
-**Score 1 - Weak:** Does not meaningfully address handling no openings; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at responds constructively if there is no spot now. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing responds constructively if there is no spot now. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as asks about future openings, reading list, or adjacent opportunities. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For joining a competitive research lab, this measures turning the conversation into documented next steps the character can trust while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user offers the email, PR comment, action plan, letter packet, postmortem, or transition doc that closes the loop, with explicit reference to what programming languages and ml frameworks are you proficient in.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 13. Resume/CV Use
-**Weight:** 3
-**Measures:** Provides materials without making the professor search.
-**Things to Look For:** Offers concise CV, transcript, GitHub, or writing sample.
-**Score 1 - Weak:** Does not meaningfully address resume/cv use; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at provides materials without making the professor search. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing provides materials without making the professor search. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as offers concise cv, transcript, github, or writing sample. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 14. Ethical Research Awareness
-**Weight:** 3
-**Measures:** Recognizes responsible conduct, data handling, or human-subjects constraints if relevant.
-**Things to Look For:** Does not treat research as a resume line only.
-**Score 1 - Weak:** Does not meaningfully address ethical research awareness; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at recognizes responsible conduct, data handling, or human-subjects constraints if relevant. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing recognizes responsible conduct, data handling, or human-subjects constraints if relevant. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as does not treat research as a resume line only. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 15. Clear Next Step Ask
+### 15. Joining a Competitive Research Lab: Exit Alignment
 **Weight:** 4
-**Measures:** Ends with a concrete next step.
-**Things to Look For:** Requests interview, trial task, email follow-up, or materials review.
-**Score 1 - Weak:** Does not meaningfully address clear next step ask; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at ends with a concrete next step. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing ends with a concrete next step. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as requests interview, trial task, email follow-up, or materials review. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For joining a competitive research lab, this measures ending with confirmed owners, deadlines, and the next interaction while addressing Dr.'s role as Professor / Research Lab Director.
+**Things to Look For:** Look for whether the user summarizes the decision and names who does what by when, with explicit reference to which of dr. stone's recent publications did you read.
+**Score 1 — Weak:** Avoids the joining a competitive research lab issue, gives a generic response, or leaves Dr. unclear about what happened and what is being requested.
+**Score 2:** Names part of the joining a competitive research lab issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic joining a competitive research lab requirement with enough detail for Dr. to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Dr.'s likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the joining a competitive research lab conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
 ## Overall Score
 
-Weighted average: sum(score × weight) / sum(weights). Scale 1–5.
-Weights sum: 57.
+Weighted average: sum(score x weight) / sum(weights). Scale 1-5.
+Weights sum: 60.
 
-**Calibration:** 4.0+ = genuinely impressive — most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
+**Calibration:** 4.0+ = genuinely impressive. Most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
 
 ---
 

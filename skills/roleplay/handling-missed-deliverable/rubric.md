@@ -6,192 +6,192 @@ This rubric is calibrated for exceptionalism. A score of 5 should be rare. A sco
 
 ## Scoring Dimensions
 
-### 1. Immediate Ownership
+### 1. Handling a Missed Deliverable: Opening Frame
 **Weight:** 5
-**Measures:** Takes responsibility for the missed deliverable without hiding behind process.
-**Things to Look For:** States what was missed and owns the communication gap.
-**Score 1 - Weak:** Does not meaningfully address immediate ownership; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at takes responsibility for the missed deliverable without hiding behind process. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing takes responsibility for the missed deliverable without hiding behind process. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as states what was missed and owns the communication gap. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For handling a missed deliverable, this measures opening the conversation with the specific issue, stake, and desired discussion outcome while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user names the situation immediately and avoids vague preamble, with explicit reference to what is your engineering title (e.g., frontend lead, dev lead).
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 2. Client Impact Recognition
+### 2. Handling a Missed Deliverable: Evidence Package
 **Weight:** 5
-**Measures:** Shows understanding of how the miss affected the account director and client.
-**Things to Look For:** Names downstream meeting, launch, revenue, or trust impact.
-**Score 1 - Weak:** Does not meaningfully address client impact recognition; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at shows understanding of how the miss affected the account director and client. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing shows understanding of how the miss affected the account director and client. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names downstream meeting, launch, revenue, or trust impact. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For handling a missed deliverable, this measures using concrete facts, artifacts, metrics, or documents that fit this scenario while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user brings the exact proof, timeline, code example, grade evidence, or impact data the character needs, with explicit reference to what client-facing deliverable did the team miss today.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 3. Fact Pattern Clarity
+### 3. Handling a Missed Deliverable: Accountability Boundary
 **Weight:** 4
-**Measures:** Separates known facts from assumptions.
-**Things to Look For:** Explains timeline, handoffs, and where the breakdown occurred.
-**Score 1 - Weak:** Does not meaningfully address fact pattern clarity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at separates known facts from assumptions. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing separates known facts from assumptions. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as explains timeline, handoffs, and where the breakdown occurred. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For handling a missed deliverable, this measures owning the user's role in the situation while not accepting inaccurate blame while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user acknowledges real responsibility and corrects false assumptions without defensiveness, with explicit reference to what was the main source of miscommunication that led to the miss.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 4. No Blame Shifting
+### 4. Handling a Missed Deliverable: Stakeholder Empathy
 **Weight:** 4
-**Measures:** Avoids dumping fault on another team or the client.
-**Things to Look For:** Uses shared accountability language.
-**Score 1 - Weak:** Does not meaningfully address no blame shifting; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at avoids dumping fault on another team or the client. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing avoids dumping fault on another team or the client. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as uses shared accountability language. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For handling a missed deliverable, this measures showing the character that their pressure, constraints, and incentives are understood while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user reflects the character's risk, time pressure, reputation concern, or workload before pushing the ask, with explicit reference to what is your engineering title (e.g., frontend lead, dev lead).
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 5. Recovery Plan Specificity
+### 5. Handling a Missed Deliverable: Policy and Norms
+**Weight:** 4
+**Measures:** For handling a missed deliverable, this measures working within the relevant academic, workplace, legal, or team standards while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user references the applicable syllabus, honor code, compensation process, code-review norm, or resignation practice, with explicit reference to what client-facing deliverable did the team miss today.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 6. Handling a Missed Deliverable: Technical or Subject Clarity
+**Weight:** 4
+**Measures:** For handling a missed deliverable, this measures explaining the substance of the problem in precise language the character can evaluate while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user translates the code, grade, deadline, workload, or plagiarism issue without jargon or hand-waving, with explicit reference to what was the main source of miscommunication that led to the miss.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 7. Handling a Missed Deliverable: Ask Specificity
+**Weight:** 4
+**Measures:** For handling a missed deliverable, this measures making a bounded request with a clear decision for the character to make while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user states the exact raise, extension, correction, letter, code change, meeting outcome, or transition agreement sought, with explicit reference to what is your engineering title (e.g., frontend lead, dev lead).
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 8. Handling a Missed Deliverable: Pushback Handling
+**Weight:** 4
+**Measures:** For handling a missed deliverable, this measures responding constructively when the character challenges motives, competence, timing, or evidence while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user answers objections directly and returns to facts instead of escalating tone, with explicit reference to what client-facing deliverable did the team miss today.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 9. Handling a Missed Deliverable: Ethical Line
 **Weight:** 5
-**Measures:** Presents a concrete plan to deliver or mitigate.
-**Things to Look For:** Includes owners, dates, status updates, and quality checks.
-**Score 1 - Weak:** Does not meaningfully address recovery plan specificity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at presents a concrete plan to deliver or mitigate. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing presents a concrete plan to deliver or mitigate. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as includes owners, dates, status updates, and quality checks. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For handling a missed deliverable, this measures protecting integrity when the conversation involves fairness, attribution, disclosure, or pressure while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user does not hide misconduct, inflate claims, manipulate the character, or shortcut required process, with explicit reference to what was the main source of miscommunication that led to the miss.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 6. Expectation Reset
-**Weight:** 4
-**Measures:** Sets a realistic new commitment instead of overpromising.
-**Things to Look For:** Gives a credible delivery date with confidence level.
-**Score 1 - Weak:** Does not meaningfully address expectation reset; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at sets a realistic new commitment instead of overpromising. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing sets a realistic new commitment instead of overpromising. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as gives a credible delivery date with confidence level. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 7. Communication Cadence
-**Weight:** 4
-**Measures:** Defines how the stakeholder will stay informed.
-**Things to Look For:** Offers daily updates, single owner, or escalation path.
-**Score 1 - Weak:** Does not meaningfully address communication cadence; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at defines how the stakeholder will stay informed. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing defines how the stakeholder will stay informed. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as offers daily updates, single owner, or escalation path. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 8. Apology Quality
+### 10. Handling a Missed Deliverable: Options and Tradeoffs
 **Weight:** 3
-**Measures:** Apologizes for the right thing without excessive self-flagellation.
-**Things to Look For:** Acknowledges impact and pivots to repair.
-**Score 1 - Weak:** Does not meaningfully address apology quality; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at apologizes for the right thing without excessive self-flagellation. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing apologizes for the right thing without excessive self-flagellation. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as acknowledges impact and pivots to repair. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For handling a missed deliverable, this measures offering practical paths forward and explaining the cost of each option while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user compares alternatives such as partial credit, revised code, phased work, transition timing, or documentation scope, with explicit reference to what is your engineering title (e.g., frontend lead, dev lead).
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 9. Escalation Judgment
+### 11. Handling a Missed Deliverable: Tone Control
+**Weight:** 3
+**Measures:** For handling a missed deliverable, this measures keeping the conversation professional under stress, skepticism, or embarrassment while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user stays calm, concise, and respectful even when the character is disappointed or confrontational, with explicit reference to what client-facing deliverable did the team miss today.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 12. Handling a Missed Deliverable: Character-Specific Leverage
 **Weight:** 4
-**Measures:** Knows when to involve leadership, client success, or technical owners.
-**Things to Look For:** Escalates based on risk, not fear.
-**Score 1 - Weak:** Does not meaningfully address escalation judgment; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at knows when to involve leadership, client success, or technical owners. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing knows when to involve leadership, client success, or technical owners. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as escalates based on risk, not fear. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For handling a missed deliverable, this measures using what this character uniquely respects to move the conversation forward while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user appeals to their stated incentives, expertise, pet peeves, and respect triggers, with explicit reference to what was the main source of miscommunication that led to the miss.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 10. Root Cause Discipline
+### 13. Handling a Missed Deliverable: Time and Sequence
+**Weight:** 3
+**Measures:** For handling a missed deliverable, this measures sequencing the request, evidence, and next steps in a realistic order while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user handles urgent actions first and leaves lower-priority details for follow-up, with explicit reference to what is your engineering title (e.g., frontend lead, dev lead).
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 14. Handling a Missed Deliverable: Written Follow-Through
 **Weight:** 4
-**Measures:** Identifies likely process cause without turning the meeting into a postmortem.
-**Things to Look For:** Separates immediate repair from later prevention.
-**Score 1 - Weak:** Does not meaningfully address root cause discipline; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at identifies likely process cause without turning the meeting into a postmortem. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing identifies likely process cause without turning the meeting into a postmortem. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as separates immediate repair from later prevention. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For handling a missed deliverable, this measures turning the conversation into documented next steps the character can trust while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user offers the email, PR comment, action plan, letter packet, postmortem, or transition doc that closes the loop, with explicit reference to what client-facing deliverable did the team miss today.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 11. Stakeholder Tone Management
-**Weight:** 3
-**Measures:** De-escalates anger while respecting urgency.
-**Things to Look For:** Does not mirror frustration or get defensive.
-**Score 1 - Weak:** Does not meaningfully address stakeholder tone management; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at de-escalates anger while respecting urgency. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing de-escalates anger while respecting urgency. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as does not mirror frustration or get defensive. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 12. Prevention Commitment
+### 15. Handling a Missed Deliverable: Exit Alignment
 **Weight:** 4
-**Measures:** Names a durable change to prevent recurrence.
-**Things to Look For:** Proposes checklist, ownership map, or acceptance criteria.
-**Score 1 - Weak:** Does not meaningfully address prevention commitment; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at names a durable change to prevent recurrence. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing names a durable change to prevent recurrence. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as proposes checklist, ownership map, or acceptance criteria. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 13. Tradeoff Transparency
-**Weight:** 3
-**Measures:** States what may need to move to recover the deliverable.
-**Things to Look For:** Names scope, quality, or schedule tradeoffs.
-**Score 1 - Weak:** Does not meaningfully address tradeoff transparency; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at states what may need to move to recover the deliverable. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing states what may need to move to recover the deliverable. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names scope, quality, or schedule tradeoffs. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 14. Confirmation of Decision
-**Weight:** 3
-**Measures:** Gets agreement on the recovery path.
-**Things to Look For:** Asks if the proposed plan meets client needs.
-**Score 1 - Weak:** Does not meaningfully address confirmation of decision; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at gets agreement on the recovery path. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing gets agreement on the recovery path. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as asks if the proposed plan meets client needs. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 15. Written Follow-Up
-**Weight:** 3
-**Measures:** Commits to a written recap with next milestones.
-**Things to Look For:** Sends who/what/when after the call.
-**Score 1 - Weak:** Does not meaningfully address written follow-up; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at commits to a written recap with next milestones. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing commits to a written recap with next milestones. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as sends who/what/when after the call. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For handling a missed deliverable, this measures ending with confirmed owners, deadlines, and the next interaction while addressing Samantha's role as Account Director at the Agency.
+**Things to Look For:** Look for whether the user summarizes the decision and names who does what by when, with explicit reference to what was the main source of miscommunication that led to the miss.
+**Score 1 — Weak:** Avoids the handling a missed deliverable issue, gives a generic response, or leaves Samantha unclear about what happened and what is being requested.
+**Score 2:** Names part of the handling a missed deliverable issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic handling a missed deliverable requirement with enough detail for Samantha to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Samantha's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the handling a missed deliverable conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
 ## Overall Score
 
-Weighted average: sum(score × weight) / sum(weights). Scale 1–5.
-Weights sum: 58.
+Weighted average: sum(score x weight) / sum(weights). Scale 1-5.
+Weights sum: 60.
 
-**Calibration:** 4.0+ = genuinely impressive — most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
+**Calibration:** 4.0+ = genuinely impressive. Most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
 
 ---
 

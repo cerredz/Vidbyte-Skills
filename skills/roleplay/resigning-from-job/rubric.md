@@ -6,192 +6,192 @@ This rubric is calibrated for exceptionalism. A score of 5 should be rare. A sco
 
 ## Scoring Dimensions
 
-### 1. Clear Resignation Statement
+### 1. Resigning from a Job: Opening Frame
 **Weight:** 5
-**Measures:** States the resignation plainly and early.
-**Things to Look For:** Uses direct language that the decision is to resign.
-**Score 1 - Weak:** Does not meaningfully address clear resignation statement; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at states the resignation plainly and early. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing states the resignation plainly and early. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as uses direct language that the decision is to resign. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures opening the conversation with the specific issue, stake, and desired discussion outcome while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user names the situation immediately and avoids vague preamble, with explicit reference to what is your role on erica's team.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 2. Final Date Specificity
+### 2. Resigning from a Job: Evidence Package
 **Weight:** 5
-**Measures:** Gives a concrete final working date.
-**Things to Look For:** Names date and notice period.
-**Score 1 - Weak:** Does not meaningfully address final date specificity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at gives a concrete final working date. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing gives a concrete final working date. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names date and notice period. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures using concrete facts, artifacts, metrics, or documents that fit this scenario while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user brings the exact proof, timeline, code example, grade evidence, or impact data the character needs, with explicit reference to what is your final working date.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 3. Decision Finality
+### 3. Resigning from a Job: Accountability Boundary
 **Weight:** 4
-**Measures:** Clarifies whether the decision is final without inviting unwanted negotiation.
-**Things to Look For:** Politely states if not considering counteroffers.
-**Score 1 - Weak:** Does not meaningfully address decision finality; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at clarifies whether the decision is final without inviting unwanted negotiation. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing clarifies whether the decision is final without inviting unwanted negotiation. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as politely states if not considering counteroffers. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures owning the user's role in the situation while not accepting inaccurate blame while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user acknowledges real responsibility and corrects false assumptions without defensiveness, with explicit reference to what key system or codebase are you responsible for transitioning.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 4. Professional Tone
+### 4. Resigning from a Job: Stakeholder Empathy
 **Weight:** 4
-**Measures:** Keeps the conversation respectful even if leaving for negative reasons.
-**Things to Look For:** Avoids venting or personal attacks.
-**Score 1 - Weak:** Does not meaningfully address professional tone; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at keeps the conversation respectful even if leaving for negative reasons. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing keeps the conversation respectful even if leaving for negative reasons. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as avoids venting or personal attacks. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures showing the character that their pressure, constraints, and incentives are understood while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user reflects the character's risk, time pressure, reputation concern, or workload before pushing the ask, with explicit reference to what is your role on erica's team.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 5. Transition Plan
+### 5. Resigning from a Job: Policy and Norms
+**Weight:** 4
+**Measures:** For resigning from a job, this measures working within the relevant academic, workplace, legal, or team standards while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user references the applicable syllabus, honor code, compensation process, code-review norm, or resignation practice, with explicit reference to what is your final working date.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 6. Resigning from a Job: Technical or Subject Clarity
+**Weight:** 4
+**Measures:** For resigning from a job, this measures explaining the substance of the problem in precise language the character can evaluate while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user translates the code, grade, deadline, workload, or plagiarism issue without jargon or hand-waving, with explicit reference to what key system or codebase are you responsible for transitioning.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 7. Resigning from a Job: Ask Specificity
+**Weight:** 4
+**Measures:** For resigning from a job, this measures making a bounded request with a clear decision for the character to make while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user states the exact raise, extension, correction, letter, code change, meeting outcome, or transition agreement sought, with explicit reference to what is your role on erica's team.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 8. Resigning from a Job: Pushback Handling
+**Weight:** 4
+**Measures:** For resigning from a job, this measures responding constructively when the character challenges motives, competence, timing, or evidence while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user answers objections directly and returns to facts instead of escalating tone, with explicit reference to what is your final working date.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 9. Resigning from a Job: Ethical Line
 **Weight:** 5
-**Measures:** Offers practical coverage for responsibilities.
-**Things to Look For:** Names projects, documents, handoffs, and owners.
-**Score 1 - Weak:** Does not meaningfully address transition plan; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at offers practical coverage for responsibilities. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing offers practical coverage for responsibilities. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names projects, documents, handoffs, and owners. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures protecting integrity when the conversation involves fairness, attribution, disclosure, or pressure while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user does not hide misconduct, inflate claims, manipulate the character, or shortcut required process, with explicit reference to what key system or codebase are you responsible for transitioning.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 6. Manager Emotion Handling
-**Weight:** 4
-**Measures:** Responds calmly if the manager is upset or surprised.
-**Things to Look For:** Acknowledges impact without reversing the decision.
-**Score 1 - Weak:** Does not meaningfully address manager emotion handling; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at responds calmly if the manager is upset or surprised. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing responds calmly if the manager is upset or surprised. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as acknowledges impact without reversing the decision. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 7. Boundary Maintenance
-**Weight:** 4
-**Measures:** Does not accept unreasonable extensions or emotional pressure.
-**Things to Look For:** Repeats final date and feasible support.
-**Score 1 - Weak:** Does not meaningfully address boundary maintenance; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at does not accept unreasonable extensions or emotional pressure. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing does not accept unreasonable extensions or emotional pressure. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as repeats final date and feasible support. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 8. Reason Sharing Discipline
+### 10. Resigning from a Job: Options and Tradeoffs
 **Weight:** 3
-**Measures:** Shares a concise reason if useful without over-explaining.
-**Things to Look For:** Says new opportunity, growth, or personal reasons appropriately.
-**Score 1 - Weak:** Does not meaningfully address reason sharing discipline; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at shares a concise reason if useful without over-explaining. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing shares a concise reason if useful without over-explaining. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as says new opportunity, growth, or personal reasons appropriately. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures offering practical paths forward and explaining the cost of each option while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user compares alternatives such as partial credit, revised code, phased work, transition timing, or documentation scope, with explicit reference to what is your role on erica's team.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 9. Confidentiality and Announcement Plan
+### 11. Resigning from a Job: Tone Control
 **Weight:** 3
-**Measures:** Coordinates how and when the team will be told.
-**Things to Look For:** Asks about announcement timing and message.
-**Score 1 - Weak:** Does not meaningfully address confidentiality and announcement plan; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at coordinates how and when the team will be told. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing coordinates how and when the team will be told. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as asks about announcement timing and message. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures keeping the conversation professional under stress, skepticism, or embarrassment while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user stays calm, concise, and respectful even when the character is disappointed or confrontational, with explicit reference to what is your final working date.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 10. Knowledge Transfer Specificity
+### 12. Resigning from a Job: Character-Specific Leverage
 **Weight:** 4
-**Measures:** Identifies concrete documentation and handoff sessions.
-**Things to Look For:** Lists repos, accounts, stakeholders, runbooks, or open decisions.
-**Score 1 - Weak:** Does not meaningfully address knowledge transfer specificity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at identifies concrete documentation and handoff sessions. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing identifies concrete documentation and handoff sessions. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as lists repos, accounts, stakeholders, runbooks, or open decisions. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures using what this character uniquely respects to move the conversation forward while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user appeals to their stated incentives, expertise, pet peeves, and respect triggers, with explicit reference to what key system or codebase are you responsible for transitioning.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 11. Gratitude Without Ambiguity
+### 13. Resigning from a Job: Time and Sequence
 **Weight:** 3
-**Measures:** Can express appreciation without making the resignation sound negotiable.
-**Things to Look For:** Thanks manager while staying clear.
-**Score 1 - Weak:** Does not meaningfully address gratitude without ambiguity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at can express appreciation without making the resignation sound negotiable. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing can express appreciation without making the resignation sound negotiable. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as thanks manager while staying clear. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures sequencing the request, evidence, and next steps in a realistic order while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user handles urgent actions first and leaves lower-priority details for follow-up, with explicit reference to what is your role on erica's team.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 12. Counteroffer Response
+### 14. Resigning from a Job: Written Follow-Through
 **Weight:** 4
-**Measures:** Handles retention offers consistently.
-**Things to Look For:** Declines or defines conditions without drifting.
-**Score 1 - Weak:** Does not meaningfully address counteroffer response; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at handles retention offers consistently. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing handles retention offers consistently. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as declines or defines conditions without drifting. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures turning the conversation into documented next steps the character can trust while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user offers the email, PR comment, action plan, letter packet, postmortem, or transition doc that closes the loop, with explicit reference to what is your final working date.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 13. Operational Risk Awareness
+### 15. Resigning from a Job: Exit Alignment
 **Weight:** 4
-**Measures:** Recognizes what the resignation affects.
-**Things to Look For:** Names deadlines, clients, incidents, or coverage gaps.
-**Score 1 - Weak:** Does not meaningfully address operational risk awareness; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at recognizes what the resignation affects. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing recognizes what the resignation affects. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names deadlines, clients, incidents, or coverage gaps. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 14. Exit Process Logistics
-**Weight:** 3
-**Measures:** Clarifies HR, equipment, access, and PTO details.
-**Things to Look For:** Asks who handles paperwork and offboarding.
-**Score 1 - Weak:** Does not meaningfully address exit process logistics; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at clarifies hr, equipment, access, and pto details. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing clarifies hr, equipment, access, and pto details. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as asks who handles paperwork and offboarding. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 15. Written Confirmation
-**Weight:** 3
-**Measures:** Follows up with a concise written resignation.
-**Things to Look For:** Confirms date, appreciation, and transition commitment.
-**Score 1 - Weak:** Does not meaningfully address written confirmation; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at follows up with a concise written resignation. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing follows up with a concise written resignation. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as confirms date, appreciation, and transition commitment. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For resigning from a job, this measures ending with confirmed owners, deadlines, and the next interaction while addressing Erica's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user summarizes the decision and names who does what by when, with explicit reference to what key system or codebase are you responsible for transitioning.
+**Score 1 — Weak:** Avoids the resigning from a job issue, gives a generic response, or leaves Erica unclear about what happened and what is being requested.
+**Score 2:** Names part of the resigning from a job issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic resigning from a job requirement with enough detail for Erica to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Erica's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the resigning from a job conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
 ## Overall Score
 
-Weighted average: sum(score × weight) / sum(weights). Scale 1–5.
-Weights sum: 58.
+Weighted average: sum(score x weight) / sum(weights). Scale 1-5.
+Weights sum: 60.
 
-**Calibration:** 4.0+ = genuinely impressive — most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
+**Calibration:** 4.0+ = genuinely impressive. Most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
 
 ---
 

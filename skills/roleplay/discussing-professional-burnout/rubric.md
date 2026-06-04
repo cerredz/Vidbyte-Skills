@@ -6,192 +6,192 @@ This rubric is calibrated for exceptionalism. A score of 5 should be rare. A sco
 
 ## Scoring Dimensions
 
-### 1. Specific Burnout Signal Naming
+### 1. Discussing Professional Burnout: Opening Frame
 **Weight:** 5
-**Measures:** Describes concrete workload and health signals instead of vague exhaustion.
-**Things to Look For:** Names hours, sleep impact, missed recovery, error rate, or sustained overload.
-**Score 1 - Weak:** Does not meaningfully address specific burnout signal naming; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at describes concrete workload and health signals instead of vague exhaustion. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing describes concrete workload and health signals instead of vague exhaustion. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as names hours, sleep impact, missed recovery, error rate, or sustained overload. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For discussing professional burnout, this measures opening the conversation with the specific issue, stake, and desired discussion outcome while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user names the situation immediately and avoids vague preamble, with explicit reference to what is your title and what project are you working on.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 2. Workload Evidence
+### 2. Discussing Professional Burnout: Evidence Package
 **Weight:** 5
-**Measures:** Uses measurable workload data to make the issue visible.
-**Things to Look For:** References ticket volume, on-call load, meetings, project count, or deadlines.
-**Score 1 - Weak:** Does not meaningfully address workload evidence; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at uses measurable workload data to make the issue visible. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing uses measurable workload data to make the issue visible. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as references ticket volume, on-call load, meetings, project count, or deadlines. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For discussing professional burnout, this measures using concrete facts, artifacts, metrics, or documents that fit this scenario while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user brings the exact proof, timeline, code example, grade evidence, or impact data the character needs, with explicit reference to what specific tasks or tickets are consuming most of your time.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 3. Business Risk Framing
+### 3. Discussing Professional Burnout: Accountability Boundary
+**Weight:** 4
+**Measures:** For discussing professional burnout, this measures owning the user's role in the situation while not accepting inaccurate blame while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user acknowledges real responsibility and corrects false assumptions without defensiveness, with explicit reference to how long have you been experiencing burnout in this role.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 4. Discussing Professional Burnout: Stakeholder Empathy
+**Weight:** 4
+**Measures:** For discussing professional burnout, this measures showing the character that their pressure, constraints, and incentives are understood while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user reflects the character's risk, time pressure, reputation concern, or workload before pushing the ask, with explicit reference to what is your title and what project are you working on.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 5. Discussing Professional Burnout: Policy and Norms
+**Weight:** 4
+**Measures:** For discussing professional burnout, this measures working within the relevant academic, workplace, legal, or team standards while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user references the applicable syllabus, honor code, compensation process, code-review norm, or resignation practice, with explicit reference to what specific tasks or tickets are consuming most of your time.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 6. Discussing Professional Burnout: Technical or Subject Clarity
+**Weight:** 4
+**Measures:** For discussing professional burnout, this measures explaining the substance of the problem in precise language the character can evaluate while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user translates the code, grade, deadline, workload, or plagiarism issue without jargon or hand-waving, with explicit reference to how long have you been experiencing burnout in this role.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 7. Discussing Professional Burnout: Ask Specificity
+**Weight:** 4
+**Measures:** For discussing professional burnout, this measures making a bounded request with a clear decision for the character to make while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user states the exact raise, extension, correction, letter, code change, meeting outcome, or transition agreement sought, with explicit reference to what is your title and what project are you working on.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 8. Discussing Professional Burnout: Pushback Handling
+**Weight:** 4
+**Measures:** For discussing professional burnout, this measures responding constructively when the character challenges motives, competence, timing, or evidence while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user answers objections directly and returns to facts instead of escalating tone, with explicit reference to what specific tasks or tickets are consuming most of your time.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 9. Discussing Professional Burnout: Ethical Line
 **Weight:** 5
-**Measures:** Connects burnout to delivery, quality, retention, and operational risk.
-**Things to Look For:** Explains likely defects, missed dates, or attrition risk without dramatizing.
-**Score 1 - Weak:** Does not meaningfully address business risk framing; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at connects burnout to delivery, quality, retention, and operational risk. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing connects burnout to delivery, quality, retention, and operational risk. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as explains likely defects, missed dates, or attrition risk without dramatizing. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For discussing professional burnout, this measures protecting integrity when the conversation involves fairness, attribution, disclosure, or pressure while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user does not hide misconduct, inflate claims, manipulate the character, or shortcut required process, with explicit reference to how long have you been experiencing burnout in this role.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 4. Clear Support Request
-**Weight:** 4
-**Measures:** Makes a specific ask rather than only venting.
-**Things to Look For:** Requests scope reduction, priority reset, PTO coverage, or on-call rotation change.
-**Score 1 - Weak:** Does not meaningfully address clear support request; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at makes a specific ask rather than only venting. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing makes a specific ask rather than only venting. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as requests scope reduction, priority reset, pto coverage, or on-call rotation change. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 5. Priority Tradeoff Discipline
-**Weight:** 4
-**Measures:** Forces prioritization among competing commitments.
-**Things to Look For:** Asks which deliverables should move if everything cannot be done.
-**Score 1 - Weak:** Does not meaningfully address priority tradeoff discipline; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at forces prioritization among competing commitments. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing forces prioritization among competing commitments. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as asks which deliverables should move if everything cannot be done. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 6. Boundary Setting
-**Weight:** 4
-**Measures:** Sets sustainable limits on hours, response time, or weekend work.
-**Things to Look For:** States what can be maintained and what cannot continue.
-**Score 1 - Weak:** Does not meaningfully address boundary setting; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at sets sustainable limits on hours, response time, or weekend work. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing sets sustainable limits on hours, response time, or weekend work. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as states what can be maintained and what cannot continue. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 7. Manager Empathy
+### 10. Discussing Professional Burnout: Options and Tradeoffs
 **Weight:** 3
-**Measures:** Recognizes the manager's delivery pressure while still holding the line.
-**Things to Look For:** Acknowledges deadlines and team constraints.
-**Score 1 - Weak:** Does not meaningfully address manager empathy; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at recognizes the manager's delivery pressure while still holding the line. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing recognizes the manager's delivery pressure while still holding the line. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as acknowledges deadlines and team constraints. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For discussing professional burnout, this measures offering practical paths forward and explaining the cost of each option while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user compares alternatives such as partial credit, revised code, phased work, transition timing, or documentation scope, with explicit reference to what is your title and what project are you working on.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 8. Emotional Regulation
+### 11. Discussing Professional Burnout: Tone Control
 **Weight:** 3
-**Measures:** Communicates distress without collapsing into blame or panic.
-**Things to Look For:** Uses direct, calm language about health and workload.
-**Score 1 - Weak:** Does not meaningfully address emotional regulation; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at communicates distress without collapsing into blame or panic. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing communicates distress without collapsing into blame or panic. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as uses direct, calm language about health and workload. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For discussing professional burnout, this measures keeping the conversation professional under stress, skepticism, or embarrassment while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user stays calm, concise, and respectful even when the character is disappointed or confrontational, with explicit reference to what specific tasks or tickets are consuming most of your time.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 9. Pattern Versus One Bad Week
+### 12. Discussing Professional Burnout: Character-Specific Leverage
 **Weight:** 4
-**Measures:** Shows this is sustained overload, not a temporary inconvenience.
-**Things to Look For:** Cites duration and repeated cycles.
-**Score 1 - Weak:** Does not meaningfully address pattern versus one bad week; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at shows this is sustained overload, not a temporary inconvenience. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing shows this is sustained overload, not a temporary inconvenience. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as cites duration and repeated cycles. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For discussing professional burnout, this measures using what this character uniquely respects to move the conversation forward while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user appeals to their stated incentives, expertise, pet peeves, and respect triggers, with explicit reference to how long have you been experiencing burnout in this role.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 10. Candidate Solutions
+### 13. Discussing Professional Burnout: Time and Sequence
+**Weight:** 3
+**Measures:** For discussing professional burnout, this measures sequencing the request, evidence, and next steps in a realistic order while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user handles urgent actions first and leaves lower-priority details for follow-up, with explicit reference to what is your title and what project are you working on.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
+
+---
+
+### 14. Discussing Professional Burnout: Written Follow-Through
 **Weight:** 4
-**Measures:** Offers realistic options the manager can act on.
-**Things to Look For:** Suggests delegation, pause list, reduced meetings, or incident coverage changes.
-**Score 1 - Weak:** Does not meaningfully address candidate solutions; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at offers realistic options the manager can act on. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing offers realistic options the manager can act on. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as suggests delegation, pause list, reduced meetings, or incident coverage changes. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For discussing professional burnout, this measures turning the conversation into documented next steps the character can trust while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user offers the email, PR comment, action plan, letter packet, postmortem, or transition doc that closes the loop, with explicit reference to what specific tasks or tickets are consuming most of your time.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
-### 11. Medical or Privacy Boundaries
-**Weight:** 3
-**Measures:** Shares enough health context without over-disclosing.
-**Things to Look For:** States impact and needed accommodation without unnecessary details.
-**Score 1 - Weak:** Does not meaningfully address medical or privacy boundaries; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at shares enough health context without over-disclosing. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing shares enough health context without over-disclosing. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as states impact and needed accommodation without unnecessary details. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 12. Handling Minimization
+### 15. Discussing Professional Burnout: Exit Alignment
 **Weight:** 4
-**Measures:** Responds when the manager says everyone is busy.
-**Things to Look For:** Returns to evidence, risk, and specific tradeoffs.
-**Score 1 - Weak:** Does not meaningfully address handling minimization; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at responds when the manager says everyone is busy. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing responds when the manager says everyone is busy. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as returns to evidence, risk, and specific tradeoffs. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 13. Accountability for Current Work
-**Weight:** 3
-**Measures:** Clarifies what will still be delivered and where risks are.
-**Things to Look For:** Does not abandon ownership while asking for change.
-**Score 1 - Weak:** Does not meaningfully address accountability for current work; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at clarifies what will still be delivered and where risks are. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing clarifies what will still be delivered and where risks are. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as does not abandon ownership while asking for change. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 14. Follow-Up Checkpoint
-**Weight:** 3
-**Measures:** Creates a review date to see whether workload changes worked.
-**Things to Look For:** Sets a one- or two-week check-in.
-**Score 1 - Weak:** Does not meaningfully address follow-up checkpoint; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at creates a review date to see whether workload changes worked. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing creates a review date to see whether workload changes worked. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as sets a one- or two-week check-in. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
-
----
-
-### 15. Written Alignment
-**Weight:** 3
-**Measures:** Confirms revised priorities after the conversation.
-**Things to Look For:** Offers to send a summary of agreed changes.
-**Score 1 - Weak:** Does not meaningfully address written alignment; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
-**Score 2:** Mentions the area but leaves major gaps; the user may gesture at confirms revised priorities after the conversation. without enough detail for the character to trust it.
-**Score 3 - Adequate:** Meets the baseline by addressing confirms revised priorities after the conversation. with enough clarity and relevance to keep the conversation moving.
-**Score 4:** Handles the dimension well, including scenario-specific details such as offers to send a summary of agreed changes. while adapting to pushback.
-**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+**Measures:** For discussing professional burnout, this measures ending with confirmed owners, deadlines, and the next interaction while addressing Jordan's role as Engineering Manager (EM).
+**Things to Look For:** Look for whether the user summarizes the decision and names who does what by when, with explicit reference to how long have you been experiencing burnout in this role.
+**Score 1 — Weak:** Avoids the discussing professional burnout issue, gives a generic response, or leaves Jordan unclear about what happened and what is being requested.
+**Score 2:** Names part of the discussing professional burnout issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.
+**Score 3 — Adequate:** Handles the basic discussing professional burnout requirement with enough detail for Jordan to understand the request and respond.
+**Score 4:** Adds well-structured evidence, anticipates Jordan's likely objection, and offers a realistic next step tied to this scenario.
+**Score 5 — Strong:** Makes the discussing professional burnout conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.
 
 ---
 
 ## Overall Score
 
-Weighted average: sum(score × weight) / sum(weights). Scale 1–5.
-Weights sum: 57.
+Weighted average: sum(score x weight) / sum(weights). Scale 1-5.
+Weights sum: 60.
 
-**Calibration:** 4.0+ = genuinely impressive — most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
+**Calibration:** 4.0+ = genuinely impressive. Most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
 
 ---
 
