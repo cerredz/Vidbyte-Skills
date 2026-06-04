@@ -66,7 +66,22 @@ const SCENARIOS = [
   "letter-of-recommendation-rescue",
   "disputing-mandatory-attendance-policy",
   "transfer-credit-appeal",
-  "grade-rounding-request"
+  "grade-rounding-request",
+  "accidental-database-crash",
+  "citation-plagiarism-accusation",
+  "over-promised-deadline-crisis",
+  "first-job-offer-negotiation",
+  "public-code-review-critique",
+  "underperformance-review-dispute",
+  "major-system-crash-disclosure",
+  "timesheet-fraud-discovery",
+  "struggling-team-transfer-request",
+  "falsified-test-data-directive",
+  "overwhelming-workload-boundary",
+  "internship-conversion-pitch",
+  "solo-client-meeting-fail",
+  "accidental-proprietary-code-leak",
+  "missed-on-call-incident"
 ];
 
 function verifyDirectories() {
