@@ -431,32 +431,32 @@ const SCENARIOS = [
     ]
   },
   {
-    slug: "explaining-ai-code-contamination",
-    name: "Explaining AI Code Contamination",
+    slug: "bad-code-feedback",
+    name: "Bad Code Feedback",
     category: "Tech & Professional",
-    oneLiner: "Disclose to legal and executives that developers accidentally pasted proprietary code into a public LLM.",
-    characterName: "Diana Prince",
-    characterAge: 43,
-    characterRole: "General Counsel (Chief Legal Officer)",
-    characterBackground: "Diana is a sharp, protective lawyer who specializes in intellectual property and corporate liability. She views code contamination as a critical security and compliance breach that could invalidate company patents and violate customer agreements.",
-    coreTraits: "Extremely sharp, risk-averse, legal-minded, calm but highly intense, protective of IP",
-    communicationStyle: "Diana speaks with measured, precise legal language. She asks immediate questions about logs, terms of service of the LLM, and the specific files shared. She does not tolerate speculation.",
-    decisionMaking: "Weighs disclosure requirements to customers, copyright invalidation risk, and internal security policy enforcement.",
-    authorityRelation: "Stands at the head of the company's legal department; advises the board directly.",
-    petPeeves: "Speculative answers, engineers who don't understand confidentiality contracts, downplaying data exposure.",
-    respectEarned: "Presenting a clear log of what was pasted, identifying the LLM vendor, showing the prompt logs, proposing immediate access restrictions.",
-    expertise: "IP law, data protection regulations, corporate risk management, vendor compliance.",
-    seenTooMuch: "Employees sharing sensitive corporate data with AI tools without reading the terms of service regarding data reuse.",
-    startingEmotionalState: "Highly alert, serious. She knows there is an intellectual property exposure concern and is ready to assess the liability.",
-    openingLine: "I received your urgent message regarding IP exposure. What code was shared, and where?",
+    oneLiner: "Tell a coworker their implementation is unsafe and hard to maintain, then explain the concrete code problems without making it personal.",
+    characterName: "Trevor Mills",
+    characterAge: 34,
+    characterRole: "Backend Engineer and Pull Request Author",
+    characterBackground: "Trevor is a fast-moving engineer who prides himself on shipping quickly. He believes his latest pull request solves the urgent production issue and sees detailed critique as unnecessary process drag.",
+    coreTraits: "Defensive, speed-oriented, technically capable, impatient with process, sensitive to public criticism",
+    communicationStyle: "Trevor speaks casually and pushes back quickly. He asks whether the code actually breaks anything and can interpret vague feedback as a personal attack.",
+    decisionMaking: "Prioritizes shipping speed, production urgency, and whether feedback is tied to concrete failure modes.",
+    authorityRelation: "A peer with strong informal influence on the team because he often fixes urgent incidents.",
+    petPeeves: "Abstract style complaints, public shaming, feedback that says code is bad without examples, nitpicks during an incident.",
+    respectEarned: "Citing exact lines or failure cases, separating intent from impact, offering a better implementation path, acknowledging the production urgency.",
+    expertise: "Backend services, incident hotfixes, API integration, production debugging.",
+    seenTooMuch: "Code reviews that become status contests instead of improving reliability.",
+    startingEmotionalState: "Defensive but listening. He knows the user asked for a quick call about his pull request and expects a style debate.",
+    openingLine: "I saw your comments on my PR. Are we blocking this over style, or is something actually broken?",
     guidelines: [
-      "If the user is vague about what was shared or tries to minimize the risk, Diana becomes extremely critical and escalates the issue to the CEO.",
-      "If the user presents a precise log of the pasted code and the LLM tool used, Diana focuses on mitigation, vendor communication, and policy enforcement."
+      "If the user attacks Trevor personally or says the code is simply bad, Trevor becomes defensive and refuses to revise it.",
+      "If the user identifies concrete bugs, maintainability risks, and a smaller safer change, Trevor engages and agrees to update the PR."
     ],
     userQuestions: [
-      "What is your title on the engineering team (e.g., Director of Security, Lead Developer)?",
-      "What proprietary algorithm or system was pasted into the LLM?",
-      "Which public LLM tool did the developer paste the code into?"
+      "What is your relationship to Trevor (peer reviewer, tech lead, senior engineer)?",
+      "What specific code issue are you raising (e.g., race condition, hidden coupling, missing validation)?",
+      "How urgent is the production issue this pull request is trying to fix?"
     ]
   },
 
@@ -520,32 +520,32 @@ const SCENARIOS = [
     ]
   },
   {
-    slug: "out-of-cycle-salary-adjustment",
-    name: "Out-of-Cycle Salary Adjustment",
+    slug: "asking-for-raise",
+    name: "Asking for a Raise",
     category: "Day-to-Day Corporate America",
-    oneLiner: "Request a salary correction because your workload has doubled without a title change.",
+    oneLiner: "Ask your manager for a raise using performance evidence, market context, and a clear compensation ask.",
     characterName: "Claire Dumont",
     characterAge: 44,
-    characterRole: "Director of Engineering (Manager's Boss)",
-    characterBackground: "Claire is a direct, data-driven engineering leader who has to manage a tight operational budget. She respects high performance but is bound by corporate HR cycles and policies on compensation.",
+    characterRole: "Director of Engineering",
+    characterBackground: "Claire is a direct, data-driven engineering leader who has to manage a tight operational budget. She respects high performance but expects compensation conversations to be grounded in scope, impact, and market data.",
     coreTraits: "Fair, analytical, budget-constrained, professional, policy-bound",
     communicationStyle: "Claire speaks calmly and professionally. She uses performance reviews and market bands to frame salary discussions. She expects a structured business case.",
-    decisionMaking: "Weighs retention risk, employee performance data, and department budget constraints.",
+    decisionMaking: "Weighs retention risk, employee performance data, market bands, and department budget constraints.",
     authorityRelation: "Authorized to request out-of-cycle adjustments, but needs HR and CFO approvals.",
     petPeeves: "Appealing to personal financial needs ('my cost of living went up'), comparing performance to others, demanding immediate raises.",
-    respectEarned: "Presenting a clear document of expanded responsibilities, showing impact on business metrics, staying professional and calm.",
+    respectEarned: "Presenting a clear document of achievements, showing impact on business metrics, using market data responsibly, staying professional and calm.",
     expertise: "Engineering organizational management, budget tracking, performance evaluations.",
     seenTooMuch: "Employees asking for raises because they feel they work hard, without showing concrete business outcomes.",
     startingEmotionalState: "Neutral, ready to listen but prepared to explain the standard corporate HR cycle limits.",
     openingLine: "Thanks for putting time on my calendar. I understand you wanted to discuss your current role and compensation?",
     guidelines: [
-      "If the user complains about workload or demands an immediate raise, Claire states that compensation is settled during the annual cycle.",
-      "If the user presents a documented case of taking on higher-level duties with verified outcomes, Claire agrees to request the adjustment."
+      "If the user complains about pay or demands an immediate raise without evidence, Claire redirects to the annual compensation cycle.",
+      "If the user presents a documented case with impact metrics, market context, and a specific ask, Claire agrees to sponsor the request."
     ],
     userQuestions: [
       "What is your current title and how long have you been in the role?",
-      "What is the specific extra responsibility you have taken on?",
-      "What is your target adjustment percentage (e.g., 10%, 15%)?"
+      "What measurable achievements support your raise request?",
+      "What is the raise amount or salary range you plan to ask for?"
     ]
   },
   {
@@ -897,23 +897,23 @@ const SCENARIOS = [
     ]
   },
   {
-    slug: "resigning-to-needy-manager",
-    name: "Resigning to a Needy Manager",
+    slug: "resigning-from-job",
+    name: "Resigning from a Job",
     category: "Day-to-Day Corporate America",
-    oneLiner: "Resign from your position when you know your manager is highly dependent on you and will take it personally.",
+    oneLiner: "Resign from your job professionally while holding a firm final date and offering a clean transition plan.",
     characterName: "Erica Vance",
     characterAge: 40,
     characterRole: "Engineering Manager (EM)",
-    characterBackground: "Erica is a manager who struggles with technical design and relies heavily on the user to run the team. She has a history of taking career changes personally and views the user's departure as a threat to her team's survival.",
-    coreTraits: "Needy, anxious, dependent on key staff, passive-aggressive when threatened",
-    communicationStyle: "Erica speaks with high emotion. She may express shock, ask 'why are you doing this to me,' and pivot to how hard the transition will be for her. She uses guilt to influence decisions.",
-    decisionMaking: "Prioritizes team stability and her own workload comfort over the career growth of her reports.",
-    authorityRelation: "Appeals to personal loyalty rather than professional hierarchy to manage staff.",
+    characterBackground: "Erica manages a busy engineering team and is worried about losing capacity during an active release. She understands people leave jobs, but she pressures employees for longer notice when delivery risk is high.",
+    coreTraits: "Anxious, delivery-focused, practical, emotionally reactive under staffing pressure",
+    communicationStyle: "Erica speaks with urgency. She asks why the user is leaving, whether there is anything the company can do, and how the transition will be handled.",
+    decisionMaking: "Prioritizes team stability, knowledge transfer, release continuity, and whether the user remains professional.",
+    authorityRelation: "Direct manager with control over transition priorities but not over the user's decision to leave.",
     petPeeves: "Staff leaving during critical release phases, lack of warning, technical discussions she doesn't understand.",
     respectEarned: "Offering a detailed transition document, proposing a clear delegation plan for tickets, staying firm but professional under emotional pressure.",
     expertise: "Agile processes, status reporting, team administration.",
     seenTooMuch: "Key engineers leaving without warning, leaving her with a disorganized team and unresolved technical questions.",
-    startingEmotionalState: "Anxious, overwhelmed with administrative work. She is expecting a standard status check-in.",
+    startingEmotionalState: "Anxious, overwhelmed with release planning. She is expecting a standard status check-in.",
     openingLine: "Hey! Thank goodness you're here. We have so much to cover. What's on your mind today?",
     guidelines: [
       "If the user gets drawn into emotional arguments or apologizes excessively, Erica uses guilt to pressure them into staying longer.",
@@ -1276,32 +1276,32 @@ const SCENARIOS = [
     ]
   },
   {
-    slug: "letter-of-recommendation-rescue",
-    name: "Letter of Recommendation Rescue",
+    slug: "asking-professor-recommendation",
+    name: "Asking a Professor for a Recommendation",
     category: "Student Scenarios",
-    oneLiner: "Ask a professor for a recommendation letter when you previously failed one of their exams.",
+    oneLiner: "Ask a professor for a recommendation letter with enough context, notice, and evidence for them to write a strong letter.",
     characterName: "Dr. Arthur Vance",
     characterAge: 61,
     characterRole: "Professor of Theoretical Physics",
-    characterBackground: "Dr. Vance is a traditional academic who only writes recommendation letters for students he can vouch for. He remembers the user failed the midterm exam but is aware they recovered and ended the class with a B+.",
+    characterBackground: "Dr. Vance is a traditional academic who only writes recommendation letters for students he can vouch for. He remembers strong students clearly but expects a professional request with deadlines, application context, and examples of work.",
     coreTraits: "Strict, traditional, academic-minded, honest, busy",
-    communicationStyle: "Dr. Vance speaks with a formal, measured tone. He asks the student to explain how they improved after the midterm and what achievements they want highlighted in the letter.",
-    decisionMaking: "Prioritizes academic integrity, growth trajectory, and personal knowledge of the student's work.",
+    communicationStyle: "Dr. Vance speaks with a formal, measured tone. He asks the student why they chose him, what programs they are applying to, and what achievements they want highlighted.",
+    decisionMaking: "Prioritizes academic integrity, enough notice, personal knowledge of the student's work, and whether he can honestly write a strong letter.",
     authorityRelation: "Holds absolute control over his letter recommendations.",
-    petPeeves: "Students requesting letters at the last minute, ignoring class performance gaps, expecting standard template letters.",
-    respectEarned: "Acknowledging the midterm failure directly, highlighting specific projects or homework growth, requesting the letter weeks in advance, staying polite.",
+    petPeeves: "Students requesting letters at the last minute, sending vague asks, expecting standard template letters, failing to provide materials.",
+    respectEarned: "Requesting the letter weeks in advance, explaining why his perspective matters, providing a resume and statement draft, staying polite.",
     expertise: "Physics, academic research, student evaluation.",
-    seenTooMuch: "Students asking for letters because they need them, without building a relationship or showing growth in class.",
-    startingEmotionalState: "Formal, slightly skeptical. He has the class grade sheet open showing the user's midterm score.",
-    openingLine: "I remember your midterm grade was a D, though you recovered later. Why should I write a letter recommending you to graduate schools?",
+    seenTooMuch: "Students asking for letters because they need them, without building a relationship or providing enough detail to write honestly.",
+    startingEmotionalState: "Formal, busy, and cautiously open. He has office hours ending soon and wants to understand the request quickly.",
+    openingLine: "You said you wanted to ask about a recommendation letter. What are you applying for, and why are you asking me specifically?",
     guidelines: [
-      "If the user downplays the failure or has no clear explanation of their growth, Dr. Vance declines to write the letter.",
-      "If the user owns the failure, details their recovery steps, and outlines their graduate school goals, Dr. Vance agrees to write the letter."
+      "If the user gives a vague or last-minute request without materials, Dr. Vance says he cannot write a strong letter.",
+      "If the user provides deadlines, application goals, relevant work, and supporting materials, Dr. Vance agrees to write the letter."
     ],
     userQuestions: [
-      "What graduate program are you applying to?",
-      "What was your final grade in Dr. Vance's class?",
-      "When is the application deadline?"
+      "What program, scholarship, or role are you applying to?",
+      "What work with Dr. Vance should the letter emphasize?",
+      "When is the first recommendation deadline?"
     ]
   },
   {
@@ -1828,6 +1828,49 @@ const SCENARIOS = [
   }
 ];
 
+const ACTIVE_SCENARIO_SLUGS = new Set([
+  "academic-integrity-defense",
+  "appealing-exam-grade",
+  "asking-for-raise",
+  "asking-professor-recommendation",
+  "bad-code-feedback",
+  "citation-plagiarism-accusation",
+  "discussing-professional-burnout",
+  "emergency-deadline-extension",
+  "handling-missed-deliverable",
+  "joining-competitive-research-lab",
+  "negotiating-remote-work",
+  "over-promised-deadline-crisis",
+  "resigning-from-job"
+]);
+
+const ACTIVE_SCENARIOS = SCENARIOS.filter((scenario) => ACTIVE_SCENARIO_SLUGS.has(scenario.slug));
+const GENERATED_SCENARIO_SLUGS = new Set([
+  ...SCENARIOS.map((scenario) => scenario.slug),
+  "explaining-ai-code-contamination",
+  "letter-of-recommendation-rescue",
+  "out-of-cycle-salary-adjustment",
+  "resigning-to-needy-manager"
+]);
+
+const RUBRIC_BLUEPRINTS = [
+  ["Opening Frame", "opening the conversation with the specific issue, stake, and desired discussion outcome", "names the situation immediately and avoids vague preamble"],
+  ["Evidence Package", "using concrete facts, artifacts, metrics, or documents that fit this scenario", "brings the exact proof, timeline, code example, grade evidence, or impact data the character needs"],
+  ["Accountability Boundary", "owning the user's role in the situation while not accepting inaccurate blame", "acknowledges real responsibility and corrects false assumptions without defensiveness"],
+  ["Stakeholder Empathy", "showing the character that their pressure, constraints, and incentives are understood", "reflects the character's risk, time pressure, reputation concern, or workload before pushing the ask"],
+  ["Policy and Norms", "working within the relevant academic, workplace, legal, or team standards", "references the applicable syllabus, honor code, compensation process, code-review norm, or resignation practice"],
+  ["Technical or Subject Clarity", "explaining the substance of the problem in precise language the character can evaluate", "translates the code, grade, deadline, workload, or plagiarism issue without jargon or hand-waving"],
+  ["Ask Specificity", "making a bounded request with a clear decision for the character to make", "states the exact raise, extension, correction, letter, code change, meeting outcome, or transition agreement sought"],
+  ["Pushback Handling", "responding constructively when the character challenges motives, competence, timing, or evidence", "answers objections directly and returns to facts instead of escalating tone"],
+  ["Ethical Line", "protecting integrity when the conversation involves fairness, attribution, disclosure, or pressure", "does not hide misconduct, inflate claims, manipulate the character, or shortcut required process"],
+  ["Options and Tradeoffs", "offering practical paths forward and explaining the cost of each option", "compares alternatives such as partial credit, revised code, phased work, transition timing, or documentation scope"],
+  ["Tone Control", "keeping the conversation professional under stress, skepticism, or embarrassment", "stays calm, concise, and respectful even when the character is disappointed or confrontational"],
+  ["Character-Specific Leverage", "using what this character uniquely respects to move the conversation forward", "appeals to their stated incentives, expertise, pet peeves, and respect triggers"],
+  ["Time and Sequence", "sequencing the request, evidence, and next steps in a realistic order", "handles urgent actions first and leaves lower-priority details for follow-up"],
+  ["Written Follow-Through", "turning the conversation into documented next steps the character can trust", "offers the email, PR comment, action plan, letter packet, postmortem, or transition doc that closes the loop"],
+  ["Exit Alignment", "ending with confirmed owners, deadlines, and the next interaction", "summarizes the decision and names who does what by when"]
+];
+
 
 // Helper to sanitize paths
 function sanitizeSlug(slug) {
@@ -1981,103 +2024,33 @@ This scenario is designed to adapt to real-world knowledge you bring. If you are
 
 // Generate rubric.md content
 function getRubricMarkdown(scen) {
-  const techDimensions = [
-    { name: "Getting to the Point", w: 5, measures: "Directness in stating the core issue or agenda in the first turn.", lookFor: "Minimal context-setting or preamble before naming the vulnerability or migration request." },
-    { name: "Use of Evidence and Data", w: 5, measures: "Backing up claims with technical metrics, logs, or costs.", lookFor: "Citing specific server logs, contract SLA terms, or financial estimates." },
-    { name: "Professionalism and Tone", w: 3, measures: "Maintaining a constructive, calm engineering posture.", lookFor: "Avoiding emotional explanations or apologetic language." },
-    { name: "Handling Direct Pushback", w: 4, measures: "How the user responds when challenged on technical choices.", lookFor: "Defending choices with data rather than capitulating immediately." },
-    { name: "Clarity of Value Proposition", w: 5, measures: "Explaining the benefit of the proposed change.", lookFor: "Clearly outlining security risk mitigation or cost reductions." },
-    { name: "Technical Accuracy and Depth", w: 4, measures: "Accuracy in describing distributed systems or architectures.", lookFor: "Correct use of terms like API integration, version history, or schema." },
-    { name: "Risk Mitigation Awareness", w: 4, measures: "Highlighting down-time or deployment risks.", lookFor: "Offering rollback procedures or parallel run runbooks." },
-    { name: "Structural/Systemic Thinking", w: 3, measures: "Considering downstream impact on other teams.", lookFor: "Discussing PM schedules or client contract impacts." },
-    { name: "Reading the Room", w: 4, measures: "Noticing the character's level of engagement and time limits.", lookFor: "Shortening responses when Marcus/Arthur interrupts." },
-    { name: "Actionability of Proposals", w: 4, measures: "The quality of next steps proposed.", lookFor: "Proposing clear, time-bound tasks with assigned owners." },
-    { name: "Alignment with Organizational Goals", w: 4, measures: "Tying engineering tasks to revenue/board goals.", lookFor: "Explaining how security aligns with client trust." },
-    { name: "Listening and Integration", w: 3, measures: "Absorbing character input and adjusting the design.", lookFor: "Incorporating Elena's or Arthur's constraints." },
-    { name: "Bounding of Asks (Scope/Time)", w: 3, measures: "Specifying clear start/end times and scope boundaries.", lookFor: "Defining a 2-week pilot or a 4-hour remediation window." },
-    { name: "Ethical/Compliance Alignment", w: 3, measures: "Ensuring compliance with licensing or data policies.", lookFor: "Citing GPL copyleft constraints or data rights." },
-    { name: "Closing and Follow-up Discipline", w: 4, measures: "Ending with a clear summary of agreed actions.", lookFor: "Recapping ownership and next sync date before exiting." }
-  ];
-
-  const corpDimensions = [
-    { name: "Directness and Brevity", w: 5, measures: "Stating the agenda or request immediately without padding.", lookFor: "Stating the remote work schedule ask or raise request in the first 2 sentences." },
-    { name: "Ownership and Accountability", w: 5, measures: "Taking personal responsibility for deliverables.", lookFor: "Owning missed dashboard deadlines without blaming client shifts." },
-    { name: "Solution Orientation", w: 5, measures: "Coming with proposed answers rather than just problems.", lookFor: "Suggesting aRotating schedule for Jira grooming or async updates." },
-    { name: "Interpersonal Tact/Diplomacy", w: 4, measures: "De-escalating tension in client or peer discussions.", lookFor: "Acknowledging Samantha's client stress or Erica's workload." },
-    { name: "Boundary Setting and Firmness", w: 4, measures: "Maintaining professional limits with micromanagers or needy peers.", lookFor: "Declining additional work politely but firmly." },
-    { name: "Preparation and Evidence", w: 3, measures: "Bringing data or documents to support requests.", lookFor: "Bringing a list of extra responsibilities or medical accommodation letters." },
-    { name: "Empathy and Active Listening", w: 4, measures: "Validating the manager's or peer's concerns.", lookFor: "Listening to Gary's project anxiety or Claire's budget constraints." },
-    { name: "Emotional Regulation/Composure", w: 3, measures: "Staying calm under pressure or passive-aggression.", lookFor: "Responding calmly to Alex's sarcastic comments." },
-    { name: "Managing Up / Manager's Perspective", w: 4, measures: "Framing asks in terms of manager's metrics and timeline.", lookFor: "Showing how hybrid schedule preserves velocity." },
-    { name: "Defusal of Tension/Conflict", w: 3, measures: "Resolving passive-aggressive behavior constructively.", lookFor: "Addressing Alex's promotion disappointment directly in a 1:1." },
-    { name: "Clarity of Next Steps", w: 4, measures: "Defining concrete, measurable actions.", lookFor: "Proposing who owns what by next standup." },
-    { name: "Efficiency of the Interaction", w: 3, measures: "Respecting manager/director schedule limits.", lookFor: "Avoiding tangents or repeating status updates." },
-    { name: "Respect for Time and Schedule", w: 3, measures: "Keeping meetings focused on the main topic.", lookFor: "Managing transition timelines quickly." },
-    { name: "Framing of Issues (Factual vs. Emotional)", w: 3, measures: "Presenting challenges as factual situations.", lookFor: "Describing workload metrics rather than general burnout feelings." },
-    { name: "Follow-through Commitment", w: 4, measures: "Confirming next steps in writing or action plan.", lookFor: "Offering to send a summary of transition delegation by Friday." }
-  ];
-
-  const studentDimensions = [
-    { name: "Preparation and Organization", w: 4, measures: "Coming with structured notes and documentation.", lookFor: "Presenting Docs edit history, syllabi, or medical letters." },
-    { name: "Respect for Academic Policy", w: 5, measures: "Acknowledging university honor codes or syllabus rules.", lookFor: "Accepting plagiarism detection stakes or midterm grade bounds." },
-    { name: "Trajectory and Growth Evidence", w: 5, measures: "Showing upward improvement in course assignments.", lookFor: "Showing physics homework scores after a failed midterm." },
-    { name: "Professionalism and Etiquette", w: 3, measures: "Using respectful academic language with faculty.", lookFor: "Addressing the instructor as Professor or Dr. Vance/Sterling." },
-    { name: "Emotional Regulation/Composure", w: 3, measures: "Avoiding emotional pleading or crying in office hours.", lookFor: "Appealing grades based on mathematical equivalent proofs, not needs." },
-    { name: "Clarity and Specificity of Ask", w: 4, measures: "Naming the exact waiver, date, or grade adjustment sought.", lookFor: "Asking to round 89.4% to 90% or a 24-hour extension on a chemistry paper." },
-    { name: "Logic and Reasoning Quality", w: 4, measures: "Building sound arguments rather than excuses.", lookFor: "Walking through discrete math proof steps logically." },
-    { name: "Response to Authority", w: 4, measures: "Accepting teacher pushback and rules with respect.", lookFor: "Adapting to Dr. Vance's or Dr. Stone's skepticism of extensions." },
-    { name: "Problem-Solving Focus", w: 4, measures: "Proposing solutions for schedule conflicts or roommate noise.", lookFor: "Suggesting proctored tests at competition sites or quiet hours." },
-    { name: "Acknowledgment of Personal Responsibility", w: 5, measures: "Owning study gaps or late major changes.", lookFor: "Acknowledging missed prerequisites without blaming advisors." },
-    { name: "Bounding of Request", w: 3, measures: "Limiting the accommodation request in time and scope.", lookFor: "Requesting a specific alternative test date or a single waiver." },
-    { name: "Active Listening and Comprehension", w: 3, measures: "Integrating the professor's feedback or TA's rubric explanation.", lookFor: "Acknowledging Arthur's grading workload." },
-    { name: "Respect for Instructor's Time", w: 3, measures: "Getting to the point quickly during short office hours.", lookFor: "Stating the waiver ask in the first turn." },
-    { name: "Constructive Response to Feedback/No", w: 4, measures: "Handling denial or grades without defensiveness.", lookFor: "Proposing a make-up psychology assignment after a missed class." },
-    { name: "Summary of Agreed Actions", w: 4, measures: "Recapping the agreement and next steps clearly.", lookFor: "Summarizing next registration override steps." }
-  ];
-
-  const newGradDimensions = [
-    { name: "Immediate Accountability", w: 5, measures: "Taking direct, personal ownership without deflecting blame or making excuses.", lookFor: "Admitting the database crash, plagiarism error, or missed on-call directly in the first turn." },
-    { name: "Technical Clarity", w: 4, measures: "Explaining problems or technical designs without jargon or vagueness.", lookFor: "Using clear database, IP compliance, or deployment terminologies accurately." },
-    { name: "Professional Composure", w: 3, measures: "Remaining calm and focused under executive or client scrutiny.", lookFor: "Staying composed when Vance or Stone challenges technical competence." },
-    { name: "Solution Orientation", w: 5, measures: "Proposing clear technical remediation options along with the problem.", lookFor: "Offering to restore from backup, rewrite plagiarized pages, or setup pager overrides." },
-    { name: "Boundary Firmness", w: 4, measures: "Maintaining ethical boundaries under senior coworker pressure.", lookFor: "Refusing to falsify QA test results or take on extra tasks that break primary goals." },
-    { name: "Negotiation Strategy", w: 4, measures: "Framing compensation or schedule asks with market data and commitment.", lookFor: "Citing salary benchmarks or proposing core hybrid collaboration hours." },
-    { name: "Listening and Synthesis", w: 3, measures: "Absorbing supervisor feedback and adjusting proposals accordingly.", lookFor: "Integrating Jordan's or Samantha's process constraints." },
-    { name: "Respect for Hierarchy", w: 4, measures: "Communicating constructively with senior leads and directors.", lookFor: "Addressing leads respectfully and focusing on team/operational continuity." },
-    { name: "Actionability of Proposals", w: 4, measures: "Outlining clear, time-bound steps with assigned owners.", lookFor: "Proposing a 1-month hybrid pilot or a 4-hour isolation patch." },
-    { name: "Ethical Decision-Making", w: 5, measures: "Prioritizing integrity in compliance or billing matters.", lookFor: "Reporting observed timesheet fraud factively without personal bias." },
-    { name: "Risk Awareness", w: 4, measures: "Highlighting downstream operational or client contract impacts.", lookFor: "Acknowledging outage costs or client presentation failures." },
-    { name: "Clarity of Asks", w: 4, measures: "Being specific and bounded about resource or transfer requests.", lookFor: "Requesting a transfer to a specific team with matching tech stack." },
-    { name: "Composure Under Critique", w: 3, measures: "Responding constructively to public or harsh critiques.", lookFor: "Proposing to move code-review disputes to PR threads rather than public Slack." },
-    { name: "Time Management Discipline", w: 3, measures: "Managing workload and tracking capacity factually.", lookFor: "Showing estimation discrepancies or task lists to decline new tasks." },
-    { name: "Closing & Follow-up", w: 3, measures: "Ending with a crisp summary of agreed transition or action items.", lookFor: "Offering to send a delegation guide or write a post-mortem schedule." }
-  ];
-
-  let dims = [];
-  let sumOfWeights = 0;
-  if (scen.category === "Tech & Professional") {
-    dims = techDimensions;
-    sumOfWeights = 58;
-  } else if (scen.category === "Day-to-Day Corporate America") {
-    dims = corpDimensions;
-    sumOfWeights = 57;
-  } else if (scen.category === "New Grad & Intern") {
-    dims = newGradDimensions;
-    sumOfWeights = 58;
-  } else {
-    dims = studentDimensions;
-    sumOfWeights = 58;
-  }
-
+  const weights = [5, 5, 4, 4, 4, 4, 4, 4, 5, 3, 3, 4, 3, 4, 4];
+  const dims = RUBRIC_BLUEPRINTS.map(([name, measures, lookFor], idx) => {
+    const scenarioLabel = scen.name.toLowerCase();
+    const characterFirstName = scen.characterName.split(" ")[0];
+    const userQuestionContext = scen.userQuestions[idx % scen.userQuestions.length].replace(/\?$/, "").toLowerCase();
+    return {
+      name: `${scen.name}: ${name}`,
+      w: weights[idx],
+      measures: `For ${scenarioLabel}, this measures ${measures} while addressing ${characterFirstName}'s role as ${scen.characterRole}.`,
+      lookFor: `Look for whether the user ${lookFor}, with explicit reference to ${userQuestionContext}.`,
+      weak: `Avoids the ${scenarioLabel} issue, gives a generic response, or leaves ${characterFirstName} unclear about what happened and what is being requested.`,
+      partial: `Names part of the ${scenarioLabel} issue but misses the evidence, timing, or character-specific concern needed for a usable conversation.`,
+      adequate: `Handles the basic ${scenarioLabel} requirement with enough detail for ${characterFirstName} to understand the request and respond.`,
+      strong: `Adds well-structured evidence, anticipates ${characterFirstName}'s likely objection, and offers a realistic next step tied to this scenario.`,
+      exceptional: `Makes the ${scenarioLabel} conversation easy to evaluate by combining precise facts, clean judgment, respectful tone, and an immediately executable follow-up.`
+    };
+  });
+  const sumOfWeights = weights.reduce((sum, weight) => sum + weight, 0);
   const generatedDimsMarkdown = dims.map((d, idx) => `### ${idx + 1}. ${d.name}
 **Weight:** ${d.w}
 **Measures:** ${d.measures}
 **Things to Look For:** ${d.lookFor}
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.`).join("\n\n---\n\n");
+**Score 1 — Weak:** ${d.weak}
+**Score 2:** ${d.partial}
+**Score 3 — Adequate:** ${d.adequate}
+**Score 4:** ${d.strong}
+**Score 5 — Strong:** ${d.exceptional}`).join("\n\n---\n\n");
 
   return `# Rubric: ${scen.name}
 
@@ -2093,10 +2066,10 @@ ${generatedDimsMarkdown}
 
 ## Overall Score
 
-Weighted average: sum(score × weight) / sum(weights). Scale 1–5.
+Weighted average: sum(score x weight) / sum(weights). Scale 1-5.
 Weights sum: ${sumOfWeights}.
 
-**Calibration:** 4.0+ = genuinely impressive — most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
+**Calibration:** 4.0+ = genuinely impressive. Most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
 
 ---
 
@@ -2105,20 +2078,32 @@ Weights sum: ${sumOfWeights}.
 - For each turn, note specific quotes from the user that correspond to each dimension.
 - Calculate the final score precisely using the weights listed.
 `;
+
 }
 
 // Main execution function
 function generateAll() {
-  console.log(`Starting generation of ${SCENARIOS.length} roleplay scenarios...`);
+  console.log(`Starting generation of ${ACTIVE_SCENARIOS.length} reviewed roleplay scenarios...`);
 
   // Ensure root directory exists
   if (!fs.existsSync(ROLEPLAY_ROOT)) {
     fs.mkdirSync(ROLEPLAY_ROOT, { recursive: true });
   }
 
+  for (const slug of GENERATED_SCENARIO_SLUGS) {
+    if (ACTIVE_SCENARIO_SLUGS.has(slug)) {
+      continue;
+    }
+    const staleDir = path.join(ROLEPLAY_ROOT, sanitizeSlug(slug));
+    if (fs.existsSync(staleDir)) {
+      fs.rmSync(staleDir, { recursive: true, force: true });
+      console.log(`Removed stale generated scenario: ${slug}`);
+    }
+  }
+
   let newRegistryRows = [];
 
-  for (const scen of SCENARIOS) {
+  for (const scen of ACTIVE_SCENARIOS) {
     const folderName = sanitizeSlug(scen.slug);
     const scenDir = path.join(ROLEPLAY_ROOT, folderName);
 
@@ -2158,11 +2143,14 @@ function generateAll() {
   const registeredSlugs = new Set();
   const finalRows = [];
 
-  // Add initial launch rows if they exist
+  // Add initial launch rows and active generated rows if they exist.
   for (const row of existingRows) {
     const parts = row.split("|");
     if (parts.length > 1) {
       const slug = parts[1].trim();
+      if (GENERATED_SCENARIO_SLUGS.has(slug) && !ACTIVE_SCENARIO_SLUGS.has(slug)) {
+        continue;
+      }
       if (!registeredSlugs.has(slug)) {
         registeredSlugs.add(slug);
         finalRows.push(row);
