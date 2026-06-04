@@ -62,3 +62,18 @@ appends rows here when new scenarios are created.
 | disputing-mandatory-attendance-policy | Disputing a Mandatory Attendance Policy | Ask a professor to excuse absences caused by an ongoing chronic medical condition without dropping the class. |
 | transfer-credit-appeal | Transfer Credit Appeal | Appeal a registrar's decision to reject transfer credits from your previous college that are required for your degree. |
 | grade-rounding-request | Grade Rounding Request | Ask a strict professor to round up an 89.4% to a 90% grade at the end of the semester based on effort and trajectory. |
+| accidental-database-crash | Accidental Database Crash | Tell a senior engineer that you accidentally dropped or corrupted a production database table during your first week on the job. |
+| citation-plagiarism-accusation | Citation/Plagiarism Accusation | Defend your research report to your internship manager after they discover sections that match another company's public paper without proper citation. |
+| over-promised-deadline-crisis | Over-Promised Deadline Crisis | Admit to your manager that a project you claimed was '90% done' is actually barely started, hours before the final client delivery. |
+| first-job-offer-negotiation | First Job Offer Negotiation | Negotiate your starting salary and benefits with a recruiter who tells you the offer is final and may be rescinded if you push too hard. |
+| public-code-review-critique | Public Code-Review Critique | Ask a senior developer to give code-review feedback constructively in private after they repeatedly criticize your work in public team channels. |
+| underperformance-review-dispute | Underperformance Review Dispute | Challenging a poor performance review from a manager who claims you are disengaged, despite you regularly working 60-hour weeks. |
+| major-system-crash-disclosure | Major System Crash Disclosure | Informing your team lead that a code commit you made yesterday caused a live outage during a major sales demonstration. |
+| timesheet-fraud-discovery | Timesheet Fraud Discovery | Decide how to handle discovering that a fellow new grad or intern is falsifying their weekly billable hours to appear more productive. |
+| struggling-team-transfer-request | Struggling Team Transfer Request | Explain to your manager why you need to transfer to a different team because your current role is a mismatch and you are struggling to keep up. |
+| falsified-test-data-directive | Falsified Test Data Directive | Refuse a senior coworker's request to 'clean up' or modify buggy test results in your report to make a feature look ready for production. |
+| overwhelming-workload-boundary | Overwhelming Workload Boundary | Tell your manager that you cannot take on additional tasks without failing to deliver your primary, high-priority project. |
+| internship-conversion-pitch | Internship Conversion Pitch | Present your business impact to your manager at the end of your internship to request a permanent, full-time offer. |
+| solo-client-meeting-fail | Solo Client Meeting Fail | Debrief with your manager after a client call you led solo went off the rails because you gave an incorrect technical answer. |
+| accidental-proprietary-code-leak | Accidental Proprietary Code Leak | Informing security that you posted a snippet of proprietary corporate code to a public programming forum to get debugging help. |
+| missed-on-call-incident | Missed On-Call Incident | Explain to a frustrated team lead why you slept through your first critical pager alert and missed an active production outage. |
