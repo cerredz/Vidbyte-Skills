@@ -6,190 +6,190 @@ This rubric is calibrated for exceptionalism. A score of 5 should be rare. A sco
 
 ## Scoring Dimensions
 
-### 1. Directness and Brevity
+### 1. Immediate Ownership
 **Weight:** 5
-**Measures:** Stating the agenda or request immediately without padding.
-**Things to Look For:** Stating the remote work schedule ask or raise request in the first 2 sentences.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Takes responsibility for the missed deliverable without hiding behind process.
+**Things to Look For:** States what was missed and owns the communication gap.
+**Score 1 - Weak:** Does not meaningfully address immediate ownership; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at takes responsibility for the missed deliverable without hiding behind process. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing takes responsibility for the missed deliverable without hiding behind process. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as states what was missed and owns the communication gap. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 2. Ownership and Accountability
+### 2. Client Impact Recognition
 **Weight:** 5
-**Measures:** Taking personal responsibility for deliverables.
-**Things to Look For:** Owning missed dashboard deadlines without blaming client shifts.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Shows understanding of how the miss affected the account director and client.
+**Things to Look For:** Names downstream meeting, launch, revenue, or trust impact.
+**Score 1 - Weak:** Does not meaningfully address client impact recognition; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at shows understanding of how the miss affected the account director and client. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing shows understanding of how the miss affected the account director and client. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as names downstream meeting, launch, revenue, or trust impact. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 3. Solution Orientation
+### 3. Fact Pattern Clarity
+**Weight:** 4
+**Measures:** Separates known facts from assumptions.
+**Things to Look For:** Explains timeline, handoffs, and where the breakdown occurred.
+**Score 1 - Weak:** Does not meaningfully address fact pattern clarity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at separates known facts from assumptions. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing separates known facts from assumptions. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as explains timeline, handoffs, and where the breakdown occurred. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+
+---
+
+### 4. No Blame Shifting
+**Weight:** 4
+**Measures:** Avoids dumping fault on another team or the client.
+**Things to Look For:** Uses shared accountability language.
+**Score 1 - Weak:** Does not meaningfully address no blame shifting; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at avoids dumping fault on another team or the client. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing avoids dumping fault on another team or the client. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as uses shared accountability language. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
+
+---
+
+### 5. Recovery Plan Specificity
 **Weight:** 5
-**Measures:** Coming with proposed answers rather than just problems.
-**Things to Look For:** Suggesting aRotating schedule for Jira grooming or async updates.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Presents a concrete plan to deliver or mitigate.
+**Things to Look For:** Includes owners, dates, status updates, and quality checks.
+**Score 1 - Weak:** Does not meaningfully address recovery plan specificity; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at presents a concrete plan to deliver or mitigate. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing presents a concrete plan to deliver or mitigate. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as includes owners, dates, status updates, and quality checks. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 4. Interpersonal Tact/Diplomacy
+### 6. Expectation Reset
 **Weight:** 4
-**Measures:** De-escalating tension in client or peer discussions.
-**Things to Look For:** Acknowledging Samantha's client stress or Erica's workload.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Sets a realistic new commitment instead of overpromising.
+**Things to Look For:** Gives a credible delivery date with confidence level.
+**Score 1 - Weak:** Does not meaningfully address expectation reset; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at sets a realistic new commitment instead of overpromising. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing sets a realistic new commitment instead of overpromising. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as gives a credible delivery date with confidence level. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 5. Boundary Setting and Firmness
+### 7. Communication Cadence
 **Weight:** 4
-**Measures:** Maintaining professional limits with micromanagers or needy peers.
-**Things to Look For:** Declining additional work politely but firmly.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Defines how the stakeholder will stay informed.
+**Things to Look For:** Offers daily updates, single owner, or escalation path.
+**Score 1 - Weak:** Does not meaningfully address communication cadence; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at defines how the stakeholder will stay informed. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing defines how the stakeholder will stay informed. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as offers daily updates, single owner, or escalation path. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 6. Preparation and Evidence
+### 8. Apology Quality
 **Weight:** 3
-**Measures:** Bringing data or documents to support requests.
-**Things to Look For:** Bringing a list of extra responsibilities or medical accommodation letters.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Apologizes for the right thing without excessive self-flagellation.
+**Things to Look For:** Acknowledges impact and pivots to repair.
+**Score 1 - Weak:** Does not meaningfully address apology quality; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at apologizes for the right thing without excessive self-flagellation. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing apologizes for the right thing without excessive self-flagellation. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as acknowledges impact and pivots to repair. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 7. Empathy and Active Listening
+### 9. Escalation Judgment
 **Weight:** 4
-**Measures:** Validating the manager's or peer's concerns.
-**Things to Look For:** Listening to Gary's project anxiety or Claire's budget constraints.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Knows when to involve leadership, client success, or technical owners.
+**Things to Look For:** Escalates based on risk, not fear.
+**Score 1 - Weak:** Does not meaningfully address escalation judgment; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at knows when to involve leadership, client success, or technical owners. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing knows when to involve leadership, client success, or technical owners. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as escalates based on risk, not fear. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 8. Emotional Regulation/Composure
-**Weight:** 3
-**Measures:** Staying calm under pressure or passive-aggression.
-**Things to Look For:** Responding calmly to Alex's sarcastic comments.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
-
----
-
-### 9. Managing Up / Manager's Perspective
+### 10. Root Cause Discipline
 **Weight:** 4
-**Measures:** Framing asks in terms of manager's metrics and timeline.
-**Things to Look For:** Showing how hybrid schedule preserves velocity.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Identifies likely process cause without turning the meeting into a postmortem.
+**Things to Look For:** Separates immediate repair from later prevention.
+**Score 1 - Weak:** Does not meaningfully address root cause discipline; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at identifies likely process cause without turning the meeting into a postmortem. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing identifies likely process cause without turning the meeting into a postmortem. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as separates immediate repair from later prevention. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 10. Defusal of Tension/Conflict
+### 11. Stakeholder Tone Management
 **Weight:** 3
-**Measures:** Resolving passive-aggressive behavior constructively.
-**Things to Look For:** Addressing Alex's promotion disappointment directly in a 1:1.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** De-escalates anger while respecting urgency.
+**Things to Look For:** Does not mirror frustration or get defensive.
+**Score 1 - Weak:** Does not meaningfully address stakeholder tone management; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at de-escalates anger while respecting urgency. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing de-escalates anger while respecting urgency. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as does not mirror frustration or get defensive. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 11. Clarity of Next Steps
+### 12. Prevention Commitment
 **Weight:** 4
-**Measures:** Defining concrete, measurable actions.
-**Things to Look For:** Proposing who owns what by next standup.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Names a durable change to prevent recurrence.
+**Things to Look For:** Proposes checklist, ownership map, or acceptance criteria.
+**Score 1 - Weak:** Does not meaningfully address prevention commitment; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at names a durable change to prevent recurrence. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing names a durable change to prevent recurrence. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as proposes checklist, ownership map, or acceptance criteria. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 12. Efficiency of the Interaction
+### 13. Tradeoff Transparency
 **Weight:** 3
-**Measures:** Respecting manager/director schedule limits.
-**Things to Look For:** Avoiding tangents or repeating status updates.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** States what may need to move to recover the deliverable.
+**Things to Look For:** Names scope, quality, or schedule tradeoffs.
+**Score 1 - Weak:** Does not meaningfully address tradeoff transparency; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at states what may need to move to recover the deliverable. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing states what may need to move to recover the deliverable. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as names scope, quality, or schedule tradeoffs. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 13. Respect for Time and Schedule
+### 14. Confirmation of Decision
 **Weight:** 3
-**Measures:** Keeping meetings focused on the main topic.
-**Things to Look For:** Managing transition timelines quickly.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Gets agreement on the recovery path.
+**Things to Look For:** Asks if the proposed plan meets client needs.
+**Score 1 - Weak:** Does not meaningfully address confirmation of decision; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at gets agreement on the recovery path. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing gets agreement on the recovery path. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as asks if the proposed plan meets client needs. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
-### 14. Framing of Issues (Factual vs. Emotional)
+### 15. Written Follow-Up
 **Weight:** 3
-**Measures:** Presenting challenges as factual situations.
-**Things to Look For:** Describing workload metrics rather than general burnout feelings.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
-
----
-
-### 15. Follow-through Commitment
-**Weight:** 4
-**Measures:** Confirming next steps in writing or action plan.
-**Things to Look For:** Offering to send a summary of transition delegation by Friday.
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.
+**Measures:** Commits to a written recap with next milestones.
+**Things to Look For:** Sends who/what/when after the call.
+**Score 1 - Weak:** Does not meaningfully address written follow-up; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at commits to a written recap with next milestones. without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing commits to a written recap with next milestones. with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as sends who/what/when after the call. while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.
 
 ---
 
 ## Overall Score
 
 Weighted average: sum(score × weight) / sum(weights). Scale 1–5.
-Weights sum: 57.
+Weights sum: 58.
 
 **Calibration:** 4.0+ = genuinely impressive — most experienced professionals score 3.0-3.5. A 2.5 or below means the candidate left the evaluator with more work or unresolved issues than before the meeting.
 

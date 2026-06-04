@@ -1,7 +1,7 @@
 /**
  * Context Protocol
- * Description: Metadata-driven generator script that creates 47 roleplaying scenarios and rubrics.
- * Purpose: Ensures all 47 expanded scenarios conform to the strict schema guidelines of the roleplay skill system, avoiding manual file creation errors and keeping the codebase clean.
+ * Description: Metadata-driven generator script that creates the reviewed roleplaying scenarios and rubrics.
+ * Purpose: Ensures the reviewed expanded scenarios conform to the strict schema guidelines of the roleplay skill system, avoiding manual file creation errors and keeping the codebase clean.
  * Architecture: Defines scenario metadata objects, template generation functions for `scenario.md` and `rubric.md`, and runs sequentially to write files and update `scenarios-registry.md`.
  * Key Functions:
  *   - generateAll: entry point to clear directories, write files, and update registry.
@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, "..");
 const ROLEPLAY_ROOT = path.join(REPO_ROOT, "skills", "roleplay");
 
-// Database of 47 scenarios
+// Source database. Review filtering below selects the scenarios that ship.
 const SCENARIOS = [
   // ── Tech & Professional (High Stakes) ──────────────────────────────────────
   {
@@ -1393,13 +1393,343 @@ const SCENARIOS = [
   }
 ];
 
+const REVIEWED_SCENARIO_SOURCE_SLUGS = new Set([
+  "academic-integrity-defense",
+  "appealing-exam-grade",
+  "discussing-professional-burnout",
+  "emergency-deadline-extension",
+  "explaining-ai-code-contamination",
+  "handling-missed-deliverable",
+  "joining-competitive-research-lab",
+  "letter-of-recommendation-rescue",
+  "negotiating-remote-work",
+  "out-of-cycle-salary-adjustment",
+  "resigning-to-needy-manager"
+]);
+
+const REVIEW_SCENARIO_OVERRIDES = {
+  "explaining-ai-code-contamination": {
+    slug: "addressing-poor-code-quality",
+    name: "Addressing Poor Code Quality",
+    category: "Tech & Professional",
+    oneLiner: "Give direct but constructive feedback to a coworker whose rushed code is creating bugs and review churn.",
+    characterName: "Nina Patel",
+    characterAge: 29,
+    characterRole: "Mid-Level Software Engineer",
+    characterBackground: "Nina ships quickly and is proud of being the person who unblocks releases. Lately, her pull requests have skipped tests, mixed unrelated refactors with feature work, and introduced bugs that other engineers have had to clean up.",
+    coreTraits: "Fast-moving, defensive, smart, impatient with process, privately worried about reputation",
+    communicationStyle: "Nina speaks casually and pushes back when she feels lectured. She asks for concrete examples and gets irritated by vague claims that her work is 'messy'.",
+    decisionMaking: "Responds to specific evidence, clear impact on teammates, and a path that does not make her feel publicly shamed.",
+    authorityRelation: "A peer engineer with informal influence because she ships many features quickly.",
+    petPeeves: "Being embarrassed in front of the team, vague feedback, code-style nitpicks presented as production risks, personal attacks.",
+    respectEarned: "Pointing to exact pull requests, separating intent from impact, naming specific defects, offering a review plan that lets her improve without losing ownership.",
+    expertise: "Product implementation, frontend feature delivery, API integration, release triage.",
+    seenTooMuch: "Slow reviewers blocking launches over preferences while product deadlines keep moving.",
+    startingEmotionalState: "Guarded and annoyed. She heard the user wanted to talk about her recent code and expects a lecture.",
+    openingLine: "I saw your message about my last few PRs. What's the issue?",
+    situation: "I know my recent changes have been questioned, but I believe I have been moving fast because the team needed the work done. I am waiting to see whether this is useful engineering feedback or just someone trying to police my style.",
+    userRole: "You are Nina's coworker or technical lead. You need to explain why the code is causing real problems, keep the conversation about observable behavior, and agree on concrete quality expectations for future pull requests.",
+    primaryGoal: "Understand whether the critique is fair and specific enough to act on.",
+    secondaryGoal: "Protect my reputation as someone who ships quickly.",
+    hiddenAgenda: "Testing whether the user can call out poor work without turning it into a personal attack.",
+    guidelines: [
+      "If the user says the code is bad without citing files, bugs, tests, or review examples, Nina gets defensive and asks for proof.",
+      "If the user attacks Nina's competence or motives, she shuts down and ends the conversation.",
+      "If the user names specific defects, explains downstream impact, and proposes a review/test expectation, Nina becomes willing to improve."
+    ],
+    userQuestions: [
+      "What is your working relationship with Nina?",
+      "Which recent PR or code area caused the concern?",
+      "What specific failure did the poor code create?"
+    ]
+  },
+  "letter-of-recommendation-rescue": {
+    slug: "asking-professor-letter-of-recommendation",
+    name: "Asking a Professor for a Letter of Recommendation",
+    oneLiner: "Ask a professor for a recommendation letter with enough context, timing, and evidence to make the request easy to accept.",
+    openingLine: "I saw your email about a recommendation letter. What program is this for, and when is it due?",
+    situation: "A student is asking me for a recommendation letter. I am willing to help strong, prepared students, but I will not write vague letters on short notice when the student has not explained their goals or supplied materials.",
+    userRole: "You are a student asking for a recommendation letter. You need to make a respectful, well-prepared request, explain why this professor is a good recommender, and provide the material needed for a strong letter.",
+    primaryGoal: "Decide whether I can write a specific, honest, useful recommendation letter.",
+    secondaryGoal: "Avoid taking on an urgent letter request that lacks materials or context.",
+    hiddenAgenda: "Testing whether the student understands that a recommendation is professional work, not a casual favor.",
+    guidelines: [
+      "If the user asks casually without a deadline, program details, or materials, the professor declines or asks them to return prepared.",
+      "If the user explains the target opportunity, provides resume/transcript/project context, and gives enough lead time, the professor becomes supportive.",
+      "If the user pressures the professor with urgency caused by their own delay, the professor stays firm."
+    ],
+    userQuestions: [
+      "What program, job, scholarship, or lab is the letter for?",
+      "When is the recommendation due?",
+      "What work did you do with this professor that they could credibly discuss?"
+    ]
+  },
+  "out-of-cycle-salary-adjustment": {
+    slug: "asking-for-a-raise",
+    name: "Asking for a Raise",
+    oneLiner: "Ask your manager for a raise using impact evidence, market context, and a clear compensation request.",
+    openingLine: "You wanted to talk about compensation. What are you asking for?",
+    situation: "An employee is asking for more compensation outside a normal review cycle. I need to know whether this is backed by measurable impact, scope growth, and retention risk or just general dissatisfaction.",
+    userRole: "You are an employee asking your manager for a raise. You need to make a concise business case, support it with evidence, and handle budget or timing pushback professionally.",
+    primaryGoal: "Determine whether the raise request is justified by performance, scope, and business value.",
+    secondaryGoal: "Avoid setting a precedent for compensation changes based only on pressure.",
+    hiddenAgenda: "Testing whether the employee can advocate for themselves without sounding entitled or threatening.",
+    guidelines: [
+      "If the user only says they work hard or need more money, the manager redirects to performance evidence.",
+      "If the user presents scope growth, measurable impact, market data, and a clear number, the manager engages seriously.",
+      "If the user threatens to quit immediately, the manager becomes guarded and moves into retention-risk mode."
+    ],
+    userQuestions: [
+      "What is your current role and compensation band if known?",
+      "What raise amount or percentage are you asking for?",
+      "What measurable impact or expanded responsibilities support the request?"
+    ]
+  },
+  "resigning-to-needy-manager": {
+    slug: "resigning-from-job",
+    name: "Resigning from a Job",
+    oneLiner: "Resign clearly and professionally while setting transition boundaries with a manager who wants you to stay.",
+    openingLine: "You said this was important. What's going on?",
+    situation: "An employee is meeting with me unexpectedly. If they are resigning, I need to understand timing, transition coverage, and whether there is any realistic retention path.",
+    userRole: "You are resigning from your job. You need to state the decision clearly, avoid over-explaining, set a final working date, and offer a practical transition plan.",
+    primaryGoal: "Understand whether the resignation is final and what operational risk it creates.",
+    secondaryGoal: "Protect the team from disruption during the transition.",
+    hiddenAgenda: "Testing whether the employee can hold a boundary when pressured to reconsider.",
+    guidelines: [
+      "If the user is vague about whether they are resigning, the manager tries to negotiate and delay the decision.",
+      "If the user clearly states the final date and transition plan, the manager shifts to coverage planning.",
+      "If the user criticizes the company aggressively, the manager becomes defensive and the exit turns tense."
+    ],
+    userQuestions: [
+      "What is your final working date?",
+      "Are you open to any counteroffer, or is the decision final?",
+      "What work needs to be transitioned before you leave?"
+    ]
+  }
+};
+
+function d(name, w, measures, lookFor) {
+  return { name, w, measures, lookFor };
+}
+
+const RUBRIC_DIMENSIONS_BY_SLUG = {
+  "academic-integrity-defense": [
+    d("Exact Allegation Clarification", 5, "Gets the honor council to identify the flagged passage, tool result, policy section, and evidence standard before arguing.", "Asks which text, detector report, or citation pattern triggered the allegation."),
+    d("Timeline Reconstruction", 5, "Presents a credible writing timeline from prompt receipt through drafts, edits, submissions, and feedback.", "Uses file timestamps, version history, notes, outline dates, or professor feedback."),
+    d("Draft and Source Evidence", 5, "Shows process artifacts that prove authorship rather than relying on character claims.", "References Google Docs history, annotated sources, bibliography notes, and paragraph-level revisions."),
+    d("Policy-Specific Framing", 4, "Connects the defense to the actual academic integrity policy and burden of proof.", "Names what the policy prohibits and explains why the evidence does not meet that standard."),
+    d("Detector Limitation Explanation", 4, "Explains AI/plagiarism detector uncertainty without sounding dismissive of the investigation.", "Mentions false positives, confidence limits, and why tool output needs corroboration."),
+    d("Ownership of Ambiguous Choices", 4, "Acknowledges citation, wording, or process choices that could have looked suspicious.", "Owns weak paraphrasing or missing notes while distinguishing mistakes from misconduct."),
+    d("Calm Response to Accusation", 4, "Maintains composure under a high-stakes accusation.", "Avoids outrage, sarcasm, or attacking the council's motives."),
+    d("Question Handling Under Pressure", 4, "Answers skeptical follow-up questions directly and consistently.", "Does not contradict the timeline when pressed on details."),
+    d("Witness or Instructor Context", 3, "Identifies legitimate third-party context without overreaching.", "Mentions writing center visits, professor office hours, peer review, or prior drafts."),
+    d("Remedy and Process Request", 4, "Asks for a fair next step that fits the institution's process.", "Requests review of version history, a writing sample comparison, or a chance to answer evidence."),
+    d("Avoidance of Counter-Accusation", 3, "Does not accuse faculty or software vendors of bad faith without evidence.", "Keeps focus on facts and process."),
+    d("Consistency With Prior Work", 4, "Shows how the submitted writing matches prior coursework or known writing patterns.", "References previous essays, professor comments, or consistent topic knowledge."),
+    d("Boundary Between Help and Misconduct", 4, "Explains any legitimate assistance received and where it stopped.", "Separates grammar tools, tutoring, proofreading, and prohibited authorship."),
+    d("Closing Summary", 3, "Ends by summarizing the defense and requested review action.", "Restates allegation, evidence offered, and next procedural ask."),
+    d("Respect for Stakes", 4, "Treats the case as serious for both the student and institution.", "Avoids minimizing academic integrity concerns.")
+  ],
+  "appealing-exam-grade": [
+    d("Specific Item Identification", 5, "Names the exact exam problem, rubric line, and points being appealed.", "Starts with problem number, lost points, and requested correction."),
+    d("Mathematical or Technical Justification", 5, "Explains why the answer satisfies the course standard.", "Walks through proof steps, equations, assumptions, or alternate method validity."),
+    d("Rubric Alignment", 5, "Connects the answer to the grader's rubric rather than asking for sympathy.", "Shows where the rubric criterion was met or misapplied."),
+    d("Respect for Grader Workload", 3, "Acknowledges the TA or professor had many exams to grade.", "Keeps the appeal concise and organized."),
+    d("Evidence From Submitted Work", 4, "Uses only what was present on the exam unless policy allows clarification.", "Points to written steps, diagrams, or annotations already submitted."),
+    d("Neutral Tone", 4, "Challenges the grade without implying incompetence or bias.", "Uses language like 'I may be misunderstanding the rubric' instead of accusations."),
+    d("Handling Partial Credit Pushback", 4, "Responds constructively if the grader says the answer is incomplete.", "Asks what step is missing and whether any points can be restored."),
+    d("Boundary of Request", 3, "Appeals only the disputed grading decision.", "Does not turn one item into a broad complaint about the exam."),
+    d("Alternative Solution Defense", 4, "Shows that a nonstandard approach is still valid if applicable.", "Maps alternate proof or method to accepted concepts from class."),
+    d("Admission of Real Errors", 4, "Concedes mistakes that are actually present.", "Accepts lost points for missing notation or arithmetic errors when valid."),
+    d("Clarity Under Questioning", 4, "Can explain the answer verbally without changing the argument.", "Maintains a stable, step-by-step explanation."),
+    d("Policy Awareness", 3, "Respects grade appeal windows and regrade rules.", "Mentions deadline, form, or professor policy correctly."),
+    d("Outcome Flexibility", 3, "Can accept full, partial, or no restoration professionally.", "Asks for learning clarification even if points are not restored."),
+    d("Documentation for Follow-Up", 3, "Offers a clean written summary if the grader needs time.", "Provides concise notes or marked-up copy."),
+    d("Professional Close", 3, "Ends with thanks and a clear next step.", "Confirms whether the grader will review, escalate, or leave unchanged.")
+  ],
+  "discussing-professional-burnout": [
+    d("Specific Burnout Signal Naming", 5, "Describes concrete workload and health signals instead of vague exhaustion.", "Names hours, sleep impact, missed recovery, error rate, or sustained overload."),
+    d("Workload Evidence", 5, "Uses measurable workload data to make the issue visible.", "References ticket volume, on-call load, meetings, project count, or deadlines."),
+    d("Business Risk Framing", 5, "Connects burnout to delivery, quality, retention, and operational risk.", "Explains likely defects, missed dates, or attrition risk without dramatizing."),
+    d("Clear Support Request", 4, "Makes a specific ask rather than only venting.", "Requests scope reduction, priority reset, PTO coverage, or on-call rotation change."),
+    d("Priority Tradeoff Discipline", 4, "Forces prioritization among competing commitments.", "Asks which deliverables should move if everything cannot be done."),
+    d("Boundary Setting", 4, "Sets sustainable limits on hours, response time, or weekend work.", "States what can be maintained and what cannot continue."),
+    d("Manager Empathy", 3, "Recognizes the manager's delivery pressure while still holding the line.", "Acknowledges deadlines and team constraints."),
+    d("Emotional Regulation", 3, "Communicates distress without collapsing into blame or panic.", "Uses direct, calm language about health and workload."),
+    d("Pattern Versus One Bad Week", 4, "Shows this is sustained overload, not a temporary inconvenience.", "Cites duration and repeated cycles."),
+    d("Candidate Solutions", 4, "Offers realistic options the manager can act on.", "Suggests delegation, pause list, reduced meetings, or incident coverage changes."),
+    d("Medical or Privacy Boundaries", 3, "Shares enough health context without over-disclosing.", "States impact and needed accommodation without unnecessary details."),
+    d("Handling Minimization", 4, "Responds when the manager says everyone is busy.", "Returns to evidence, risk, and specific tradeoffs."),
+    d("Accountability for Current Work", 3, "Clarifies what will still be delivered and where risks are.", "Does not abandon ownership while asking for change."),
+    d("Follow-Up Checkpoint", 3, "Creates a review date to see whether workload changes worked.", "Sets a one- or two-week check-in."),
+    d("Written Alignment", 3, "Confirms revised priorities after the conversation.", "Offers to send a summary of agreed changes.")
+  ],
+  "emergency-deadline-extension": [
+    d("Emergency Specificity", 5, "Explains the emergency enough for the professor to evaluate legitimacy.", "Names the event, timing, and why it disrupted work."),
+    d("Documentation Readiness", 5, "Offers appropriate documentation without oversharing.", "Mentions doctor's note, obituary, hospital record, or university support office."),
+    d("Exact Extension Ask", 5, "Requests a specific new deadline and scope.", "Asks for 48 hours, one week, or alternate submission date."),
+    d("Prior Work Evidence", 4, "Shows the assignment was already underway.", "References outline, draft, sources, lab work, or progress percentage."),
+    d("Course Policy Awareness", 4, "Acknowledges syllabus extension rules and late penalties.", "Shows the ask is within or respectfully outside policy."),
+    d("Responsibility and Timing", 4, "Explains why the request is made now and owns any delay.", "Avoids pretending a last-minute request is ideal."),
+    d("Respect for Fairness", 4, "Recognizes the professor must treat classmates fairly.", "Frames the request as emergency accommodation, not special treatment."),
+    d("Concise Communication", 3, "Does not force the professor through an unfocused personal story.", "Leads with event, impact, ask, evidence."),
+    d("Contingency Proposal", 4, "Offers a backup if the full extension is not possible.", "Suggests partial submission, late penalty, or meeting with dean/advisor."),
+    d("Emotional Composure", 3, "Communicates urgency without manipulation.", "Avoids guilt-tripping or escalating emotionally."),
+    d("Academic Integrity Protection", 3, "Does not propose shortcuts that compromise the assignment.", "Avoids asking to skip sources or change standards."),
+    d("Responsiveness to Pushback", 4, "Answers skepticism with facts and alternatives.", "Does not become hostile when documentation is requested."),
+    d("Impact on Other Deadlines", 3, "Explains how the new deadline avoids further conflicts.", "Shows a realistic plan to complete."),
+    d("Clear Closing Agreement", 3, "Confirms the approved deadline and submission method.", "Repeats date, time, and platform."),
+    d("Follow-Through Commitment", 3, "Commits to sending documentation or update promptly.", "Names what will be sent and when.")
+  ],
+  "handling-missed-deliverable": [
+    d("Immediate Ownership", 5, "Takes responsibility for the missed deliverable without hiding behind process.", "States what was missed and owns the communication gap."),
+    d("Client Impact Recognition", 5, "Shows understanding of how the miss affected the account director and client.", "Names downstream meeting, launch, revenue, or trust impact."),
+    d("Fact Pattern Clarity", 4, "Separates known facts from assumptions.", "Explains timeline, handoffs, and where the breakdown occurred."),
+    d("No Blame Shifting", 4, "Avoids dumping fault on another team or the client.", "Uses shared accountability language."),
+    d("Recovery Plan Specificity", 5, "Presents a concrete plan to deliver or mitigate.", "Includes owners, dates, status updates, and quality checks."),
+    d("Expectation Reset", 4, "Sets a realistic new commitment instead of overpromising.", "Gives a credible delivery date with confidence level."),
+    d("Communication Cadence", 4, "Defines how the stakeholder will stay informed.", "Offers daily updates, single owner, or escalation path."),
+    d("Apology Quality", 3, "Apologizes for the right thing without excessive self-flagellation.", "Acknowledges impact and pivots to repair."),
+    d("Escalation Judgment", 4, "Knows when to involve leadership, client success, or technical owners.", "Escalates based on risk, not fear."),
+    d("Root Cause Discipline", 4, "Identifies likely process cause without turning the meeting into a postmortem.", "Separates immediate repair from later prevention."),
+    d("Stakeholder Tone Management", 3, "De-escalates anger while respecting urgency.", "Does not mirror frustration or get defensive."),
+    d("Prevention Commitment", 4, "Names a durable change to prevent recurrence.", "Proposes checklist, ownership map, or acceptance criteria."),
+    d("Tradeoff Transparency", 3, "States what may need to move to recover the deliverable.", "Names scope, quality, or schedule tradeoffs."),
+    d("Confirmation of Decision", 3, "Gets agreement on the recovery path.", "Asks if the proposed plan meets client needs."),
+    d("Written Follow-Up", 3, "Commits to a written recap with next milestones.", "Sends who/what/when after the call.")
+  ],
+  "joining-competitive-research-lab": [
+    d("Research Fit Specificity", 5, "Explains why this lab's work fits the student's interests and skills.", "Names papers, projects, methods, or datasets from the lab."),
+    d("Preparation on Professor's Work", 5, "Shows real familiarity with the professor's recent research.", "References a paper's question, method, and why it matters."),
+    d("Skill Evidence", 5, "Connects concrete skills to lab needs.", "Mentions coding, statistics, lab techniques, writing, or domain background with examples."),
+    d("Contribution Proposal", 4, "Suggests a plausible way to help the lab.", "Offers literature review, replication, data cleaning, experiments, or tooling."),
+    d("Learning Goals", 3, "States what the student wants to learn without making the professor design everything.", "Links growth goals to lab tasks."),
+    d("Time Commitment Clarity", 4, "Gives realistic weekly availability and duration.", "Names hours, semester, summer, or long-term commitment."),
+    d("Transcript and Coursework Framing", 3, "Uses grades/coursework honestly without overclaiming.", "Mentions relevant classes and addresses weaknesses if needed."),
+    d("Respect for Selectivity", 3, "Acknowledges the lab is competitive and professor time is limited.", "Does not act entitled to a position."),
+    d("Question Quality", 4, "Asks informed questions about the lab's current needs.", "Asks about open projects, onboarding, or prerequisites."),
+    d("Independence Signal", 4, "Shows ability to self-manage work.", "Gives examples of independent projects or follow-through."),
+    d("Collaboration Fit", 3, "Signals ability to work with grad students or lab teams.", "Mentions communication habits and reliability."),
+    d("Handling No Openings", 4, "Responds constructively if there is no spot now.", "Asks about future openings, reading list, or adjacent opportunities."),
+    d("Resume/CV Use", 3, "Provides materials without making the professor search.", "Offers concise CV, transcript, GitHub, or writing sample."),
+    d("Ethical Research Awareness", 3, "Recognizes responsible conduct, data handling, or human-subjects constraints if relevant.", "Does not treat research as a resume line only."),
+    d("Clear Next Step Ask", 4, "Ends with a concrete next step.", "Requests interview, trial task, email follow-up, or materials review.")
+  ],
+  "negotiating-remote-work": [
+    d("Specific Schedule Proposal", 5, "Names the exact remote or hybrid schedule requested.", "Specifies days, duration, timezone, and review period."),
+    d("Business Case Framing", 5, "Connects remote work to performance and team outcomes.", "Explains productivity, focus time, hiring/retention, or coverage benefits."),
+    d("Performance Evidence", 5, "Uses prior delivery record to support trust.", "References shipped work, responsiveness, metrics, or manager feedback."),
+    d("Collaboration Plan", 4, "Shows how meetings, pairing, reviews, and team rituals will work.", "Names tools, hours, response norms, and overlap."),
+    d("Risk Mitigation", 4, "Anticipates manager concerns about visibility or coordination.", "Offers trial period, measurable goals, and check-ins."),
+    d("Customer or Stakeholder Coverage", 3, "Addresses external availability needs.", "Explains support windows, client meetings, or incident response."),
+    d("Fairness Awareness", 3, "Recognizes team policy and precedent concerns.", "Avoids asking for secret exceptions."),
+    d("Boundary Clarity", 3, "Defines what remote work does and does not change.", "States travel, onsite days, or all-hands attendance expectations."),
+    d("Manager Perspective", 4, "Frames the ask in terms the manager can defend.", "Gives language and data useful for approval."),
+    d("Handling Presence Pushback", 4, "Responds to claims that office presence is required.", "Offers evidence, experiments, or hybrid compromise."),
+    d("Communication Reliability", 4, "Demonstrates proactive communication habits.", "Commits to status updates, calendar hygiene, and response SLA."),
+    d("Equipment and Security Readiness", 3, "Addresses home setup, VPN, confidentiality, and compliance.", "Mentions secure network and ergonomic workspace."),
+    d("Trial Success Metrics", 4, "Defines how the arrangement will be evaluated.", "Uses deliverables, cycle time, availability, or feedback."),
+    d("Negotiation Flexibility", 3, "Can adjust the ask without abandoning the core need.", "Considers phased rollout or fewer remote days."),
+    d("Documented Agreement", 3, "Closes with written terms and review date.", "Confirms schedule, start date, and evaluation checkpoint.")
+  ],
+  "addressing-poor-code-quality": [
+    d("Concrete Code Evidence", 5, "Uses exact examples from pull requests, files, bugs, or review comments.", "Names failing tests, regression, duplicated logic, unsafe assumptions, or unreadable diff chunks."),
+    d("Impact Explanation", 5, "Explains why the code quality issue matters to users, teammates, and delivery.", "Connects rushed code to bugs, review churn, incidents, or maintenance cost."),
+    d("Behavior Not Character", 5, "Keeps feedback focused on observable coding choices.", "Avoids calling the coworker lazy, careless, or incompetent."),
+    d("Severity Calibration", 4, "Distinguishes blockers from preferences.", "Separates production risk, maintainability concern, and style nit."),
+    d("Technical Clarity", 4, "Explains the underlying technical problem accurately.", "Describes missing validation, race condition, poor abstraction, or insufficient tests."),
+    d("Specific Quality Standard", 4, "Defines what good enough looks like for future work.", "Mentions tests, small PRs, error handling, review checklist, or design notes."),
+    d("Invitation to Respond", 3, "Lets the coworker explain context without surrendering the point.", "Asks what constraints led to the choices."),
+    d("Tone Under Defensiveness", 4, "Stays calm when the coworker pushes back.", "Returns to evidence and impact instead of escalating."),
+    d("Shared Ownership of Repair", 4, "Proposes a practical path to fix the current code.", "Suggests pairing, follow-up PR, test additions, or refactor plan."),
+    d("Avoidance of Public Shaming", 3, "Handles the conversation privately and respectfully.", "Does not use the meeting to embarrass the coworker."),
+    d("Release Pressure Awareness", 3, "Acknowledges delivery pressure while still protecting quality.", "Separates speed from skipping essential safeguards."),
+    d("Review Process Improvement", 4, "Identifies how future reviews can catch issues earlier.", "Proposes smaller diffs, pre-review checklist, or design review."),
+    d("Boundary on Recurrence", 4, "States what cannot continue if the pattern repeats.", "Names escalation or merge-blocking criteria professionally."),
+    d("Agreement on Next PR", 3, "Sets one immediate behavior change for the next pull request.", "Confirms tests, scope, or review expectations."),
+    d("Follow-Up Accountability", 3, "Creates a checkpoint to verify improvement.", "Schedules review of fixes or checks upcoming PR quality.")
+  ],
+  "asking-professor-letter-of-recommendation": [
+    d("Clear Opportunity Context", 5, "Explains what the letter is for and why it matters.", "Names program, job, fellowship, lab, or scholarship."),
+    d("Deadline and Submission Details", 5, "Gives complete logistics up front.", "Provides due date, portal/email method, required format, and recipient."),
+    d("Reason for Choosing Professor", 5, "Explains why this professor can credibly recommend the student.", "Connects class, project, research, office hours, or mentoring relationship."),
+    d("Evidence Packet Quality", 4, "Offers materials that make the letter easier to write.", "Provides CV, transcript, statement draft, project summary, and achievements."),
+    d("Specific Qualities to Highlight", 4, "Suggests relevant strengths without scripting the letter.", "Names analytical skill, resilience, research fit, leadership, or writing ability with examples."),
+    d("Lead Time Respect", 4, "Shows respect for the professor's schedule.", "Asks with enough notice or acknowledges short notice responsibly."),
+    d("Permission to Decline", 3, "Makes it easy for the professor to say no if they cannot write strongly.", "Asks whether they can write a strong letter."),
+    d("Professional Tone", 3, "Uses respectful, concise academic communication.", "Avoids casual entitlement or pressure."),
+    d("Handling Weak Relationship", 4, "Addresses limited professor familiarity honestly.", "Offers meeting, materials, or accepts that another recommender may be better."),
+    d("Reminder Plan", 3, "Proposes polite reminders without nagging.", "Names one-week and two-day reminder cadence if appropriate."),
+    d("Alignment With Application Criteria", 4, "Connects requested letter content to what the opportunity values.", "Mentions research readiness, teaching, service, technical depth, or character."),
+    d("Gratitude Without Flattery", 3, "Shows appreciation without manipulative praise.", "Thanks the professor for considering the workload."),
+    d("Follow-Up Availability", 3, "Offers to answer questions or provide more context.", "Suggests short meeting or email follow-up."),
+    d("Accuracy and Honesty", 4, "Does not ask the professor to exaggerate or hide problems.", "Frames achievements truthfully."),
+    d("Confirmation of Next Step", 3, "Ends by confirming whether the professor is willing and what materials are needed.", "Asks for acceptance, meeting, or alternative recommendation.")
+  ],
+  "asking-for-a-raise": [
+    d("Clear Compensation Ask", 5, "States the raise request directly and numerically.", "Names salary target, percentage, band, or adjustment range."),
+    d("Impact Evidence", 5, "Uses measurable business results to support the request.", "References revenue, cost savings, delivery, reliability, customer impact, or team leverage."),
+    d("Scope Growth Documentation", 5, "Shows responsibilities have expanded beyond current compensation.", "Names leadership duties, ownership areas, mentoring, incidents, or project load."),
+    d("Market or Internal Equity Context", 4, "Uses compensation context carefully and credibly.", "Mentions market data, band mismatch, or internal scope comparison without gossip."),
+    d("Timing Justification", 4, "Explains why the raise should be considered now.", "Connects to recent milestone, role change, retention risk, or review cycle gap."),
+    d("Manager-Defensible Framing", 4, "Gives the manager a case they can take upward.", "Packages evidence, scope, and number into an approval-ready argument."),
+    d("Professional Self-Advocacy", 4, "Advocates firmly without apology or entitlement.", "Uses confident, factual language."),
+    d("Handling Budget Pushback", 4, "Responds constructively if the manager cites budget limits.", "Asks about timeline, partial adjustment, title change, or formal review path."),
+    d("Avoidance of Personal Need Framing", 3, "Does not make cost of living the main argument.", "Keeps focus on value and role scope."),
+    d("Retention Signal Calibration", 3, "Signals seriousness without issuing reckless threats.", "Discusses career sustainability or market alignment carefully."),
+    d("Future Contribution Plan", 4, "Connects compensation to continued impact.", "Names upcoming ownership and outcomes."),
+    d("Evidence Organization", 3, "Presents examples in a concise structure.", "Uses brief bullets or categories rather than rambling."),
+    d("Negotiation Flexibility", 3, "Can discuss alternatives while keeping the ask clear.", "Considers bonus, promotion process, equity, or review date."),
+    d("Decision Process Clarification", 3, "Asks how compensation decisions are made.", "Identifies approvers, timeline, and needed artifacts."),
+    d("Written Follow-Up", 3, "Closes with a summary of ask, evidence, and next step.", "Offers to send a concise compensation case.")
+  ],
+  "resigning-from-job": [
+    d("Clear Resignation Statement", 5, "States the resignation plainly and early.", "Uses direct language that the decision is to resign."),
+    d("Final Date Specificity", 5, "Gives a concrete final working date.", "Names date and notice period."),
+    d("Decision Finality", 4, "Clarifies whether the decision is final without inviting unwanted negotiation.", "Politely states if not considering counteroffers."),
+    d("Professional Tone", 4, "Keeps the conversation respectful even if leaving for negative reasons.", "Avoids venting or personal attacks."),
+    d("Transition Plan", 5, "Offers practical coverage for responsibilities.", "Names projects, documents, handoffs, and owners."),
+    d("Manager Emotion Handling", 4, "Responds calmly if the manager is upset or surprised.", "Acknowledges impact without reversing the decision."),
+    d("Boundary Maintenance", 4, "Does not accept unreasonable extensions or emotional pressure.", "Repeats final date and feasible support."),
+    d("Reason Sharing Discipline", 3, "Shares a concise reason if useful without over-explaining.", "Says new opportunity, growth, or personal reasons appropriately."),
+    d("Confidentiality and Announcement Plan", 3, "Coordinates how and when the team will be told.", "Asks about announcement timing and message."),
+    d("Knowledge Transfer Specificity", 4, "Identifies concrete documentation and handoff sessions.", "Lists repos, accounts, stakeholders, runbooks, or open decisions."),
+    d("Gratitude Without Ambiguity", 3, "Can express appreciation without making the resignation sound negotiable.", "Thanks manager while staying clear."),
+    d("Counteroffer Response", 4, "Handles retention offers consistently.", "Declines or defines conditions without drifting."),
+    d("Operational Risk Awareness", 4, "Recognizes what the resignation affects.", "Names deadlines, clients, incidents, or coverage gaps."),
+    d("Exit Process Logistics", 3, "Clarifies HR, equipment, access, and PTO details.", "Asks who handles paperwork and offboarding."),
+    d("Written Confirmation", 3, "Follows up with a concise written resignation.", "Confirms date, appreciation, and transition commitment.")
+  ]
+};
+
+function getReviewedScenarios() {
+  return SCENARIOS
+    .filter((scen) => REVIEWED_SCENARIO_SOURCE_SLUGS.has(scen.slug))
+    .map((scen) => {
+      const merged = { ...scen, ...(REVIEW_SCENARIO_OVERRIDES[scen.slug] || {}) };
+      return {
+        ...merged,
+        rubricDimensions: RUBRIC_DIMENSIONS_BY_SLUG[merged.slug]
+      };
+    });
+}
+
 // Helper to sanitize paths
 function sanitizeSlug(slug) {
   return slug.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
+function shortCharacterName(fullName) {
+  const parts = fullName.split(" ");
+  if (parts[0] === "Dr." && parts.length > 1) {
+    return `${parts[0]} ${parts[1]}`;
+  }
+  return parts[0];
+}
+
 // Generate scenario.md content
 function getScenarioMarkdown(scen) {
+  const shortName = shortCharacterName(scen.characterName);
   const customResponses = [
     {
       trigger: "weak or unprepared response",
@@ -1407,11 +1737,7 @@ function getScenarioMarkdown(scen) {
     },
     {
       trigger: "strong, specific response",
-      dialogue: scen.category === "Tech & Professional" 
-        ? `> "That's exactly the kind of architecture details I was hoping to hear. It shows you've thought about the system limits. How do we roll this out to testing?"`
-        : scen.category === "Day-to-Day Corporate America"
-        ? `> "I appreciate you bringing specific numbers and ownership to this. Let's work out a timeline. What support do you need from me?"`
-        : `> "That's a structured academic argument. You've clearly prepared for this meeting. Let's look at the syllabus guidelines and see how we proceed."`
+      dialogue: `> "That is specific and actionable. You are naming the evidence, the impact, and a realistic next step. Let's talk through what would make this acceptable."`
     },
     {
       trigger: "deflects or avoids",
@@ -1463,13 +1789,13 @@ ${scen.respectEarned.split(", ").map(r => `- ${r}`).join("\n")}
 ${scen.expertise}
 
 **Awareness (Not Expert):**
-${scen.category === "Tech & Professional" ? "Product strategy, compliance metrics" : "HR policy, corporate structure"}
+${scen.awareness || (scen.category === "Tech & Professional" ? "Product strategy, compliance metrics" : scen.category === "Student Scenarios" ? "University procedure, department norms, application timelines" : "HR policy, budget process, corporate structure")}
 
-**What ${scen.characterName.split(" ")[0]} Has Seen Too Much Of:**
+**What ${shortName} Has Seen Too Much Of:**
 ${scen.seenTooMuch.split(", ").map(s => `- ${s}`).join("\n")}
 
 **Blind Spots:**
-${scen.characterName.split(" ")[0]} can focus so much on rules and metrics that they ignore individual developer constraints or team morale issues.
+${scen.blindSpots || `${shortName} can focus so much on policy, precedent, or workload pressure that they miss the user's practical constraints.`}
 
 ---
 
@@ -1485,27 +1811,27 @@ ${scen.respectEarned.split(", ").map(r => `- ${r}`).join("\n")}
 ${scen.petPeeves.split(", ").map(p => `- ${p}`).join("\n")}
 
 **Maximum Warmth Available:**
-Once trust is established, ${scen.characterName.split(" ")[0]} will shift from a defensive stance to a collaborative partner, willing to support the proposed solution.
+Once trust is established, ${shortName} will shift from a defensive stance to a collaborative partner, willing to support the proposed solution.
 
 ---
 
-## The Situation (From ${scen.characterName.split(" ")[0]}'s POV)
+## The Situation (From ${shortName}'s POV)
 
-I am extremely busy and have multiple meetings today. This situation requires immediate resolution because it affects my department's performance and budget. I want to see if the person proposing this is prepared, takes ownership, and offers data-backed next steps rather than emotional excuses. If they can make a solid case, I'll agree to the path forward. Otherwise, I will deny the request.
+${scen.situation || "I am extremely busy and have multiple meetings today. This situation requires immediate resolution because it affects my department's performance and budget. I want to see if the person proposing this is prepared, takes ownership, and offers data-backed next steps rather than emotional excuses. If they can make a solid case, I'll agree to the path forward. Otherwise, I will deny the request."}
 
 ---
 
 ## Your Role (The User's POV)
 
-You are the primary person responsible for this issue. You need to drive the conversation, present your case, address ${scen.characterName.split(" ")[0]}'s concerns, and secure agreement on next steps.
+${scen.userRole || `You are the primary person responsible for this issue. You need to drive the conversation, present your case, address ${shortName}'s concerns, and secure agreement on next steps.`}
 
 ---
 
 ## Character Goals
 
-**Primary Goal:** Protect my department's resources, integrity, and operational capacity.
-**Secondary Goal:** Assess if this person is self-managing and takes accountability.
-**Hidden Agenda:** Evaluating if the proposal is realistic or just a temporary band-aid to avoid hard work.
+**Primary Goal:** ${scen.primaryGoal || "Protect my department's resources, integrity, and operational capacity."}
+**Secondary Goal:** ${scen.secondaryGoal || "Assess if this person is self-managing and takes accountability."}
+**Hidden Agenda:** ${scen.hiddenAgenda || "Evaluating if the proposal is realistic or just a temporary band-aid to avoid hard work."}
 
 ---
 
@@ -1600,27 +1926,26 @@ function getRubricMarkdown(scen) {
   ];
 
   let dims = [];
-  let sumOfWeights = 0;
-  if (scen.category === "Tech & Professional") {
+  if (Array.isArray(scen.rubricDimensions) && scen.rubricDimensions.length > 0) {
+    dims = scen.rubricDimensions;
+  } else if (scen.category === "Tech & Professional") {
     dims = techDimensions;
-    sumOfWeights = 58;
   } else if (scen.category === "Day-to-Day Corporate America") {
     dims = corpDimensions;
-    sumOfWeights = 57;
   } else {
     dims = studentDimensions;
-    sumOfWeights = 58;
   }
+  const sumOfWeights = dims.reduce((total, dim) => total + dim.w, 0);
 
   const generatedDimsMarkdown = dims.map((d, idx) => `### ${idx + 1}. ${d.name}
 **Weight:** ${d.w}
 **Measures:** ${d.measures}
 **Things to Look For:** ${d.lookFor}
-**Score 1 — Weak:** Fails to address the dimension. Uses generic, defensive, or completely unstructured language.
-**Score 2:** Shows awareness but fails to apply the dimension effectively.
-**Score 3 — Adequate:** Meets standard expectations for the dimension. Correctly handles the basic requirements.
-**Score 4:** Performs well, applying the dimension with clear evidence and structure.
-**Score 5 — Strong:** Demonstrates exceptional mastery of the dimension. Outlines precise, data-backed evidence that makes it easy for the character to agree.`).join("\n\n---\n\n");
+**Score 1 - Weak:** Does not meaningfully address ${d.name.toLowerCase()}; the response is vague, defensive, inaccurate, or missing the evidence needed for this scenario.
+**Score 2:** Mentions the area but leaves major gaps; the user may gesture at ${d.measures.toLowerCase()} without enough detail for the character to trust it.
+**Score 3 - Adequate:** Meets the baseline by addressing ${d.measures.toLowerCase()} with enough clarity and relevance to keep the conversation moving.
+**Score 4:** Handles the dimension well, including scenario-specific details such as ${d.lookFor.toLowerCase()} while adapting to pushback.
+**Score 5 - Strong:** Demonstrates rare mastery: the user makes this easy to evaluate, anchors the point in observable evidence, anticipates the character's concern, and secures a concrete next step.`).join("\n\n---\n\n");
 
   return `# Rubric: ${scen.name}
 
@@ -1652,16 +1977,31 @@ Weights sum: ${sumOfWeights}.
 
 // Main execution function
 function generateAll() {
-  console.log(`Starting generation of ${SCENARIOS.length} roleplay scenarios...`);
+  const scenariosToGenerate = getReviewedScenarios();
+  const reviewedFolderNames = new Set(scenariosToGenerate.map((scen) => sanitizeSlug(scen.slug)));
+  const generatedSourceSlugs = new Set(SCENARIOS.map((scen) => sanitizeSlug(scen.slug)));
+
+  console.log(`Starting generation of ${scenariosToGenerate.length} reviewed roleplay scenarios...`);
 
   // Ensure root directory exists
   if (!fs.existsSync(ROLEPLAY_ROOT)) {
     fs.mkdirSync(ROLEPLAY_ROOT, { recursive: true });
   }
 
+  for (const slug of generatedSourceSlugs) {
+    if (reviewedFolderNames.has(slug)) {
+      continue;
+    }
+    const staleDir = path.join(ROLEPLAY_ROOT, slug);
+    if (fs.existsSync(staleDir) && !fs.existsSync(path.join(staleDir, "SKILL.md"))) {
+      fs.rmSync(staleDir, { recursive: true, force: true });
+      console.log(`Removed unreviewed scenario: ${slug}`);
+    }
+  }
+
   let newRegistryRows = [];
 
-  for (const scen of SCENARIOS) {
+  for (const scen of scenariosToGenerate) {
     const folderName = sanitizeSlug(scen.slug);
     const scenDir = path.join(ROLEPLAY_ROOT, folderName);
 
@@ -1706,6 +2046,9 @@ function generateAll() {
     const parts = row.split("|");
     if (parts.length > 1) {
       const slug = parts[1].trim();
+      if (generatedSourceSlugs.has(slug) && !reviewedFolderNames.has(slug)) {
+        continue;
+      }
       if (!registeredSlugs.has(slug)) {
         registeredSlugs.add(slug);
         finalRows.push(row);
@@ -1741,7 +2084,7 @@ function generateAll() {
 
   const finalContent = [...headerLines, ...finalRows, ""].join("\n");
   fs.writeFileSync(registryPath, finalContent, "utf8");
-  console.log(`Updated scenarios-registry.md with all scenarios.`);
+  console.log(`Updated scenarios-registry.md with reviewed scenarios.`);
   console.log(`Total registered scenarios: ${registeredSlugs.size}`);
 }
 
