@@ -1,4 +1,17 @@
 {
+  "_context_protocol": {
+    "description": "Package manifest file for the Vidbyte Skills package, managing dependencies, metadata, build files, and command-line entry points.",
+    "purpose": "Configures npm package configuration, binary executables, validation scripts, and keywords for deployment and execution.",
+    "architecture": "Standard package.json schema containing metadata, binary mapping endpoints, validation scripts, engine specifications, and files inclusions.",
+    "key_elements": [
+      "bin: maps CLI command aliases like `vidbyte-skills`, `install-roleplay`, and `install` to their respective runner scripts."
+    ],
+    "relation_to_codebase": "Defines the public interfaces of the CLI, making binaries available to npm/npx execution environments.",
+    "similar_files": [
+      "skills-manifest.json",
+      "lib/skill-versions.json"
+    ]
+  },
   "name": "vidbyte-skills",
   "version": "0.3.0",
   "description": "Install Vidbyte Agent Skills across Claude Code, Codex, Gemini CLI, Grok Build, GitHub Copilot, Warp, Factory, Crush, and compatible harnesses.",
@@ -7,7 +20,10 @@
     "vidbyte": "./bin/vidbyte.js",
     "vidbyte-skills": "./bin/install.js",
     "vidbyte-learning-skills": "./bin/learning.js",
-    "vidbyte-reasoning-skills": "./bin/reasoning.js"
+    "vidbyte-reasoning-skills": "./bin/reasoning.js",
+    "install-roleplay": "./bin/roleplay.js",
+    "vidbyte-roleplay-skills": "./bin/roleplay.js",
+    "install": "./bin/install.js"
   },
   "scripts": {
     "install-skills": "node ./bin/install.js",
