@@ -1508,6 +1508,922 @@ const REVIEW_SCENARIO_OVERRIDES = {
   }
 };
 
+const EDUCATION_ADVOCACY_COMMON_DIMENSIONS = [
+  d("Policy and Process Awareness", 4, "Uses the institution's actual rules, forms, deadlines, and escalation path.", "Names the handbook, syllabus, counselor process, registrar rule, aid policy, or appeal route."),
+  d("Evidence Organization", 4, "Presents records in a way the staff member can verify quickly.", "References gradebook screenshots, attendance logs, emails, medical notes, audit reports, or assignment artifacts."),
+  d("Bounded Remedy Request", 4, "Asks for a specific remedy that is limited in time, scope, or decision needed.", "Requests one correction, one meeting, one retake window, one schedule change, or one documented review."),
+  d("Respectful Authority Navigation", 3, "Challenges the decision without attacking the adult, office, or institution.", "Uses calm wording, acknowledges constraints, and avoids insults or threats."),
+  d("Student Agency and Ownership", 3, "Shows what the student has already done and what they will do next.", "Owns missed steps, preparation gaps, or follow-through responsibilities without self-erasure."),
+  d("Fairness and Precedent Awareness", 3, "Recognizes the decision-maker must be fair to other students and policies.", "Frames the request as documented exception, correction, or accommodation rather than favoritism."),
+  d("Privacy and Disclosure Boundaries", 3, "Shares enough sensitive context to support the ask without unnecessary over-disclosure.", "Summarizes medical, family, mental health, conduct, or safety details at the right level."),
+  d("Handling Pushback", 3, "Responds to skepticism with facts, options, and process rather than defensiveness.", "Answers questions directly and offers alternatives when the first ask is denied."),
+  d("Ethical Advocacy", 4, "Keeps the case truthful and policy-compliant even under pressure.", "Does not exaggerate evidence, hide facts, ask for secret exceptions, or pressure staff to break rules."),
+  d("Clear Closing and Follow-Up", 3, "Ends with agreed next steps, owner, deadline, and documentation path.", "Confirms who will send what, by when, and how the decision will be recorded.")
+];
+
+class EducationAdvocacyScenarioBatch {
+  getScenarios() {
+    // Builds normalized roleplay scenario records for the education advocacy batch.
+    return this.getDefinitions().map((definition) => this.buildScenario(definition));
+  }
+
+  getRubricDimensionsBySlug() {
+    // Returns a lookup useful for tests or future generator refactors.
+    return Object.fromEntries(this.getScenarios().map((scenario) => [scenario.slug, scenario.rubricDimensions]));
+  }
+
+  getDefinitions() {
+    // Defines the curated high-school and college advocacy scenarios approved in the design doc.
+    return [
+      {
+        slug: "teacher-grade-correction-request",
+        name: "Teacher Grade Correction Request",
+        level: "high school or college",
+        oneLiner: "Ask a teacher to correct a gradebook mistake using clear records and a respectful ask.",
+        characterName: "Ms. Laura Bennett",
+        characterAge: 42,
+        characterRole: "AP English Teacher and Gradebook Coordinator",
+        characterBackground: "Ms. Bennett teaches five sections and updates grades late at night after school events. She cares about accuracy but has seen students misread rubrics and assume every missing score is her mistake.",
+        coreTraits: "Detail-oriented, tired, fair-minded, protective of her process, warmer when students come prepared",
+        communicationStyle: "Ms. Bennett speaks quickly and concretely. She asks for assignment names, submission timestamps, and the exact gradebook entry before discussing a correction.",
+        decisionMaking: "She changes grades only when the student can show a verifiable submission, rubric mismatch, or data-entry error.",
+        authorityRelation: "She controls classroom grades but must justify changes if parents or counselors challenge the record.",
+        expertise: "Gradebook systems, rubrics, writing assignments, school grading policies.",
+        seenTooMuch: "Students saying grades are wrong without checking the assignment portal or rubric comments.",
+        startingEmotionalState: "Busy and mildly guarded because grading disputes often become unfocused.",
+        openingLine: "I can look, but I need specifics. Which assignment are you saying is wrong, and what evidence do you have?",
+        decision: "grade correction",
+        weakResponse: "If the user only says the grade is unfair or missing, Ms. Bennett refuses to change anything until records are provided.",
+        strongResponse: "If the user names the assignment, shows submission proof, and identifies the exact mismatch, Ms. Bennett updates the grade or schedules a review.",
+        userQuestions: [
+          "Which assignment or assessment has the incorrect grade?",
+          "What does the gradebook currently show?",
+          "What evidence do you have that the entry is wrong?"
+        ],
+        primaryDimensions: [
+          ["Exact Gradebook Entry Identification", "Names the specific assignment, date, score, and grading system location being disputed.", "Starts with the entry title, current score, expected score, and where it appears."],
+          ["Submission or Rubric Evidence", "Uses verifiable records rather than memory or frustration.", "Shows timestamp, returned paper, LMS receipt, rubric comment, or teacher email."],
+          ["Correction Framing", "Frames the ask as a records correction, not a personal accusation.", "Says 'I think there may be a data-entry issue' instead of blaming the teacher."],
+          ["Portal and Deadline Awareness", "Understands how gradebook syncing, late policies, and resubmissions work.", "Mentions portal status, due date, resubmission policy, or missing-work code."],
+          ["Concise Timeline", "Explains when work was completed, submitted, returned, and noticed.", "Gives a short chronological sequence the teacher can verify."]
+        ]
+      },
+      {
+        slug: "make-up-test-after-absence",
+        name: "Make-Up Test After Absence",
+        level: "high school or college",
+        oneLiner: "Negotiate a make-up test after an absence while protecting test integrity.",
+        characterName: "Mr. Daniel Ortiz",
+        characterAge: 39,
+        characterRole: "Algebra II Teacher and Testing Coordinator",
+        characterBackground: "Mr. Ortiz has had tests leak after make-up windows, so he is strict about absence documentation and proctoring. He wants students to recover missed work but not at the cost of test fairness.",
+        coreTraits: "Fair, skeptical, organized, test-security focused, practical",
+        communicationStyle: "Mr. Ortiz speaks in short policy-focused sentences. He asks when the student was absent, whether the absence was excused, and how the make-up will be proctored.",
+        decisionMaking: "He approves make-ups when the absence is documented and the proposed timing protects test security.",
+        authorityRelation: "He follows school testing rules and coordinates with the attendance office.",
+        expertise: "Assessment design, attendance records, proctoring procedures, math curriculum.",
+        seenTooMuch: "Students returning after an absence and asking to take the same test after classmates discussed it.",
+        startingEmotionalState: "Neutral but wary because make-up tests often create fairness issues.",
+        openingLine: "The class already took this test. Why should I approve a make-up, and how do we keep it fair?",
+        decision: "make-up test approval",
+        weakResponse: "If the user cannot explain the absence or timing, Mr. Ortiz requires attendance verification before discussing dates.",
+        strongResponse: "If the user has an excused absence and proposes a prompt proctored time, Mr. Ortiz approves the make-up.",
+        userQuestions: [
+          "What test did you miss?",
+          "Was the absence excused or documented?",
+          "When are you available for a proctored make-up?"
+        ],
+        primaryDimensions: [
+          ["Absence Documentation", "Explains the absence with the level of verification the school requires.", "References attendance office status, parent note, doctor's note, or official activity roster."],
+          ["Test Integrity Plan", "Protects fairness for classmates who already tested.", "Suggests proctoring, alternate version, or limited discussion of test content."],
+          ["Prompt Scheduling", "Requests a make-up window soon enough to avoid drift or advantage.", "Offers dates before the next unit or within the policy window."],
+          ["Preparation Continuity", "Shows readiness to take the exam rather than asking for indefinite delay.", "Mentions completed review work, notes, or missed material plan."],
+          ["Responsibility for Catch-Up Work", "Clarifies how missed instruction or homework will be handled.", "Asks what to study and what assignments must be completed before the test."]
+        ]
+      },
+      {
+        slug: "late-assignment-penalty-reduction",
+        name: "Late Assignment Penalty Reduction",
+        level: "high school or college",
+        oneLiner: "Ask for a reduced late penalty with accountability, evidence, and a realistic repair plan.",
+        characterName: "Professor Elaine Cho",
+        characterAge: 50,
+        characterRole: "Introductory Biology Professor",
+        characterBackground: "Professor Cho runs a large course with strict late penalties because exceptions can overwhelm her teaching team. She is not unsympathetic, but she expects students to separate real barriers from poor planning.",
+        coreTraits: "Strict, transparent, evidence-driven, busy, quietly supportive when students own mistakes",
+        communicationStyle: "Professor Cho speaks formally and asks for the assignment name, due date, reason for delay, and exact adjustment requested.",
+        decisionMaking: "She considers penalty reductions only when the student shows responsibility, documentation, and a plan to prevent repeat issues.",
+        authorityRelation: "She owns the course policy but reports exceptions through department norms.",
+        expertise: "Biology instruction, course policy, grading logistics, TA workflows.",
+        seenTooMuch: "Students asking for penalty forgiveness because they underestimated the assignment.",
+        startingEmotionalState: "Skeptical and time-pressed because late work requests pile up near exam weeks.",
+        openingLine: "The late policy is in the syllabus. What exactly are you asking me to adjust, and why?",
+        decision: "late penalty reduction",
+        weakResponse: "If the user asks for forgiveness without responsibility or a concrete adjustment, Professor Cho applies the normal penalty.",
+        strongResponse: "If the user owns the delay, documents the barrier, and asks for a bounded penalty reduction, Professor Cho considers a partial adjustment.",
+        userQuestions: [
+          "Which assignment was late?",
+          "How late was it submitted?",
+          "What specific penalty reduction are you requesting?"
+        ],
+        primaryDimensions: [
+          ["Exact Penalty Math", "Names the current penalty and the adjusted outcome requested.", "States days late, percent lost, current grade, and proposed reduction."],
+          ["Ownership of Delay", "Accepts responsibility for any preventable part of the late submission.", "Does not blame vague workload or the instructor."],
+          ["Barrier Evidence", "Documents the barrier that made the standard penalty unusually harsh.", "References illness, family issue, access outage, school activity, or advisor note."],
+          ["Course Policy Respect", "Acknowledges the written late policy before asking for an exception.", "Shows awareness of syllabus language and fairness concerns."],
+          ["Future Prevention Plan", "Explains how repeat late submissions will be avoided.", "Names calendar, checkpoint, office hours, or support changes."]
+        ]
+      },
+      {
+        slug: "retake-or-test-correction-request",
+        name: "Retake or Test Correction Request",
+        level: "high school",
+        oneLiner: "Ask for a retake or correction path by showing mastery instead of begging for points.",
+        characterName: "Ms. Priya Shah",
+        characterAge: 34,
+        characterRole: "High School Chemistry Teacher",
+        characterBackground: "Ms. Shah believes grades should reflect mastery but dislikes retakes used as a replacement for preparation. She offers correction opportunities only when students can diagnose their mistakes.",
+        coreTraits: "Standards-based, energetic, demanding, student-centered, allergic to excuses",
+        communicationStyle: "Ms. Shah uses direct coaching language. She asks students to identify patterns in their errors before she discusses retake options.",
+        decisionMaking: "She approves retakes or corrections when students show error analysis, preparation, and a specific learning plan.",
+        authorityRelation: "She controls classroom assessments but follows department retake limits.",
+        expertise: "Chemistry assessment, mastery learning, lab safety, high-school grading policy.",
+        seenTooMuch: "Students asking for retakes because they dislike the score but cannot explain what they missed.",
+        startingEmotionalState: "Open but challenging because she wants proof of learning, not panic.",
+        openingLine: "A retake is not just a second chance because you want a higher score. What have you learned since the test?",
+        decision: "retake or corrections opportunity",
+        weakResponse: "If the user focuses only on needing a better grade, Ms. Shah declines the retake.",
+        strongResponse: "If the user identifies error patterns and proposes a study/correction plan, Ms. Shah grants a structured retake or correction path.",
+        userQuestions: [
+          "What test or quiz do you want to retake or correct?",
+          "What topics did you miss most?",
+          "What retake or correction policy already exists in the class?"
+        ],
+        primaryDimensions: [
+          ["Error Pattern Diagnosis", "Identifies what concepts, question types, or habits caused the low score.", "Names stoichiometry setup, units, reading errors, or formula selection."],
+          ["Mastery Evidence Since Test", "Shows learning that happened after the assessment.", "References corrections, tutoring, practice problems, office hours, or revised notes."],
+          ["Retake Policy Alignment", "Frames the request within the teacher's retake or correction rules.", "Mentions deadline, eligibility, maximum score, or required prep work."],
+          ["Grade Versus Learning Framing", "Centers demonstrated mastery rather than needing points.", "Says what they can now do that they could not do before."],
+          ["Specific Retake Plan", "Requests a defined next step rather than an open-ended second chance.", "Asks for corrections review, retake date, or qualifying assignment."]
+        ]
+      },
+      {
+        slug: "class-placement-appeal",
+        name: "Class Placement Appeal",
+        level: "high school",
+        oneLiner: "Appeal placement into a lower-level class with readiness evidence and a support plan.",
+        characterName: "Ms. Monica Greene",
+        characterAge: 46,
+        characterRole: "High School Counseling Department Chair",
+        characterBackground: "Ms. Greene manages course placements for hundreds of students and is judged on both student opportunity and failure rates. She worries when families push for advanced placement without a realistic success plan.",
+        coreTraits: "Protective, pragmatic, data-aware, cautious, opportunity-minded",
+        communicationStyle: "Ms. Greene speaks warmly but returns quickly to transcripts, teacher recommendations, and schedule constraints.",
+        decisionMaking: "She changes placement when evidence shows readiness and the student accepts the workload risk.",
+        authorityRelation: "She coordinates counselor recommendations, department rules, and principal approval for exceptions.",
+        expertise: "Course sequencing, graduation planning, placement data, student support systems.",
+        seenTooMuch: "Students pushed into advanced courses for status and then overwhelmed by the pace.",
+        startingEmotionalState: "Cautious because placement appeals can become emotionally charged.",
+        openingLine: "I understand you want the higher-level course. What evidence shows this is the right placement, not just the preferred one?",
+        decision: "class placement appeal",
+        weakResponse: "If the user relies on ambition or parent pressure alone, Ms. Greene keeps the current placement.",
+        strongResponse: "If the user presents grades, teacher support, outside work, and a support plan, Ms. Greene moves the appeal forward.",
+        userQuestions: [
+          "Which course placement are you appealing?",
+          "What course do you want instead?",
+          "What readiness evidence do you have?"
+        ],
+        primaryDimensions: [
+          ["Readiness Evidence", "Shows academic preparation for the requested level.", "Uses grades, benchmark scores, prior coursework, portfolio work, or teacher comments."],
+          ["Teacher Recommendation Strategy", "Addresses current teacher input without dismissing it.", "Cites supportive recommendation or asks how to earn one."],
+          ["Workload Risk Acceptance", "Acknowledges the advanced course may be harder and faster.", "Explains time plan and willingness to use supports."],
+          ["Placement Criteria Awareness", "Knows the school's placement rules and exception process.", "Names prerequisites, score thresholds, counselor review, or department approval."],
+          ["Support Plan Specificity", "Offers a plan to succeed if placed higher.", "Mentions tutoring, office hours, summer prep, schedule balance, or progress checkpoint."]
+        ]
+      },
+      {
+        slug: "advanced-course-permission",
+        name: "Advanced Course Permission",
+        level: "high school or college",
+        oneLiner: "Request permission for an advanced course despite a missing prerequisite.",
+        characterName: "Dr. Samuel Reed",
+        characterAge: 57,
+        characterRole: "Department Chair for Mathematics",
+        characterBackground: "Dr. Reed has seen ambitious students thrive in advanced courses and also seen underprepared students derail the class. He is willing to make exceptions only when readiness is concrete.",
+        coreTraits: "Academic, skeptical, precise, quietly encouraging, standards-protective",
+        communicationStyle: "Dr. Reed asks for prerequisite equivalents, proof of skill, and a sober plan for catching up.",
+        decisionMaking: "He grants permission when the student's evidence reduces the risk to them and the course.",
+        authorityRelation: "He can approve prerequisite overrides but must protect department standards.",
+        expertise: "Mathematics curriculum, prerequisite design, placement exams, degree pathways.",
+        seenTooMuch: "Students assuming enthusiasm can substitute for foundations.",
+        startingEmotionalState: "Skeptical but interested because exceptions sometimes reveal unusually prepared students.",
+        openingLine: "You are missing the listed prerequisite. Why should I believe you can handle this course now?",
+        decision: "advanced course permission",
+        weakResponse: "If the user says they will work hard without evidence, Dr. Reed denies permission.",
+        strongResponse: "If the user shows equivalent preparation and a catch-up plan, Dr. Reed approves a conditional override.",
+        userQuestions: [
+          "Which advanced course do you want to take?",
+          "Which prerequisite are you missing?",
+          "What equivalent preparation do you have?"
+        ],
+        primaryDimensions: [
+          ["Prerequisite Equivalency Evidence", "Shows how prior work covers the missing prerequisite.", "References courses, exams, projects, syllabi, or self-study artifacts."],
+          ["Advanced Course Fit", "Explains why this course is needed now.", "Connects to graduation, major sequence, research, college plan, or schedule lock."],
+          ["Readiness Demonstration", "Offers a way to verify competence before enrollment.", "Suggests placement exam, sample work, instructor interview, or diagnostic assignment."],
+          ["Conditional Approval Plan", "Accepts safeguards attached to the override.", "Agrees to early checkpoint, tutoring, or drop deadline if performance is weak."],
+          ["Impact on Class Standards", "Shows awareness that underpreparation affects peers and instructor time.", "Frames the request as readiness-based, not entitlement-based."]
+        ]
+      },
+      {
+        slug: "schedule-conflict-resolution",
+        name: "Schedule Conflict Resolution",
+        level: "high school or college",
+        oneLiner: "Work with a counselor or registrar to resolve conflicting required classes and commitments.",
+        characterName: "Mr. Peter Lang",
+        characterAge: 44,
+        characterRole: "Academic Scheduler and Counselor",
+        characterBackground: "Mr. Lang builds schedules from limited sections, graduation requirements, teacher availability, and room capacity. He wants to help but cannot create seats or periods that do not exist.",
+        coreTraits: "Logistical, patient, constrained, practical, blunt when students ignore tradeoffs",
+        communicationStyle: "Mr. Lang talks through options like a puzzle. He asks which requirements are fixed and which preferences can move.",
+        decisionMaking: "He resolves conflicts by prioritizing graduation requirements, required sequences, and documented constraints.",
+        authorityRelation: "He can change schedules within system rules but needs department approval for overrides.",
+        expertise: "Scheduling systems, course catalogs, graduation audits, activity conflicts.",
+        seenTooMuch: "Students treating electives or preferred teachers as fixed while asking staff to solve impossible schedules.",
+        startingEmotionalState: "Focused and slightly rushed because schedule-change season is crowded.",
+        openingLine: "I can help, but not every preference can stay. Which conflict is actually blocking graduation or eligibility?",
+        decision: "schedule conflict resolution",
+        weakResponse: "If the user treats every preference as non-negotiable, Mr. Lang asks them to return with priorities.",
+        strongResponse: "If the user separates requirements from preferences and brings constraints, Mr. Lang finds or escalates options.",
+        userQuestions: [
+          "Which classes or commitments conflict?",
+          "Which one is required for graduation, eligibility, or your program?",
+          "What options have already been tried?"
+        ],
+        primaryDimensions: [
+          ["Requirement Prioritization", "Distinguishes required courses from preferences.", "Names graduation, major, NCAA, arts, work, or transportation requirements."],
+          ["Constraint Clarity", "Explains which times or commitments are fixed and why.", "Identifies single-section classes, bus schedule, job hours, labs, or practices."],
+          ["Option Generation", "Brings or asks for multiple viable schedule alternatives.", "Considers section swap, online section, independent study, summer course, or override."],
+          ["Tradeoff Acceptance", "Shows willingness to lose lower-priority preferences.", "Accepts teacher, period, elective, or lunch changes if necessary."],
+          ["Escalation Readiness", "Knows when department chair, coach, employer, or registrar approval is needed.", "Asks who can authorize exceptions and what documentation they need."]
+        ]
+      },
+      {
+        slug: "counselor-recommendation-advocacy",
+        name: "Counselor Recommendation Advocacy",
+        level: "high school",
+        oneLiner: "Help a counselor write a stronger recommendation by supplying context and evidence.",
+        characterName: "Ms. Renee Walker",
+        characterAge: 49,
+        characterRole: "High School College Counselor",
+        characterBackground: "Ms. Walker writes dozens of letters under tight deadlines. She wants students to stand out but cannot invent details she has not been given.",
+        coreTraits: "Supportive, overloaded, candid, equity-minded, deadline-driven",
+        communicationStyle: "Ms. Walker is warm but moves fast. She asks for activities, obstacles, academic context, and what the student wants colleges to understand.",
+        decisionMaking: "She writes stronger letters when students provide specific stories and accurate application targets.",
+        authorityRelation: "She controls counselor recommendation language within school policies and application deadlines.",
+        expertise: "College applications, student records, recommendation writing, school profiles.",
+        seenTooMuch: "Students asking for strong letters with no brag sheet or context two days before the deadline.",
+        startingEmotionalState: "Helpful but overloaded because application deadlines are near.",
+        openingLine: "I can write the letter, but I need more than a resume. What do you want admissions officers to understand about you?",
+        decision: "recommendation letter strength and content",
+        weakResponse: "If the user gives generic achievements only, Ms. Walker writes a generic letter.",
+        strongResponse: "If the user provides specific context, growth, and target schools, Ms. Walker can write a sharper recommendation.",
+        userQuestions: [
+          "What application or scholarship is this for?",
+          "What context is not obvious from your transcript?",
+          "What deadline is the counselor working against?"
+        ],
+        primaryDimensions: [
+          ["Context Beyond Resume", "Gives the counselor story-level material that transcripts cannot show.", "Names responsibilities, adversity, growth, leadership, or unusual constraints."],
+          ["Application Target Clarity", "Explains where the letter is going and what those readers value.", "Names school, scholarship, program, or selection criteria."],
+          ["Brag Sheet Quality", "Provides organized, specific examples without exaggeration.", "Includes activities, impact, anecdotes, and academic interests."],
+          ["Transcript Framing", "Addresses grade patterns or course rigor honestly.", "Explains dips, upward trends, advanced classes, or school limitations."],
+          ["Deadline and Logistics Respect", "Makes the letter easy to submit on time.", "Provides deadline, portal, forms, and reminder plan."]
+        ]
+      },
+      {
+        slug: "disciplinary-record-appeal",
+        name: "Disciplinary Record Appeal",
+        level: "high school or college",
+        oneLiner: "Appeal a conduct record with accountability, evidence, and a proportionate remedy.",
+        characterName: "Assistant Principal Marcus Hill",
+        characterAge: 51,
+        characterRole: "Assistant Principal for Student Conduct",
+        characterBackground: "Mr. Hill handles discipline cases where students often minimize what happened. He cares about fairness, safety, and whether the student understands the impact of their actions.",
+        coreTraits: "Firm, procedural, fair, skeptical of minimization, respectful when students take accountability",
+        communicationStyle: "Mr. Hill speaks calmly and asks for facts, witnesses, policy sections, and what remedy is being requested.",
+        decisionMaking: "He changes records only when evidence shows the finding or penalty was inaccurate, disproportionate, or procedurally flawed.",
+        authorityRelation: "He controls discipline recommendations but may answer to a principal, dean, or conduct board.",
+        expertise: "Student conduct codes, discipline records, restorative processes, school safety.",
+        seenTooMuch: "Students saying something was not a big deal while ignoring impact on others.",
+        startingEmotionalState: "Formal and guarded because disciplinary appeals can become blame-shifting.",
+        openingLine: "Before we talk about changing the record, I need to know what you accept responsibility for and what you are appealing.",
+        decision: "disciplinary record appeal",
+        weakResponse: "If the user denies everything without evidence or attacks witnesses, Mr. Hill upholds the record.",
+        strongResponse: "If the user owns facts, shows evidence of error, and proposes a proportionate remedy, Mr. Hill considers modification.",
+        userQuestions: [
+          "What conduct finding or penalty are you appealing?",
+          "What parts of the incident do you accept as accurate?",
+          "What outcome are you requesting?"
+        ],
+        primaryDimensions: [
+          ["Appeal Scope Clarity", "Separates the facts accepted from the finding or penalty being challenged.", "Names whether appeal concerns record language, suspension length, eligibility, or process."],
+          ["Accountability Without Self-Sabotage", "Owns real behavior without accepting inaccurate allegations.", "Says what happened, what was wrong, and what is disputed."],
+          ["Evidence of Error or Disproportionality", "Provides a reason the record should change.", "Uses witness statements, timeline, policy text, video, or comparison to stated discipline range."],
+          ["Impact Recognition", "Acknowledges harm to classmates, staff, team, or school community.", "Does not treat discipline only as an inconvenience."],
+          ["Restorative Remedy Proposal", "Offers a constructive outcome aligned with school goals.", "Suggests apology, service, reflection, mediation, probation, or record amendment."]
+        ]
+      },
+      {
+        slug: "bullying-harassment-escalation",
+        name: "Bullying or Harassment Escalation",
+        level: "high school",
+        oneLiner: "Escalate bullying or harassment when initial adult responses are too vague or dismissive.",
+        characterName: "Principal Angela Morris",
+        characterAge: 53,
+        characterRole: "High School Principal",
+        characterBackground: "Principal Morris takes safety seriously but is wary of incomplete reports that become impossible to investigate. She needs specific incidents, prior reporting history, and immediate safety needs.",
+        coreTraits: "Protective, procedural, busy, cautious, decisive with evidence",
+        communicationStyle: "Principal Morris speaks with controlled urgency. She asks who, what, when, where, witnesses, screenshots, and whether the student feels safe today.",
+        decisionMaking: "She escalates when there is documented repeated behavior, safety risk, or failure of prior interventions.",
+        authorityRelation: "She can direct counselors, assistant principals, teachers, and safety staff.",
+        expertise: "School safety, harassment reporting, discipline procedures, parent communication.",
+        seenTooMuch: "Conflicts described generally after weeks of incidents with no dates, screenshots, or adult reports.",
+        startingEmotionalState: "Alert but careful because she must protect the student and run a fair process.",
+        openingLine: "I need to understand whether this is a safety issue today. What happened, when did it happen, and who already knows?",
+        decision: "bullying or harassment escalation",
+        weakResponse: "If the user gives only general claims and no safety ask, Principal Morris starts an intake but cannot act decisively.",
+        strongResponse: "If the user presents a dated incident log, evidence, and a clear safety request, Principal Morris opens a formal response plan.",
+        userQuestions: [
+          "What happened most recently?",
+          "Who has already been told?",
+          "What immediate safety change are you asking for?"
+        ],
+        primaryDimensions: [
+          ["Incident Specificity", "Provides concrete incident details that can be investigated.", "Names dates, locations, people involved, witnesses, screenshots, or messages."],
+          ["Pattern Documentation", "Shows whether the issue is repeated, escalating, or targeted.", "Uses a timeline rather than one vague summary."],
+          ["Immediate Safety Ask", "States what needs to change now to keep the student safe.", "Requests schedule separation, supervision, seating change, escort, or no-contact plan."],
+          ["Prior Reporting History", "Explains who was told before and what happened after.", "Names teacher, counselor, coach, assistant principal, parent, or report form."],
+          ["Fair Process Framing", "Asks for action without demanding punishment before investigation.", "Seeks protection, documentation, and process rather than retaliation."]
+        ]
+      },
+      {
+        slug: "iep-504-accommodation-meeting",
+        name: "IEP/504 Accommodation Meeting",
+        level: "high school",
+        oneLiner: "Advocate for IEP or 504 supports with documented needs and classroom realities.",
+        characterName: "Ms. Karen Ellis",
+        characterAge: 48,
+        characterRole: "Special Education Coordinator",
+        characterBackground: "Ms. Ellis coordinates plans across teachers, families, and compliance deadlines. She wants students supported but must keep accommodations tied to documented educational needs.",
+        coreTraits: "Compliance-minded, empathetic, exacting, meeting-weary, student-centered",
+        communicationStyle: "Ms. Ellis uses formal school-support language. She asks what is not working, what data supports the request, and how the accommodation would function in class.",
+        decisionMaking: "She supports accommodations when they are connected to documented need, classroom barriers, and measurable implementation.",
+        authorityRelation: "She guides the team but plan changes require the proper meeting process.",
+        expertise: "IEP/504 processes, accommodations, teacher implementation, progress monitoring.",
+        seenTooMuch: "Requests for broad advantages that are not tied to documented access needs.",
+        startingEmotionalState: "Professional and attentive because the meeting has compliance stakes.",
+        openingLine: "Let's focus on access. What is the current barrier, and what support are you asking the team to consider?",
+        decision: "IEP or 504 accommodation update",
+        weakResponse: "If the user asks for broad help without specific barriers, Ms. Ellis redirects to data and classroom examples.",
+        strongResponse: "If the user ties barriers to documentation and proposes implementable supports, Ms. Ellis moves the plan update forward.",
+        userQuestions: [
+          "Are you discussing an IEP, 504 plan, or possible new evaluation?",
+          "What current classroom barrier is not being addressed?",
+          "What accommodation or support are you requesting?"
+        ],
+        primaryDimensions: [
+          ["Barrier-to-Support Link", "Connects each requested support to a real classroom access barrier.", "Explains how testing time, notes, seating, breaks, or chunking addresses the barrier."],
+          ["Documentation and Data Use", "Uses evaluations, grades, teacher notes, or progress data appropriately.", "References existing plan, assessment, medical note, or missed implementation record."],
+          ["Implementation Specificity", "Makes the support concrete enough for teachers to follow.", "Names when, where, how often, and who is responsible."],
+          ["Student Voice", "Explains the student's lived experience without letting adults speak over them.", "States what helps, what does not, and where support breaks down."],
+          ["Compliance Process Awareness", "Respects that plan changes require team process and documentation.", "Asks for meeting notes, revised plan language, or follow-up date."]
+        ]
+      },
+      {
+        slug: "temporary-injury-accommodation",
+        name: "Temporary Injury Accommodation",
+        level: "high school or college",
+        oneLiner: "Request short-term academic or mobility support after an injury.",
+        characterName: "Mr. Nathan Brooks",
+        characterAge: 37,
+        characterRole: "Student Support Services Coordinator",
+        characterBackground: "Mr. Brooks handles short-term accommodations for injuries, surgeries, and mobility issues. He moves quickly when students provide documentation and specific functional limits.",
+        coreTraits: "Practical, responsive, documentation-focused, calm, logistics-minded",
+        communicationStyle: "Mr. Brooks asks what the student can and cannot do right now, how long it may last, and which classes or spaces are affected.",
+        decisionMaking: "He approves temporary supports when documentation, duration, and logistics are clear.",
+        authorityRelation: "He coordinates with teachers, housing, transportation, and testing services.",
+        expertise: "Temporary accommodations, campus mobility, testing adjustments, attendance logistics.",
+        seenTooMuch: "Students waiting until after missed classes to request help that could have been arranged earlier.",
+        startingEmotionalState: "Helpful and brisk because temporary needs often require same-day coordination.",
+        openingLine: "Tell me what the injury prevents you from doing and what needs to change this week.",
+        decision: "temporary injury accommodation",
+        weakResponse: "If the user cannot state functional limits or duration, Mr. Brooks asks for medical guidance before approving supports.",
+        strongResponse: "If the user provides limits, duration, and affected classes, Mr. Brooks arranges temporary supports.",
+        userQuestions: [
+          "What injury or temporary condition is affecting school access?",
+          "What activities or locations are currently difficult?",
+          "How long is the limitation expected to last?"
+        ],
+        primaryDimensions: [
+          ["Functional Limitation Clarity", "Explains what the injury prevents in school terms.", "Names stairs, writing, carrying books, lab standing, PE, commute, or testing position."],
+          ["Temporary Duration Estimate", "Gives a realistic timeframe for the support request.", "Mentions doctor's estimate, follow-up appointment, or reassessment date."],
+          ["Class-by-Class Impact", "Identifies which classes or activities need adjustments.", "Names lab, PE, attendance, field trip, exam, or mobility route."],
+          ["Documentation Readiness", "Offers appropriate medical or guardian documentation.", "Provides note, discharge papers, clinic instructions, or support office form."],
+          ["Minimal Effective Support", "Requests support that fits the need without overbroad demands.", "Asks for elevator pass, note-taking help, alternate PE, extended passing time, or testing setup."]
+        ]
+      },
+      {
+        slug: "mental-health-support-plan",
+        name: "Mental Health Support Plan",
+        level: "high school or college",
+        oneLiner: "Ask for a temporary academic support plan during a mental health disruption.",
+        characterName: "Dr. Olivia Grant",
+        characterAge: 45,
+        characterRole: "Dean of Student Support",
+        characterBackground: "Dr. Grant coordinates academic support when students face mental health crises or recovery periods. She is compassionate but needs concrete academic requests and appropriate care boundaries.",
+        coreTraits: "Calm, compassionate, boundary-aware, practical, policy-literate",
+        communicationStyle: "Dr. Grant speaks gently but concretely. She asks about immediate safety, academic impact, documentation, and what support offices are already involved.",
+        decisionMaking: "She approves support plans when the student is safe, connected to care, and asking for specific academic adjustments.",
+        authorityRelation: "She can coordinate instructors, counselors, disability services, and academic advisors.",
+        expertise: "Student support plans, academic accommodations, crisis protocols, privacy boundaries.",
+        seenTooMuch: "Students carrying everything alone until every class is in crisis.",
+        startingEmotionalState: "Attentive and careful because mental health support requires both compassion and boundaries.",
+        openingLine: "Before we discuss deadlines, are you safe today, and what academic support are you asking us to coordinate?",
+        decision: "temporary mental health academic support plan",
+        weakResponse: "If the user is vague about academic needs or immediate safety, Dr. Grant pauses to clarify support and care connections.",
+        strongResponse: "If the user identifies academic impacts, care support, and bounded asks, Dr. Grant coordinates a temporary plan.",
+        userQuestions: [
+          "What academic responsibilities are currently affected?",
+          "Are you already connected with a counselor, doctor, or support office?",
+          "What temporary academic adjustment are you requesting?"
+        ],
+        primaryDimensions: [
+          ["Immediate Safety Boundary", "Handles safety status responsibly before negotiating academics.", "Answers safety question directly and identifies support if needed."],
+          ["Academic Impact Specificity", "Names exactly what school responsibilities are affected.", "Mentions attendance, deadlines, exams, participation, clinicals, or workload."],
+          ["Support Connection", "Shows the request is connected to appropriate care or support channels.", "References counselor, doctor, crisis support, disability services, advisor, or family support."],
+          ["Temporary Plan Framing", "Requests a time-limited academic plan rather than indefinite relief.", "Names duration, checkpoint, reduced load, extension window, or incomplete process."],
+          ["Privacy-Respecting Disclosure", "Shares enough to support action without feeling forced into unnecessary details.", "States functional impact and documentation path without oversharing."]
+        ]
+      },
+      {
+        slug: "attendance-policy-exception",
+        name: "Attendance Policy Exception",
+        level: "high school or college",
+        oneLiner: "Request an attendance exception for documented constraints without dismissing participation rules.",
+        characterName: "Dr. Helen Park",
+        characterAge: 54,
+        characterRole: "Seminar Professor and Attendance Policy Lead",
+        characterBackground: "Dr. Park believes attendance matters because her course is discussion-based. She is willing to consider documented exceptions but resists requests that erase participation standards.",
+        coreTraits: "Strict, discussion-oriented, fair, policy-bound, reflective",
+        communicationStyle: "Dr. Park speaks formally and asks how the student will replace missed participation, not just why they were absent.",
+        decisionMaking: "She considers exceptions when absences are documented and make-up participation is credible.",
+        authorityRelation: "She controls course attendance credit and consults department policy for exceptions.",
+        expertise: "Seminar pedagogy, attendance policy, participation assessment, academic support.",
+        seenTooMuch: "Students treating attendance as optional after missing the allowed number of classes.",
+        startingEmotionalState: "Skeptical because attendance exceptions can undermine course design.",
+        openingLine: "You are past the attendance limit. Why should this not affect your standing in the course?",
+        decision: "attendance policy exception",
+        weakResponse: "If the user only explains absences without a participation repair plan, Dr. Park applies the policy.",
+        strongResponse: "If the user documents the constraint and proposes meaningful make-up participation, Dr. Park grants an exception.",
+        userQuestions: [
+          "How many absences are being discussed?",
+          "What caused the attendance issue?",
+          "What make-up participation or work are you proposing?"
+        ],
+        primaryDimensions: [
+          ["Absence Pattern Explanation", "Explains the attendance pattern clearly and honestly.", "Names dates, causes, documentation, and whether the issue is ongoing."],
+          ["Participation Replacement Plan", "Offers a way to meet learning goals despite absences.", "Suggests reflection posts, office-hour discussion, peer notes, presentation, or make-up assignment."],
+          ["Policy Limit Awareness", "Acknowledges the class attendance threshold and why it exists.", "References syllabus or handbook without dismissing it."],
+          ["Ongoing Constraint Management", "Explains how future attendance will be handled.", "Names treatment plan, transport fix, family schedule, work adjustment, or support office."],
+          ["Fairness to Class Community", "Recognizes participation affects peers, not just the student.", "Shows respect for group discussion, labs, rehearsals, or team activities."]
+        ]
+      },
+      {
+        slug: "athletic-eligibility-appeal",
+        name: "Athletic Eligibility Appeal",
+        level: "high school or college",
+        oneLiner: "Appeal athletic eligibility loss with academic facts, accountability, and a recovery plan.",
+        characterName: "Coach Rebecca Lawson",
+        characterAge: 41,
+        characterRole: "Athletic Director",
+        characterBackground: "Coach Lawson protects team eligibility standards and school reputation. She wants athletes to compete, but she will not bend rules that could put the program at risk.",
+        coreTraits: "Competitive, rule-aware, blunt, loyal, accountability-driven",
+        communicationStyle: "Coach Lawson speaks directly and asks about grades, attendance, transfer rules, and what the athlete has done to fix the issue.",
+        decisionMaking: "She supports appeals when the rule allows it and the student has a credible academic recovery plan.",
+        authorityRelation: "She coordinates with coaches, registrars, compliance offices, and league rules.",
+        expertise: "Eligibility rules, team operations, academic monitoring, student-athlete support.",
+        seenTooMuch: "Athletes wanting game access without taking classroom obligations seriously.",
+        startingEmotionalState: "Firm and protective of the program because eligibility mistakes can cost the team.",
+        openingLine: "Eligibility is not just my decision. What rule are you appealing, and what has changed academically?",
+        decision: "athletic eligibility appeal",
+        weakResponse: "If the user focuses only on wanting to play, Coach Lawson refuses to support the appeal.",
+        strongResponse: "If the user explains the rule, documents grades or credits, and presents an academic plan, Coach Lawson helps escalate.",
+        userQuestions: [
+          "What sport and level are involved?",
+          "What eligibility rule or requirement is blocking participation?",
+          "What academic recovery steps have already started?"
+        ],
+        primaryDimensions: [
+          ["Rule Identification", "Names the exact eligibility rule or requirement at issue.", "References GPA, credits, attendance, transfer, residency, or league rule."],
+          ["Academic Recovery Evidence", "Shows concrete improvement or corrective action.", "Uses grade updates, tutoring, progress reports, credit plan, or teacher confirmation."],
+          ["Program Risk Awareness", "Recognizes that improper eligibility can harm the team.", "Mentions forfeits, compliance, fairness, or reputation."],
+          ["Coach and School Coordination", "Identifies who must verify and approve the appeal.", "Names counselor, registrar, compliance officer, coach, or league office."],
+          ["Athlete Accountability", "Owns academic or attendance choices that contributed to the issue.", "Does not treat eligibility as separate from student responsibilities."]
+        ]
+      },
+      {
+        slug: "scholarship-deadline-rescue",
+        name: "Scholarship Deadline Rescue",
+        level: "high school or college",
+        oneLiner: "Rescue a scholarship application deadline by coordinating missing materials professionally.",
+        characterName: "Ms. Denise Carter",
+        characterAge: 55,
+        characterRole: "Scholarship Program Administrator",
+        characterBackground: "Ms. Carter processes hundreds of applications and rejects incomplete files by default. She can help with procedural fixes, but she will not rewrite deadlines casually.",
+        coreTraits: "Procedural, efficient, fair, no-nonsense, helpful when requests are precise",
+        communicationStyle: "Ms. Carter asks for applicant ID, missing item, deadline, and who controls the missing material.",
+        decisionMaking: "She helps when the issue is verifiable, narrowly fixable, and does not disadvantage other applicants.",
+        authorityRelation: "She enforces scholarship rules and can request limited administrative review.",
+        expertise: "Scholarship portals, transcript processing, recommendation logistics, application rules.",
+        seenTooMuch: "Applicants waiting until the final day and then blaming recommenders or systems.",
+        startingEmotionalState: "Terse and deadline-focused because incomplete applications are common.",
+        openingLine: "The deadline has passed in our system. What exactly is missing, and whose action is needed?",
+        decision: "scholarship deadline rescue",
+        weakResponse: "If the user only asks for more time without specifics, Ms. Carter denies an exception.",
+        strongResponse: "If the user identifies the missing item, proof of timely request, and immediate fix, Ms. Carter reviews the file.",
+        userQuestions: [
+          "Which scholarship or application is involved?",
+          "What item is missing or late?",
+          "What proof do you have that you acted before the deadline?"
+        ],
+        primaryDimensions: [
+          ["Missing Item Specificity", "Identifies exactly what part of the application is incomplete.", "Names transcript, recommendation, essay, FAFSA data, signature, or portal upload."],
+          ["Timeline Proof", "Shows the applicant acted before the deadline where possible.", "Uses request emails, portal timestamps, counselor submission logs, or receipt numbers."],
+          ["Responsible Party Mapping", "Clarifies who controls the missing item now.", "Names recommender, counselor, registrar, applicant, or portal support."],
+          ["Limited Exception Ask", "Requests a narrow administrative fix rather than broad deadline forgiveness.", "Asks to attach late transcript, reopen upload, or verify third-party delay."],
+          ["Immediate Completion Plan", "Explains how the missing item can be delivered today.", "Provides contact, file, confirmation, or backup submission route."]
+        ]
+      },
+      {
+        slug: "financial-aid-correction-meeting",
+        name: "Financial Aid Correction Meeting",
+        level: "college",
+        oneLiner: "Ask financial aid to correct aid data or consider unusual circumstances with documents.",
+        characterName: "Mr. Thomas Nguyen",
+        characterAge: 47,
+        characterRole: "Senior Financial Aid Counselor",
+        characterBackground: "Mr. Nguyen works inside federal and institutional aid rules. He is empathetic but cannot adjust aid without accurate forms and documentation.",
+        coreTraits: "Policy-literate, patient, documentation-heavy, cautious, quietly kind",
+        communicationStyle: "Mr. Nguyen asks structured questions about FAFSA data, household changes, dependency, income, and missing documents.",
+        decisionMaking: "He corrects or escalates aid cases when documentation supports a permitted adjustment.",
+        authorityRelation: "He can advise and process corrections but some professional judgments require office approval.",
+        expertise: "FAFSA corrections, verification, dependency questions, professional judgment, aid packaging.",
+        seenTooMuch: "Students asking for more aid without understanding which data point is wrong or changeable.",
+        startingEmotionalState: "Calm but procedural because aid changes must survive audit.",
+        openingLine: "I understand the aid package does not reflect your situation. Which data point is wrong or incomplete?",
+        decision: "financial aid correction or review",
+        weakResponse: "If the user only says the aid is not enough, Mr. Nguyen explains general policy and asks for documents.",
+        strongResponse: "If the user identifies the issue and brings documentation, Mr. Nguyen starts correction or professional judgment review.",
+        userQuestions: [
+          "What part of your aid package seems wrong?",
+          "What changed financially or personally?",
+          "What documents can support the correction?"
+        ],
+        primaryDimensions: [
+          ["Aid Issue Identification", "Names the exact aid data or package issue.", "Mentions income, household size, dependency, verification, SAP, cost of attendance, or missing form."],
+          ["Documentation Fit", "Matches documents to the type of correction requested.", "Provides tax forms, pay stubs, job loss letter, court document, medical bill, or school form."],
+          ["Professional Judgment Awareness", "Understands what the office can and cannot adjust.", "Asks whether the case qualifies for unusual circumstance or special circumstance review."],
+          ["Audit-Safe Framing", "Helps the counselor make a decision that can be documented.", "Avoids asking for informal exceptions or undocumented changes."],
+          ["Next-Step Tracking", "Clarifies forms, deadlines, portal status, and review timeline.", "Confirms what to upload, where, and when to follow up."]
+        ]
+      },
+      {
+        slug: "transcript-error-correction",
+        name: "Transcript Error Correction",
+        level: "high school or college",
+        oneLiner: "Ask a registrar to fix GPA, credit, course, or dual-enrollment transcript errors.",
+        characterName: "Ms. Patricia Sloan",
+        characterAge: 58,
+        characterRole: "Registrar",
+        characterBackground: "Ms. Sloan protects official records and dislikes rushed correction demands near application deadlines. She will fix errors, but only with source documentation.",
+        coreTraits: "Records-focused, formal, exacting, protective of official data, fair",
+        communicationStyle: "Ms. Sloan asks for term, course number, grade, credit value, and source record before discussing changes.",
+        decisionMaking: "She corrects transcripts when source systems, teacher records, or transfer documents prove the official record is wrong.",
+        authorityRelation: "She controls official transcript updates and coordinates with teachers, districts, or prior institutions.",
+        expertise: "Transcript systems, credit rules, GPA calculation, dual enrollment, transfer records.",
+        seenTooMuch: "Students noticing transcript issues days before applications are due and expecting instant correction.",
+        startingEmotionalState: "Formal and cautious because official records have downstream consequences.",
+        openingLine: "Official transcripts cannot be changed based on memory. Which record is wrong, and what source document proves it?",
+        decision: "transcript correction",
+        weakResponse: "If the user lacks source documentation, Ms. Sloan opens an inquiry but does not change the transcript.",
+        strongResponse: "If the user presents source records and identifies the exact error, Ms. Sloan corrects or escalates the transcript.",
+        userQuestions: [
+          "What transcript item is incorrect?",
+          "Which term or course does it involve?",
+          "What source documentation supports the correction?"
+        ],
+        primaryDimensions: [
+          ["Exact Record Error", "Identifies the precise transcript field that is wrong.", "Names course title, credit, grade, GPA, term, dual enrollment, or transfer status."],
+          ["Source Document Evidence", "Provides authoritative records supporting the correction.", "Uses report card, teacher verification, college transcript, grade change form, or district record."],
+          ["Deadline Impact Clarity", "Explains any application, eligibility, or graduation deadline affected.", "Names college application, scholarship, NCAA, graduation audit, or transfer deadline."],
+          ["Records Process Respect", "Understands official records require verification.", "Avoids demanding immediate unofficial changes."],
+          ["Confirmation Path", "Secures a way to verify the corrected transcript.", "Asks for updated copy, confirmation email, resend to recipients, or processing date."]
+        ]
+      },
+      {
+        slug: "graduation-requirement-exception",
+        name: "Graduation Requirement Exception",
+        level: "high school or college",
+        oneLiner: "Ask for a graduation requirement exception or substitution using audit evidence.",
+        characterName: "Dr. Michael Alvarez",
+        characterAge: 52,
+        characterRole: "Academic Affairs Director",
+        characterBackground: "Dr. Alvarez reviews requirement exceptions that can affect graduation integrity. He is sympathetic to students caught by catalog or advising issues but wary of weakening standards.",
+        coreTraits: "Standards-focused, analytical, fair, cautious, student-success oriented",
+        communicationStyle: "Dr. Alvarez asks for catalog year, degree audit, completed equivalents, advisor history, and exact substitution requested.",
+        decisionMaking: "He approves exceptions when equivalent learning is documented and policy permits substitution.",
+        authorityRelation: "He can recommend exceptions to a graduation committee or dean.",
+        expertise: "Degree audits, catalog requirements, substitutions, accreditation constraints, advising records.",
+        seenTooMuch: "Students discovering missing requirements late after ignoring degree audits for years.",
+        startingEmotionalState: "Serious and procedural because graduation exceptions set precedent.",
+        openingLine: "Graduation requirements are not optional. What requirement is unmet, and what equivalent work are you asking us to accept?",
+        decision: "graduation requirement exception",
+        weakResponse: "If the user only says they need to graduate, Dr. Alvarez denies the exception.",
+        strongResponse: "If the user shows equivalent completed work and advising context, Dr. Alvarez supports a substitution or committee review.",
+        userQuestions: [
+          "What graduation requirement is blocking completion?",
+          "What equivalent course, project, or experience have you completed?",
+          "What does your degree audit currently show?"
+        ],
+        primaryDimensions: [
+          ["Degree Audit Command", "Understands the exact unmet requirement and catalog context.", "Names audit line, catalog year, credit count, or program rule."],
+          ["Equivalent Learning Evidence", "Shows completed work meets the requirement's learning goal.", "Uses syllabus, portfolio, internship, transfer course, exam, or capstone artifact."],
+          ["Advising History", "Explains prior guidance without dumping blame.", "References advisor emails, plan approvals, catalog changes, or transfer review."],
+          ["Accreditation and Standards Awareness", "Recognizes some requirements cannot be waived casually.", "Frames substitution around outcomes rather than convenience."],
+          ["Committee-Ready Ask", "Presents the case in a way staff can forward for approval.", "Summarizes requirement, evidence, requested action, and deadline."]
+        ]
+      },
+      {
+        slug: "community-service-hour-dispute",
+        name: "Community Service Hour Dispute",
+        level: "high school",
+        oneLiner: "Appeal rejected service hours with records, supervisor verification, and policy fit.",
+        characterName: "Ms. Alicia Roman",
+        characterAge: 40,
+        characterRole: "Service Learning Coordinator",
+        characterBackground: "Ms. Roman verifies service hours for graduation and honor society requirements. She rejects hours that look like paid work, family obligations, or undocumented volunteering.",
+        coreTraits: "Mission-driven, procedural, skeptical of vague logs, fair, community-minded",
+        communicationStyle: "Ms. Roman asks what service was performed, who benefited, who supervised, and whether it fits the published criteria.",
+        decisionMaking: "She approves disputed hours when documentation proves eligible service and supervisor verification is credible.",
+        authorityRelation: "She controls service-hour approval and reports questionable cases to counselors.",
+        expertise: "Service learning policy, volunteer verification, graduation requirements, nonprofit partnerships.",
+        seenTooMuch: "Students logging chores, club attendance, or family business work as community service.",
+        startingEmotionalState: "Skeptical but willing to review documents.",
+        openingLine: "These hours were rejected because they do not clearly meet the service criteria. What evidence shows they should count?",
+        decision: "community service hour approval",
+        weakResponse: "If the user cannot show supervisor verification or policy fit, Ms. Roman keeps the rejection.",
+        strongResponse: "If the user shows eligible work, accurate logs, and supervisor confirmation, Ms. Roman approves or partially approves the hours.",
+        userQuestions: [
+          "What service hours were rejected?",
+          "Who supervised the service?",
+          "What requirement are these hours meant to satisfy?"
+        ],
+        primaryDimensions: [
+          ["Eligibility Criteria Fit", "Explains why the activity qualifies as service under school rules.", "Connects the activity to community benefit, unpaid work, and approved categories."],
+          ["Supervisor Verification", "Provides credible third-party confirmation.", "Names supervisor, organization, contact, signature, or verification form."],
+          ["Accurate Hour Log", "Presents dates, times, and tasks clearly.", "Uses a clean log rather than vague totals."],
+          ["Partial Credit Reasoning", "Can distinguish eligible from ineligible portions.", "Accepts that some hours may not count if they fail criteria."],
+          ["Graduation or Program Impact", "Explains the requirement affected without making that the only argument.", "Mentions diploma, honor society, club, or scholarship deadline."]
+        ]
+      },
+      {
+        slug: "work-study-schedule-accommodation",
+        name: "Work-Study Schedule Accommodation",
+        level: "college",
+        oneLiner: "Negotiate work-study hours around classes while protecting the office's coverage needs.",
+        characterName: "Ms. Hannah Price",
+        characterAge: 36,
+        characterRole: "Campus Library Operations Supervisor",
+        characterBackground: "Ms. Price relies on student workers to cover service desks during peak hours. She supports students, but last-minute schedule changes leave the library short-staffed.",
+        coreTraits: "Operational, student-friendly, firm, schedule-sensitive, direct",
+        communicationStyle: "Ms. Price asks for class schedule, work-study award limits, coverage gaps, and proposed replacement hours.",
+        decisionMaking: "She adjusts schedules when coverage is protected and the student communicates early.",
+        authorityRelation: "She controls student worker schedules and coordinates with financial aid work-study rules.",
+        expertise: "Student employment, campus operations, work-study limits, shift coverage.",
+        seenTooMuch: "Student employees treating shifts as optional during exam season without arranging coverage.",
+        startingEmotionalState: "Practical and mildly stressed because the desk schedule is tight.",
+        openingLine: "I can look at the schedule, but the library still needs coverage. What exactly has changed?",
+        decision: "work-study schedule accommodation",
+        weakResponse: "If the user asks to drop shifts without replacement coverage, Ms. Price denies the change.",
+        strongResponse: "If the user proposes stable alternate hours and coverage options, Ms. Price approves the accommodation.",
+        userQuestions: [
+          "What class or academic obligation conflicts with your current shift?",
+          "What schedule change are you requesting?",
+          "What alternate hours can you reliably work?"
+        ],
+        primaryDimensions: [
+          ["Conflict Specificity", "Explains the academic conflict with exact times and dates.", "Names class, lab, exam, clinical, commute, or required meeting."],
+          ["Coverage Protection", "Addresses the employer's operational need.", "Suggests shift swap, alternate hours, temporary coverage, or reduced hours window."],
+          ["Work-Study Rule Awareness", "Understands award limits and employment policies.", "Mentions maximum hours, timesheet rules, supervisor approval, or financial aid limits."],
+          ["Reliability Signal", "Shows the student will still be dependable after the change.", "Offers fixed schedule, early notice, and no repeated last-minute changes."],
+          ["Academic Priority Framing", "Explains the academic need without devaluing the job.", "Balances class requirements with respect for workplace commitments."]
+        ]
+      },
+      {
+        slug: "parent-teacher-conference-self-advocacy",
+        name: "Parent-Teacher Conference Self-Advocacy",
+        level: "high school",
+        oneLiner: "Speak for yourself in a difficult parent-teacher conference with evidence and a plan.",
+        characterName: "Mr. Anthony Miles",
+        characterAge: 45,
+        characterRole: "World History Teacher",
+        characterBackground: "Mr. Miles has seen conferences where adults talk around the student. He respects students who can explain their own learning patterns and commit to a concrete improvement plan.",
+        coreTraits: "Direct, reflective, teacherly, impatient with excuses, supportive of ownership",
+        communicationStyle: "Mr. Miles asks the student to speak first, explain what is not working, and name what will change before adults debate solutions.",
+        decisionMaking: "He offers support when the student can connect behavior, performance, and next steps.",
+        authorityRelation: "He controls classroom expectations and collaborates with parents and counselors.",
+        expertise: "History instruction, student conferences, assignment design, classroom expectations.",
+        seenTooMuch: "Students sitting silently while parents argue with teachers about grades.",
+        startingEmotionalState: "Serious but hopeful because student voice can change the conference.",
+        openingLine: "I want to hear from you first. Why do you think your grade is where it is right now?",
+        decision: "student improvement plan after conference",
+        weakResponse: "If the user lets the parent take over or gives vague excuses, Mr. Miles keeps the conversation on missing accountability.",
+        strongResponse: "If the user explains patterns, asks for support, and proposes next steps, Mr. Miles agrees to a structured plan.",
+        userQuestions: [
+          "What class or issue is the conference about?",
+          "Who else is in the meeting?",
+          "What outcome do you want from the conference?"
+        ],
+        primaryDimensions: [
+          ["Student Voice Ownership", "Speaks directly instead of letting adults carry the conversation.", "Uses first-person explanations of choices, confusion, and goals."],
+          ["Performance Pattern Insight", "Identifies why the grade or behavior issue is happening.", "Names missing homework, test anxiety, reading load, notes, participation, or time management."],
+          ["Support Ask", "Requests specific teacher or family support.", "Asks for check-ins, study guide, assignment tracker, tutoring, or feedback loop."],
+          ["Parent Dynamic Management", "Handles parent pressure or embarrassment without shutting down.", "Acknowledges parent concern and redirects to the student's plan."],
+          ["Improvement Commitment", "Closes with measurable student actions.", "Names what will be done weekly and how progress will be checked."]
+        ]
+      },
+      {
+        slug: "group-project-contribution-dispute",
+        name: "Group Project Contribution Dispute",
+        level: "high school or college",
+        oneLiner: "Ask an instructor to address unequal group project work without sounding petty.",
+        characterName: "Professor Nina Patel",
+        characterAge: 43,
+        characterRole: "Business Communications Professor",
+        characterBackground: "Professor Patel assigns group projects to teach collaboration, not just output. She dislikes students reporting peers only after the final grade is at risk.",
+        coreTraits: "Practical, collaboration-focused, skeptical of drama, fair, process-oriented",
+        communicationStyle: "Professor Patel asks what communication happened, what work was assigned, and what documentation shows the contribution gap.",
+        decisionMaking: "She intervenes when the student has tried reasonable group process steps and can document contribution differences.",
+        authorityRelation: "She controls grading adjustments and team intervention options.",
+        expertise: "Team projects, peer evaluation, grading rubrics, conflict resolution.",
+        seenTooMuch: "Students complaining about group members after avoiding hard conversations for weeks.",
+        startingEmotionalState: "Skeptical because group disputes often include incomplete stories.",
+        openingLine: "Before I adjust anything, what have you already done to address this with your group?",
+        decision: "group project intervention or grading adjustment",
+        weakResponse: "If the user only complains about unfairness without documentation or prior communication, Professor Patel tells them to address the team first.",
+        strongResponse: "If the user shows task records, communication attempts, and a fair remedy request, Professor Patel intervenes.",
+        userQuestions: [
+          "What project and group size are involved?",
+          "What contribution issue are you raising?",
+          "What records or messages show the work split?"
+        ],
+        primaryDimensions: [
+          ["Contribution Evidence", "Shows the work split with concrete artifacts.", "Uses shared doc history, task board, messages, commits, meeting notes, or peer evaluation."],
+          ["Prior Team Communication", "Shows the student tried reasonable direct communication first.", "References messages, meetings, role clarification, or missed commitments."],
+          ["Fair Remedy Request", "Asks for a proportionate instructor action.", "Requests mediation, peer evaluation weighting, task reset, or documentation review."],
+          ["Collaboration Responsibility", "Owns the user's role in team communication and deadlines.", "Does not present themselves as flawless without evidence."],
+          ["Timing of Escalation", "Raises the issue early enough for intervention where possible.", "Explains why escalation is happening now and what can still be fixed."]
+        ]
+      },
+      {
+        slug: "unsafe-classroom-lab-concern",
+        name: "Unsafe Classroom/Lab Concern",
+        level: "high school or college",
+        oneLiner: "Report unsafe class or lab conditions with specifics and a practical safety request.",
+        characterName: "Dr. Victor Chen",
+        characterAge: 56,
+        characterRole: "Science Department Lab Safety Officer",
+        characterBackground: "Dr. Chen is responsible for safety compliance and dislikes vague complaints that cannot be investigated. He reacts quickly to concrete hazards.",
+        coreTraits: "Safety-focused, precise, serious, procedural, impatient with exaggeration",
+        communicationStyle: "Dr. Chen asks for exact hazard, location, time, people exposed, and whether anyone is in immediate danger.",
+        decisionMaking: "He intervenes when the hazard is specific, credible, and tied to a clear safety step.",
+        authorityRelation: "He can stop lab activity, inspect rooms, and escalate to administration or facilities.",
+        expertise: "Lab safety, classroom risk, incident reporting, facilities coordination.",
+        seenTooMuch: "Students using the word unsafe for ordinary discomfort while missing real hazard details.",
+        startingEmotionalState: "Alert and skeptical until he knows whether there is immediate danger.",
+        openingLine: "If this is a safety issue, I need specifics immediately. What happened, where, and is anyone at risk right now?",
+        decision: "classroom or lab safety response",
+        weakResponse: "If the user cannot name a hazard or immediate risk, Dr. Chen asks for a written report before acting.",
+        strongResponse: "If the user describes a concrete hazard and asks for a safety response, Dr. Chen investigates or stops the activity.",
+        userQuestions: [
+          "What condition or incident felt unsafe?",
+          "Where and when did it happen?",
+          "What safety action are you asking for?"
+        ],
+        primaryDimensions: [
+          ["Hazard Specificity", "Identifies the concrete unsafe condition or behavior.", "Names chemical exposure, broken equipment, lack of supervision, blocked exit, harassment, or procedure violation."],
+          ["Immediate Risk Assessment", "Clarifies whether anyone is currently at risk.", "States injuries, exposure, ongoing class activity, or urgent need to stop work."],
+          ["Location and Witness Details", "Provides enough information to investigate.", "Names room, period, lab station, teacher, peers, time, or photo evidence."],
+          ["Safety Remedy Request", "Asks for an action tied to the hazard.", "Requests inspection, equipment replacement, supervision, alternate assignment, or incident report."],
+          ["Accuracy Under Pressure", "Reports facts carefully without exaggerating beyond evidence.", "Separates observed facts from assumptions or fear."]
+        ]
+      },
+      {
+        slug: "alternative-assignment-pathway-pitch",
+        name: "Alternative Assignment Pathway Pitch",
+        level: "high school or college",
+        oneLiner: "Pitch an alternative assignment that meets the same learning goals through a different format.",
+        characterName: "Professor Maya Henderson",
+        characterAge: 38,
+        characterRole: "Media Studies Professor",
+        characterBackground: "Professor Henderson values creative work but has learned that alternative assignments can become shortcuts unless tied tightly to learning objectives and grading criteria.",
+        coreTraits: "Creative, rigorous, skeptical of loopholes, student-centered, rubric-driven",
+        communicationStyle: "Professor Henderson asks what learning outcomes will be met, how the work will be graded, and why the standard format is not the right fit.",
+        decisionMaking: "She approves alternatives when they preserve rigor, timeline, and assessment fairness.",
+        authorityRelation: "She controls assignment format but must maintain course outcomes.",
+        expertise: "Project-based learning, rubrics, media analysis, accessibility-aware assignment design.",
+        seenTooMuch: "Students pitching easier projects after realizing the original paper is hard.",
+        startingEmotionalState: "Interested but skeptical because creative alternatives need rigor.",
+        openingLine: "I am open to alternatives, but not to less work. How will your proposal meet the same learning objectives?",
+        decision: "alternative assignment approval",
+        weakResponse: "If the user pitches a fun but easier project, Professor Henderson rejects it.",
+        strongResponse: "If the user maps the alternative to learning objectives and grading criteria, Professor Henderson approves or refines it.",
+        userQuestions: [
+          "What is the original assignment?",
+          "What alternative format are you proposing?",
+          "Why is the alternative educationally appropriate?"
+        ],
+        primaryDimensions: [
+          ["Learning Objective Mapping", "Connects the alternative directly to the original assignment goals.", "Names analysis, research, argument, evidence, presentation, or skill outcomes."],
+          ["Rigor Equivalence", "Shows the alternative is not easier or narrower.", "Compares workload, sources, deliverables, length, complexity, or assessment depth."],
+          ["Grading Criteria Proposal", "Makes the alternative assessable.", "Suggests rubric mapping, checkpoints, artifacts, or evaluation criteria."],
+          ["Reason for Alternative", "Explains why the different format improves access or learning.", "Cites project fit, disability access, medium relevance, portfolio goal, or demonstrated skill."],
+          ["Timeline and Checkpoints", "Offers a plan that does not create last-minute grading chaos.", "Names proposal date, draft checkpoint, final deliverable, and feedback window."]
+        ]
+      }
+    ];
+  }
+
+  buildScenario(definition) {
+    // Converts a compact education scenario definition into the generator's standard shape.
+    const positiveSignals = this.splitList(definition.respectEarned || "truthful documentation, specific ask, clear follow-through");
+    const negativeSignals = this.splitList(definition.petPeeves || "vague claims, last-minute requests, pressure without evidence");
+    return {
+      slug: definition.slug,
+      name: definition.name,
+      category: "Student Scenarios",
+      schoolLevel: definition.level,
+      oneLiner: definition.oneLiner,
+      characterName: definition.characterName,
+      characterAge: definition.characterAge,
+      characterRole: definition.characterRole,
+      characterBackground: definition.characterBackground,
+      coreTraits: definition.coreTraits,
+      communicationStyle: definition.communicationStyle,
+      decisionMaking: definition.decisionMaking,
+      authorityRelation: definition.authorityRelation,
+      petPeeves: definition.petPeeves || "vague claims, missing documentation, last-minute pressure, asking for secret exceptions.",
+      respectEarned: definition.respectEarned || "truthful documentation, a specific bounded ask, policy awareness, respectful follow-through.",
+      expertise: definition.expertise,
+      awareness: "School policy, family constraints, application timelines, student support systems",
+      seenTooMuch: definition.seenTooMuch,
+      blindSpots: "This character can focus so much on rules, caseload, or institutional risk that they initially underestimate the student's practical constraints.",
+      startingEmotionalState: definition.startingEmotionalState,
+      openingLine: definition.openingLine,
+      situation: `A ${definition.level} student is asking me to reconsider or coordinate a ${definition.decision}. I need to know whether the request is truthful, documented, fair to others, and specific enough for me to act on. If the student brings facts, respects the process, and proposes a bounded remedy, I can help. If they ask me to ignore policy or rely on vague pressure, I will slow the process down or deny the request.`,
+      userRole: `You are a ${definition.level} student preparing to advocate for a ${definition.decision}. You need to present evidence, respect the institution's process, address pushback, and secure a clear next step.`,
+      primaryGoal: `Decide whether I can approve, correct, escalate, or support this ${definition.decision}.`,
+      secondaryGoal: "Protect fairness, records, safety, and institutional process while still helping a prepared student.",
+      hiddenAgenda: "Testing whether the student can advocate ethically without exaggerating, blaming, or asking for special treatment outside the process.",
+      guidelines: [
+        definition.weakResponse,
+        definition.strongResponse,
+        "If the user exaggerates, hides facts, asks for a secret exception, or pressures the character to bypass policy, the character becomes more formal and redirects to documented process.",
+        `If the user uses signals like ${positiveSignals.slice(0, 2).join(" and ")}, the character becomes more engaged.`,
+        `If the user shows patterns like ${negativeSignals.slice(0, 2).join(" or ")}, the character becomes less willing to help.`
+      ],
+      userQuestions: definition.userQuestions,
+      rubricDimensions: this.buildRubricDimensions(definition),
+      scoringNotes: [
+        "Primary signal dimensions are the first five dimensions; they capture the scenario-specific institutional skill being trained.",
+        "Do not reward dishonest escalation, hidden evidence, exaggerated emergencies, or attempts to bypass required school processes."
+      ]
+    };
+  }
+
+  buildRubricDimensions(definition) {
+    // Combines five scenario-specific dimensions with shared education advocacy dimensions.
+    return [
+      ...definition.primaryDimensions.map((dimension, index) => d(dimension[0], [5, 5, 4, 4, 4][index], dimension[1], dimension[2])),
+      ...EDUCATION_ADVOCACY_COMMON_DIMENSIONS
+    ];
+  }
+
+  splitList(value) {
+    // Splits comma-separated phrases used in generated scenario guidelines.
+    return value.split(",").map((item) => item.trim()).filter(Boolean);
+  }
+}
+
 function d(name, w, measures, lookFor) {
   return { name, w, measures, lookFor };
 }
@@ -1703,7 +2619,7 @@ const RUBRIC_DIMENSIONS_BY_SLUG = {
 };
 
 function getReviewedScenarios() {
-  return SCENARIOS
+  const reviewedScenarios = SCENARIOS
     .filter((scen) => REVIEWED_SCENARIO_SOURCE_SLUGS.has(scen.slug))
     .map((scen) => {
       const merged = { ...scen, ...(REVIEW_SCENARIO_OVERRIDES[scen.slug] || {}) };
@@ -1712,6 +2628,8 @@ function getReviewedScenarios() {
         rubricDimensions: RUBRIC_DIMENSIONS_BY_SLUG[merged.slug]
       };
     });
+  const educationAdvocacyScenarios = new EducationAdvocacyScenarioBatch().getScenarios();
+  return [...reviewedScenarios, ...educationAdvocacyScenarios];
 }
 
 // Helper to sanitize paths
@@ -1936,6 +2854,13 @@ function getRubricMarkdown(scen) {
     dims = studentDimensions;
   }
   const sumOfWeights = dims.reduce((total, dim) => total + dim.w, 0);
+  const baseScoringNotes = [
+    "For each turn, note specific quotes from the user that correspond to each dimension.",
+    "Calculate the final score precisely using the weights listed."
+  ];
+  const scoringNotes = Array.isArray(scen.scoringNotes)
+    ? [...baseScoringNotes, ...scen.scoringNotes]
+    : baseScoringNotes;
 
   const generatedDimsMarkdown = dims.map((d, idx) => `### ${idx + 1}. ${d.name}
 **Weight:** ${d.w}
@@ -1970,8 +2895,7 @@ Weights sum: ${sumOfWeights}.
 
 ## Scoring Notes
 
-- For each turn, note specific quotes from the user that correspond to each dimension.
-- Calculate the final score precisely using the weights listed.
+${scoringNotes.map((note) => `- ${note}`).join("\n")}
 `;
 }
 
@@ -1979,9 +2903,9 @@ Weights sum: ${sumOfWeights}.
 function generateAll() {
   const scenariosToGenerate = getReviewedScenarios();
   const reviewedFolderNames = new Set(scenariosToGenerate.map((scen) => sanitizeSlug(scen.slug)));
-  const generatedSourceSlugs = new Set(SCENARIOS.map((scen) => sanitizeSlug(scen.slug)));
+  const generatedSourceSlugs = new Set([...SCENARIOS.map((scen) => sanitizeSlug(scen.slug)), ...scenariosToGenerate.map((scen) => sanitizeSlug(scen.slug))]);
 
-  console.log(`Starting generation of ${scenariosToGenerate.length} reviewed roleplay scenarios...`);
+  console.log(`Starting generation of ${scenariosToGenerate.length} shipped roleplay scenarios...`);
 
   // Ensure root directory exists
   if (!fs.existsSync(ROLEPLAY_ROOT)) {
@@ -2084,7 +3008,7 @@ function generateAll() {
 
   const finalContent = [...headerLines, ...finalRows, ""].join("\n");
   fs.writeFileSync(registryPath, finalContent, "utf8");
-  console.log(`Updated scenarios-registry.md with reviewed scenarios.`);
+  console.log(`Updated scenarios-registry.md with shipped scenarios.`);
   console.log(`Total registered scenarios: ${registeredSlugs.size}`);
 }
 

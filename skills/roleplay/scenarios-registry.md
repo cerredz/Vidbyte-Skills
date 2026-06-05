@@ -26,3 +26,28 @@ appends rows here when new scenarios are created.
 | asking-for-a-raise | Asking for a Raise | Ask your manager for a raise using impact evidence, market context, and a clear compensation request. |
 | resigning-from-job | Resigning from a Job | Resign clearly and professionally while setting transition boundaries with a manager who wants you to stay. |
 | asking-professor-letter-of-recommendation | Asking a Professor for a Letter of Recommendation | Ask a professor for a recommendation letter with enough context, timing, and evidence to make the request easy to accept. |
+| teacher-grade-correction-request | Teacher Grade Correction Request | Ask a teacher to correct a gradebook mistake using clear records and a respectful ask. |
+| make-up-test-after-absence | Make-Up Test After Absence | Negotiate a make-up test after an absence while protecting test integrity. |
+| late-assignment-penalty-reduction | Late Assignment Penalty Reduction | Ask for a reduced late penalty with accountability, evidence, and a realistic repair plan. |
+| retake-or-test-correction-request | Retake or Test Correction Request | Ask for a retake or correction path by showing mastery instead of begging for points. |
+| class-placement-appeal | Class Placement Appeal | Appeal placement into a lower-level class with readiness evidence and a support plan. |
+| advanced-course-permission | Advanced Course Permission | Request permission for an advanced course despite a missing prerequisite. |
+| schedule-conflict-resolution | Schedule Conflict Resolution | Work with a counselor or registrar to resolve conflicting required classes and commitments. |
+| counselor-recommendation-advocacy | Counselor Recommendation Advocacy | Help a counselor write a stronger recommendation by supplying context and evidence. |
+| disciplinary-record-appeal | Disciplinary Record Appeal | Appeal a conduct record with accountability, evidence, and a proportionate remedy. |
+| bullying-harassment-escalation | Bullying or Harassment Escalation | Escalate bullying or harassment when initial adult responses are too vague or dismissive. |
+| iep-504-accommodation-meeting | IEP/504 Accommodation Meeting | Advocate for IEP or 504 supports with documented needs and classroom realities. |
+| temporary-injury-accommodation | Temporary Injury Accommodation | Request short-term academic or mobility support after an injury. |
+| mental-health-support-plan | Mental Health Support Plan | Ask for a temporary academic support plan during a mental health disruption. |
+| attendance-policy-exception | Attendance Policy Exception | Request an attendance exception for documented constraints without dismissing participation rules. |
+| athletic-eligibility-appeal | Athletic Eligibility Appeal | Appeal athletic eligibility loss with academic facts, accountability, and a recovery plan. |
+| scholarship-deadline-rescue | Scholarship Deadline Rescue | Rescue a scholarship application deadline by coordinating missing materials professionally. |
+| financial-aid-correction-meeting | Financial Aid Correction Meeting | Ask financial aid to correct aid data or consider unusual circumstances with documents. |
+| transcript-error-correction | Transcript Error Correction | Ask a registrar to fix GPA, credit, course, or dual-enrollment transcript errors. |
+| graduation-requirement-exception | Graduation Requirement Exception | Ask for a graduation requirement exception or substitution using audit evidence. |
+| community-service-hour-dispute | Community Service Hour Dispute | Appeal rejected service hours with records, supervisor verification, and policy fit. |
+| work-study-schedule-accommodation | Work-Study Schedule Accommodation | Negotiate work-study hours around classes while protecting the office's coverage needs. |
+| parent-teacher-conference-self-advocacy | Parent-Teacher Conference Self-Advocacy | Speak for yourself in a difficult parent-teacher conference with evidence and a plan. |
+| group-project-contribution-dispute | Group Project Contribution Dispute | Ask an instructor to address unequal group project work without sounding petty. |
+| unsafe-classroom-lab-concern | Unsafe Classroom/Lab Concern | Report unsafe class or lab conditions with specifics and a practical safety request. |
+| alternative-assignment-pathway-pitch | Alternative Assignment Pathway Pitch | Pitch an alternative assignment that meets the same learning goals through a different format. |
