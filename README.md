@@ -1,8 +1,42 @@
 # Vidbyte Skills
 
-Vidbyte Skills is a portable skill installer for local coding harnesses. The repository owns the skill source files under `skills/`; the installer copies or links those skills into native skill directories and writes generated rule files for Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes, GitHub Copilot, Warp, Factory, Crush, Aider, Augment, Cline, Continue, Roo Code, Windsurf, and AGENTS.md-compatible tools.
+Vidbyte helps developers package reusable agent workflows, learning routines, and
+reasoning methods as portable skills. Vidbyte Skills is the repository and npm
+package that installs those skills into local coding harnesses and also ships
+the `vidbyte` command used by skills to submit authenticated artifacts back to
+Vidbyte.
+
+The repository owns the skill source files under `skills/`; the installer copies
+or links those skills into native skill directories and writes generated rule
+files for Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes, GitHub
+Copilot, Warp, Factory, Crush, Aider, Augment, Cline, Continue, Roo Code,
+Windsurf, and AGENTS.md-compatible tools.
 
 Repository: https://github.com/cerredz/Vidbyte-Skills
+
+## Repository Map
+
+| Area | Role |
+|------|------|
+| [`skills/`](skills/README.md) | Source of truth for installable skills, catalog categories, authoring rules, and validation expectations |
+| [`cli/commands/`](cli/commands/README.md) | Python command layer for auth, feedback, compression, retention, dry-run validation, and backend submission |
+| `lib/` | Node installer internals for skill discovery, catalog filtering, target resolution, and install actions |
+| `bin/` | Package binary shims for `vidbyte`, `vidbyte-skills`, category installers, and roleplay installers |
+| `scripts/` | Validation, smoke testing, packaging, and catalog-generation scripts |
+
+## Why This Exists
+
+Coding agents need local, versioned instructions that are more precise than a
+general prompt. Vidbyte Skills packages those instructions as auditable Markdown
+folders, installs them into the harnesses developers already use, and keeps the
+authenticated network boundary in code rather than prompt text.
+
+That separation matters:
+
+- Skills teach the agent what workflow to follow.
+- `vidbyte-skills` installs those workflows into local harnesses.
+- `vidbyte` validates and submits skill artifacts through a controlled CLI.
+- The backend auth path stays inside the CLI, not inside model-generated text.
 
 ## Intended Behavior
 
