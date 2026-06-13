@@ -4,7 +4,10 @@ Vidbyte helps developers package reusable agent workflows, learning routines, an
 reasoning methods as portable skills. Vidbyte Skills is the repository and npm
 package that installs those skills into local coding harnesses and also ships
 the `vidbyte` command used by skills to submit authenticated artifacts back to
-Vidbyte.
+Vidbyte. Coding agents need local, versioned instructions that are more precise
+than a general prompt — Vidbyte Skills packages those instructions as auditable
+Markdown folders, installs them into the harnesses developers already use, and
+keeps the authenticated network boundary in code rather than prompt text.
 
 The repository owns the skill source files under `skills/`; the installer copies
 or links those skills into native skill directories and writes generated rule
@@ -23,20 +26,6 @@ Repository: https://github.com/cerredz/Vidbyte-Skills
 | `lib/` | Node installer internals for skill discovery, catalog filtering, target resolution, and install actions |
 | `bin/` | Package binary shims for `vidbyte`, `vidbyte-skills`, category installers, and roleplay installers |
 | `scripts/` | Validation, smoke testing, packaging, and catalog-generation scripts |
-
-## Why This Exists
-
-Coding agents need local, versioned instructions that are more precise than a
-general prompt. Vidbyte Skills packages those instructions as auditable Markdown
-folders, installs them into the harnesses developers already use, and keeps the
-authenticated network boundary in code rather than prompt text.
-
-That separation matters:
-
-- Skills teach the agent what workflow to follow.
-- `vidbyte-skills` installs those workflows into local harnesses.
-- `vidbyte` validates and submits skill artifacts through a controlled CLI.
-- The backend auth path stays inside the CLI, not inside model-generated text.
 
 ## Intended Behavior
 
@@ -188,6 +177,61 @@ vidbyte agents get core --json
 
 For development and tests, set `VIDBYTE_AGENT_SKILLS_DIR` to point at an alternate agent guide directory.
 
+## Skills
+
+### Learning
+
+Skills for active learning, comprehension, retention, and research.
+
+| Skill | Command | Description |
+|-------|---------|-------------|
+| blindspots | `/blindspots` | Surfaces hidden principles, tradeoffs, or considerations the user hasn't named yet using targeted guiding questions |
+| compression-check | background | Silent background coach that asks you to explain what you just built; evaluates your response and submits a learning record to Vidbyte |
+| concept-coverage | `/concept-coverage` | Background tracker that monitors how deeply you engage with a concept; export as a JSON learning artifact at end of session |
+| daily-review | `/daily-review` | Extracts high-risk session concepts at end of a work session, appends them to a log, and sends them to Vidbyte for spaced review |
+| explain | `/explain` | Rebuilds explanations from first principles; diagnoses which understanding layer is broken and fills from the lowest solid floor |
+| explain-away-others | `/explain-away-others` | Before accepting your approach, identifies 2–3 competitive alternatives and requires mechanism-level explanations for why each fails |
+| feedback-generator | `/feedback` | Multi-agent harness that generates expert domain feedback grounded in 180+ learning-science papers through iterative self-refinement |
+| find-papers | `/find-papers` | Searches for academic papers via plain-language prompt, filters by credible databases, and returns a clean formatted list |
+| finding-resources | `/find-resource` | Produces a comprehensive learning-resource map across books, papers, courses, and practitioner writing for any topic |
+| jargon | `/jargon` | Surfaces domain-specific jargon, translates to plain language, and builds vocabulary before engaging a technical topic |
+| learn-from-video | `/learn-from-video` | Browser-controlled active learning session for a YouTube video with transcript-based segment planning and checkpoint questions |
+| motivate | `/motivate` | Delivers one non-repeated motivational learning quote and logs it so it is never shown again |
+| my-knowledge | `/my-knowledge` | Scans the session to give an honest assessment of genuine understanding vs. context-dependent familiarity |
+| practice | `/practice` | Creates high-volume practice questions that emphasize pattern recognition, variation, and creative intelligence |
+| question | `/question` | Produces detailed five-section answers (What, Why, Critical Thinking, Best Practices, Resources) to counter shallow responses in coding harnesses |
+| question-builder | `/question-builder` | Background tracker that logs retention and future-direction questions throughout the session; export as a JSON artifact |
+| read-paper | `/read-paper` | Reads a research paper (arXiv, DOI, PDF, Semantic Scholar, PubMed), strips noise, extracts a 6-field core signal, and runs a learning gate check |
+| research | `/research` | Answers grounded in verified knowledge with explicit source attribution and epistemic labeling on every claim; peer-reviewed sources only |
+| retain | `/retain` | Pauses the conversation, generates a 15-minute retention exercise from the session, and submits it to Vidbyte |
+| scope | `/scope` | Defines the boundaries of broad domains, highlighting core, adjacent, and commonly misattributed fields |
+| struggle | `/struggle` | Background tracker that logs repeated struggle patterns and blind-spot signals throughout the session; export as a JSON artifact |
+| theoretical-feedback | `/theoretical-feedback` | Extracts the underlying mental model separating novices from experts for any situation or mistake in any domain |
+| transfer-signals | `/transfer-signals` | Background tracker that logs cross-field concept connections and missed transfer-learning opportunities |
+| vidbyte-auth | `/vidbyte-auth` | Authenticates the Vidbyte CLI with your account to enable saved analysis results and persisted preferences |
+| vidbyte-tutor | `/vidbyte-tutor` | Orchestrator for all non-reasoning learning skills; routes to the best skill, explains the selection, and follows the skill's workflow |
+| visualize | `/visualize` | Renders visual explanations in Unicode box art; auto-routes to concept maps, layered architectures, sequence flowcharts, or analogy mappings |
+
+### Utility
+
+| Skill | Command | Description |
+|-------|---------|-------------|
+| docs-tldr | `/docs-tldr <library>` | Fetches official documentation for any library and produces a minimal cheat sheet: 5 core concepts, 10 common operations with code, 3 common mistakes, and a navigation map |
+| unit | `/unit <topic>` | Decomposes a large complex subject into its smallest meaningful atomic components; pure decomposition, no roadmap |
+
+### Roleplay
+
+| Skill | Command | Description |
+|-------|---------|-------------|
+| roleplay | `/roleplay` | Character simulation for practicing real-world interpersonal scenarios: job interviews, difficult conversations, salary negotiation, feedback delivery, cold pitching |
+| create-roleplay | `/create-roleplay` | Creates a new roleplay scenario for use with `/roleplay`; generates `scenario.md` and `rubric.md` and registers the scenario |
+
+### Reasoning Trace Skills
+
+This repository includes a generated collection of 100+ reasoning trace strategies, each with default, small, medium, and large slash-skill variants under `skills/`.
+Each trace skill writes a public scratchpad to `memory/{question_name}.md` and uses approximate scale targets rather than fixed quotas: small is around 25 numbered lines, medium and default are around 100 numbered lines, and large is around 500+ numbered lines when the question justifies that depth.
+The committed `SKILL.md` files are the source of truth for the collection; update those files directly when improving a reasoning trace.
+
 ## Install Locations
 
 Skill-directory integrations receive a copy or symlink of each selected skill folder:
@@ -268,12 +312,6 @@ Follow these steps:
 The skill name must be lowercase hyphen-case and must match the folder name.
 
 For a deeper guide to choosing and authoring reasoning trace, prompt, and background/CLI-backed skills, see `artifacts/create-skill-guide.md`.
-
-## Reasoning Trace Skills
-
-This repository includes a generated collection of 100+ reasoning trace strategies, each with default, small, medium, and large slash-skill variants under `skills/`.
-Each trace skill writes a public scratchpad to `memory/{question_name}.md` and uses approximate scale targets rather than fixed quotas: small is around 25 numbered lines, medium and default are around 100 numbered lines, and large is around 500+ numbered lines when the question justifies that depth.
-The committed `SKILL.md` files are the source of truth for the collection; update those files directly when improving a reasoning trace.
 
 ## Verify
 
