@@ -1,0 +1,474 @@
+﻿# Vidbyte Skills and CLI
+
+Source repository: https://github.com/cerredz/Vidbyte-Skills
+
+Primary README references:
+
+- [Vidbyte Skills README](https://github.com/cerredz/Vidbyte-Skills/blob/main/README.md)
+- [CLI commands README](https://github.com/cerredz/Vidbyte-Skills/blob/main/cli/commands/README.md)
+- [Skills catalog README](https://github.com/cerredz/Vidbyte-Skills/blob/main/skills/README.md)
+
+## Overview
+
+Vidbyte Skills packages reusable agent workflows, learning routines, reasoning methods, roleplay scenarios, and utility behaviors as portable local skills. A Vidbyte skill is a folder with a `SKILL.md` file and optional supporting assets. The installer copies or links those skills into local coding harnesses so agents can use precise, versioned instructions instead of relying only on a general prompt.
+
+The same package ships the `vidbyte` command used by skills to submit authenticated artifacts back to Vidbyte. This is important: the prompt generates content or structured arguments, but code owns authentication, request signing, endpoint selection, input sanitization, and backend transport.
+
+The repository owns two public surfaces:
+
+1. `vidbyte-skills`: the Node/npm installer that installs skill folders into supported coding harnesses.
+2. `vidbyte`: the Python stdlib-only command layer used by skills for auth, feedback, compression, retention, dry runs, and backend submission.
+
+## Description
+
+Vidbyte Skills is both a skill catalog and a local installation toolchain. The catalog contains inspectable Markdown workflows for learning, reasoning, utility, and roleplay tasks. The installer places those workflows where coding harnesses can discover them. The CLI handles account-linked transport for skills that produce artifacts, preserving a clean boundary between model-generated content and authenticated backend writes.
+
+## Use Cases
+
+- Install a full catalog of Vidbyte skills into local AI coding harnesses.
+- Install only selected skills such as `retain`, `daily-review`, `feedback-generator`, or `vidbyte-auth`.
+- Route users among learning skills with `vidbyte-tutor`.
+- Submit feedback, compression, and retention artifacts through the `vidbyte` CLI.
+- Author new skills using a standard `SKILL.md` folder shape.
+- Validate manifests, metadata, installer behavior, and CLI security behavior before publishing.
+- Give docs-to-MCP platforms a searchable map of what each learning skill does.
+
+## Feature Summary
+
+- Node/npm installer with user, project, or both-scope installation.
+- Broad platform support across skill-directory, rule-file, and managed instruction-file harnesses.
+- Python stdlib-only `vidbyte` CLI for auth, feedback, compressor, and retain commands.
+- Learning skill catalog for feedback, retention, research, paper reading, video learning, practice, and comprehension checks.
+- Reasoning trace catalog with many generated reasoning strategies and scale variants.
+- Utility and roleplay skill categories.
+- Manifest-driven validation through `skills-manifest.json`.
+- Smoke tests and security tests through `npm test`.
+
+## How To Install And Use
+
+Run `npx vidbyte-skills` to install the catalog, or pass skill names to install only selected skills. Use `vidbyte auth login` or `/vidbyte-auth` for account-linked workflows. Skills that submit artifacts should call the `vidbyte` CLI with structured arguments or generated files, not construct backend requests in prompt text.
+
+## Who This Is For
+
+Use Vidbyte Skills and CLI when you are:
+
+- Installing reusable agent skills into Claude Code, Codex, Gemini CLI, Cursor, Warp, Factory, Crush, Aider, Augment, Cline, Continue, Roo Code, Windsurf, or AGENTS.md-compatible tools.
+- Building local-first skill workflows that are inspectable and portable.
+- Using learning skills such as daily review, compression checks, retention exercises, research workflows, and feedback generation.
+- Creating new skills with a standard `SKILL.md` shape.
+- Submitting generated artifacts to Vidbyte without putting authentication logic in prompt text.
+- Validating skill metadata, manifests, and installer behavior before release.
+
+## Installation
+
+Install all skills from npm after publication:
+
+```bash
+npx vidbyte-skills
+```
+
+Install from the GitHub repository:
+
+```bash
+npx github:cerredz/Vidbyte-Skills
+```
+
+Install from a local checkout:
+
+```bash
+git clone https://github.com/cerredz/Vidbyte-Skills.git
+cd Vidbyte-Skills
+npm run install-skills
+```
+
+Install selected skills:
+
+```bash
+npx vidbyte-skills retain feedback-generator
+npx vidbyte-skills --skill retain,feedback-generator
+```
+
+Install category-specific packages when available:
+
+```bash
+npx vidbyte-learning-skills
+npx vidbyte-reasoning-skills
+npx vidbyte-roleplay-skills
+```
+
+The supported one-shot npm form is `npx vidbyte-skills`; `npx install vidbyte-skills` is not the supported invocation.
+
+## Installer Options
+
+```bash
+vidbyte-skills [skill-name ...] [options]
+
+--scope user
+--scope project
+--scope both
+--platform claude-code,codex,gemini
+--skill my-skill,other-skill
+--mode copy
+--mode link
+--dry-run
+```
+
+Defaults:
+
+```text
+scope: user
+platform: all
+skill selection: all skills
+mode: copy
+```
+
+The package supports many harnesses, including Claude Code, Codex, Gemini CLI, OpenCode, Cursor, Hermes, Universal, Windsurf, Cline, Continue, Roo Code, GitHub Copilot, Warp, Factory, Crush, OpenClaw, Aider, Augment Code, Jules, Zed, Replit Agent, Devin, OpenHands, Qwen Code, Gemini memory, JetBrains AI, Junie, Kiro, Amp, Piebald, Open Harness, and AGENTS.md-compatible tools.
+
+## Updating Skills
+
+Update to the latest published package and reinstall:
+
+```bash
+vidbyte-skills update
+```
+
+or:
+
+```bash
+npx vidbyte-skills update
+```
+
+The update command reads the current installed version, checks npm for the latest version, exits if already current, globally installs the newer package when needed, and reinstalls skills using installer defaults.
+
+## Repository Map
+
+| Area | Role |
+|---|---|
+| `skills/` | Source of truth for installable skill folders and `SKILL.md` files. |
+| `cli/commands/` | Python command classes behind the `vidbyte` command. |
+| `lib/` | Node installer internals for discovery, filtering, target resolution, and install actions. |
+| `bin/` | Binary shims for `vidbyte`, `vidbyte-skills`, category installers, and roleplay installers. |
+| `scripts/` | Validation, smoke testing, packaging, and catalog-generation scripts. |
+| `skills-manifest.json` | Category membership for learning, reasoning, utility, and roleplay skills. |
+
+## The `vidbyte` CLI Command Layer
+
+The `cli/commands/` package contains Python command classes behind the `vidbyte` command. Skills use these commands to submit validated artifacts to Vidbyte without asking model-generated prompt text to construct backend requests or authentication headers.
+
+Current command classes:
+
+- `AuthCommand`: `auth login`, `auth logout`, and `auth status`.
+- `FeedbackCommand`: `feedback submit --file ...`.
+- `CompressorCommand`: `compressor submit --file ...`.
+- `RetainCommand`: `retain ...` as an argument-shaped shortcut command.
+
+The command flow is:
+
+```text
+bin/vidbyte.js
+  |
+  v
+python -m cli
+  |
+  v
+cli/__main__.py parses resource/action/options
+  |
+  v
+CommandRouter
+  |
+  v
+AuthCommand | FeedbackCommand | CompressorCommand | RetainCommand
+  |
+  v
+VidbyteRequestBuilder
+```
+
+### CLI Security Philosophy
+
+Prompt text is not a trust boundary. The CLI owns:
+
+- Authentication.
+- Sanitization.
+- Backend endpoint selection.
+- Request signing.
+- Invocation-token exchange.
+- Response parsing.
+- Dry-run validation.
+
+Requests go to the official Vidbyte origin configured in code. File-backed commands sanitize file content before payload construction. Protected submissions use session-backed invocation-token auth. Python command implementations avoid third-party Python dependencies.
+
+### CLI Examples
+
+Check auth status:
+
+```bash
+vidbyte auth status
+```
+
+Submit feedback from a generated file:
+
+```bash
+vidbyte feedback submit --file feedback-log.md --domain software-engineering --conversation-id local-test --dry-run
+```
+
+Submit a compression artifact:
+
+```bash
+vidbyte compressor submit --file summary.md --domain software-engineering --conversation-id local-test --dry-run
+```
+
+Submit retention content:
+
+```bash
+vidbyte retain --concept1-name "CLI auth boundary" --concept1-distillation "The prompt writes content while the CLI owns transport." --question1 "Why should prompts not construct auth headers?" --answer1 "Because prompt text is not a trust boundary." --dry-run
+```
+
+Use `--dry-run` to validate command input without sending a final backend request.
+
+## Skill Shape
+
+Every skill lives at:
+
+```text
+skills/<skill-name>/SKILL.md
+```
+
+The folder name and frontmatter `name` must match and use lowercase hyphen-case.
+
+```markdown
+---
+name: my-skill
+description: Use this skill when the user asks for a focused workflow.
+---
+
+# My Skill
+
+Follow these steps:
+
+1. Clarify the task boundary.
+2. Produce the requested artifact.
+3. Verify the result before handing it back.
+```
+
+Optional supporting folders can sit beside `SKILL.md`:
+
+```text
+skills/my-skill/
+|-- SKILL.md
+|-- references/
+|-- scripts/
+`-- assets/
+```
+
+## Skill Categories
+
+The manifest groups skills into:
+
+- `learning`: tutoring, retention, feedback, research, comprehension, and study workflows.
+- `reasoning`: reusable reasoning traces, decision frameworks, analysis strategies, and coaching workflows.
+- `utility`: general-purpose helpers.
+- `roleplay`: scenario-based practice skills.
+
+The README notes that the repository also includes a generated collection of reasoning trace strategies, each with default, small, medium, and large slash-skill variants. Those are useful when explicitly requested, but docs-to-MCP indexing should not let generated trace variants drown out core product and learning skills.
+
+## Learning Skills
+
+The learning catalog is the most important public-facing part of Vidbyte Skills. These skills are designed for active learning, retention, feedback, research, and user understanding.
+
+### `blindspots` (`/blindspots`)
+
+Surfaces hidden principles, tradeoffs, or considerations the user has not named yet. It uses targeted guiding questions rather than dumping generic advice. Use it when a learner is working on a plan, architecture, decision, or explanation and may be missing the real constraint.
+
+### `compression-check` (background)
+
+Acts as a silent background coach that periodically asks the user to explain what they just built or decided. It evaluates the response and submits a learning record to Vidbyte. Use it during active building sessions where retrieval and articulation matter.
+
+### `concept-coverage`
+
+Tracks how deeply the user engages with a concept over a session. It can export a JSON learning artifact at the end. Use it when the goal is to understand whether a learner has actually covered a concept from multiple angles rather than merely seeing it once.
+
+### `daily-review` (`/daily-review`)
+
+Extracts high-risk session concepts at the end of a work session, appends them to a review log, and sends them to Vidbyte for spaced review. Use this for session-close retention, not as a live background tutor.
+
+### `explain` (`/explain`)
+
+Rebuilds explanations from first principles. It diagnoses which layer of understanding is broken and fills from the lowest solid floor. Use it when a learner needs a topic explained from the ground up instead of receiving a shallow summary.
+
+### `explain-away-others` (`/explain-away-others`)
+
+Before accepting the user's approach, identifies two or three competitive alternatives and requires mechanism-level explanations for why each fails. Use it to prevent premature convergence and first-idea bias.
+
+### `feedback-generator` (`/feedback`)
+
+Generates expert domain feedback grounded in learning science through a multi-agent process. The README describes it as an iterative feedback harness informed by a large research base. Use it when the desired output is structured diagnostic feedback rather than a quick answer.
+
+### `finding-resources` (`/find-resource`)
+
+Produces a learning-resource map across books, papers, courses, and practitioner writing for a topic. It is designed for broad resource discovery rather than answering a narrow factual question.
+
+### `find-papers` (`/find-papers`)
+
+Searches for academic papers from a plain-language prompt, filters by credible databases, and returns a clean formatted list. Use it for literature discovery.
+
+### `jargon` (`/jargon`)
+
+Surfaces domain-specific jargon, translates it into plain language, and builds vocabulary before a technical topic. Use it when jargon is blocking comprehension.
+
+### `learn-from-video` (`/learn-from-video`)
+
+Runs a browser-controlled active learning session for a YouTube video. It extracts transcript structure, plans segments, asks checkpoint questions, and turns passive watching into active learning.
+
+### `motivate`
+
+Delivers one non-repeated motivational learning quote and logs it so it is not shown again. Use it sparingly; it is a lightweight learning support skill rather than a core technical workflow.
+
+### `my-knowledge` (`/my-knowledge`)
+
+Scans the session and gives an assessment of genuine understanding versus context-dependent familiarity. Use it when a learner wants to know whether they actually understand a topic or are just following along in the moment.
+
+### `practice` (`/practice`)
+
+Creates high-volume practice questions emphasizing pattern recognition, variation, and creative intelligence. Use it when repetition, transfer, and fluency matter.
+
+### `question` (`/question`)
+
+Produces detailed five-section answers: What, Why, Critical Thinking, Best Practices, and Resources. It counters shallow responses in coding harnesses and is used when the user explicitly invokes the question format.
+
+### `question-builder`
+
+Tracks retention and future-direction questions throughout a session and can export a JSON artifact. Use it when the goal is to capture good questions for later review.
+
+### `read-paper` (`/read-paper`)
+
+Reads a research paper from arXiv, DOI, direct PDF, Semantic Scholar, PubMed, or PMC; strips noise; extracts a core six-field signal; and runs an active learning gate check. Use it for serious paper reading rather than casual article summarization.
+
+### `research` (`/research`)
+
+Answers using verified knowledge with explicit source attribution and epistemic labeling on every claim. It is designed for research-grounded answers where evidence quality matters.
+
+### `retain` (`/retain`)
+
+Pauses the conversation, generates a 15-minute retention exercise from the session, and submits it to Vidbyte. It uses the `vidbyte retain` CLI command so the generated exercise can be account-linked safely.
+
+### `scope` (`/scope`)
+
+Defines boundaries of broad domains, separating core, adjacent, and commonly misattributed fields. Use it when the learner needs a map of what belongs inside a topic and what does not.
+
+### `struggle`
+
+Tracks repeated struggle patterns and blind-spot signals throughout a session, then exports a JSON artifact. Use it to identify where the learner keeps getting stuck.
+
+### `theoretical-feedback`
+
+Extracts the underlying mental model separating novices from experts for a situation or mistake. Use it when feedback should reveal the deeper theory behind the error.
+
+### `transfer-signals`
+
+Tracks cross-field concept connections and missed transfer-learning opportunities. Use it when a learner should connect what they are doing now to patterns from other domains.
+
+### `vidbyte-auth` (`/vidbyte-auth`)
+
+Authenticates the Vidbyte CLI with the user's Vidbyte account so saved analysis results and persisted preferences can work. It should never ask the user to paste an API key into chat. The CLI handles key input securely through the terminal.
+
+### `vidbyte-tutor` (`/vidbyte-tutor`)
+
+Orchestrates non-reasoning learning skills. It selects the best included skill, explains the selection when useful, and then follows the selected skill's workflow. It should not route to generated reasoning trace skills unless explicitly requested outside the tutor catalog.
+
+### `visualize` (`/visualize`)
+
+Renders visual explanations in Unicode box art. It can route to concept maps, layered architectures, sequence flowcharts, or analogy mappings. Use it when a visual structure will clarify a concept.
+
+## Utility Skills
+
+### `docs-tldr`
+
+Fetches official documentation for a library and produces a minimal cheat sheet with core concepts, common operations, common mistakes, and a navigation map.
+
+### `unit`
+
+Decomposes a large subject into the smallest meaningful atomic components. It is pure decomposition, not a roadmap generator.
+
+## Roleplay Skills
+
+### `roleplay`
+
+Runs character simulation for practicing real-world interpersonal scenarios such as interviews, difficult conversations, salary negotiation, feedback delivery, and cold pitching.
+
+### `create-roleplay`
+
+Creates a new roleplay scenario by generating `scenario.md` and `rubric.md` and registering the scenario.
+
+## Install Locations
+
+Skill-directory integrations receive a copy or symlink of selected skill folders. Examples include:
+
+- Claude Code: `~/.claude/skills` or `<project>/.claude/skills`.
+- Codex: `~/.codex/skills` or `<project>/.codex/skills`.
+- Gemini CLI: `~/.gemini/skills` or `<project>/.gemini/skills`.
+- Cursor: `~/.cursor/skills` or `<project>/.cursor/skills`.
+- Warp: `~/.warp/skills` or `<project>/.warp/skills`.
+- Factory Droid: `~/.factory/skills` or `<project>/.factory/skills`.
+
+Rule-file integrations receive a generated Markdown rule file. Managed instruction-file integrations insert or replace only the block between `<!-- vidbyte-skills:start -->` and `<!-- vidbyte-skills:end -->`, preserving existing project instructions outside that block.
+
+## Adding a Skill
+
+Create a folder under `skills/` with a `SKILL.md` file:
+
+```text
+skills/my-skill/
+  SKILL.md
+  scripts/
+  references/
+  assets/
+```
+
+Rules:
+
+- Skill folder name and frontmatter `name` must match.
+- Names should be lowercase hyphen-case.
+- The description should clearly state when to use the skill.
+- Supporting files should live in `scripts/`, `references/`, or `assets/` when needed.
+- Skills should be inspectable and portable.
+
+## Verification
+
+Run:
+
+```bash
+npm test
+```
+
+The test suite validates skill metadata, installer behavior, CLI smoke tests, CLI security tests, and agent-facing CLI skill docs.
+
+## Docs-to-MCP Submission Notes
+
+Recommended indexing:
+
+- `README.md`
+- `skills/README.md`
+- `cli/commands/README.md`
+- `skills-manifest.json`
+- core learning skill `SKILL.md` files
+- selected utility and roleplay skill files
+
+Recommended exclusions:
+
+- generated reasoning trace variants in first-pass public indexing, unless publishing the reasoning catalog intentionally
+- internal outputs and generated memory folders
+- local scratch, reports, and temporary artifacts
+
+Suggested Context7 rules:
+
+- A Vidbyte skill is defined by a `SKILL.md` file with frontmatter and task-specific instructions.
+- Prefer repository indexes before individual generated skill variants.
+- Do not recommend generated reasoning trace variants unless explicitly requested.
+- For authentication, use `vidbyte-auth`; never ask users to paste API keys into chat.
+- Distinguish local-only skills from backend-connected skills.
+- The CLI, not prompt text, owns authentication and backend transport.
+
+## Vidbyte Website
+
+Vidbyte lives at https://vidbyte.pro. Skills and CLI docs should point users there for account-linked features, authenticated submissions, saved learning artifacts, API keys, and product context. Local skill installation remains a developer-machine workflow, while the website is the account and platform surface.
+
