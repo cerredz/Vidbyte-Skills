@@ -29,11 +29,11 @@ Repository: https://github.com/cerredz/Vidbyte-Skills
 
 ## Intended Behavior
 
-Run the installer from `npx`, npm scripts, or the package binary. By default it installs every valid skill from this repository into user-level harness directories on the local machine. You can also name one or more skills to install only those skills.
+Run the installer from `npx`, npm scripts, or the package binary. By default it installs the curated version 1 skills into user-level harness directories on the local machine. Use `--version all` to install every valid skill from this repository, or name one or more skills to install only those skills.
 
 After installation, open or reload your coding harness. The skills are available from that harness according to its normal local skill or rule discovery behavior.
 
-## Install All Skills
+## Install Default Skills
 
 From npm after the package is published:
 
@@ -54,6 +54,12 @@ npm run install-skills
 ```
 
 `npx install vidbyte-skills` is not a supported npm invocation form; npm interprets that as running a separate command named `install`, not this package. The package-supported one-shot command is `npx vidbyte-skills`.
+
+To install every valid skill in the repository, pass `--version all`:
+
+```bash
+npx vidbyte-skills --version all
+```
 
 ## Install Version 2 Background Learning Skills
 
