@@ -29,11 +29,11 @@ Repository: https://github.com/cerredz/Vidbyte-Skills
 
 ## Intended Behavior
 
-Run the installer from `npx`, npm scripts, or the package binary. By default it installs every valid skill from this repository into user-level harness directories on the local machine. You can also name one or more skills to install only those skills.
+Run the installer from `npx`, npm scripts, or the package binary. By default it installs the curated version 1 skills into user-level harness directories on the local machine. Use `--version all` to install every valid skill from this repository, or name one or more skills to install only those skills.
 
 After installation, open or reload your coding harness. The skills are available from that harness according to its normal local skill or rule discovery behavior.
 
-## Install All Skills
+## Install Default Skills
 
 From npm after the package is published:
 
@@ -54,6 +54,33 @@ npm run install-skills
 ```
 
 `npx install vidbyte-skills` is not a supported npm invocation form; npm interprets that as running a separate command named `install`, not this package. The package-supported one-shot command is `npx vidbyte-skills`.
+
+To install every valid skill in the repository, pass `--version all`:
+
+```bash
+npx vidbyte-skills --version all
+```
+
+## Install Version 2 Background Learning Skills
+
+Version 2 is the background learning bundle. Activate one of these skills once,
+work normally through the conversation, then use that skill's end command to
+write the learning artifact.
+
+```bash
+npx vidbyte-skills --version 2
+npx vidbyte-learning-skills --version 2
+```
+
+Included skills:
+
+| Skill | Command | What it tracks |
+|-------|---------|----------------|
+| concept-coverage | `/concept-coverage` | Maps what you understand versus the gaps you skipped past |
+| question-builder | `/question-builder` | Builds retention and next-step questions so you leave with something to study |
+| struggle | `/struggle` | Tracks recurring struggle points so repeated patterns are visible |
+| transfer-signals | `/transfer-signals` | Catches moments where a pattern you already know could transfer to the current problem |
+| misconceptions | `/misconceptions` | Watches for faulty mental models and logs them before you close the session |
 
 ## Install Specific Skills
 
@@ -88,6 +115,9 @@ vidbyte-skills [skill-name ...] [options]
 --scope both
 --platform claude-code,codex,gemini
 --skill my-skill,other-skill
+--version 1
+--version 2
+--version all
 --mode copy
 --mode link
 --dry-run
@@ -99,6 +129,7 @@ Defaults:
 scope: user
 platform: all
 skill selection: all skills
+skills version: 1
 mode: copy
 ```
 
@@ -196,6 +227,7 @@ Skills for active learning, comprehension, retention, and research.
 | finding-resources | `/find-resource` | Produces a comprehensive learning-resource map across books, papers, courses, and practitioner writing for any topic |
 | jargon | `/jargon` | Surfaces domain-specific jargon, translates to plain language, and builds vocabulary before engaging a technical topic |
 | learn-from-video | `/learn-from-video` | Browser-controlled active learning session for a YouTube video with transcript-based segment planning and checkpoint questions |
+| misconceptions | `/misconceptions` | Silently tracks faulty mental models during the session and writes an end-of-session misconception log |
 | motivate | `/motivate` | Delivers one non-repeated motivational learning quote and logs it so it is never shown again |
 | my-knowledge | `/my-knowledge` | Scans the session to give an honest assessment of genuine understanding vs. context-dependent familiarity |
 | practice | `/practice` | Creates high-volume practice questions that emphasize pattern recognition, variation, and creative intelligence |
