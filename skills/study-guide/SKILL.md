@@ -161,9 +161,12 @@ Return one inline Markdown artifact in this exact section order. Do not write a 
 > Source: <paper, chapter, transcript, notes, web page, or PDF plus identifier/link/path when safe>
 > Coverage: <Full or Partial — name sections, pages, or timestamps covered>
 > Learning target: <one sentence using explain, compare, calculate, diagnose, apply, or another observable verb>
+> Grounding: Source-grounded unless explicitly marked Synthesis or Constructed example
 ```
 
 If coverage is partial and the limitation affects the guide, add one sentence immediately below the block stating what could not be retrieved and how that constrains the artifact.
+
+Use `Synthesis` when a useful conclusion combines source sections but is not stated directly by the source. Use `Constructed example` for teaching material you created. Do not use either label to smuggle unsupported outside knowledge into the guide.
 
 ### Core Ideas
 
