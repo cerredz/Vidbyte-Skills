@@ -82,6 +82,25 @@ Included skills:
 | transfer-signals | `/transfer-signals` | Catches moments where a pattern you already know could transfer to the current problem |
 | misconceptions | `/misconceptions` | Watches for faulty mental models and logs them before you close the session |
 
+## Install Version 5 Interactive Utility Skills
+
+Version 5 contains guided learning and memory methods that teach a technique,
+halt for user work, evaluate it, and resume only after each gate passes.
+
+```bash
+npx vidbyte-skills --version 5
+npx vidbyte-learning-skills --version 5
+```
+
+Included skills:
+
+| Skill | Command | Best use |
+|-------|---------|----------|
+| interactive | `/interactive` | Select and immediately run the best installed interactive utility from the current conversation |
+| sq3r | `/sq3r` | Retain ordinary structured nonfiction through Survey, Question, Read, Recite, and Review |
+| pq4r | `/pq4r` | Read dense or theoretical structured material with explicit goal-setting and reflection |
+| pao-system | `/pao-system` | Build and drill a 00–99 Person-Action-Object system for long numeric or card sequences |
+
 ## Install Specific Skills
 
 Pass skill names as positional arguments:
@@ -225,11 +244,14 @@ Skills for active learning, comprehension, retention, and research.
 | feedback-generator | `/feedback` | Multi-agent harness that generates expert domain feedback grounded in 180+ learning-science papers through iterative self-refinement |
 | find-papers | `/find-papers` | Searches for academic papers via plain-language prompt, filters by credible databases, and returns a clean formatted list |
 | finding-resources | `/find-resource` | Produces a comprehensive learning-resource map across books, papers, courses, and practitioner writing for any topic |
+| interactive | `/interactive` | Routes the current conversation to SQ3R, PQ4R, or PAO and starts the selected gated workflow |
 | jargon | `/jargon` | Surfaces domain-specific jargon, translates to plain language, and builds vocabulary before engaging a technical topic |
 | learn-from-video | `/learn-from-video` | Browser-controlled active learning session for a YouTube video with transcript-based segment planning and checkpoint questions |
 | misconceptions | `/misconceptions` | Silently tracks faulty mental models during the session and writes an end-of-session misconception log |
 | motivate | `/motivate` | Delivers one non-repeated motivational learning quote and logs it so it is never shown again |
 | my-knowledge | `/my-knowledge` | Scans the session to give an honest assessment of genuine understanding vs. context-dependent familiarity |
+| pao-system | `/pao-system` | Builds and drills a persistent 00–99 Person-Action-Object memory system for long ordered sequences |
+| pq4r | `/pq4r` | Guides dense structured reading through Preview, Question, Read, Reflect, Recite, and Review |
 | practice | `/practice` | Creates high-volume practice questions that emphasize pattern recognition, variation, and creative intelligence |
 | question | `/question` | Produces detailed five-section answers (What, Why, Critical Thinking, Best Practices, Resources) to counter shallow responses in coding harnesses |
 | question-builder | `/question-builder` | Background tracker that logs retention and future-direction questions throughout the session; export as a JSON artifact |
@@ -237,6 +259,7 @@ Skills for active learning, comprehension, retention, and research.
 | research | `/research` | Answers grounded in verified knowledge with explicit source attribution and epistemic labeling on every claim; peer-reviewed sources only |
 | retain | `/retain` | Pauses the conversation, generates a 15-minute retention exercise from the session, and submits it to Vidbyte |
 | scope | `/scope` | Defines the boundaries of broad domains, highlighting core, adjacent, and commonly misattributed fields |
+| sq3r | `/sq3r` | Guides structured nonfiction through five active reading phases with paraphrase and recitation gates |
 | struggle | `/struggle` | Background tracker that logs repeated struggle patterns and blind-spot signals throughout the session; export as a JSON artifact |
 | theoretical-feedback | `/theoretical-feedback` | Extracts the underlying mental model separating novices from experts for any situation or mistake in any domain |
 | transfer-signals | `/transfer-signals` | Background tracker that logs cross-field concept connections and missed transfer-learning opportunities |
@@ -344,6 +367,8 @@ Follow these steps:
 The skill name must be lowercase hyphen-case and must match the folder name.
 
 For a deeper guide to choosing and authoring reasoning trace, prompt, and background/CLI-backed skills, see `artifacts/create-skill-guide.md`.
+
+For the orientation, phase, gate, persistence, routing, and handoff conventions used by interaction-based utilities, see `artifacts/utility-interactive-skills.md`.
 
 ## Verify
 
