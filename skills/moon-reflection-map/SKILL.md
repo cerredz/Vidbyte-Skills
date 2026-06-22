@@ -195,7 +195,7 @@ Pass only when the response contains evidence of changed perspective and consequ
 
 ## State and Resume
 
-Default path: moon-reflection-map-<slug>-<timestamp>.md. Record schema version, method, redacted subject, status, current phase, user-authored accepted responses, agent evaluations, pending evidence, attempts, and timestamps. Preserve malformed or unrelated files and recover to a disambiguated path. Do not persist sensitive details without warning and confirmation.
+Optional handoff path: moon-reflection-map-<slug>-<timestamp>.md. Write only when the user requests a saved handoff or a resume is necessary. Record schema version, method, redacted subject, status, current phase, user-authored accepted responses, agent evaluations, pending evidence, attempts, and timestamps. Preserve malformed or unrelated files and recover to a disambiguated path. Do not persist sensitive details without warning and confirmation.
 
 ## Final Handoff
 

@@ -195,7 +195,7 @@ Pass only when the response contains a reproducible net-support judgment without
 
 ## State and Resume
 
-Default path: twardy-evidence-mapping-<slug>-<timestamp>.md. Record schema version, method, redacted subject, status, current phase, user-authored accepted responses, agent evaluations, pending evidence, attempts, and timestamps. Preserve malformed or unrelated files and recover to a disambiguated path. Do not persist sensitive details without warning and confirmation.
+Optional handoff path: twardy-evidence-mapping-<slug>-<timestamp>.md. Write only when the user requests a saved handoff or a resume is necessary. Record schema version, method, redacted subject, status, current phase, user-authored accepted responses, agent evaluations, pending evidence, attempts, and timestamps. Preserve malformed or unrelated files and recover to a disambiguated path. Do not persist sensitive details without warning and confirmation.
 
 ## Final Handoff
 

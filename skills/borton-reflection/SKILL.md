@@ -155,7 +155,7 @@ Pass only when the response contains one concrete action with trigger or timing.
 
 ## State and Resume
 
-Default path: borton-reflection-<slug>-<timestamp>.md. Record schema version, method, redacted subject, status, current phase, user-authored accepted responses, agent evaluations, pending evidence, attempts, and timestamps. Preserve malformed or unrelated files and recover to a disambiguated path. Do not persist sensitive details without warning and confirmation.
+Optional handoff path: borton-reflection-<slug>-<timestamp>.md. Write only when the user requests a saved handoff or a resume is necessary. Record schema version, method, redacted subject, status, current phase, user-authored accepted responses, agent evaluations, pending evidence, attempts, and timestamps. Preserve malformed or unrelated files and recover to a disambiguated path. Do not persist sensitive details without warning and confirmation.
 
 ## Final Handoff
 
