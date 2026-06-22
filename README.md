@@ -105,6 +105,29 @@ Included skills:
 | reap | `/reap` | Argumentative sources where the author's framing should be encoded before annotation |
 | sq3r | `/sq3r` | Retain ordinary structured nonfiction through Survey, Question, Read, Recite, and Review |
 
+## Install Version 6 Interactive Learning and Productivity Skills
+
+Version 6 contains guided organization, active-reading, metacognitive assessment,
+daily planning, and goal-follow-up workflows.
+
+```bash
+npx vidbyte-skills --version 6
+npx vidbyte-learning-skills --version 6
+```
+
+| Skill | Command | Best for |
+|-------|---------|----------|
+| 1-3-5 | `/1-3-5` | Constraining a day to one Big, three Medium, and five Small tasks |
+| bullet-journal | `/bullet-journal` | Analog rapid logging and mandatory monthly Migration |
+| dr-ta | `/dr-ta` | Predict-read-verify cycles on structured text |
+| flow-notes | `/flow-notes` | Argument maps using big ideas and arrows |
+| gtd | `/gtd` | Trusted action management with Weekly Review |
+| insert | `/insert` | Low-friction margin marking and confidence checks |
+| para | `/para` | Organizing digital information by actionability |
+| solo | `/solo` | Assessing structural depth of understanding |
+| think-aloud | `/think-aloud` | Analyzing concurrent problem-solving narration |
+| woop | `/woop` | Mental contrasting and executable if-then plans |
+
 ## Install Specific Skills
 
 Pass skill names as positional arguments:
@@ -141,6 +164,7 @@ vidbyte-skills [skill-name ...] [options]
 --version 1
 --version 2
 --version 5
+--version 6
 --version all
 --mode copy
 --mode link
@@ -240,17 +264,23 @@ Skills for active learning, comprehension, retention, and research.
 
 | Skill | Command | Description |
 |-------|---------|-------------|
+| 1-3-5 | `/1-3-5` | Plans exactly one Big, three Medium, and five Small daily tasks and logs every displacement instead of allowing a tenth |
 | blindspots | `/blindspots` | Surfaces hidden principles, tradeoffs, or considerations the user hasn't named yet using targeted guiding questions |
+| bullet-journal | `/bullet-journal` | Sets up Ryder Carroll's four analog modules, Rapid Logging syntax, daily logs, and mandatory monthly Migration |
 | chain-method | `/chain-method` | Builds vivid item-to-item links for exact forward recall of short ordered lists; warns when length or random access needs another method |
 | compression-check | background | Silent background coach that asks you to explain what you just built; evaluates your response and submits a learning record to Vidbyte |
 | concept-coverage | `/concept-coverage` | Background tracker that monitors how deeply you engage with a concept; export as a JSON learning artifact at end of session |
 | daily-review | `/daily-review` | Extracts high-risk session concepts at end of a work session, appends them to a log, and sends them to Vidbyte for spaced review |
 | dominic-system | `/dominic-system` | Builds an initial-based 00–99 Person/Action system for long numbers and card sequences, then scores exact decoding drills |
+| dr-ta | `/dr-ta` | Guides testable prediction, reading, evidence verification, revision, and final prediction-evolution synthesis |
 | explain | `/explain` | Rebuilds explanations from first principles; diagnoses which understanding layer is broken and fills from the lowest solid floor |
 | explain-away-others | `/explain-away-others` | Before accepting your approach, identifies 2–3 competitive alternatives and requires mechanism-level explanations for why each fails |
 | feedback-generator | `/feedback` | Multi-agent harness that generates expert domain feedback grounded in 180+ learning-science papers through iterative self-refinement |
 | find-papers | `/find-papers` | Searches for academic papers via plain-language prompt, filters by credible databases, and returns a clean formatted list |
-| finding-resources | `/find-resource` | Produces a comprehensive learning-resource map across books, papers, courses, and practitioner writing for any topic |
+| finding-resources | `/finding-resource` | Produces a comprehensive learning-resource map across books, papers, courses, and practitioner writing for any topic |
+| flow-notes | `/flow-notes` | Captures argument structure as big-idea phrases and arrows, then requires a throughline synthesis and deep connections |
+| gtd | `/gtd` | Runs David Allen's Capture, Clarify, Organize, Reflect, Engage workflow with physical Next Actions and Weekly Review |
+| insert | `/insert` | Applies five active-reading symbols, builds review lists, and verifies every "already knew" confidence mark |
 | interactive | `/interactive` | Routes the current conversation to SQ3R, PQ4R, or PAO and starts the selected gated workflow |
 | jargon | `/jargon` | Surfaces domain-specific jargon, translates to plain language, and builds vocabulary before engaging a technical topic |
 | learn-from-video | `/learn-from-video` | Browser-controlled active learning session for a YouTube video with transcript-based segment planning and checkpoint questions |
@@ -259,6 +289,7 @@ Skills for active learning, comprehension, retention, and research.
 | my-knowledge | `/my-knowledge` | Scans the session to give an honest assessment of genuine understanding vs. context-dependent familiarity |
 | ok5r | `/ok5r` | Guides long structured reading through Survey, Question, Read, Record, Recite, Review, and Reflect to produce a reusable study sheet |
 | pao-system | `/pao-system` | Builds and drills a persistent 00–99 Person-Action-Object memory system for long ordered sequences |
+| para | `/para` | Classifies digital notes and files into Projects, Areas, Resources, or Archives by actionability rather than topic |
 | pq4r | `/pq4r` | Guides dense structured reading through Preview, Question, Read, Reflect, Recite, and Review |
 | practice | `/practice` | Creates high-volume practice questions that emphasize pattern recognition, variation, and creative intelligence |
 | question | `/question` | Produces detailed five-section answers (What, Why, Critical Thinking, Best Practices, Resources) to counter shallow responses in coding harnesses |
@@ -268,13 +299,16 @@ Skills for active learning, comprehension, retention, and research.
 | research | `/research` | Answers grounded in verified knowledge with explicit source attribution and epistemic labeling on every claim; peer-reviewed sources only |
 | retain | `/retain` | Pauses the conversation, generates a 15-minute retention exercise from the session, and submits it to Vidbyte |
 | scope | `/scope` | Defines the boundaries of broad domains, highlighting core, adjacent, and commonly misattributed fields |
+| solo | `/solo` | Classifies an unaided explanation from Pre-structural through Extended Abstract with evidence and a next study action |
 | sq3r | `/sq3r` | Guides structured nonfiction through five active reading phases with paraphrase and recitation gates |
 | struggle | `/struggle` | Background tracker that logs repeated struggle patterns and blind-spot signals throughout the session; export as a JSON artifact |
 | theoretical-feedback | `/theoretical-feedback` | Extracts the underlying mental model separating novices from experts for any situation or mistake in any domain |
+| think-aloud | `/think-aloud` | Captures concurrent no-filter problem-solving narration and analyzes strategy shifts, errors, confusion, and stuck points |
 | transfer-signals | `/transfer-signals` | Background tracker that logs cross-field concept connections and missed transfer-learning opportunities |
 | vidbyte-auth | `/vidbyte-auth` | Authenticates the Vidbyte CLI with your account to enable saved analysis results and persisted preferences |
 | vidbyte-tutor | `/vidbyte-tutor` | Orchestrator for all non-reasoning learning skills; routes to the best skill, explains the selection, and follows the skill's workflow |
 | visualize | `/visualize` | Renders visual explanations in Unicode box art; auto-routes to concept maps, layered architectures, sequence flowcharts, or analogy mappings |
+| woop | `/woop` | Guides Wish, Outcome, internal Obstacle, and executable Plan, then tracks plan execution at follow-up |
 
 ### Utility
 
