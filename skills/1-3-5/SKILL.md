@@ -105,6 +105,17 @@ Every tier follows this order:
 
 On the first failure, name the failed criterion (too vague, too large, too small, duplicate) and ask for a full retry. On the second failure, give one targeted hint about sizing or specificity without choosing a task for the user. Do not fill quotas with invented tasks.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting the user's tier selection, schedule confirmation, displacement decision, or dispositions? This turn evaluates that work; it does not also advance to the next tier.
+- **Did the user do the work?** Did the user choose and size the tasks themselves, or am I about to choose the Big Task / fill a tier with an invented task to hit the quota?
+- **Sizing honest?** Is the Big Task genuinely 2–4 hours and important (not three Mediums stacked), and does each tier hold exactly 1 / 3 / 5 specific tasks?
+- **No silent tenth?** If a new task arrived, am I about to append it instead of forcing a displacement (or reject/defer) and logging it?
+- **Confirm before lock?** Did the user explicitly confirm the rendered schedule before I declared "no tenth task without displacement"?
+- **Persisted?** Have I written accepted tasks, schedule, and the displacement log to `1-3-5-<date>.md` before halting, without overwriting an existing same-date artifact?
+
 ## Phase 1 of 6 — One Big
 
 ### Explain
@@ -228,6 +239,34 @@ Present all nine tasks in a compact table and require `done`, `not done`, or `di
 ### Evaluation
 
 Pass only after all nine are dispositioned. Ask whether the Big Task was completed, count Medium and Small completion, count displacement, and ask for one planning adjustment. If all nine are complete, tell the user to stop rather than add work.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### One Big (Phase 1)
+- ✅ Passes — "Draft the introduction and methods sections of the Q3 report."
+  Why: specific finish state, completable today, important, ~2–4 hours.
+- ❌ Fails — "Finish the report" or "Be productive."
+  Why: the first is a multi-day project (must be sliced); the second is vague with no finish state.
+
+### Three Medium (Phase 2)
+- ✅ Passes — "Review two PRs; write the standup summary; book the venue" (three, distinct, ~30–60 min each).
+  Why: exactly three, specific, each correctly sized and not a substep of the Big Task.
+- ❌ Fails — "Work on the project, emails, and misc admin."
+  Why: vague, not three distinct sized tasks; "work on the project" overlaps the Big Task.
+
+### Displacement (Phase 5)
+- ✅ Passes — "Add 'call the vendor' and drop Medium #3 'book the venue' to tomorrow."
+  Why: names the displaced task; the 1/3/5 ceiling is preserved and logged.
+- ❌ Fails — "Just add it to the list, I'll get to everything."
+  Why: appends a tenth task with no displacement; the constraint is the method.
+
+### Review (Phase 6)
+- ✅ Passes — every one of the nine marked done / not done / displaced, with the Big Task status stated.
+  Why: a full disposition that enables history analysis.
+- ❌ Fails — "Pretty good day, got most of it done."
+  Why: no per-task disposition; nothing to record or learn from.
 
 ## Alternate Modes
 

@@ -118,6 +118,17 @@ Every active gate ends the response. Follow this order:
 
 First failure names the criterion. Second failure points to the relevant symbol or function without choosing a mark for the user.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting symbol answers, chunk marks, question dispositions, or a confidence explanation? This turn evaluates that work; it does not also advance to the next chunk or phase.
+- **Did the user do the work?** Did they choose the marks and write the explanation themselves, or am I about to mark the chunk / explain the ✓ for them? I may chunk and build lists; I may not choose marks or supply explanations.
+- **Hidden material intact?** In Confidence Calibration, am I showing the explanatory source context for the ✓ I am testing, instead of just the locator/claim?
+- **Star budget?** Am I about to accept more than 3–5 final `*` marks without requiring demotion?
+- **Fluency illusion?** Are all marks `✓` (challenge it), or have key ideas emerged with no `→` connection (ask for one)?
+- **Persisted?** Have I written accepted marks, dispositions, and calibration results to `insert-<slug>.state.md` before halting?
+
 ## Phase 1 — Learn Symbols
 
 ### Explain
@@ -209,6 +220,34 @@ Show one `✓` locator or claim at a time. Ask for a one-sentence explanation in
 ### Evaluation
 
 Verify semantic accuracy against available source. Pass preserves `✓`. Failure changes it to `?`, records the missing understanding, and adds it to Questions. Every check must be tested. `--confidence-check` loads an artifact and runs this phase only.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Symbol quiz (Phase 1)
+- ✅ Passes — chooses `?` for "I don't follow how step 3 follows from step 2."
+  Why: maps confusion to the unclear symbol; 4/5 correct overall.
+- ❌ Fails — chooses `✓` for "I don't follow how step 3 follows from step 2."
+  Why: marks confusion as known; the function is inverted.
+
+### Chunk mark (Phase 2)
+- ✅ Passes — "`!` at 'doubling every 18 months' — I didn't realize the rate was that fast."
+  Why: symbol + exact locator + rationale matching the symbol's function.
+- ❌ Fails — "`!` this whole paragraph was interesting."
+  Why: no locator and no specific rationale; "interesting" does not identify surprise or importance.
+
+### Question disposition (Phase 3)
+- ✅ Passes — "Q2 → will research; I'll check the original benchmark in the cited paper."
+  Why: an explicit disposition with a concrete next action.
+- ❌ Fails — "I'll figure the questions out later."
+  Why: no per-question disposition; "later" leaves questions undispositioned.
+
+### Confidence calibration (Phase 4)
+- ✅ Passes — for a ✓ on 'idempotent': "It means running the operation again gives the same result, so retries are safe."
+  Why: accurate one-sentence explanation in the user's own words; ✓ stands.
+- ❌ Fails — for the same ✓: "Yeah, I know what idempotent means."
+  Why: assertion of knowing, not an explanation; downgrade ✓ to `?`.
 
 ## Alternate Modes
 

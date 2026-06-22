@@ -114,6 +114,18 @@ Every phase follows this order:
 
 First failure names the criterion (transcription, missing arrows, topic summary, generic connection). Second failure gives a targeted hint without writing the answer. Passive agreement, `done`, and copied source language never pass.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting big ideas, arrows, a synthesis, or connections? This turn evaluates that work; it does not also advance to the next chunk or phase.
+- **Did the user do the work?** Did the user write the phrases / arrows / synthesis / connections themselves, or am I about to write them?
+- **Phrases, not transcription?** Am I about to accept full-sentence copying (roughly >100 words or repeated source sentences for a short chunk) instead of compressed phrase-level ideas?
+- **Arrows present?** Does each chunk have at least one meaningful arrow showing a real relationship, not just a list of nodes?
+- **Hidden material + honest timing?** In the synthesis gate, am I hiding the detailed notes, and am I recording only timing I actually observed (never claiming an unobserved "within 30 minutes")?
+- **Connections specific?** Am I about to accept generic domain labels instead of named concepts/relationships?
+- **Persisted?** Have I saved accepted chunk maps / synthesis / connections to `flow-notes-<slug>.state.md` before halting?
+
 ## Phase 1 — Learn Flow
 
 ### Explain
@@ -209,6 +221,34 @@ HALT.
 ### Evaluation
 
 Pass only if every answer names specific concepts or relationships. Generic domain labels fail. Save accepted answers.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Learn Flow quiz (Phase 1)
+- ✅ Passes — labels "the speaker links rising rates → policy response" as a flow-note.
+  Why: captures a relationship between ideas; 2/3 correct overall.
+- ❌ Fails — labels "the study was published in 1964 with 12,000 subjects" as a flow-note.
+  Why: that's a fact-note (dates/statistics), not argument flow.
+
+### Big Ideas + Arrows (Phase 2)
+- ✅ Passes — "scarcity → price signal → reallocation → efficiency gain" with one inline `?`.
+  Why: phrase-level nodes plus meaningful arrows showing how ideas connect.
+- ❌ Fails — "The author explains that when goods are scarce, prices rise, which signals producers to make more, leading to efficient allocation."
+  Why: transcription of a full sentence; no compression and no arrows.
+
+### Synthesis (Phase 3)
+- ✅ Passes — "The argument starts from scarcity, uses the price mechanism as evidence that markets self-correct, and concludes that central price-setting breaks the signal."
+  Why: 2–3 sentences describing movement from premise → evidence → conclusion.
+- ❌ Fails — "This was about supply, demand, and prices."
+  Why: a topic summary; describes what it covered, not how the argument moves.
+
+### Deep Connections (Phase 4)
+- ✅ Passes — "Connects to last week's lecture on Hayek's local-knowledge problem; weakest link is the assumption of low transaction costs — if those are high, the signal lags."
+  Why: names specific concepts and a real weakest-link consequence.
+- ❌ Fails — "Relates to economics I've studied and seems mostly solid."
+  Why: generic domain label with no specific concept or relationship.
 
 ## Alternate Modes
 

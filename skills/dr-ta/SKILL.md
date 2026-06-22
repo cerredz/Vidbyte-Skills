@@ -120,6 +120,18 @@ Every prediction and verification is user work. Follow this order:
 
 First failure names vagueness or evidence gap. Second failure points to the heading or passage without writing the answer.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting a prediction, a reading confirmation, a verdict, or the final synthesis? This turn evaluates that work; it does not also advance the cycle.
+- **Did the user do the work?** Did the user write the prediction / verdict / synthesis themselves, or am I about to write any of them?
+- **Prediction before reading, content hidden?** Am I about to reveal a section's body before its prediction gate passes? Show headings/structure and prior verdicts only — never unread content.
+- **Falsifiable, not a topic?** Is the prediction a claim that could be confirmed or refuted ("light is rate-limiting"), not "will discuss X"?
+- **Verdict cites evidence?** Am I about to accept confirmed/refuted/partial without a specific passage, quote, or precise locator?
+- **Evolution checked?** If predictions are not updating despite new evidence, did I issue the model-updating challenge?
+- **Persisted?** Have I saved each `Prediction → Verdict → Evidence → Revision` to `dr-ta-<slug>.state.md` before halting?
+
 ## Phase 1 — Prediction Rule
 
 ### Explain
@@ -221,6 +233,34 @@ Ask for one paragraph stating the actual argument, how predictions evolved, surp
 ### Evaluation
 
 Pass only if the synthesis is grounded in prediction evolution and states the actual argument. A generic summary without history fails. `--synthesis` loads a completed cycle artifact.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Testability quiz (Phase 1)
+- ✅ Passes — labels "CO₂ concentration limits the reaction rate" as testable.
+  Why: a claim a section could confirm or refute; 2/3 correct overall.
+- ❌ Fails — labels "the section will talk about photosynthesis" as testable.
+  Why: a topic, not a claim; nothing to confirm or refute.
+
+### Predict (per-section)
+- ✅ Passes — "I predict this section argues that temperature, not light, becomes the limiting factor above a threshold."
+  Why: a specific, falsifiable claim grounded in the visible headings.
+- ❌ Fails — "It'll cover the limiting factors of photosynthesis."
+  Why: restates the topic; unfalsifiable, so reading can't verify it.
+
+### Verify/Revise (per-section)
+- ✅ Passes — "Refuted ✗ — the text says light saturates first; see 'beyond 10,000 lux the rate plateaus' (para 3)."
+  Why: a verdict matched to a cited passage.
+- ❌ Fails — "Yeah, that was about right, confirmed."
+  Why: a verdict with no cited evidence; confidence is not verification.
+
+### Final synthesis
+- ✅ Passes — "I started predicting light was decisive; sections 2–3 refuted that and I revised to a multi-factor limit — the actual argument is that the limiting factor shifts with conditions."
+  Why: states the real argument and traces how predictions evolved.
+- ❌ Fails — "Good overview of photosynthesis limiting factors."
+  Why: generic summary with no prediction history.
 
 ## Alternate Modes
 
