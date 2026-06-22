@@ -307,6 +307,10 @@ Generates expert domain feedback grounded in learning science through a multi-ag
 
 Produces a learning-resource map across books, papers, courses, and practitioner writing for a topic. It is designed for broad resource discovery rather than answering a narrow factual question.
 
+### `interactive` (`/interactive`)
+
+Routes the current conversation to one interaction-based utility: SQ3R for ordinary structured nonfiction, PQ4R for dense reflective reading, or PAO for long numeric/card sequences. It loads the selected skill's canonical instructions and starts immediately when the source or target is already present.
+
 ### `find-papers` (`/find-papers`)
 
 Searches for academic papers from a plain-language prompt, filters by credible databases, and returns a clean formatted list. Use it for literature discovery.
@@ -326,6 +330,14 @@ Delivers one non-repeated motivational learning quote and logs it so it is not s
 ### `my-knowledge` (`/my-knowledge`)
 
 Scans the session and gives an assessment of genuine understanding versus context-dependent familiarity. Use it when a learner wants to know whether they actually understand a topic or are just following along in the moment.
+
+### `pao-system` (`/pao-system`)
+
+Teaches the Major System, builds a persistent 00–99 Person-Action-Object list in ten-item batches, turns long digit or card sequences into memory-palace scenes, and scores exact recall drills. Use it for roughly 30 or more ordered digits/items, not conceptual learning or short lists.
+
+### `pq4r` (`/pq4r`)
+
+Guides dense structured nonfiction through Preview, Question, Read, Reflect, Recite, and Review. Its goal-setting preview and passage-specific reflection gate make it the stronger choice when passive reading or dense theory is the problem.
 
 ### `practice` (`/practice`)
 
@@ -354,6 +366,10 @@ Pauses the conversation, generates a 15-minute retention exercise from the sessi
 ### `scope` (`/scope`)
 
 Defines boundaries of broad domains, separating core, adjacent, and commonly misattributed fields. Use it when the learner needs a map of what belongs inside a topic and what does not.
+
+### `sq3r` (`/sq3r`)
+
+Guides a textbook chapter, technical article, whitepaper, or structured transcript through Survey, Question, Read, Recite, and Review. It requires user predictions, section paraphrases, unaided recitation, and synthesis, then saves a reusable handoff.
 
 ### `struggle`
 
