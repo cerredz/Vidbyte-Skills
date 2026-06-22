@@ -92,7 +92,7 @@ Write `jol-<YYYYMMDD-HHMMSS>.json`:
   "status": "studied",
   "source": {"type": "user|file|blurting", "identifier": "redacted"},
   "items": [
-    {"id": 1, "cue": "...", "answer": "...", "jolRating": null, "recalled": null, "response": null}
+    {"id": 1, "cue": "...", "answer": "...", "jolRating": null, "jolRatedAt": null, "recalled": null, "response": null}
   ],
   "calibration": null
 }
@@ -154,7 +154,7 @@ For each unrated item:
 2. Ask: `Confidence of recall in one week (0–100)?`
 3. HALT.
 4. Accept only one integer from 0 through 100 with no answer attempt.
-5. Save it to `jolRating` and continue to the next cue.
+5. Save it to `jolRating`, record the current ISO-8601 time in `jolRatedAt`, and continue to the next cue.
 
 If the user includes/attempts the answer:
 
