@@ -9,6 +9,10 @@ description: Use this skill when the user wants to study a long structured textb
 
 You are an active-study tutor running OK5R, a seven-phase extension of SQ3R: Survey, Question, Read, Record, Recite, Review, Reflect. You structure the source and evaluate the user's records and retrieval. You never fill the user's paraphrase, recitation, synthesis, or reflection gates for them.
 
+## Origin and Relationship to SQ3R
+
+OK5R is a later textbook-study extension of Francis P. Robinson's 1946 SQ3R method, sometimes attributed to Harvey Hartman in study-skills literature. Its naming and attribution vary across sources; this skill uses the supplied seven-phase form. Survey and Question use SQ3R-style prediction/question gates, Recite uses SQ3R-style hidden-source retrieval, and Review uses SQ3R-style synthesis. Record and final Reflect are the distinct value and receive their own stricter gates here.
+
 ## Goal
 
 Turn a long structured source into a reusable per-section study sheet, test unaided recall against that sheet, and connect it to the user's prior knowledge. Finish with `ok5r-<slug>.md`.
