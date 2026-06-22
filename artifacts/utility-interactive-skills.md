@@ -41,9 +41,14 @@ Choose another skill type when:
 | [`/sq3r`](../skills/sq3r/SKILL.md) | A structured textbook chapter, technical article, whitepaper, or transcript should be understood and retained | Research papers, fiction, one-paragraph text, or quick lookup |
 | [`/pq4r`](../skills/pq4r/SKILL.md) | The same structured reading is dense, theoretical, or vulnerable to passive reading | Short/simple material where reflection overhead adds little |
 | [`/pao-system`](../skills/pao-system/SKILL.md) | Thirty or more ordered digits/items or a card deck must be memorized through numeric codes | Conceptual learning, ordinary short lists, or seven-digit numbers |
+| [`/mind-mapping`](../skills/mind-mapping/SKILL.md) | One topic should be brainstormed, planned, or reconstructed as a radial hierarchy of one-word cues | Sequential material or graphs whose relationships require labels |
+| [`/concept-mapping`](../skills/concept-mapping/SKILL.md) | A focus question should be answered through labeled propositions and cross-links | Free-form brainstorming, a one-center hierarchy, or sequential notes |
+| [`/progressive-summarization`](../skills/progressive-summarization/SKILL.md) | A captured note should become scannable and reusable months later | Real-time notes or deep comprehension practice |
+| [`/jol`](../skills/jol/SKILL.md) | Studied cue-answer items need delayed confidence judgments and a later calibration retest | Initial study, immediate recall practice, or fewer than five items |
+| [`/kwl`](../skills/kwl/SKILL.md) | Expository reading needs prior-knowledge activation, reading questions, and post-reading comparison | A standalone deep-reading workflow, fiction, or procedure manuals |
 | [`/interactive`](../skills/interactive/SKILL.md) | The user wants the best current interactive method selected from conversation context | Broad routing across every Vidbyte learning skill |
 
-The repository does not currently bundle `/feynman`, `/cornell-notes`, `/memory-palace`, `/rhyming-pegs`, `/major-system`, or `/dominic-system`. A skill may recommend one when it is the right technique, but it must check availability and never imply that an absent skill was installed.
+The repository does not currently bundle `/feynman`, `/cornell-notes`, `/memory-palace`, `/rhyming-pegs`, `/major-system`, or `/dominic-system`. A skill may recommend one when it is the right technique, but it must check availability and never imply that an absent skill was installed. Existing reasoning traces such as `mind-map-trace` and `concept-mapping-trace` are not aliases for the interactive Buzan/Novak learning protocols.
 
 ## Orientation Contract
 
@@ -153,6 +158,54 @@ On second and later failure:
 - never turn the hint into the answer.
 
 For scoring gates, define the denominator before evaluation. For example, a recitation score is `covered key points / total key points`, and fabricated claims disqualify the attempt even if coverage exceeds the percentage threshold.
+
+## Constraint-Preserving Maps and Graphs
+
+Visual-looking output is not enough. A mapping skill must preserve the information contract of the named method in both its display and its canonical text representation.
+
+- A Buzan mind map is one connected radial tree. Validate every branch as one keyword, preserve one parent per node and clockwise first-level order, and keep colors/images in a portable legend. ASCII is an approximation; state that physical organic curves are not rendered.
+- A Novak concept map answers a focus question. Validate concepts as nouns/noun phrases and every edge as a linking phrase that forms a readable proposition. Keep a canonical edge list because ASCII line crossings are ambiguous.
+- Reconstruction hides the accepted structure and scores against a denominator established before the gate. Never leak missing answers before the first retry.
+- Do not force one method to imitate the other. A radial tree with unlabeled branches is not a concept map; a multi-hub labeled graph is not a Buzan mind map.
+
+## Dependent-Layer Gates
+
+Some workflows transform one accepted layer into the only valid input for the next. Progressive Summarization is the model:
+
+```text
+Capture ──select sentences──> Bold ──select contained phrases──> Highlight ──paraphrase──> Micro-summary
+```
+
+Persist exact provenance between layers. A highlight outside accepted bold text fails even if it is important, and a micro-summary claim outside accepted highlights fails even if it appears elsewhere in the source. Alternate modes that stop early must be labeled partial; they cannot imply later layers passed.
+
+Selection ratios are gates, not suggestions. Define the eligible denominator, report the measured ratio, reject pathological selection (for example, over 40% bold), and point to an uncovered region without selecting content for the user.
+
+## Delayed and Longitudinal Gates
+
+A delay must be enforced from recorded wall-clock time, not from the user's assertion that time passed. Store `not_before`/due timestamps, check them on return, and halt while early. A host timer may improve UX but is not the source of truth.
+
+Longitudinal workflows such as JOL span separate sessions:
+
+1. persist complete cue/answer state;
+2. hide answers during confidence rating;
+3. preserve a due date and exact resume command;
+4. schedule a reminder only through a confirmed capability;
+5. distinguish predicted confidence from actual retest recall;
+6. report formulas, sample sizes, and early/late timing with the result.
+
+Never claim a Markdown/JSON write created a notification. Capability absence is a normal fallback, not permission to promise future execution.
+
+## Wrapper and Composition Methods
+
+Some methods frame another activity rather than replacing it. KWL owns pre-reading K/W and post-reading L/comparison, but it does not own a deep Read/Recite workflow.
+
+Composition must be staged:
+
+```text
+KWL K/W gates → explicit handoff to canonical reading skill → return to KWL L/comparison
+```
+
+Load the target skill's canonical file and preserve its required structure/gates. Do not say one method “replaces” phases when required source analysis or retrieval evidence would disappear. Record which method owns each accepted product and never run two active gates concurrently.
 
 ## Inputs and Modes
 
@@ -311,6 +364,26 @@ PQ4R mirrors SQ3R's shared mechanics but adds a goal/prediction before reading a
 
 The agent teaches a deterministic phonetic map and suggests concrete candidates. The user owns personal recognizability, selection, loci, and recall. Persistent mappings make later drills faster, but persistence raises privacy obligations.
 
+### Mind Mapping
+
+The agent renders and validates the tree; the user owns central imagery, every one-word branch cue, colors, and mental images. Reconstruction is the learning evidence. Phrase labels and relationship edges remain blocked even when they would make the prose easier to read.
+
+### Concept Mapping
+
+The user owns the focus question, concepts, and linking phrases. The agent validates every proposition and renders both a visual approximation and authoritative edge list. At least two defensible cross-links are required; lack of cross-links can diagnose method mismatch but never justify fabricated relationships.
+
+### Progressive Summarization
+
+The raw capture remains stable while each accepted layer constrains the next. The user selects sentences, then contained phrases, then writes the micro-summary. The agent calculates selectivity and overlap, preserves provenance, and labels any early stop partial.
+
+### Judgments of Learning
+
+Study, delayed prediction, and later recall are distinct states. Recorded timestamps enforce the delay; cue-only ratings never reveal or attempt answers. The retest reports bracket formulas and small samples, and reminders are best-effort only when a host confirms scheduling.
+
+### KWL
+
+K and W are authentic pre-reading products; L and W-to-L comparison are post-reading products. The agent protects that order and can stage a handoff to a canonical reading skill without duplicating or skipping its gates.
+
 ## Failure Modes and Anti-Patterns
 
 - **Questionnaire disguised as interaction:** the agent asks preferences, then completes the whole technique. Fix by gating user practice.
@@ -321,3 +394,8 @@ The agent teaches a deterministic phonetic map and suggests concrete candidates.
 - **Router drift:** the orchestrator paraphrases stale copies of target workflows. Fix by loading canonical `SKILL.md` files.
 - **Dead redirects:** an absent slash skill is presented as available. Fix through an availability check and plain-language fallback.
 - **Sensitive persistence:** a real card number appears in logs. Fix through warnings, placeholders, and default redaction.
+- **Constraint drift:** a mind map accepts phrases or a concept map accepts unlabeled edges. Fix with per-label/per-edge validators before rendering.
+- **Layer leakage:** highlights come from unbolded text or the micro-summary introduces an unhighlighted claim. Fix by preserving exact provenance and rejecting out-of-layer input.
+- **Fake delay/reminder:** the prompt accepts an early JOL or says a JSON due date will notify the user. Fix with wall-clock validation and capability-confirmed scheduling only.
+- **Retrospective K/W:** the user fills “prior knowledge” after reading. Fix with an order lock and honest restart rather than reconstructed hindsight.
+- **Concurrent composition:** KWL and SQ3R both ask active gates at once. Fix with a staged ownership handoff and one current gate.

@@ -309,7 +309,11 @@ Produces a learning-resource map across books, papers, courses, and practitioner
 
 ### `interactive` (`/interactive`)
 
-Routes the current conversation to one interaction-based utility: SQ3R for ordinary structured nonfiction, PQ4R for dense reflective reading, or PAO for long numeric/card sequences. It loads the selected skill's canonical instructions and starts immediately when the source or target is already present.
+Routes the current conversation to one installed version 5 interaction-based utility. It distinguishes structured/dense reading, numeric memory, radial brainstorming, relationship mapping, note distillation, metamemory calibration, and KWL framing; then loads the selected skill's canonical instructions and starts immediately when usable input is present.
+
+### `concept-mapping` (`/concept-mapping`)
+
+Runs Joseph Novak's focus-question concept-map protocol. It validates 8–15 concept nodes, requires a linking phrase on every edge, seeks at least two cross-links between branches, reads every proposition as a sentence, and saves an ASCII graph plus authoritative edge list.
 
 ### `find-papers` (`/find-papers`)
 
@@ -319,6 +323,14 @@ Searches for academic papers from a plain-language prompt, filters by credible d
 
 Surfaces domain-specific jargon, translates it into plain language, and builds vocabulary before a technical topic. Use it when jargon is blocking comprehension.
 
+### `jol` (`/jol`)
+
+Runs delayed Judgments of Learning after at least five cue-answer items have been studied. It enforces a five-minute delay, collects cue-only 0–100 future-recall ratings, persists a one-week retest, and charts predicted confidence against actual recall by bracket and across sessions.
+
+### `kwl` (`/kwl`)
+
+Runs Donna Ogle's Know–Want–Learned pre/post reading frame for expository material. It locks K and W before reading, requires specific L statements afterward, compares every question with learning, preserves follow-ups, and supports KWHL/KWLS extensions.
+
 ### `learn-from-video` (`/learn-from-video`)
 
 Runs a browser-controlled active learning session for a YouTube video. It extracts transcript structure, plans segments, asks checkpoint questions, and turns passive watching into active learning.
@@ -326,6 +338,10 @@ Runs a browser-controlled active learning session for a YouTube video. It extrac
 ### `motivate`
 
 Delivers one non-repeated motivational learning quote and logs it so it is not shown again. Use it sparingly; it is a lightweight learning support skill rather than a core technical workflow.
+
+### `mind-mapping` (`/mind-mapping`)
+
+Runs Tony Buzan's single-center radial mind-map protocol for brainstorming, planning, and reconstruction. It enforces one keyword per branch, 4–7 clockwise first-level branches, at least three colors, concrete images, and an 80% source-hidden reconstruction gate.
 
 ### `my-knowledge` (`/my-knowledge`)
 
@@ -342,6 +358,10 @@ Guides dense structured nonfiction through Preview, Question, Read, Reflect, Rec
 ### `practice` (`/practice`)
 
 Creates high-volume practice questions emphasizing pattern recognition, variation, and creative intelligence. Use it when repetition, transfer, and fluency matter.
+
+### `progressive-summarization` (`/progressive-summarization`)
+
+Runs Tiago Forte's four dependent distillation layers for captured notes: raw Capture, selective Bold sentences, Highlights contained inside the bold layer, and an original 1–3 sentence Micro-summary. It enforces selection ratios, source overlap checks, and future discoverability tests.
 
 ### `question` (`/question`)
 
