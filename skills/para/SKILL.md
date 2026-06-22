@@ -90,6 +90,8 @@ If weekly review is overdue, still capture a new note identifier safely, but blo
 
 Preserve malformed/conflicting state and recover to a timestamped path. Prefer atomic writes.
 
+If writes are unavailable, provide the complete updated JSON inline for manual saving and warn that cross-session review/audit state is not durable.
+
 ## Failure Modes and Success
 
 - Everything in Resources: challenge expected reuse and stale age.

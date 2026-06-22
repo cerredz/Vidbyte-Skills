@@ -94,3 +94,5 @@ Show Calendar first. Ask context/tools, time available, energy, then priority. F
 ```
 
 Prefer atomic writes; preserve malformed/conflicting state. Warn before sensitive commitments. Success: inbox clarified, every Project actionable, Weekly Review current, and daily engagement selects a feasible action.
+
+If writes are unavailable, provide the complete updated state inline for manual saving and warn that the system cannot be trusted across sessions until it is persisted.

@@ -78,4 +78,6 @@ Ask the user to state one concrete next study action. HALT. Pass only when speci
 
 Save `solo-<topic>-<timestamp>.md` with versioned frontmatter, question, verbatim user response, evidence-based classification, misconceptions, prescription/action, and reassessment links. Warn before saving sensitive content; recover conflicts safely.
 
+If writes are unavailable, provide the complete artifact inline and state that `--reassess`/`--history` cannot discover it automatically.
+
 Success requires sufficient unaided evidence, checklist-based classification with citations, and a committed next step.
