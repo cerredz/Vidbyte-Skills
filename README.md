@@ -249,6 +249,7 @@ Skills for active learning, comprehension, retention, and research.
 | Skill | Command | Description |
 |-------|---------|-------------|
 | docs-tldr | `/docs-tldr <library>` | Fetches official documentation for any library and produces a minimal cheat sheet: 5 core concepts, 10 common operations with code, 3 common mistakes, and a navigation map |
+| study-guide | `/study-guide <source>` | Turns a paper, chapter, transcript, or web page into a source-grounded study artifact with explanations, worked examples, productive-struggle checks, review questions, and next steps |
 | unit | `/unit <topic>` | Decomposes a large complex subject into its smallest meaningful atomic components; pure decomposition, no roadmap |
 
 ### Roleplay
