@@ -97,6 +97,11 @@ Included skills:
 | Skill | Command | Best use |
 |-------|---------|----------|
 | interactive | `/interactive` | Select and immediately run the best installed interactive utility from the current conversation |
+| mind-mapping | `/mind-mapping` | Build and reconstruct a Buzan radial tree with one keyword per branch, colors, and images |
+| concept-mapping | `/concept-mapping` | Answer a focus question through Novak concept nodes, labeled propositions, and cross-links |
+| progressive-summarization | `/progressive-summarization` | Distill a captured note through Capture, Bold, Highlight, and Micro-summary layers |
+| jol | `/jol` | Rate delayed confidence after study, retest in one week, and chart recall calibration |
+| kwl | `/kwl` | Frame expository reading with Know/Want before reading and Learned/comparison afterward |
 | sq3r | `/sq3r` | Retain ordinary structured nonfiction through Survey, Question, Read, Recite, and Review |
 | pq4r | `/pq4r` | Read dense or theoretical structured material with explicit goal-setting and reflection |
 | pao-system | `/pao-system` | Build and drill a 00–99 Person-Action-Object system for long numeric or card sequences |
@@ -238,21 +243,26 @@ Skills for active learning, comprehension, retention, and research.
 | blindspots | `/blindspots` | Surfaces hidden principles, tradeoffs, or considerations the user hasn't named yet using targeted guiding questions |
 | compression-check | background | Silent background coach that asks you to explain what you just built; evaluates your response and submits a learning record to Vidbyte |
 | concept-coverage | `/concept-coverage` | Background tracker that monitors how deeply you engage with a concept; export as a JSON learning artifact at end of session |
+| concept-mapping | `/concept-mapping` | Builds a Novak concept graph from a focus question with labeled propositions, hierarchy, and cross-links |
 | daily-review | `/daily-review` | Extracts high-risk session concepts at end of a work session, appends them to a log, and sends them to Vidbyte for spaced review |
 | explain | `/explain` | Rebuilds explanations from first principles; diagnoses which understanding layer is broken and fills from the lowest solid floor |
 | explain-away-others | `/explain-away-others` | Before accepting your approach, identifies 2–3 competitive alternatives and requires mechanism-level explanations for why each fails |
 | feedback-generator | `/feedback` | Multi-agent harness that generates expert domain feedback grounded in 180+ learning-science papers through iterative self-refinement |
 | find-papers | `/find-papers` | Searches for academic papers via plain-language prompt, filters by credible databases, and returns a clean formatted list |
 | finding-resources | `/find-resource` | Produces a comprehensive learning-resource map across books, papers, courses, and practitioner writing for any topic |
-| interactive | `/interactive` | Routes the current conversation to SQ3R, PQ4R, or PAO and starts the selected gated workflow |
+| interactive | `/interactive` | Routes the current conversation to the best installed version 5 interactive utility and starts its canonical gated workflow |
 | jargon | `/jargon` | Surfaces domain-specific jargon, translates to plain language, and builds vocabulary before engaging a technical topic |
+| jol | `/jol` | Runs delayed cue-only confidence ratings, a one-week retest, and longitudinal calibration history |
+| kwl | `/kwl` | Wraps expository reading with Know/Want activation, Learned consolidation, and unanswered-question follow-up |
 | learn-from-video | `/learn-from-video` | Browser-controlled active learning session for a YouTube video with transcript-based segment planning and checkpoint questions |
 | misconceptions | `/misconceptions` | Silently tracks faulty mental models during the session and writes an end-of-session misconception log |
+| mind-mapping | `/mind-mapping` | Enforces Buzan's single-center, one-keyword radial method with color/image assignments and reconstruction |
 | motivate | `/motivate` | Delivers one non-repeated motivational learning quote and logs it so it is never shown again |
 | my-knowledge | `/my-knowledge` | Scans the session to give an honest assessment of genuine understanding vs. context-dependent familiarity |
 | pao-system | `/pao-system` | Builds and drills a persistent 00–99 Person-Action-Object memory system for long ordered sequences |
 | pq4r | `/pq4r` | Guides dense structured reading through Preview, Question, Read, Reflect, Recite, and Review |
 | practice | `/practice` | Creates high-volume practice questions that emphasize pattern recognition, variation, and creative intelligence |
+| progressive-summarization | `/progressive-summarization` | Turns captured notes into future-scannable artifacts through four dependent selective layers |
 | question | `/question` | Produces detailed five-section answers (What, Why, Critical Thinking, Best Practices, Resources) to counter shallow responses in coding harnesses |
 | question-builder | `/question-builder` | Background tracker that logs retention and future-direction questions throughout the session; export as a JSON artifact |
 | read-paper | `/read-paper` | Reads a research paper (arXiv, DOI, PDF, Semantic Scholar, PubMed), strips noise, extracts a 6-field core signal, and runs a learning gate check |
