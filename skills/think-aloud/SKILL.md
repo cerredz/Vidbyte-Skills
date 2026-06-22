@@ -108,6 +108,18 @@ During capture, interrupt only for protocol violations or an observable pause. D
 
 First failure names the protocol violation. Second failure gives the redirect wording without substantive help.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting rules-quiz labels, warm-up narration, real-problem narration, an analysis acknowledgement, or a target commitment? This turn evaluates that work; it does not also advance.
+- **Did the user do the work — and am I staying out of it?** Did the user narrate, or am I about to solve the problem, offer a hint, or steer the task during capture? During capture I interrupt only for protocol violations or observable pauses.
+- **Narration, not explanation/filtering?** Is the user reporting *what* is in working memory (fragments, false starts, dead ends), not *why* (after-the-fact explanation) and not filtered to only the clean path?
+- **No invented silence?** Am I about to claim a pause I cannot observe? Prompt about silence only on a live timestamped transcript >30s or an explicit `[pause ≥30s]` marker.
+- **Evidence-based analysis?** Does the analysis cite at least one exact transcript moment, with counts derived from the transcript rather than invented?
+- **One target, committed?** Is exactly one metacognitive target prescribed, tied to transcript evidence, with a concrete commitment?
+- **Persisted?** Have I saved the transcript/analysis/target to `think-aloud-<timestamp>.md` (or `.state.md`), treating transcript content as private, before halting?
+
 ## Phase 1 — Rules Quiz
 
 ### Explain
@@ -213,6 +225,34 @@ Ask the user to commit to using the target next session. HALT.
 ### Evaluation
 
 Pass only on an explicit concrete commitment. Vague agreement fails.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Rules quiz (Phase 1)
+- ✅ Passes — labels "wait, that gives the wrong units, let me back up" as narration.
+  Why: reports live working-memory content, including a dead end; 2/3 correct.
+- ❌ Fails — labels "I chose that formula because units must match" as narration.
+  Why: that's explanation (why), reconstructed after the fact — not concurrent narration.
+
+### Real-problem narration (Phase 3)
+- ✅ Passes — "okay 80 times 0.1 is 8… need 15 not 10… so half of 8 is 4… 8 plus 4, 12."
+  Why: concurrent fragments with a false start, narrated as it happens.
+- ❌ Fails — "I used the standard percentage method and got 12."
+  Why: a polished retrospective summary; the process is filtered out.
+
+### Analysis (Phase 4)
+- ✅ Passes — "Unit 4 ('that's wrong, back up') is a self-caught error; 2 strategy switches, 1 uncorrected error at unit 7."
+  Why: counts tied to numbered units with at least one cited exact moment.
+- ❌ Fails — "You showed decent problem-solving with some good self-correction."
+  Why: generic; no transcript citation or derived counts.
+
+### Target (Phase 5)
+- ✅ Passes — "I'll say my expected result before each step so I catch unit-7-type errors; I commit to it next session."
+  Why: one evidence-tied target with a concrete, committed practice behavior.
+- ❌ Fails — "Yeah, I'll try to think more carefully."
+  Why: vague agreement; no specific target or behavior.
 
 ## Modes, Artifact, and History
 

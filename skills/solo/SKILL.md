@@ -108,6 +108,18 @@ User explanations must be unaided. Follow this order:
 
 Do not upgrade fluency or jargon without relationships. First failure names the missing criterion. Second failure gives a structural hint without writing the answer.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting level labels, an unaided explanation, an acknowledgement of the classification, or a committed next step? This turn evaluates that work; it does not also advance.
+- **Did the user do the work?** Did the user produce the explanation in their own words, or am I about to write it / supply the concepts for them?
+- **Unaided and long enough?** Is the explanation reference-free and at least three sentences before I classify? Do not classify a response too short to evaluate.
+- **Evidence-based level, no fluency upgrade?** Am I citing specific phrases from the response for the assigned level, and am I resisting upgrading Multi-structural to Relational just because the wording is fluent or jargon-rich (Relational needs explained relationships)?
+- **Misconceptions separate; next step matches level?** Are factual misconceptions noted apart from structure, and is the prescribed next step specific and matched to the diagnosed level (not "study more")?
+- **Reassessment uses a new question?** On `--reassess`, am I using a materially different question rather than rewarding memorized phrasing?
+- **Persisted?** Have I saved the question, verbatim response, evidence-based level, and committed action to `solo-<topic>-<timestamp>.md` before finishing?
+
 ## Phase 1 — Learn Levels
 
 ### Explain
@@ -210,6 +222,34 @@ Locate the latest topic artifact. Generate a materially different relational or 
 ### `--history <topic>`
 
 Scan matching local artifacts and show date, question ID, level, evidence summary, and action. Report missing or small history honestly. Do not infer past levels from conversation.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Learn Levels quiz (Phase 1)
+- ✅ Passes — labels "lists photosynthesis inputs and outputs but never links them" as Multi-structural.
+  Why: several disconnected concepts = Multi-structural; 2/3 correct.
+- ❌ Fails — labels the same response Relational because it "sounds knowledgeable."
+  Why: fluency without explained relationships is not Relational.
+
+### Elicit explanation (Phase 2)
+- ✅ Passes — three+ reference-free sentences explaining the concepts and how they relate.
+  Why: enough unaided material to classify.
+- ❌ Fails — "Photosynthesis converts light to energy." (one sentence) or a copied textbook line.
+  Why: too short / not unaided; cannot be classified.
+
+### Classify with evidence (Phase 3)
+- ✅ Passes — "Relational: 'because the stomata close, CO₂ drops, which limits the Calvin cycle' explicitly links three concepts."
+  Why: the level is assigned with a quoted phrase showing integration.
+- ❌ Fails — "This is Relational thinking, good depth."
+  Why: no cited phrase; assigns a level without evidence (and risks the fluency upgrade).
+
+### Next step (Phase 4)
+- ✅ Passes — "I'll draw a diagram linking light, water, and CO₂ to the two reaction stages."
+  Why: specific and matched to a Multi→Relational gap.
+- ❌ Fails — "I'll study photosynthesis more."
+  Why: vague; not a concrete, level-matched action.
 
 ## State and Resume
 

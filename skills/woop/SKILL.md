@@ -105,6 +105,18 @@ Allow 10–15 minutes.
 
 Order is mandatory. Explain, ask, **HALT**, evaluate, persist accepted wording, and advance. Do not invent the user's obstacle. First failure names the failed criterion. Second failure gives a targeted hint without supplying the element. Passive agreement and `done` never pass.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate, in order?** Did I HALT last turn awaiting the Wish, Outcome, Obstacle, Plan, full-WOOP confirmation, or follow-up answers — and am I keeping the mandatory W→O→O→P order?
+- **Did the user do the work?** Did the user produce the wish / outcome / obstacle / plan, or am I about to invent the obstacle, write the plan, or choose the goal for them?
+- **Obstacle is internal?** Am I about to accept an external circumstance (or a broad label like "lazy") instead of the user's specific internal response (avoid, freeze, resent, distract)?
+- **Plan is a real if-then?** Is the plan `If <trigger>, then I will <immediately executable action>` that directly addresses the obstacle and reduces willpower demand — not "try harder" or "focus"?
+- **Wish feasible + Outcome vivid?** Is the wish challenging but controllable and timeframed, and is the outcome a vivid result-focused scene (not "feel good")?
+- **Safety + separate follow-up?** If content suggests acute risk or a clinical issue, did I pause WOOP and route to professional support? At follow-up, am I measuring goal outcome and plan execution separately?
+- **Persisted?** Have I saved accepted W/O/O/P wording and follow-up data to `woop-<slug>-<timestamp>.md` (allowing redaction) before halting?
+
 ## Phase 1 of 5 — Wish
 
 ### Explain
@@ -235,6 +247,34 @@ HALT.
 ### Evaluation
 
 Refine the Obstacle when misidentified and the Plan when unexecuted or infeasible. Do not judge outcome alone. `--refine` uses a prior report and reruns the relevant gates. `--history` scans artifacts and reports achieved and plan-executed combinations with sample sizes.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Wish (Phase 1)
+- ✅ Passes — "I want to run a 5K without stopping by the end of next month."
+  Why: specific, challenging-but-achievable, controllable, and timeframed.
+- ❌ Fails — "I want to be more confident" / "I want to be a millionaire."
+  Why: a vague identity wish / not controllable on the timeframe.
+
+### Internal Obstacle (Phase 3)
+- ✅ Passes — "When I get home tired, I tell myself I'll run tomorrow and sit down instead."
+  Why: a specific internal trigger-and-response pattern.
+- ❌ Fails — "The weather's been bad" / "I'm just lazy."
+  Why: external circumstance / a broad label, not a specific internal pattern.
+
+### Plan (Phase 4)
+- ✅ Passes — "If I get home tired and want to skip, then I will put on my running shoes and walk to the door."
+  Why: a directly matched if-then with a minimum-viable action that cuts willpower demand.
+- ❌ Fails — "If I'm tired, then I will try harder to stay motivated."
+  Why: "try harder" is willpower, not a prepared executable action.
+
+### Follow-up (Phase 6)
+- ✅ Passes — "Goal: partial — ran 3 of 4 weeks. Plan executed twice; the other times I never noticed the trigger."
+  Why: goal outcome and plan execution reported separately, enabling refinement.
+- ❌ Fails — "It kind of worked out okay I think."
+  Why: conflates outcome and execution; nothing to refine.
 
 ## State and Resume
 

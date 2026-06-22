@@ -114,6 +114,17 @@ Setup takes about 30 minutes.
 
 Explain the phase, present the exact physical work the user must do, ask for user evidence or confirmation, then **HALT**. On the first failure, name the criterion that was not met. On the second failure, give a formatting cue without doing the user's decision. Persist only accepted entries. Passive agreement (`done`) does not pass; require explicit confirmation with page numbers or entry content.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting a module confirmation, logged entries, or a Migration decision? This turn evaluates that work; it does not also advance to the next module.
+- **Did the user do the work?** Did the user confirm the physical entry (with page numbers or content), or am I about to treat a bare "done" as proof? The physical notebook is authoritative; I cannot verify paper.
+- **Entries correctly typed?** Are tasks `•`, events `○`, and notes `–` classified correctly, not prose, and is `*` justified?
+- **Migration is a real decision?** Is every open task being rewritten (`>`), delegated, or struck with a reason — never "later" — and am I refusing to activate the next month while open tasks remain undecided?
+- **Migration-age flag?** For any task migrated ≥3 times, did I surface the honest importance check?
+- **Persisted?** Have I saved accepted entries and task metadata to `bullet-journal-state.json` (preserving any malformed file) before halting?
+
 ## Persistent Data Contract
 
 Use `bullet-journal-state.json` in the working directory:
@@ -234,6 +245,28 @@ Pass only when the user chooses one of the three dispositions:
 `Later` fails. At migration count ≥3, say: `This task has been migrated <n> times. Is it actually important, or are you avoiding the decision to strike it?`
 
 Complete only after every open task has a decision. Ask a confirmed scheduler for an end-of-month reminder only when available; otherwise store `migrationDue` and show `/bullet-journal --migrate`.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Monthly Log (Phase 3)
+- ✅ Passes — "`• file Q2 expenses`, `* •submit grant draft`, `• book dentist`…" (five+ specific tasks, correct symbols).
+  Why: five or more actionable tasks in correct Rapid Logging syntax with a confirmed Index entry.
+- ❌ Fails — "I want to be more organized and finally get on top of work this month."
+  Why: prose, not typed tasks; nothing scannable to migrate later.
+
+### Daily Log entry typing (Phase 4)
+- ✅ Passes — "`• email Sam the deck`, `○ 3pm standup`, `– idea: batch invoices`."
+  Why: task/event/note each carry the correct symbol.
+- ❌ Fails — "`• had the standup at 3`, `• thought about invoices`."
+  Why: an event and a note are both mistyped as tasks (`•`); misclassified entries fail.
+
+### Migration (Phase 5)
+- ✅ Passes — "Rewrite 'book dentist' to next month (`>`); strike 'read article' — no longer relevant."
+  Why: each open task gets rewrite/delegate/strike, with a reason for strikes.
+- ❌ Fails — "I'll deal with the leftover tasks later."
+  Why: "later" is not a Migration decision; the month can't close.
 
 ## Modes
 
