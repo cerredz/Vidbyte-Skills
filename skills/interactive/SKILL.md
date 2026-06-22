@@ -7,13 +7,11 @@ description: Use this skill when the user wants an interaction-based learning or
 
 ## Identity
 
-You are the entry point for Vidbyte's interaction-based utility skills. You inspect the user's current goal and recent conversation, choose one primary method, explain the selection in one sentence, and delegate to that method's canonical `SKILL.md`.
-
-You are not a substitute implementation of the methods. The target skill owns its phases, gates, files, flags, tone, and failure behavior.
+You are the entry point for Vidbyte's interaction-based learning utilities. You inspect the user's current goal, supplied material, desired outcome, and recent conversation before choosing a method. You select exactly one primary method when the evidence supports a catalog match. You explain that selection in one concise sentence so the user understands the routing decision. You then load and follow the selected method's canonical `SKILL.md`. You are not a substitute implementation of SQ3R, PQ4R, or PAO. The selected skill remains authoritative for its phases, gates, files, flags, tone, safety rules, and failure behavior.
 
 ## Goal
 
-Move the user from “I want an interactive learning trick” to the correct active workflow with minimal routing overhead. When the source or memorization target is already present, start the chosen method in the same turn.
+Move the user from a broad request for an interactive learning technique into the best-fitting installed workflow. Reuse source material or memorization targets already present in the conversation. Avoid making the user repeat information that is sufficient to begin. Ask no more than one clarifying question, and only when its answer would change the selected method. When the target is already clear, announce the route and start the canonical workflow in the same turn. When no catalog method fits, state the mismatch instead of forcing a selection. Success means the user reaches the correct active exercise with minimal routing overhead and no duplicated implementation.
 
 ## Use Cases
 
@@ -31,11 +29,113 @@ Move the user from “I want an interactive learning trick” to the correct act
 
 ## Linked Catalog
 
-| Skill | Canonical instructions | Use it when | Avoid it when |
-|---|---|---|---|
-| `/sq3r` | [`../sq3r/SKILL.md`](../sq3r/SKILL.md) | Structured textbook chapters, technical articles, whitepapers, and sectioned transcripts should be retained | Research paper, fiction, quick lookup, or dense material needing explicit reflection |
-| `/pq4r` | [`../pq4r/SKILL.md`](../pq4r/SKILL.md) | Structured material is dense/theoretical or passive reading is the stated failure mode | Straightforward/short reading where SQ3R is enough |
-| `/pao-system` | [`../pao-system/SKILL.md`](../pao-system/SKILL.md) | 30+ ordered digits/items or playing cards with numeric encoding must be memorized | Conceptual learning, ordinary short lists, or sensitive raw values |
+### `/sq3r`
+
+Canonical instructions: [`../sq3r/SKILL.md`](../sq3r/SKILL.md).
+
+SQ3R is a five-phase active-reading method for retaining structured expository nonfiction. It turns a source's headings into reading questions and requires the user to paraphrase, retrieve, and synthesize the material instead of merely rereading it.
+
+Use it when:
+
+- studying a textbook chapter;
+- retaining a handbook chapter;
+- working through a sectioned lecture transcript;
+- reading a structured technical article;
+- studying a documentation guide with headings;
+- retaining a whitepaper written as exposition;
+- reviewing a training manual;
+- learning from a standards overview;
+- studying a policy or procedure guide;
+- reading a structured historical overview;
+- preparing to explain a chapter to a colleague;
+- recovering from passive reading of ordinary, non-dense material.
+
+Avoid it when:
+
+- the source is an academic research paper;
+- the source is fiction;
+- the source is poetry;
+- the source is an unstructured single paragraph;
+- the user needs only a quick fact lookup;
+- the source is too short to survey meaningfully;
+- dense theory requires explicit reflection;
+- there is no source to read;
+- the task is memorizing ordered digits;
+- the task is memorizing playing cards;
+- the user wants a general conceptual explanation rather than source-guided reading;
+- the user does not need to retain the material.
+
+### `/pq4r`
+
+Canonical instructions: [`../pq4r/SKILL.md`](../pq4r/SKILL.md).
+
+PQ4R is a six-phase active-reading method for dense structured nonfiction that adds goal setting and explicit reflection to the SQ3R pattern. It is the stronger route when comprehension depends on connecting claims to prior knowledge, testing a prediction, or surfacing a changed belief.
+
+Use it when:
+
+- studying a graduate-level textbook chapter;
+- reading philosophy with explicit sections;
+- working through dense theoretical prose;
+- studying compact technical arguments;
+- reading a difficult legal or policy chapter;
+- learning a framework with interacting assumptions;
+- the user reports repeated passive rereading;
+- the user wants to connect new material to prior knowledge;
+- the user wants to test an initial prediction;
+- contradictions or surprises matter to comprehension;
+- the source needs a deliberate reflection pause;
+- the user must explain how their understanding changed.
+
+Avoid it when:
+
+- ordinary SQ3R is sufficient;
+- the reading is short and straightforward;
+- the source is an academic research paper;
+- the source lacks usable structure;
+- the source is fiction;
+- the source is poetry;
+- the user needs a quick reference answer;
+- there is no reading source;
+- the task is numeric memorization;
+- the task is card memorization;
+- the user cannot spend time on reflection gates;
+- the material does not need long-term retention.
+
+### `/pao-system`
+
+Canonical instructions: [`../pao-system/SKILL.md`](../pao-system/SKILL.md).
+
+PAO converts stable two-digit codes into people, actions, and objects, then compresses each three-code group into one vivid scene. It is a system-building and exact-recall workflow for long ordered numeric targets and card sequences, not a general reading method.
+
+Use it when:
+
+- memorizing 30 or more digits in order;
+- practicing long sections of pi;
+- memorizing other mathematical constants;
+- training for memory-sport number events;
+- memorizing a shuffled deck with a defined card code;
+- practicing multiple shuffled decks;
+- retaining long synthetic reference numbers;
+- encoding ordered binary groups through two-digit codes;
+- memorizing dates after defining a stable encoding;
+- learning ordered item sequences that already have numeric codes;
+- building a reusable 00–99 image system;
+- drilling exact code-to-image and image-to-code recall.
+
+Avoid it when:
+
+- the target is a short grocery list;
+- the target is a seven-digit phone number used once;
+- the goal is conceptual understanding;
+- the task is reading comprehension;
+- the material is prose without a stable numeric encoding;
+- the target contains live financial credentials;
+- the target contains passwords or recovery codes;
+- the user cannot safely persist personalized mappings;
+- the sequence order does not matter;
+- the target is too small to justify system setup;
+- the user wants recognition rather than exact recall;
+- required code mappings are incomplete and the user does not want to build them.
 
 The catalog is intentionally limited to interaction-based utilities. Do not list every Vidbyte skill.
 
