@@ -84,8 +84,8 @@ Included skills:
 
 ## Install Version 5 Interactive Utility Skills
 
-Version 5 contains guided learning and memory methods that teach a technique,
-halt for user work, evaluate it, and resume only after each gate passes.
+Version 5 contains guided reading and memory methods that teach a technique,
+halt for user work, evaluate it, and produce reusable local artifacts.
 
 ```bash
 npx vidbyte-skills --version 5
@@ -96,10 +96,14 @@ Included skills:
 
 | Skill | Command | Best use |
 |-------|---------|----------|
+| chain-method | `/chain-method` | Short ordered lists of roughly 5–20 items linked by vivid interactions |
+| dominic-system | `/dominic-system` | Long numeric or card sequences encoded through initial-based People and Actions |
 | interactive | `/interactive` | Select and immediately run the best installed interactive utility from the current conversation |
-| sq3r | `/sq3r` | Retain ordinary structured nonfiction through Survey, Question, Read, Recite, and Review |
-| pq4r | `/pq4r` | Read dense or theoretical structured material with explicit goal-setting and reflection |
+| ok5r | `/ok5r` | Long structured chapters that need a reusable in-reading study record |
 | pao-system | `/pao-system` | Build and drill a 00–99 Person-Action-Object system for long numeric or card sequences |
+| pq4r | `/pq4r` | Read dense or theoretical structured material with explicit goal-setting and reflection |
+| reap | `/reap` | Argumentative sources where the author's framing should be encoded before annotation |
+| sq3r | `/sq3r` | Retain ordinary structured nonfiction through Survey, Question, Read, Recite, and Review |
 
 ## Install Specific Skills
 
@@ -136,6 +140,7 @@ vidbyte-skills [skill-name ...] [options]
 --skill my-skill,other-skill
 --version 1
 --version 2
+--version 5
 --version all
 --mode copy
 --mode link
@@ -236,9 +241,11 @@ Skills for active learning, comprehension, retention, and research.
 | Skill | Command | Description |
 |-------|---------|-------------|
 | blindspots | `/blindspots` | Surfaces hidden principles, tradeoffs, or considerations the user hasn't named yet using targeted guiding questions |
+| chain-method | `/chain-method` | Builds vivid item-to-item links for exact forward recall of short ordered lists; warns when length or random access needs another method |
 | compression-check | background | Silent background coach that asks you to explain what you just built; evaluates your response and submits a learning record to Vidbyte |
 | concept-coverage | `/concept-coverage` | Background tracker that monitors how deeply you engage with a concept; export as a JSON learning artifact at end of session |
 | daily-review | `/daily-review` | Extracts high-risk session concepts at end of a work session, appends them to a log, and sends them to Vidbyte for spaced review |
+| dominic-system | `/dominic-system` | Builds an initial-based 00–99 Person/Action system for long numbers and card sequences, then scores exact decoding drills |
 | explain | `/explain` | Rebuilds explanations from first principles; diagnoses which understanding layer is broken and fills from the lowest solid floor |
 | explain-away-others | `/explain-away-others` | Before accepting your approach, identifies 2–3 competitive alternatives and requires mechanism-level explanations for why each fails |
 | feedback-generator | `/feedback` | Multi-agent harness that generates expert domain feedback grounded in 180+ learning-science papers through iterative self-refinement |
@@ -250,12 +257,14 @@ Skills for active learning, comprehension, retention, and research.
 | misconceptions | `/misconceptions` | Silently tracks faulty mental models during the session and writes an end-of-session misconception log |
 | motivate | `/motivate` | Delivers one non-repeated motivational learning quote and logs it so it is never shown again |
 | my-knowledge | `/my-knowledge` | Scans the session to give an honest assessment of genuine understanding vs. context-dependent familiarity |
+| ok5r | `/ok5r` | Guides long structured reading through Survey, Question, Read, Record, Recite, Review, and Reflect to produce a reusable study sheet |
 | pao-system | `/pao-system` | Builds and drills a persistent 00–99 Person-Action-Object memory system for long ordered sequences |
 | pq4r | `/pq4r` | Guides dense structured reading through Preview, Question, Read, Reflect, Recite, and Review |
 | practice | `/practice` | Creates high-volume practice questions that emphasize pattern recognition, variation, and creative intelligence |
 | question | `/question` | Produces detailed five-section answers (What, Why, Critical Thinking, Best Practices, Resources) to counter shallow responses in coding harnesses |
 | question-builder | `/question-builder` | Background tracker that logs retention and future-direction questions throughout the session; export as a JSON artifact |
 | read-paper | `/read-paper` | Reads a research paper (arXiv, DOI, PDF, Semantic Scholar, PubMed), strips noise, extracts a 6-field core signal, and runs a learning gate check |
+| reap | `/reap` | Guides Read, Encode, Annotate, and Ponder for sources where accurately representing the author's argument matters more than fact extraction |
 | research | `/research` | Answers grounded in verified knowledge with explicit source attribution and epistemic labeling on every claim; peer-reviewed sources only |
 | retain | `/retain` | Pauses the conversation, generates a 15-minute retention exercise from the session, and submits it to Vidbyte |
 | scope | `/scope` | Defines the boundaries of broad domains, highlighting core, adjacent, and commonly misattributed fields |
