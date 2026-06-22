@@ -128,6 +128,41 @@ npx vidbyte-learning-skills --version 6
 | think-aloud | `/think-aloud` | Analyzing concurrent problem-solving narration |
 | woop | `/woop` | Mental contrasting and executable if-then plans |
 
+## Install Version 7 Reflection, Critical-Thinking, and Goal Skills
+
+Version 7 contains guided methods that require user-produced reflection, evidence judgments, maps, forecasts, or goal commitments at explicit gates.
+
+~~~bash
+npx vidbyte-skills --version 7
+npx vidbyte-learning-skills --version 7
+~~~
+
+| Skill | Command | Best for |
+|---|---|---|
+| dewey-act-of-thought | /dewey-act-of-thought | Turn a felt difficulty into a defined, testable inquiry |
+| boud-reflection | /boud-reflection | Process experience and affect before integrating learning |
+| moon-reflection-map | /moon-reflection-map | Assess and deepen the demonstrated level of a reflective entry |
+| van-manen-reflection | /van-manen-reflection | Move one episode from technical efficiency through practical assumptions to critical justice |
+| johns-structured-reflection | /johns-structured-reflection | Examine an episode through Looking In and five Looking Out ways of knowing |
+| schon-reflective-conversation | /schon-reflective-conversation | Respond to surprise through a frame, experimental move, and the situation's back-talk |
+| gibbs-reflective-cycle | /gibbs-reflective-cycle | Write a differentiated six-stage debrief ending in next-time behavior |
+| borton-reflection | /borton-reflection | Complete the fastest useful facts-to-meaning-to-action debrief |
+| brookfield-four-lenses | /brookfield-four-lenses | Triangulate practice assumptions across four distinct evidence sources |
+| mezirow-perspective-transformation | /mezirow-perspective-transformation | Map a genuine disorienting dilemma across a longitudinal perspective change |
+| toulmin-model | /toulmin-model | Decompose an argument around its inferential warrant |
+| baloney-detection-kit | /baloney-detection-kit | Screen one empirical claim with source-accurate evidentiary tools and fallacies |
+| paul-elder-framework | /paul-elder-framework | Audit reasoning through eight Elements of Thought and nine Intellectual Standards |
+| community-philosophical-inquiry | /community-philosophical-inquiry | Conduct symmetric participant-led inquiry with reasons, challenges, and revision |
+| lamp-argument-mapping | /lamp-argument-mapping | Build skill through repeated contention-reason-objection maps |
+| reference-class-forecasting | /reference-class-forecasting | Adjust an intuitive forecast toward outcomes from comparable past cases |
+| fisher-scriven-analysis | /fisher-scriven-analysis | Evaluate premise acceptability separately from inferential sufficiency |
+| halpern-argument-analysis | /halpern-argument-analysis | Close argument analysis with an explicit accept, reject, or suspend disposition |
+| ennis-critical-thinking | /ennis-critical-thinking | Audit clarification, credibility, inference, alternatives, and self-monitoring |
+| twardy-evidence-mapping | /twardy-evidence-mapping | Map evidence credibility and relevance into an auditable support judgment |
+| goal-setting-theory | /goal-setting-theory | Set a specific difficult goal with commitment, feedback, and complexity safeguards |
+| implementation-intentions | /implementation-intentions | Bind a specific situational cue to a goal-directed response |
+| mental-contrasting | /mental-contrasting | Create informed commitment by juxtaposing a desired future with present reality |
+
 ## Install Specific Skills
 
 Pass skill names as positional arguments:
