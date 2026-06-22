@@ -275,9 +275,17 @@ The README notes that the repository also includes a generated collection of rea
 
 The learning catalog is the most important public-facing part of Vidbyte Skills. These skills are designed for active learning, retention, feedback, research, and user understanding.
 
+### `1-3-5` (`/1-3-5`)
+
+Constrains daily planning to exactly one Big, three Medium, and five Small tasks. Any new task must displace an existing one, making it useful for users who overplan or spend the day reactively.
+
 ### `blindspots` (`/blindspots`)
 
 Surfaces hidden principles, tradeoffs, or considerations the user has not named yet. It uses targeted guiding questions rather than dumping generic advice. Use it when a learner is working on a plan, architecture, decision, or explanation and may be missing the real constraint.
+
+### `bullet-journal` (`/bullet-journal`)
+
+Guides Ryder Carroll's analog Rapid Logging system: Index, Future Log, Monthly Log, Daily Log, and mandatory monthly Migration. Use it for one-person analog task/event/note management, not team projects or long-form prose.
 
 ### `compression-check` (background)
 
@@ -290,6 +298,10 @@ Tracks how deeply the user engages with a concept over a session. It can export 
 ### `daily-review` (`/daily-review`)
 
 Extracts high-risk session concepts at the end of a work session, appends them to a review log, and sends them to Vidbyte for spaced review. Use this for session-close retention, not as a live background tutor.
+
+### `dr-ta` (`/dr-ta`)
+
+Runs Russell Stauffer's predict-read-verify cycle on structured text. Every prediction must be falsifiable and every confirmed/refuted/partial verdict must cite passage evidence; final synthesis traces how predictions evolved.
 
 ### `explain` (`/explain`)
 
@@ -306,6 +318,18 @@ Generates expert domain feedback grounded in learning science through a multi-ag
 ### `finding-resources` (`/find-resource`)
 
 Produces a learning-resource map across books, papers, courses, and practitioner writing for a topic. It is designed for broad resource discovery rather than answering a narrow factual question.
+
+### `flow-notes` (`/flow-notes`)
+
+Uses Scott Young's method to capture big ideas and arrows rather than transcript facts. A mandatory 2–3 sentence synthesis describes the argument's movement, followed by specific prior-knowledge and weakest-link connections.
+
+### `gtd` (`/gtd`)
+
+Runs David Allen's action-management workflow: Capture, Clarify, Organize, Reflect, Engage. It enforces physical visible Next Actions, one next action per Project, the two-minute rule, and the seven-step Weekly Review.
+
+### `insert` (`/insert`)
+
+Uses Barto and Caverly's five reading marks for known, unclear, surprising, essential, and connected passages. Post-reading lists are mandatory, and every “known” check is verified through an original explanation to catch fluency illusions.
 
 ### `find-papers` (`/find-papers`)
 
@@ -326,6 +350,10 @@ Delivers one non-repeated motivational learning quote and logs it so it is not s
 ### `my-knowledge` (`/my-knowledge`)
 
 Scans the session and gives an assessment of genuine understanding versus context-dependent familiarity. Use it when a learner wants to know whether they actually understand a topic or are just following along in the moment.
+
+### `para` (`/para`)
+
+Implements Tiago Forte's Projects, Areas, Resources, Archives system. Classifications follow actionability rather than topic and require a justification; weekly review and observable staleness audits keep Resources from becoming a dumping ground.
 
 ### `practice` (`/practice`)
 
@@ -355,6 +383,10 @@ Pauses the conversation, generates a 15-minute retention exercise from the sessi
 
 Defines boundaries of broad domains, separating core, adjacent, and commonly misattributed fields. Use it when the learner needs a map of what belongs inside a topic and what does not.
 
+### `solo` (`/solo`)
+
+Uses Biggs and Collis's five SOLO levels to assess the structural depth of an unaided explanation. Classification cites response evidence, prescribes the next learning move, and reassessment uses a different question to track growth.
+
 ### `struggle`
 
 Tracks repeated struggle patterns and blind-spot signals throughout a session, then exports a JSON artifact. Use it to identify where the learner keeps getting stuck.
@@ -362,6 +394,10 @@ Tracks repeated struggle patterns and blind-spot signals throughout a session, t
 ### `theoretical-feedback`
 
 Extracts the underlying mental model separating novices from experts for a situation or mistake. Use it when feedback should reveal the deeper theory behind the error.
+
+### `think-aloud` (`/think-aloud`)
+
+Facilitates Ericsson and Simon's concurrent no-filter verbalization during problem solving. It distinguishes narration from explanation, codes the transcript for strategies/errors/confusion, cites exact moments, and assigns one metacognitive practice target.
 
 ### `transfer-signals`
 
@@ -378,6 +414,10 @@ Orchestrates non-reasoning learning skills. It selects the best included skill, 
 ### `visualize` (`/visualize`)
 
 Renders visual explanations in Unicode box art. It can route to concept maps, layered architectures, sequence flowcharts, or analogy mappings. Use it when a visual structure will clarify a concept.
+
+### `woop` (`/woop`)
+
+Runs Gabriele Oettingen's Wish, Outcome, internal Obstacle, and Plan mental-contrasting sequence. The plan must be a directly matched executable if-then action, and follow-up distinguishes goal outcome from plan execution.
 
 ## Utility Skills
 
