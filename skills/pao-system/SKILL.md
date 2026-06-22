@@ -142,6 +142,18 @@ For every teaching/build phase:
 
 First failure receives the failed criterion and a retry. Second failure receives a sound cue, locus cue, or missing-code label—not the answer—and another retry.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting Major-System answers, a Person/Action/Object choice, an unaided batch recall, a scene recall, or a decode? This turn evaluates that work; it does not also reveal the next code or advance.
+- **Did the user do the work?** Did the user produce the recall/mapping themselves, or am I about to supply a Person/Action/Object or a decoded digit for them? Recognition while the list is visible never counts.
+- **Hidden material intact?** In any batch quiz or recall gate, am I about to show the People/Actions/Objects, the scene list, or the target digits that must stay hidden?
+- **Positions not blended?** Am I composing each scene as Person(code A) + Action(code B) + Object(code C), without borrowing 34's own action/object when 34 is in the Person slot?
+- **Major System mastered first?** Is `majorSystemMastered` true before I run list construction?
+- **Privacy?** Is the target a real secret (card/account number, password, ID, recovery code)? If so, warn and require a synthetic target; never persist raw sensitive input or log it unredacted.
+- **Persisted?** Have I saved the accepted choice / passed batch / drill to `pao-list.json` (and the session to `pao-session-<timestamp>.md`) before halting?
+
 ## Persistent Data Contract
 
 Use `pao-list.json` in the working directory:
@@ -337,6 +349,40 @@ Offer one drill suited to current progress:
 5. **Deck drill:** only with a complete card encoding and required PAO fields.
 
 State drill size and pass threshold before starting. Hide answers, collect the full attempt, score exact items/order, log misses, and recommend a next interval. Never call recognition while viewing the list a successful recall drill.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Major System mastery (Phase 1)
+- ✅ Passes — `7` → "k / hard-g"; `34` → "m, r".
+  Why: correct consonant groups in order; 10/10 with no table peeking.
+- ❌ Fails — `34` → "Mary" (skips straight to a peg) or `7` → "g/j".
+  Why: the gate tests the sound map itself; "g/j" mixes 7 (k/hard-g) with 6 (soft-g), and naming a peg skips the encoding step.
+
+### Person mapping (Phase 2)
+- ✅ Passes — code `34` (m,r) → "Mary Poppins — instantly visible, distinct from neighbors."
+  Why: one concrete, familiar, visually distinct person consistent with the sounds.
+- ❌ Fails — code `34` → "marriage" or a person the user says they can't picture.
+  Why: "marriage" is abstract, not a person; an unpicturable choice won't cue a scene.
+
+### Person–Action–Object batch recall (Phases 2–3)
+- ✅ Passes — with the list hidden, all ten codes recalled as exact Person — Action — Object, shuffled order.
+  Why: unaided 10/10 (all 30 fields exact).
+- ❌ Fails — "I remember the people, the actions are mostly there, objects are shaky."
+  Why: below full unaided recall; partial/approximate recall does not pass.
+
+### Scene recall (Phase 4, Gate 1)
+- ✅ Passes — walking the loci: each scene's Person, Action, and Object correct and in locus order.
+  Why: all three positions and the order are intact.
+- ❌ Fails — "Mary Poppins doing something with a cape at the first spot."
+  Why: the Action is missing and the position grammar is lost; "something" is not a recalled Action.
+
+### Decode (Phase 4, Gate 2)
+- ✅ Passes — reads each scene by the fixed grammar back to the exact normalized digits, in order.
+  Why: round-trip matches the target exactly.
+- ❌ Fails — decodes a scene to a plausible but wrong code pair (e.g. uses 34's usual action instead of the code in the Action slot).
+  Why: a vivid image that yields the wrong digits is a failed encoding, not a pass.
 
 ## Export Mode
 

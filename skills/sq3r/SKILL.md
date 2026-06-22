@@ -131,6 +131,17 @@ Every normal phase follows this order:
 
 On the first failure, name the failed criterion and ask for a full retry. On the second failure, give one targeted hint or name the missing topic without giving the answer; keep the gate closed. Passive agreement, “done,” and copied source language never pass.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying. (In `--no-gates` extract-only mode there are no user gates, so the gate items do not apply.)
+
+- **At a gate?** Did I HALT last turn awaiting a prediction, questions, a section paraphrase, a recitation, or a synthesis? This turn evaluates that work; it does not also advance to the next phase or section.
+- **Did the user do the work?** Did the user write the prediction / questions / paraphrase / recall themselves, or only say "done" / "ok"? Passive acknowledgment never passes.
+- **Paraphrase, not copy?** Am I about to accept a verbatim or near-verbatim sentence as a section answer or recitation? Copied source language is a retry.
+- **Hidden material intact?** In Recite, am I still showing the source, skeleton details, or prior answers instead of hiding them? Recognition is not recall.
+- **Tied to the skeleton?** Is the Survey prediction a real claim about the content rather than a restatement of the title, and do the questions map to visible sections?
+- **Persisted?** Have I written the latest accepted prediction / questions / paraphrase / scorecard / synthesis to `sq3r-<slug>.state.md` before halting?
+
 ## Phase 1 of 5 — Survey
 
 ### Explain
@@ -279,6 +290,40 @@ HALT.
 ### Evaluation
 
 Pass only if the paragraph states a specific central claim, supports it with at least one mechanism or important detail, and gives a coherent colleague-level explanation. A generic topic summary fails.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Survey prediction + questions (Phase 1)
+- ✅ Passes — "This argues that TCP congestion control trades throughput for fairness. Q1: how does it detect congestion? Q2: what happens to fairness under loss?"
+  Why: a predictive content claim plus two answerable questions tied to the skeleton.
+- ❌ Fails — "It's about TCP. Q1: what is TCP? Q2: is it good?"
+  Why: title restatement; questions are not tied to visible sections and aren't answerable from the structure.
+
+### Question selection (Phase 2)
+- ✅ Passes — "How does slow-start differ from congestion avoidance?"
+  Why: maps to a real heading and seeks a mechanism answer.
+- ❌ Fails — "Congestion control." / "What is the congestion control section?"
+  Why: not a real question / merely restates the heading.
+
+### Read paraphrase (Phase 3)
+- ✅ Passes — "This answers Q1: it infers congestion from dropped packets and halves the window in response."
+  Why: names a relevant question and explains the mechanism in original language.
+- ❌ Fails — "Congestion control adjusts the window size based on network conditions to avoid congestion."
+  Why: near-verbatim of the source's topic sentence; copying, not a paraphrase.
+
+### Recite (Phase 4)
+- ✅ Passes — unaided teach-back covering ≥80% of the key points with no invented claims.
+  Why: meets coverage with zero fabrication and no verbatim leakage.
+- ❌ Fails — "It covered slow-start and some other window stuff I'm fairly sure about."
+  Why: below threshold and vague; "fairly sure" is confidence, not recall.
+
+### Review synthesis (Phase 5)
+- ✅ Passes — "The one claim is that loss-based control sacrifices throughput for fairness; I'd tell a colleague to expect lower utilization on lossy links and consider BBR."
+  Why: specific central claim + a mechanism + a colleague-level takeaway.
+- ❌ Fails — "It was a thorough explanation of congestion control with good detail."
+  Why: generic summary with no central claim or supporting mechanism.
 
 ## Alternate Modes
 

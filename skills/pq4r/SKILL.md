@@ -112,6 +112,17 @@ You will work through six gated phases over roughly 20–30 minutes: Preview, Qu
 
 Every phase must explain its purpose in second person, demonstrate on the real source, present one gate, and HALT. Evaluate on the next turn and advance only on a pass. First failure: state the failed criterion and request a complete retry. Second failure: give a passage/topic cue without the answer and keep the gate closed. “Done,” generic reflection, passive agreement, and source copying fail.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying. (In `--no-gates` extract-only mode the gate items do not apply.)
+
+- **At a gate?** Did I HALT last turn awaiting a goal/prediction, questions, a section paraphrase, reflection answers, a recitation, or a synthesis? This turn evaluates that work; it does not also advance.
+- **Did the user do the work?** Did the user produce the prediction / reflection / recall themselves, or only say "done" / "reflecting"? Passive agreement never passes.
+- **Reflection is specific?** Am I about to accept "interesting" / "I learned a lot" / "connects to other things" as a Reflect answer instead of one that references specific Phase 3 content?
+- **Prediction recorded before reading?** Did I capture and save the Phase 1 prediction so Review can compute the prediction-versus-reality delta?
+- **Hidden material intact?** In Reflect and Recite, am I still showing source text or prior answers that should be hidden? Recognition is not recall.
+- **Persisted?** Have I written the latest accepted goal/prediction / questions / paraphrase / reflection / scorecard / synthesis to `pq4r-<slug>.state.md` before halting?
+
 ## Phase 1 of 6 — Preview
 
 ### Explain
@@ -265,6 +276,40 @@ HALT.
 ### Evaluation
 
 Pass only when the paragraph states a specific central claim, supporting mechanism/detail, usable colleague explanation, and explicit prediction result (`confirmed`, `partly confirmed`, `revised`, or `contradicted`) with a reason.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Preview goal + prediction (Phase 1)
+- ✅ Passes — goal: "be able to explain why Rawls rejects utilitarianism"; prediction: "the text will argue the original position rules out trading individual rights for aggregate welfare."
+  Why: a learning outcome plus a falsifiable content claim tied to the skeleton.
+- ❌ Fails — goal: "finish the chapter"; prediction: "it's about justice."
+  Why: "finish reading" is not a learning goal; the prediction is not falsifiable.
+
+### Question selection (Phase 2)
+- ✅ Passes — five heading-mapped questions, one labeled "(goal)": "How does the original position justify the difference principle?"
+  Why: distinct, answer-seeking, and one explicitly serves the stated goal.
+- ❌ Fails — "What is justice? What is fairness?" with none labeled to the goal.
+  Why: not mapped to specific headings and no goal-linked question.
+
+### Reflect (Phase 4)
+- ✅ Passes — "This connects to my econ course's Pareto efficiency, and it surprised me that Rawls rejects efficiency as the criterion — I'd expected the opposite from my prediction."
+  Why: references specific Phase 3 content, a real prior-knowledge link, and a prediction mismatch.
+- ❌ Fails — "Really thought-provoking, I learned a lot and it connects to a lot of things."
+  Why: generic; cites no specific claim, connection, or surprise.
+
+### Recite (Phase 5)
+- ✅ Passes — unaided teach-back covering ≥80% of key points, no invented claims, no verbatim leakage.
+  Why: meets coverage with zero fabrication.
+- ❌ Fails — "Rawls had two principles and something about the veil, I'm pretty confident."
+  Why: below threshold and vague; confidence is not recall.
+
+### Review synthesis + prediction delta (Phase 6)
+- ✅ Passes — "The one claim is that justice requires choosing principles behind a veil of ignorance… I'd tell a colleague it prioritizes the worst-off. Prediction: partly confirmed — I had the rights point but missed the difference principle."
+  Why: central claim + mechanism + colleague takeaway + explicit prediction result with a reason.
+- ❌ Fails — "Good chapter on Rawls; my prediction was basically right."
+  Why: no central claim/mechanism and no specific, reasoned prediction delta.
 
 ## Alternate Modes
 
