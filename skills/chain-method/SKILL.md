@@ -170,16 +170,16 @@ Write or append `chain-session-<timestamp>.md` with list identifier, drill type,
 Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
 
 ### Practice links (Phase 1)
-- ✅ Passes — for lantern → violin → glacier: "The lantern swings and smashes into the violin, shattering it; a violin string whips out and saws a glacier in half."
+- ✅ Passes — for umbrella → goldfish → chandelier: "The umbrella snaps open and catapults the goldfish, which splashes into a chandelier and shatters it."
   Why: each first item visibly acts on the next, in order, with distinctive imagery.
-- ❌ Fails — "A lantern, a violin, and a glacier are together in a cold room."
+- ❌ Fails — "An umbrella, a goldfish, and a chandelier are together in a room."
   Why: juxtaposition — nothing acts on anything; no directed interaction.
 
 ### Chain recall (Phase 2)
-- ✅ Passes — with list and chain hidden: "eggs, milk, bread, apples" in exact order.
+- ✅ Passes — with list and chain hidden: "screwdriver, candle, kettle, scarf" in exact order.
   Why: 100% correct positions for a short ordered list.
-- ❌ Fails — "eggs, bread, milk, apples — pretty sure that's it."
-  Why: a transposition (milk/bread); the target is short, so the bar is 100% in order.
+- ❌ Fails — "screwdriver, kettle, candle, scarf — pretty sure that's it."
+  Why: a transposition (candle/kettle); the target is short, so the bar is 100% in order.
 
 ### Random-access drill (Phase 3)
 - ✅ Passes — asked for item 5, the user walks the chain from item 1 and arrives at the correct item 5.

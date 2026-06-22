@@ -22,7 +22,7 @@ Add two new behavioral-alignment sections — `Pre-Turn Self-Check` and `Pass/Fa
 - Place both sections at a consistent location across every skill so the family stays uniform and predictable.
 - Reinforce the existing interactive contract (orient → explain → demonstrate → HALT → evaluate → persist; the user does the cognitive work; recognition ≠ recall) rather than introduce new behavior.
 - Keep each skill independently installable; the new sections must be self-contained within each `SKILL.md`.
-- Expand the `/interactive` router so its Linked Catalog and Selection Algorithm cover all 16 gated family skills (the current three plus the 14 missing ones), grouped by sub-family, with deterministic one-method routing preserved.
+- Expand the `/interactive` router so its Linked Catalog and Selection Algorithm cover all 17 gated family skills (the current three plus the 14 missing ones), grouped by sub-family, with deterministic one-method routing preserved.
 - Update the `/interactive` frontmatter description and Use Cases so they no longer imply the catalog is only SQ3R/PQ4R/PAO.
 
 ### Non-Goals
@@ -73,7 +73,7 @@ The `interactive` router is explicitly excluded.
 10. Both new sections SHALL use the same heading level (`##`) and formatting conventions as the surrounding sections so the files remain valid and visually consistent.
 11. The `interactive` router SHALL NOT receive a `Pre-Turn Self-Check` or `Pass/Fail Calibration` section.
 12. No `skills-manifest.json`, `lib/skill-versions.json`, `README.md`, or `llms.txt` entry SHALL change.
-13. The `/interactive` `## Linked Catalog` SHALL list all 16 gated family skills (`sq3r`, `pq4r`, `reap`, `ok5r`, `insert`, `dr-ta`, `flow-notes`, `pao-system`, `dominic-system`, `chain-method`, `solo`, `think-aloud`, `gtd`, `para`, `bullet-journal`, `1-3-5`, `woop`), each with a repository-relative canonical link to its `SKILL.md`, a short purpose statement, "choose when" conditions, and a "prefer a sibling when" redirect.
+13. The `/interactive` `## Linked Catalog` SHALL list all 17 gated family skills (`sq3r`, `pq4r`, `reap`, `ok5r`, `insert`, `dr-ta`, `flow-notes`, `pao-system`, `dominic-system`, `chain-method`, `solo`, `think-aloud`, `gtd`, `para`, `bullet-journal`, `1-3-5`, `woop`), each with a repository-relative canonical link to its `SKILL.md`, a short purpose statement, "choose when" conditions, and a "prefer a sibling when" redirect.
 14. The catalog SHALL be organized into labeled sub-family groups (Reading & study; Memory / mnemonic; Comprehension & metacognition; Productivity & organization; Goal-setting) so routing stays scannable and deterministic.
 15. The `## Selection Algorithm` SHALL be extended to first classify the user's need by sub-family, then select exactly one method within it using the sub-family tie-breakers, preserving the existing "explicit skill name wins" and "at most one clarifying question" rules.
 16. The frontmatter `description` and `## Use Cases` SHALL be updated so they no longer name only SQ3R/PQ4R/PAO and instead describe the broader family.
@@ -305,9 +305,9 @@ Each skill's two sections follow the same templates. The table below names, per 
 
 #### What it does
 
-Currently the router catalogs only `sq3r`, `pq4r`, and `pao-system`. This expands the `## Linked Catalog` to all 16 gated family skills, grouped by sub-family, and extends `## Selection Algorithm` to route across the wider set. The router remains a selector: it picks exactly one installed method, explains the choice in one sentence, loads that method's canonical `SKILL.md`, and starts it — it never reproduces phase logic.
+Currently the router catalogs only `sq3r`, `pq4r`, and `pao-system`. This expands the `## Linked Catalog` to all 17 gated family skills, grouped by sub-family, and extends `## Selection Algorithm` to route across the wider set. The router remains a selector: it picks exactly one installed method, explains the choice in one sentence, loads that method's canonical `SKILL.md`, and starts it — it never reproduces phase logic.
 
-#### Sub-family grouping (16 skills)
+#### Sub-family grouping (17 skills)
 
 ```text
 Reading & study        : sq3r, pq4r, reap, ok5r, insert, dr-ta, flow-notes
@@ -319,7 +319,7 @@ Goal-setting           : woop
 
 #### Catalog entry format (new entries)
 
-Existing sq3r/pq4r/pao entries are kept in substance and moved under their group headings. New entries use a compact, uniform shape so 16 entries stay manageable:
+Existing sq3r/pq4r/pao entries are kept in substance and moved under their group headings. New entries use a compact, uniform shape so 17 entries stay manageable:
 
 ```markdown
 ### `/<skill>`
@@ -401,7 +401,7 @@ N/A — no HTTP endpoints, CLI subcommands, or backend contracts are added or mo
 | MODIFY | `skills/solo/SKILL.md` | Add Pre-Turn Self-Check + Pass/Fail Calibration |
 | MODIFY | `skills/think-aloud/SKILL.md` | Add Pre-Turn Self-Check + Pass/Fail Calibration |
 | MODIFY | `skills/woop/SKILL.md` | Add Pre-Turn Self-Check + Pass/Fail Calibration |
-| MODIFY | `skills/interactive/SKILL.md` | Expand Linked Catalog + Selection Algorithm to all 16 family skills; update description/Use Cases (no self-check/calibration) |
+| MODIFY | `skills/interactive/SKILL.md` | Expand Linked Catalog + Selection Algorithm to all 17 family skills; update description/Use Cases (no self-check/calibration) |
 
 No files will be deleted. `skills/interactive/SKILL.md` is modified **only** for catalog/routing expansion — it does **not** receive the two new behavioral sections.
 
@@ -434,8 +434,8 @@ No new package or service dependency is introduced.
 - [ ] Section ordering preference: place `Pre-Turn Self-Check` *before* a `Persistent Data Contract` (chosen default, keeps it adjacent to the turn loop) vs. after it. Default chosen unless you object.
 - [ ] Calibration depth: one passing/failing pair per gate (chosen default) vs. two pairs for the highest-risk gate in each skill. Default keeps the section tight per the NFRs.
 - [ ] Commit granularity: one commit per skill (more reviewable) vs. one commit per batch (fewer commits). Default: per batch.
-- [ ] **Router catalog scope:** include the productivity/organization methods (`gtd`, `para`, `bullet-journal`, `1-3-5`) and goal-setting (`woop`) in `/interactive`? Default chosen = **include all 16** (they are all `learning`-categorized family members), broadening the router's framing from "learning or memory technique" to "interactive learning, study, memory, productivity, or goal method." If you'd rather keep the router to reading + memory + comprehension only (11 skills), say so and I'll trim.
-- [ ] Router entry verbosity: standardize all 16 entries to the compact format (uniform, smaller file) vs. keep the three existing verbose entries as-is and only add compact new ones (default).
+- [ ] **Router catalog scope:** include the productivity/organization methods (`gtd`, `para`, `bullet-journal`, `1-3-5`) and goal-setting (`woop`) in `/interactive`? Default chosen = **include all 17** (they are all `learning`-categorized family members), broadening the router's framing from "learning or memory technique" to "interactive learning, study, memory, productivity, or goal method." If you'd rather keep the router to reading + memory + comprehension only (12 skills), say so and I'll trim.
+- [ ] Router entry verbosity: standardize all 17 entries to the compact format (uniform, smaller file) vs. keep the three existing verbose entries as-is and only add compact new ones (default).
 
 ---
 
