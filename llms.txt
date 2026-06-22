@@ -279,6 +279,10 @@ The learning catalog is the most important public-facing part of Vidbyte Skills.
 
 Surfaces hidden principles, tradeoffs, or considerations the user has not named yet. It uses targeted guiding questions rather than dumping generic advice. Use it when a learner is working on a plan, architecture, decision, or explanation and may be missing the real constraint.
 
+### `chain-method` (`/chain-method`)
+
+Teaches the Link/Chain method for short ordered lists of roughly 5–20 items. It requires each item to act vividly on the next, then tests forward, backward, and diagnostic random-access recall. Use a palace or peg system instead when the list is long or efficient indexing matters.
+
 ### `compression-check` (background)
 
 Acts as a silent background coach that periodically asks the user to explain what they just built or decided. It evaluates the response and submits a learning record to Vidbyte. Use it during active building sessions where retrieval and articulation matter.
@@ -290,6 +294,10 @@ Tracks how deeply the user engages with a concept over a session. It can export 
 ### `daily-review` (`/daily-review`)
 
 Extracts high-risk session concepts at the end of a work session, appends them to a review log, and sends them to Vidbyte for spaced review. Use this for session-close retention, not as a live background tutor.
+
+### `dominic-system` (`/dominic-system`)
+
+Builds Dominic O'Brien's initial-based 00–99 Person/Action system and uses it for long numbers or cards. Choose it when initials are easier than a phonetic Major-System/PAO mapping; it persists the user's mappings and scores exact scene-to-digit decoding.
 
 ### `explain` (`/explain`)
 
@@ -327,6 +335,10 @@ Delivers one non-repeated motivational learning quote and logs it so it is not s
 
 Scans the session and gives an assessment of genuine understanding versus context-dependent familiarity. Use it when a learner wants to know whether they actually understand a topic or are just following along in the moment.
 
+### `ok5r` (`/ok5r`)
+
+Guides long structured sources through Survey, Question, Read, Record, Recite, Review, and Reflect. Its distinguishing product is a reusable per-section Record artifact; use SQ3R or PQ4R instead when shorter material does not justify the note-taking overhead.
+
 ### `practice` (`/practice`)
 
 Creates high-volume practice questions emphasizing pattern recognition, variation, and creative intelligence. Use it when repetition, transfer, and fluency matter.
@@ -342,6 +354,10 @@ Tracks retention and future-direction questions throughout a session and can exp
 ### `read-paper` (`/read-paper`)
 
 Reads a research paper from arXiv, DOI, direct PDF, Semantic Scholar, PubMed, or PMC; strips noise; extracts a core six-field signal; and runs an active learning gate check. Use it for serious paper reading rather than casual article summarization.
+
+### `reap` (`/reap`)
+
+Runs Read, Encode, Annotate, and Ponder for argumentative or author-framed sources. Its mandatory Encode phase makes the user state the author's claim accurately before responding; use factual-extraction methods for manuals/specifications and `read-paper` for research signals.
 
 ### `research` (`/research`)
 
