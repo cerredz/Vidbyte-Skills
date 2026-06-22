@@ -4,7 +4,7 @@
     "purpose": "Controls which skills are bundled, recommended, and tested for specific major versions of the Vidbyte CLI codebase.",
     "architecture": "A JSON object mapping numeric version strings to arrays of skill directory names.",
     "key_elements": [
-      "1, 2, 3, 4, 5 keys: arrays of certified skill names for the corresponding major CLI release version."
+      "1, 2, 3, 4, 5, 6 keys: arrays of certified skill names for the corresponding major CLI release version."
     ],
     "relation_to_codebase": "Read by `./scripts/validate.js` to ensure version consistency, and CLI installation commands to select version-compatible skills.",
     "similar_files": [
@@ -15,5 +15,6 @@
   "2": ["concept-coverage", "question-builder", "struggle", "transfer-signals", "misconceptions"],
   "3": ["theoretical-feedback", "learn-from-video", "find-papers", "read-paper", "docs-tldr", "motivate", "visualize"],
   "4": ["jargon", "scope", "unit", "finding-resources", "study-guide"],
-  "5": ["interactive", "pao-system", "pq4r", "sq3r"]
+  "5": ["interactive", "pao-system", "pq4r", "sq3r"],
+  "6": ["1-3-5", "bullet-journal", "dr-ta", "flow-notes", "gtd", "insert", "para", "solo", "think-aloud", "woop"]
 }
