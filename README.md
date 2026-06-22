@@ -90,6 +90,7 @@ halt for user work, evaluate it, and resume only after each gate passes.
 ```bash
 npx vidbyte-skills --version 5
 npx vidbyte-learning-skills --version 5
+npx vidbyte-skills mind-mapping concept-mapping progressive-summarization jol kwl
 ```
 
 Included skills:

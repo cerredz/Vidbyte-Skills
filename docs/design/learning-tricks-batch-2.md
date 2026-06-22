@@ -1,6 +1,6 @@
 # Design Doc: Utility Interactive Skills — Learning Tricks Batch 2
 
-**Status:** Draft
+**Status:** Approved
 **Author:** Codex
 **Created:** 2026-06-21
 **Last Updated:** 2026-06-21
@@ -495,7 +495,7 @@ Readable Markdown sections contain the method-specific maps, layers, tables, acc
   "retestCompletedAt": null,
   "status": "studied|rated|retested",
   "items": [
-    {"id": 1, "cue": "...", "answer": "...", "jolRating": 85, "recalled": null}
+    {"id": 1, "cue": "...", "answer": "...", "jolRating": 85, "jolRatedAt": "ISO-8601", "recalled": null}
   ],
   "calibration": null
 }
@@ -560,7 +560,7 @@ No new package or mandatory external service dependency is introduced.
 
 ## 12. Open Questions
 
-- [ ] Should implementation wait for PR #105 to merge into `main` (preferred), or should the eventual PR be stacked on `feat/utility-interactive-skills`?
+- [x] Implementation will use an isolated stacked branch based on `feat/utility-interactive-skills`, explicitly approved by the user on 2026-06-21.
 
 No method-level behavior remains unresolved: the supplied ambiguous KWHL flag is handled through canonical `--extend kwhl` plus the supplied `--extend kwl` compatibility alias, and JOL reminders are explicitly capability-dependent.
 
@@ -597,4 +597,3 @@ No method-level behavior remains unresolved: the supplied ambiguous KWHL flag is
 
 - What: Introduce a common runtime engine/schema for gates and state.
 - Why rejected: The artifacts have materially different shapes, no runtime consumes them, and PR #105 explicitly avoids a generic workflow engine. Small shared conventions belong in the authoring artifact, not a new abstraction.
-
