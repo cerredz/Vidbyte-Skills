@@ -93,6 +93,17 @@ For each active phase: explain its purpose in second person, perform only agent-
 
 First failure names the failed criterion and requests a complete retry. Second failure points to the relevant section, record slot, or topic without supplying the answer. Passive acknowledgment passes only the Phase 3 completion checkpoint; it never substitutes for later comprehension work.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting a prediction, questions, a Record, a recitation, a synthesis, or reflection answers? This turn evaluates that work; it does not also advance to the next phase or section.
+- **Did the user do the work?** Did the user write the prediction / questions / record / recall themselves, or only confirm completion or say "ok"? Only the Phase 3 Read checkpoint accepts a bare completion confirmation; every other gate needs a real work product.
+- **Record is paraphrase, not transcription?** Am I about to accept a copied sentence as the "main claim in your own words" (copying is allowed only for definitions/formulas/exact lists)?
+- **Hidden material intact?** In Recite, am I still showing the source, skeleton details, questions, or records instead of hiding all of them? Recognition is not recall.
+- **Reflection cites a record?** Am I about to accept a generic reflection answer that does not point back to a specific section or Phase 4 record entry?
+- **Persisted?** Have I written the latest accepted prediction / questions / record / scorecard / synthesis / reflection to `ok5r-<slug>.state.md` before halting?
+
 ## Phase 1 of 7 — Survey
 
 ### Explain
@@ -246,6 +257,46 @@ Ask all three:
 Require each answer to cite a specific section or Phase 4 record entry. HALT.
 
 Pass only when all three make a specific content connection. A generic response fails; point to one relevant record label as a cue and request a full retry without writing the connection.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging. (Phase 3 Read is a completion checkpoint, not a graded work product, so it has no pair.)
+
+### Survey prediction (Phase 1)
+- ✅ Passes — "I predict the chapter argues that memory is reconstructive, so eyewitness testimony is systematically unreliable."
+  Why: a specific, testable claim tied to the skeleton.
+- ❌ Fails — "I think it's about how memory works."
+  Why: restates the topic; nothing testable to compare against later.
+
+### Question selection (Phase 2)
+- ✅ Passes — "What mechanism makes reconstructed memories feel certain?"
+  Why: maps to a real heading and seeks an answer, not the heading reworded.
+- ❌ Fails — "Memory and reliability."
+  Why: not a question; repeats the heading instead of asking something.
+
+### Record (Phase 4)
+- ✅ Passes — main claim: "Recall rebuilds the memory each time, so confidence and accuracy can drift apart."
+  Why: accurate, specific, and in the user's own words; slots filled.
+- ❌ Fails — main claim: "Memory is reconstructive and not like a video recording, as the author explains in detail."
+  Why: a lightly-reworded copy of the source sentence; transcription, not paraphrase.
+
+### Recite (Phase 5)
+- ✅ Passes — unaided recall covering the central claim, key terms, and an example, ≥80% of records, no invented claims.
+  Why: meets the fixed-denominator threshold with zero fabrication.
+- ❌ Fails — "Memory is reconstructive and there were some studies about it I think."
+  Why: vague, below threshold, and "some studies" is an unsupported placeholder.
+
+### Review synthesis (Phase 6)
+- ✅ Passes — "The chapter's one claim is that confidence ≠ accuracy; I'd tell a colleague to distrust certainty in eyewitnesses and corroborate independently."
+  Why: a specific central claim plus a mechanism and a colleague-level takeaway.
+- ❌ Fails — "It was a good overview of memory and had useful points."
+  Why: no central claim and no supporting detail from the records.
+
+### Reflect (Phase 7)
+- ✅ Passes — "This connects to my Record on schema theory; it assumed I knew encoding-vs-retrieval, which my last stats course didn't cover."
+  Why: each answer cites a specific record/section.
+- ❌ Fails — "This relates to psychology I've read before and was mostly familiar."
+  Why: generic; cites no record entry or section.
 
 ## State and Resume
 

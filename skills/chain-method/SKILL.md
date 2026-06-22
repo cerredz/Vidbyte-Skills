@@ -91,6 +91,17 @@ Explain the current task, demonstrate only with non-test items, present one expl
 
 First failure names whether interaction, direction, or distinctiveness is missing. Second failure points to one pattern from `references/vivid-image-patterns.md` without completing the user's image. Passive `done` never passes a recall gate.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting the user's two practice links or an unaided recall? This turn evaluates that work; it does not also build the next chain or run the next drill.
+- **Did the user do the work?** Did the user write the practice links / recall themselves, or did they just say "done" / "got it"? Passive acknowledgment never passes a recall gate.
+- **Hidden material intact?** During any recall or drill gate, am I about to leave the source list and the chain on screen instead of hiding both? Recognition is not recall.
+- **Interaction, not juxtaposition?** Am I about to accept a "two items sitting together" image, or to supply the user's practice image for them?
+- **Imagery + length boundaries?** Is the imagery vivid but non-graphic by default, and did I warn + get acknowledgment when the list exceeds 20 items?
+- **Persisted?** Have I written the accepted chain to `chain-<slug>.md` and drill results to `chain-session-<timestamp>.md` before halting?
+
 ## Phase 1 — Teach the Principle
 
 ### Demonstrate
@@ -153,6 +164,28 @@ Offer:
 Hide the list/chain during every drill. Score exact item and order, and distinguish method limitation from user error. Random access results are diagnostic, not evidence that chains are indexed.
 
 Write or append `chain-session-<timestamp>.md` with list identifier, drill type, attempts, exact score, broken links/positions, and next recommendation.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Practice links (Phase 1)
+- ✅ Passes — for lantern → violin → glacier: "The lantern swings and smashes into the violin, shattering it; a violin string whips out and saws a glacier in half."
+  Why: each first item visibly acts on the next, in order, with distinctive imagery.
+- ❌ Fails — "A lantern, a violin, and a glacier are together in a cold room."
+  Why: juxtaposition — nothing acts on anything; no directed interaction.
+
+### Chain recall (Phase 2)
+- ✅ Passes — with list and chain hidden: "eggs, milk, bread, apples" in exact order.
+  Why: 100% correct positions for a short ordered list.
+- ❌ Fails — "eggs, bread, milk, apples — pretty sure that's it."
+  Why: a transposition (milk/bread); the target is short, so the bar is 100% in order.
+
+### Random-access drill (Phase 3)
+- ✅ Passes — asked for item 5, the user walks the chain from item 1 and arrives at the correct item 5.
+  Why: correct answer; walking the chain is the expected (sequential) access path.
+- ❌ Fails — treating a slow walk-to-5 as evidence the method is "broken."
+  Why: this is the method's known limitation, not a user error — score it as a limitation, not a failed recall.
 
 ## Final Handoff
 

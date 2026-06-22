@@ -128,6 +128,17 @@ For every teaching/build phase:
 
 First failure names missed codes/criteria without answers. Second failure gives an initials cue, identity cue, or locus cue—not the answer—and requires another attempt.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting letter-map answers, a Person/Action choice, an unaided batch recall, a scene recall, or a decode? This turn evaluates that work; it does not also reveal the next code or advance.
+- **Did the user do the work?** Did the user produce the recall/mapping themselves, or am I about to supply a Person, Action, or decoded digit for them? Recognition while a list is visible never counts.
+- **Hidden material intact?** In any batch quiz or recall gate, am I about to show the People/Actions, the scene list, or the target digits that must stay hidden?
+- **Map before build, `6=S`?** Is `letterMapMastered` true before I run list construction, and have I kept `6=S` (not F)?
+- **Privacy?** Is the target a real secret (card number, password, ID, recovery code)? If so, warn and require a synthetic target; never persist raw sensitive input or log it unredacted.
+- **Persisted?** Have I saved the accepted choice / passed batch / drill result to `dominic-list.json` (and the session to `dominic-session-<timestamp>.md`) before halting?
+
 ## Persistent Data Contract
 
 Use `dominic-list.json` in the working directory:
@@ -288,6 +299,40 @@ Offer one drill suited to progress:
 5. Deck drill only with complete card encoding and mappings.
 
 State size and pass threshold before starting. Hide answers, collect the full attempt, score exact items/order, log misses, and recommend a spaced interval. Recognition while viewing mappings never counts.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Letter-map mastery (Phase 1)
+- ✅ Passes — for `6` → "S"; for `72` → "GB".
+  Why: `6=S` and correct ordered initials; 10/10 with no calculation pauses.
+- ❌ Fails — for `6` → "F"; for `72` → "GB".
+  Why: `6=F` is the common Major-System slip; Dominic uses `6=S`, so the set fails.
+
+### Person mapping (Phase 2)
+- ✅ Passes — code `27` (BG) → "the user's friend Bill Gardner, who they can picture clearly."
+  Why: a concrete, familiar, visually distinct Person whose initials match.
+- ❌ Fails — code `27` (BG) → "a big garden" or "Bill Gates" for code `27`.
+  Why: "big garden" is not a Person; "Bill Gates" (BG) is fine for initials but reject if it duplicates another code the user can't distinguish — and reject any mismatched-initials choice.
+
+### Batch recall (Phases 2–3)
+- ✅ Passes — with People/Actions hidden, the user gives all ten codes' Person — Action exactly, in shuffled order.
+  Why: unaided 10/10 (all twenty fields exact).
+- ❌ Fails — "I got most of them — 8 or 9 out of 10, I think `34` is a chef doing something."
+  Why: below 10/10 and "something" is not an exact Action; recognition/approximation does not pass.
+
+### Scene recall (Phase 4, Gate 1)
+- ✅ Passes — walking the loci: "Locus 1: Bill Gardner juggling; Locus 2: the chef writing equations…" in order.
+  Why: every Person+Action component and the locus order are correct.
+- ❌ Fails — "There was a chef and someone juggling, not sure which locus came first."
+  Why: components present but order lost; scene order carries the digit order.
+
+### Decode (Phase 4, Gate 2)
+- ✅ Passes — decodes the recalled scenes back to the exact normalized target digits, in order.
+  Why: round-trip matches the target exactly.
+- ❌ Fails — decodes to digits that are "close" but transpose two codes.
+  Why: exact-recall method; a transposition is a miss, not a pass.
 
 ## Export Mode
 

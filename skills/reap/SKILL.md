@@ -113,6 +113,17 @@ Every active phase follows this sequence:
 
 First failure: name the failed criterion and request a complete retry. Second failure: point to the relevant section, relationship, or wording problem without supplying the answer. Keep the gate closed. Passive acknowledgment and source copying never pass.
 
+## Pre-Turn Self-Check
+
+Before sending any response, silently confirm each item. If any is unchecked, fix it before replying.
+
+- **At a gate?** Did I HALT last turn awaiting a Read account, an encoding, annotations, or a Ponder answer? If so, this turn evaluates that work — it does not also present the next section or phase.
+- **Did the user do the work?** Did they write the sentence / encoding / annotation themselves, or only say "ok", "done", or "go on"? Acknowledgment never passes a gate.
+- **Encode before annotate?** Am I about to let the user annotate before every in-scope encoding has passed? If so, use the "Encode first" boundary and keep Phase 2 active.
+- **Hidden material intact?** In Encode, am I re-showing the source wording I should have removed? In Ponder, am I showing the source, Read notes, or encodings instead of only the accepted annotations?
+- **Not editorializing for them?** Am I about to accept (or supply) an encoding that argues with the author rather than stating the author's claim in the user's words?
+- **Persisted?** Have I written the latest accepted Read note / encoding / annotation to `reap-<slug>.state.md` before halting?
+
 ## Phase 1 of 4 — Read
 
 ### Explain
@@ -200,6 +211,34 @@ Display only the user's accepted Phase 3 annotations—not the source, Read note
 HALT.
 
 Pass only when all three are answered in the user's own words and each connects to at least one substantive annotation. `Nothing` without an explanation, generic praise, or a question unrelated to the source fails.
+
+## Pass/Fail Calibration
+
+Models grade leniently. These borderline pairs mark where each gate's line sits — grade against them, and do not pass weak work to be encouraging.
+
+### Read account (Phase 1)
+- ✅ Passes — "The author is building toward the idea that zoning rules, not demand, drive most urban housing shortages."
+  Why: original-language statement of the section's argumentative move.
+- ❌ Fails — "This section is about housing shortages and zoning rules in cities."
+  Why: near-restatement of the heading; names the topic but not what the author is doing with it.
+
+### Encode (Phase 2)
+- ✅ Passes — "From the author's view, scarcity is manufactured by regulation, so deregulation is the primary lever."
+  Why: states the author's claim, scope, and causal relationship in the user's own words.
+- ❌ Fails — "The author claims deregulation fixes housing, which ignores tenant protections."
+  Why: editorializes ("which ignores…") instead of representing the author's position; that belongs in Annotate.
+
+### Annotate (Phase 3)
+- ✅ Passes — "This overstates the causal weight of zoning — Tokyo loosened rules but rents still rose with in-migration, so demand clearly matters too."
+  Why: a substantive qualification with a specific counterexample.
+- ❌ Fails — "Good point, I think the author is mostly right here."
+  Why: agreement with no reason, qualification, consequence, or connection; does not count toward the 60% threshold.
+
+### Ponder (Phase 4)
+- ✅ Passes — "My belief that deregulation alone is sufficient was challenged by my own Tokyo annotation; I'd investigate how supply and migration interact."
+  Why: connects to a specific accepted annotation and answers belief-challenged + follow-up.
+- ❌ Fails — "This was a really interesting and well-argued piece."
+  Why: generic praise not tied to any annotation; answers none of the three prompts.
 
 ## Alternate Modes
 
