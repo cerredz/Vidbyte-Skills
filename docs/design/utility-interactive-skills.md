@@ -659,5 +659,3 @@ No new npm, Python, or runtime dependency is introduced.
 
 - What: Build scripts for source parsing, flag parsing, JSON validation, atomic writes, and resume state.
 - Why rejected: The requested change is prompt-centered and explicitly uses the no-tests workflow. Existing host capabilities can perform the work without introducing runtime code or new verification obligations. The artifact leaves room for scripts later if real cross-harness failures justify them.
-
-

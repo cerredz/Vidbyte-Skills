@@ -68,4 +68,3 @@ When generating candidates, provide 3–5 choices. Include the sound breakdown a
 Accept equivalent sounds within a digit group. For two-digit items, order matters. A response such as `34 = r-m` fails even though both sounds are present.
 
 After two failed attempts, point to the digit's memory cue and ask a new item using that digit. Do not answer the remaining quiz for the user.
-

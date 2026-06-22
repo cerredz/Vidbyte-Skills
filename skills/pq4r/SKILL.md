@@ -261,7 +261,7 @@ After Review passes, save `pq4r-<slug>.md`:
 ## Vidbyte Retain
 ```
 
-The retain section is a safely quoted, ready-to-run `vidbyte retain` shell block for 3–5 important concepts and retrieval questions based on accepted work. Display only; do not run automatically. If unavailable, state: `Install it with: npm install -g vidbyte-skills`.
+The retain section is a safely quoted, ready-to-run `vidbyte retain` shell block (never `vidbyte retain submit`) for 3–5 important concepts based on accepted work. For every concept `N`, include `--conceptN-name`, `--conceptN-distillation`, `--conceptN-anchor`, and `--conceptN-hook`; include corresponding `--questionN` and `--answerN` retrieval pairs. Display only; do not run automatically. If unavailable, state: `Install it with: npm install -g vidbyte-skills`.
 
 ## Failure Modes
 
@@ -279,4 +279,3 @@ The retain section is a safely quoted, ready-to-run `vidbyte retain` shell block
 - Recitation reaches 80% with zero invention.
 - Final output records a specific prediction-versus-reality delta.
 - The skill remains self-contained when SQ3R is not installed.
-

@@ -282,7 +282,7 @@ After Review passes, save `sq3r-<slug>.md` in the working directory:
 ## Vidbyte Retain
 ```
 
-The retain section contains a ready-to-run shell block using the existing `vidbyte retain` command with 3–5 important concepts and retrieval questions derived from accepted session work. Quote shell arguments safely. Display it for the user; do not run or submit automatically. If the CLI is unavailable, add: `Install it with: npm install -g vidbyte-skills`.
+The retain section contains a ready-to-run shell block using `vidbyte retain` (never `vidbyte retain submit`) with 3–5 important concepts derived from accepted session work. For every concept `N`, include `--conceptN-name`, `--conceptN-distillation`, `--conceptN-anchor`, and `--conceptN-hook`; include corresponding `--questionN` and `--answerN` retrieval pairs. Quote every shell argument safely. Display it for the user; do not run or submit automatically. If the CLI is unavailable, add: `Install it with: npm install -g vidbyte-skills`.
 
 ## Failure Modes
 
@@ -301,4 +301,3 @@ The retain section contains a ready-to-run shell block using the existing `vidby
 - The final handoff distinguishes agent analysis from user-produced responses.
 - Long sessions have resumable state.
 - No unavailable source content or installed alternative is invented.
-

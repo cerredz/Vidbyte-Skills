@@ -92,4 +92,3 @@ Say which structural/use-case condition failed. `/feynman`, `/cornell-notes`, `/
 - The canonical target prompt is loaded before execution.
 - Existing conversation input is reused.
 - Missing or non-matching skills are reported honestly.
-

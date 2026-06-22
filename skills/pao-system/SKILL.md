@@ -87,7 +87,7 @@ Open a new system with:
 ```text
 PAO turns numbers into people doing things to objects: every six digits become one vivid scene.
 You need a 00–99 list—100 people, 100 actions, and 100 objects—which we can build in ten-item batches or start from a bundled people list.
-Once the list is ready, a 100-digit target becomes about 17 ordered scenes; building the list takes sessions, while using it can take minutes.
+Once the list is ready, a 100-digit target becomes about 17 ordered scenes and can take roughly 10 minutes to encode with practice; building the list itself takes multiple sessions.
 ```
 
 Then explain that Phase 1 teaches the phonetic prerequisite, Phases 2–3 build the system, Phase 4 uses it, and Phase 5 drills it.
@@ -259,6 +259,8 @@ code C -> Object
 
 Generate one exaggerated, sensory, interactive scene per triplet. Preserve user mappings exactly. Do not substitute a more convenient action/object.
 
+For the standard 30-digit first target, make the grouping explicit: 30 digits become 15 two-digit codes, five PAO scenes, and therefore five ordered loci.
+
 Ask the user for one familiar ordered memory-palace locus per scene. If no `/memory-palace` skill is installed, explain loci directly: distinct fixed locations along a route the user knows. Require enough loci before placement.
 
 Narrate one scene at one locus at a time. Ask the user to visualize it and describe one sensory interaction; HALT as needed rather than dumping a long list.
@@ -326,4 +328,3 @@ Include Major System mastery, passed batches, missing-field counts, and recent d
 - Scene generation uses the exact saved PAO components.
 - The user recalls scenes and decodes the target in order.
 - Progress survives in valid versioned local artifacts without exposing sensitive raw targets.
-
