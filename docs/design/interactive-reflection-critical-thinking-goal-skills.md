@@ -541,12 +541,12 @@ No runtime package or external service dependency is added.
 
 ## 12. Open Questions
 
-- [ ] During individual source verification, does Sagan's primary text support the requested exact “9 tools plus 20 fallacies” count and labels, or should the skill present the source's actual list while noting common condensed counts?
-- [ ] Does the authoritative Twardy source define a reproducible numeric propagation formula, or should the skill use clearly defined ordinal credibility/relevance judgments and an auditable qualitative aggregation?
-- [ ] Which exact Mezirow ten-stage label set is used in the authoritative edition selected for implementation? The skill must choose one sourced set and note common wording variants.
-- [ ] Does Moon's selected source support treating the five learning stages directly as an entry-scoring rubric, or should the skill distinguish the five-stage learning map from Moon's separate reflective-writing classification while still satisfying the requested depth assessment?
+- [x] Sagan uses nine positive evidentiary tools and a 20-item fallacy list in the implemented source treatment; the skill names all 20 and requires mechanism-level evidence rather than label matching.
+- [x] The reviewed Twardy treatment did not justify inventing a universal numeric propagation equation; the skill records credibility and relevance rationales and requires a reproducible, explicitly defined aggregation.
+- [x] Mezirow uses the standard ten-stage sequence from disorienting dilemma through reintegration; the implementation keeps all ten visible and permits longitudinal `in_progress` status.
+- [x] Moon's five-stage learning map is operationalized as an evidence-based depth assessment while avoiding claims that every entry reaches transformation; the skill does not conflate a depth rating with the writer's ability or character.
 
-These are research-resolution questions, not requests for product-scope decisions. Each must be resolved from authoritative sources before its affected skill is authored.
+These research-resolution questions were closed before the affected skills were finalized.
 
 ---
 
