@@ -321,4 +321,3 @@ The agent teaches a deterministic phonetic map and suggests concrete candidates.
 - **Router drift:** the orchestrator paraphrases stale copies of target workflows. Fix by loading canonical `SKILL.md` files.
 - **Dead redirects:** an absent slash skill is presented as available. Fix through an availability check and plain-language fallback.
 - **Sensitive persistence:** a real card number appears in logs. Fix through warnings, placeholders, and default redaction.
-
