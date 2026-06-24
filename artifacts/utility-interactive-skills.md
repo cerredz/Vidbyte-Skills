@@ -321,3 +321,35 @@ The agent teaches a deterministic phonetic map and suggests concrete candidates.
 - **Router drift:** the orchestrator paraphrases stale copies of target workflows. Fix by loading canonical `SKILL.md` files.
 - **Dead redirects:** an absent slash skill is presented as available. Fix through an availability check and plain-language fallback.
 - **Sensitive persistence:** a real card number appears in logs. Fix through warnings, placeholders, and default redaction.
+
+## Version 7 Catalog Expansion
+
+These methods follow the same orient, demonstrate, gate, halt, evaluate, and advance contract. /interactive owns selection; every linked SKILL.md owns execution.
+
+| Skill | Family | Reach for it when | Tie-break |
+|---|---|---|---|
+| [/dewey-act-of-thought](../skills/dewey-act-of-thought/SKILL.md) | reflection | turn a felt difficulty into a defined, testable inquiry | Prefer /schon-reflective-conversation when its signature mechanism is requested |
+| [/boud-reflection](../skills/boud-reflection/SKILL.md) | reflection | process experience and affect before integrating learning | Prefer /gibbs-reflective-cycle when its signature mechanism is requested |
+| [/moon-reflection-map](../skills/moon-reflection-map/SKILL.md) | reflection | assess and deepen the demonstrated level of a reflective entry | Prefer /gibbs-reflective-cycle when its signature mechanism is requested |
+| [/van-manen-reflection](../skills/van-manen-reflection/SKILL.md) | reflection | move one episode from technical efficiency through practical assumptions to critical justice | Prefer /moon-reflection-map when its signature mechanism is requested |
+| [/johns-structured-reflection](../skills/johns-structured-reflection/SKILL.md) | reflection | examine an episode through Looking In and five Looking Out ways of knowing | Prefer /brookfield-four-lenses when its signature mechanism is requested |
+| [/schon-reflective-conversation](../skills/schon-reflective-conversation/SKILL.md) | reflection | respond to surprise through a frame, experimental move, and the situation's back-talk | Prefer /dewey-act-of-thought when its signature mechanism is requested |
+| [/gibbs-reflective-cycle](../skills/gibbs-reflective-cycle/SKILL.md) | reflection | write a differentiated six-stage debrief ending in next-time behavior | Prefer /borton-reflection when its signature mechanism is requested |
+| [/borton-reflection](../skills/borton-reflection/SKILL.md) | reflection | complete the fastest useful facts-to-meaning-to-action debrief | Prefer /gibbs-reflective-cycle when its signature mechanism is requested |
+| [/brookfield-four-lenses](../skills/brookfield-four-lenses/SKILL.md) | reflection | triangulate practice assumptions across four distinct evidence sources | Prefer /johns-structured-reflection when its signature mechanism is requested |
+| [/mezirow-perspective-transformation](../skills/mezirow-perspective-transformation/SKILL.md) | reflection | map a genuine disorienting dilemma across a longitudinal perspective change | Prefer /van-manen-reflection when its signature mechanism is requested |
+| [/toulmin-model](../skills/toulmin-model/SKILL.md) | critical thinking | decompose an argument around its inferential warrant | Prefer /fisher-scriven-analysis when its signature mechanism is requested |
+| [/baloney-detection-kit](../skills/baloney-detection-kit/SKILL.md) | critical thinking | screen one empirical claim with source-accurate evidentiary tools and fallacies | Prefer /paul-elder-framework when its signature mechanism is requested |
+| [/paul-elder-framework](../skills/paul-elder-framework/SKILL.md) | critical thinking | audit reasoning through eight Elements of Thought and nine Intellectual Standards | Prefer /toulmin-model when its signature mechanism is requested |
+| [/community-philosophical-inquiry](../skills/community-philosophical-inquiry/SKILL.md) | critical thinking | conduct symmetric participant-led inquiry with reasons, challenges, and revision | Prefer /paul-elder-framework when its signature mechanism is requested |
+| [/lamp-argument-mapping](../skills/lamp-argument-mapping/SKILL.md) | critical thinking | build skill through repeated contention-reason-objection maps | Prefer /twardy-evidence-mapping when its signature mechanism is requested |
+| [/reference-class-forecasting](../skills/reference-class-forecasting/SKILL.md) | critical thinking | adjust an intuitive forecast toward outcomes from comparable past cases | Prefer /lamp-argument-mapping when its signature mechanism is requested |
+| [/fisher-scriven-analysis](../skills/fisher-scriven-analysis/SKILL.md) | critical thinking | evaluate premise acceptability separately from inferential sufficiency | Prefer /toulmin-model when its signature mechanism is requested |
+| [/halpern-argument-analysis](../skills/halpern-argument-analysis/SKILL.md) | critical thinking | close argument analysis with an explicit accept, reject, or suspend disposition | Prefer /fisher-scriven-analysis when its signature mechanism is requested |
+| [/ennis-critical-thinking](../skills/ennis-critical-thinking/SKILL.md) | critical thinking | audit clarification, credibility, inference, alternatives, and self-monitoring | Prefer /paul-elder-framework when its signature mechanism is requested |
+| [/twardy-evidence-mapping](../skills/twardy-evidence-mapping/SKILL.md) | critical thinking | map evidence credibility and relevance into an auditable support judgment | Prefer /lamp-argument-mapping when its signature mechanism is requested |
+| [/goal-setting-theory](../skills/goal-setting-theory/SKILL.md) | goal pursuit | set a specific difficult goal with commitment, feedback, and complexity safeguards | Prefer /implementation-intentions when its signature mechanism is requested |
+| [/implementation-intentions](../skills/implementation-intentions/SKILL.md) | goal pursuit | bind a specific situational cue to a goal-directed response | Prefer /mental-contrasting when its signature mechanism is requested |
+| [/mental-contrasting](../skills/mental-contrasting/SKILL.md) | goal pursuit | create informed commitment by juxtaposing a desired future with present reality | Prefer /implementation-intentions when its signature mechanism is requested |
+
+Every new method contains a dedicated Your Job section: the agent guides the user through the technique on the user's real work, owns scaffolding and evaluation, and does not perform the user's defining cognitive work.

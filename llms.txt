@@ -544,3 +544,29 @@ Suggested Context7 rules:
 
 Vidbyte lives at https://vidbyte.pro. Skills and CLI docs should point users there for account-linked features, authenticated submissions, saved learning artifacts, API keys, and product context. Local skill installation remains a developer-machine workflow, while the website is the account and platform surface.
 
+
+## Version 7 Interactive Reflection, Critical Thinking, and Goals
+
+- dewey-act-of-thought: Dewey's Complete Act of Thought; turn a felt difficulty into a defined, testable inquiry. Interactive reflection practice, distinct from schon-reflective-conversation.
+- boud-reflection: Boud, Keogh & Walker Reflection; process experience and affect before integrating learning. Interactive reflection practice, distinct from gibbs-reflective-cycle.
+- moon-reflection-map: Moon's Map of Reflection; assess and deepen the demonstrated level of a reflective entry. Interactive reflection practice, distinct from gibbs-reflective-cycle.
+- van-manen-reflection: Van Manen's Three Levels; move one episode from technical efficiency through practical assumptions to critical justice. Interactive reflection practice, distinct from moon-reflection-map.
+- johns-structured-reflection: Johns' Model of Structured Reflection; examine an episode through Looking In and five Looking Out ways of knowing. Interactive reflection practice, distinct from brookfield-four-lenses.
+- schon-reflective-conversation: Schön's Reflective Conversation; respond to surprise through a frame, experimental move, and the situation's back-talk. Interactive reflection practice, distinct from dewey-act-of-thought.
+- gibbs-reflective-cycle: Gibbs' Reflective Cycle; write a differentiated six-stage debrief ending in next-time behavior. Interactive reflection practice, distinct from borton-reflection.
+- borton-reflection: Borton's What? So What? Now What?; complete the fastest useful facts-to-meaning-to-action debrief. Interactive reflection practice, distinct from gibbs-reflective-cycle.
+- brookfield-four-lenses: Brookfield's Four Lenses; triangulate practice assumptions across four distinct evidence sources. Interactive reflection practice, distinct from johns-structured-reflection.
+- mezirow-perspective-transformation: Mezirow's Perspective Transformation; map a genuine disorienting dilemma across a longitudinal perspective change. Interactive reflection practice, distinct from van-manen-reflection.
+- toulmin-model: Toulmin Model; decompose an argument around its inferential warrant. Interactive critical thinking practice, distinct from fisher-scriven-analysis.
+- baloney-detection-kit: Sagan's Baloney Detection Kit; screen one empirical claim with source-accurate evidentiary tools and fallacies. Interactive critical thinking practice, distinct from paul-elder-framework.
+- paul-elder-framework: Paul–Elder Framework; audit reasoning through eight Elements of Thought and nine Intellectual Standards. Interactive critical thinking practice, distinct from toulmin-model.
+- community-philosophical-inquiry: Community of Philosophical Inquiry; conduct symmetric participant-led inquiry with reasons, challenges, and revision. Interactive critical thinking practice, distinct from paul-elder-framework.
+- lamp-argument-mapping: LAMP Argument Mapping; build skill through repeated contention-reason-objection maps. Interactive critical thinking practice, distinct from twardy-evidence-mapping.
+- reference-class-forecasting: Reference Class Forecasting; adjust an intuitive forecast toward outcomes from comparable past cases. Interactive critical thinking practice, distinct from lamp-argument-mapping.
+- fisher-scriven-analysis: Fisher–Scriven Argument Analysis; evaluate premise acceptability separately from inferential sufficiency. Interactive critical thinking practice, distinct from toulmin-model.
+- halpern-argument-analysis: Halpern Argument Analysis; close argument analysis with an explicit accept, reject, or suspend disposition. Interactive critical thinking practice, distinct from fisher-scriven-analysis.
+- ennis-critical-thinking: Ennis Critical Thinking Abilities; audit clarification, credibility, inference, alternatives, and self-monitoring. Interactive critical thinking practice, distinct from paul-elder-framework.
+- twardy-evidence-mapping: Twardy's Evidence-Weighted Mapping; map evidence credibility and relevance into an auditable support judgment. Interactive critical thinking practice, distinct from lamp-argument-mapping.
+- goal-setting-theory: Locke & Latham Goal-Setting Theory; set a specific difficult goal with commitment, feedback, and complexity safeguards. Interactive goal pursuit practice, distinct from implementation-intentions.
+- implementation-intentions: Gollwitzer's Implementation Intentions; bind a specific situational cue to a goal-directed response. Interactive goal pursuit practice, distinct from mental-contrasting.
+- mental-contrasting: Oettingen's Mental Contrasting; create informed commitment by juxtaposing a desired future with present reality. Interactive goal pursuit practice, distinct from implementation-intentions.
