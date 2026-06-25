@@ -5,6 +5,18 @@ from ..constants.auth import OFFICIAL_API_ORIGIN, DEFAULT_SKILL_ID, DEFAULT_TIME
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
+# Auth-bearing variables that must only come from the real process environment.
+# A working-directory or repo .env must never be able to inject these, otherwise
+# opening a malicious repo and running a skill could redirect the user's data to an
+# attacker's account or supply a forged skill secret.
+_PROTECTED_ENV_KEYS = frozenset({
+    "VIDBYTE_SESSION_TOKEN",
+    "VIDBYTE_API_KEY",
+    "VIDBYTE_SKILL_SECRET",
+    "VIDBYTE_SKILL_ID",
+    "VIDBYTE_HOME",
+})
+
 
 class EnvLoader:
     def __init__(self):
@@ -19,6 +31,9 @@ class EnvLoader:
                 for line in f:
                     key, value = self._parse_env_line(line)
                     if key is None:
+                        continue
+                    # Never source credentials from a .env file; process env only.
+                    if key in _PROTECTED_ENV_KEYS:
                         continue
                     if key in os.environ:
                         continue
