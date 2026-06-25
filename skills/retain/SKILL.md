@@ -388,6 +388,14 @@ If the CLI fails, display only a concise failure message and the CLI error. Beca
 - Do not call Vidbyte endpoints directly from prompt text.
 - Do not use a file as the primary submission interface. The command should mimic the exercise shape with flags.
 
+## Invocation safety
+
+The exercise fields are generated from conversation content, which can contain quotes,
+`$(...)`, backticks, or newlines. Pass every field value as its **own discrete argument**
+to `vidbyte retain` using your tool's argv-array form (one element per flag and per value).
+Never assemble a single shell-command string by interpolating that content — doing so risks
+executing arbitrary commands on the user's machine. Let the CLI receive each value verbatim.
+
 ## Success Criteria
 
 - The normal conversation flow stops when `/retain` is invoked.

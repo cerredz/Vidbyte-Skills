@@ -24,6 +24,15 @@ The prompt should own task-specific reasoning and artifact generation. Code owns
 filesystem installation, manifest validation, session handling, and backend
 transport.
 
+## Invocation Safety (all skills that call the CLI)
+
+Any skill that invokes the `vidbyte` / `vidbyte-skills` CLI with content derived from the
+conversation MUST pass each value as its own discrete argument (argv-array form), and MUST
+NOT build a single shell-command string by interpolating user- or model-generated text.
+Conversation content can contain quotes, `$(...)`, backticks, or newlines; interpolating it
+into a shell string risks arbitrary command execution on the user's machine. Let the CLI
+receive each argument verbatim.
+
 ## Usage
 
 Install every default skill:
