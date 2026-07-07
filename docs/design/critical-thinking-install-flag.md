@@ -272,6 +272,34 @@ npx vidbyte-skills --critical-thinking
 
 ---
 
+### 6.5 Install Reporter Selection Label
+
+**File(s):** `lib/install-reporter.js`
+**Type:** Modified
+
+#### What it does
+
+Keeps installer output accurate when a selected skill group flows through the existing requested-skill path.
+
+#### Interface / API
+
+```javascript
+export function reportInstallStart(skills, options, source, category = "") { ... }
+```
+
+#### Logic / Algorithm
+
+1. If `options.skillNames.length > 0`, describe the selection source as `requested skills`.
+2. Otherwise preserve the existing version/all-skills labels.
+3. Continue printing the exact selected skill names and existing install configuration.
+
+#### Edge Cases & Error Handling
+
+- `--critical-thinking` and ordinary positional/`--skill` installs share the same requested-skill label.
+- Version installs keep their existing version labels.
+
+---
+
 ## 7. Data Model Changes
 
 N/A - This feature adds a static JavaScript dictionary and CLI parser behavior. It does not modify persisted schemas, local user artifacts, backend collections, JSON skill manifests, or skill frontmatter.
@@ -315,6 +343,7 @@ Complete list of every file that will be created, modified, or deleted:
 | CREATE | `docs/design/critical-thinking-install-flag.md` | Source-of-truth design for this feature |
 | CREATE | `lib/skill-groups.js` | Static critical-thinking skill dictionary |
 | MODIFY | `lib/cli-options.js` | Parse `--critical-thinking`, update help text, and append the static group |
+| MODIFY | `lib/install-reporter.js` | Keep requested-skill dry-run/install labels accurate |
 | MODIFY | `README.md` | Document the full install commands and option |
 | MODIFY | `llms.txt` | Add model-facing command guidance |
 
