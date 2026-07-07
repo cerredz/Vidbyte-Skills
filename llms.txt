@@ -88,6 +88,13 @@ npx vidbyte-skills retain feedback-generator
 npx vidbyte-skills --skill retain,feedback-generator
 ```
 
+Install only the curated critical-thinking skills:
+
+```bash
+npx vidbyte-skills --critical-thinking
+npx github:cerredz/Vidbyte-Skills --critical-thinking
+```
+
 Install category-specific packages when available:
 
 ```bash
@@ -108,6 +115,7 @@ vidbyte-skills [skill-name ...] [options]
 --scope both
 --platform claude-code,codex,gemini
 --skill my-skill,other-skill
+--critical-thinking
 --mode copy
 --mode link
 --dry-run

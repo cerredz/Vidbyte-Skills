@@ -163,6 +163,22 @@ npx vidbyte-learning-skills --version 7
 | implementation-intentions | /implementation-intentions | Bind a specific situational cue to a goal-directed response |
 | mental-contrasting | /mental-contrasting | Create informed commitment by juxtaposing a desired future with present reality |
 
+## Install Critical-Thinking Skills
+
+To install only the curated critical-thinking subset from Version 7:
+
+```bash
+npx vidbyte-skills --critical-thinking
+```
+
+For GitHub installs before npm publication:
+
+```bash
+npx github:cerredz/Vidbyte-Skills --critical-thinking
+```
+
+Use `--version 7` when you want the broader reflection, critical-thinking, and goal skills bundle.
+
 ## Install Specific Skills
 
 Pass skill names as positional arguments:
@@ -196,10 +212,12 @@ vidbyte-skills [skill-name ...] [options]
 --scope both
 --platform claude-code,codex,gemini
 --skill my-skill,other-skill
+--critical-thinking
 --version 1
 --version 2
 --version 5
 --version 6
+--version 7
 --version all
 --mode copy
 --mode link
