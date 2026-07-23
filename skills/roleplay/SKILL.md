@@ -4,9 +4,11 @@ description: >
   Use this skill when the user wants to practice a real-world interpersonal
   scenario through character simulation and scored conversation. Activates for
   /roleplay, requests to practice job interviews, difficult conversations, talking
-  to a boss or expert, salary negotiation, giving feedback, cold pitching, or any
-  scenario where the user wants feedback on how they communicate in a specific
-  social context.
+  to a boss or expert, salary negotiation, giving feedback, cold pitching,
+  experience gap screens (not enough years for the posting, underqualified on paper,
+  new grad applying mid-level, mid-level applying senior, recruiter saying we require
+  X years and you have Y), or any scenario where the user wants feedback on how they
+  communicate in a specific social context.
 ---
 
 # /roleplay — Conversational Practice with Scoring
@@ -55,7 +57,9 @@ Activate when any of these are true:
 - The user's message starts with `/roleplay`.
 - The user asks to practice a job interview, talking to a boss, consulting an
   expert, salary negotiation, cold pitch, giving feedback, asking for a promotion,
-  or any interpersonal scenario by name or description.
+  an experience gap / years-of-experience screen, talking past a recruiter who says
+  the candidate is underqualified for the posting, or any interpersonal scenario by
+  name or description.
 - The user asks for "conversational practice" or "roleplay practice."
 
 If invoked as `/roleplay <slug>` (e.g. `/roleplay job-interview`), skip the

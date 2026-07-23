@@ -28,3 +28,4 @@ appends rows here when new scenarios are created.
 | asking-for-raise | Asking for a Raise | Ask your manager for a raise using performance evidence, market context, and a clear compensation ask. |
 | resigning-from-job | Resigning from a Job | Resign from your job professionally while holding a firm final date and offering a clean transition plan. |
 | asking-professor-recommendation | Asking a Professor for a Recommendation | Ask a professor for a recommendation letter with enough context, notice, and evidence for them to write a strong letter. |
+| experience-gap-screen | Experience Gap Screen | Practice moving a recruiter past "we need X years, you have Y" using elicitation, not resume inflation. |
