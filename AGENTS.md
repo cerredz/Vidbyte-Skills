@@ -44,7 +44,7 @@ Typed payload shapes for the commands that submit structured data: `compressor.p
 
 #### `cli/helpers/`
 
-Small shared utilities that do not warrant their own layer. Currently `usage.py`, which renders help and usage text — deliberately factored out because the CLI's help output is itself an agent-facing surface with its own design doc, not incidental formatting. Keep it thin � anything that grows a domain belongs in its own module.
+Small shared utilities that do not warrant their own layer. Currently `usage.py`, which renders help and usage text — deliberately factored out because the CLI's help output is itself an agent-facing surface with its own design doc, not incidental formatting. Keep it thin — anything that grows a domain belongs in its own module.
 
 ### `docs/`
 
