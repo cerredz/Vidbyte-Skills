@@ -85,3 +85,73 @@ Validation, smoke testing, packaging, and catalog generation — the gate this r
 ### `skills/`
 
 The source of truth for every installable skill, and 87% of the tracked files in this repository. Each skill is a folder holding a `SKILL.md` and its supporting files; `skills/README.md` documents the catalog categories, authoring rules, and validation expectations. The catalog is dominated by reasoning methods published in graduated depths — most `<method>-trace` skills also ship `-small`, `-medium`, and `-large` variants — alongside learning routines (`sq3r`, `pq4r`, `reap`, `gtd`, `para`), reflection frameworks (`gibbs-reflective-cycle`, `kolb-learning-cycle-trace`), and Vidbyte-specific skills (`vidbyte-auth`, `vidbyte-tutor`, `retain`, `research`). Per the Map's own rule, this folder is listed but **not** expanded: skill files are agent instructions, not repository structure, and enumerating them here would bury the routing information this file exists to carry.
+
+## Command Deck
+
+This section is the run-command reference for this repository's two runtimes — the Node installer and the Python CLI. It is deliberately **not** part of the Map's topology contract above — it exists so nobody burns tokens guessing or searching for an invocation. Each entry is the literal command, what it does, and its notable parameters. Run everything from the repository root. This repository ships no CI workflow, so the local gate is the only gate.
+
+### Repository gates
+
+- `npm test`
+  The full gate: skill validation, the installer smoke test, both CLI smoke tests, the CLI security test, and the agent-facing CLI skills check. Run and pass before every PR.
+  Params: none (it is a fixed chain in `package.json`).
+- `node scripts/validate.js`
+  Checks every skill's folder structure and frontmatter against the catalog rules.
+  Params: none; the fast loop while authoring a skill.
+- `node scripts/smoke-test.js`
+  End-to-end smoke test of the installer surface.
+  Params: none.
+- `node scripts/cli-smoke-test.js`
+  Exercises the Python CLI surface end to end from Node.
+  Params: none.
+- `node scripts/cli-security-test.js`
+  Covers the CLI auth boundary (credentials, headers, signatures, redaction).
+  Params: none.
+- `python scripts/test-agent-facing-cli-skills.py`
+  Verifies the agent-facing CLI help and skills surfaces.
+  Params: none.
+- `node scripts/build-packages.js`
+  Regenerates the `packages/` sub-packages after a catalog change.
+  Params: none.
+
+### Installer (Node runtime)
+
+- `npx vidbyte-skills`
+  The supported one-shot install of the curated version 1 skills into user-level harness directories. Not `npx install vidbyte-skills` — npm parses that as a different command.
+  Params: `--version all` install every valid skill; `--version 2` a numbered bundle; or name skills to install only those.
+- `npm run install-skills`
+  Runs the repository's own installer entry (`bin/install.js`) from a checkout.
+  Params: same selection flags as the `npx` form.
+- `npx vidbyte-learning-skills --version 2`
+  Installs the learning-category sub-package's version 2 background-learning bundle.
+  Params: `--version <n>` bundle version.
+- `npx vidbyte-reasoning-skills`
+  Installs the reasoning-category sub-package (largest category). `vidbyte-roleplay-skills` follows the same shape.
+  Params: same selection flags as the main installer.
+
+### Python CLI (auth + artifact submission)
+
+- `python -m cli auth login`
+  Authenticates this machine against the Vidbyte backend and stores the session credentials.
+  Params: none; interactive. Siblings: `auth logout`, `auth status`.
+- `python -m cli agents list`
+  Lists the agent-facing skills this CLI knows about.
+  Params: none.
+- `python -m cli agents get <name>`
+  Prints one agent-facing skill's details.
+  Params: `<name>` the skill name, e.g. as listed by `agents list`.
+- `python -m cli agents path`
+  Prints the on-disk path the agent-facing skills resolve from.
+  Params: none.
+- `python -m cli feedback submit`
+  Submits skill feedback to the Vidbyte backend.
+  Params: run with `--help` for the payload flags; JSON mode supported.
+- `python -m cli compressor submit`
+  Submits a compression artifact to the backend.
+  Params: run with `--help` for the payload flags.
+- `python -m cli retain submit`
+  Submits a retention-exercise artifact to the backend.
+  Params: run with `--help` for the payload flags.
+- `node bin/vidbyte.js <command>`
+  The `vidbyte` bin shim — delegates to `python -m cli` from the repository root, trying `python` then `python3` on Windows.
+  Params: the same subcommands as `python -m cli`.
