@@ -1,5 +1,7 @@
 # Vidbyte Skills
 
+[![skills.sh](https://skills.sh/b/cerredz/Vidbyte-Skills)](https://skills.sh/cerredz/Vidbyte-Skills)
+
 Vidbyte helps developers package reusable agent workflows, learning routines, and
 reasoning methods as portable skills. Vidbyte Skills is the repository and npm
 package that installs those skills into local coding harnesses and also ships
@@ -16,6 +18,22 @@ Copilot, Warp, Factory, Crush, Aider, Augment, Cline, Continue, Roo Code,
 Windsurf, and AGENTS.md-compatible tools.
 
 Repository: https://github.com/cerredz/Vidbyte-Skills
+
+## Install from skills.sh
+
+Install the full public collection with the `skills` CLI:
+
+```bash
+npx skills add cerredz/Vidbyte-Skills
+```
+
+Install one skill by name:
+
+```bash
+npx skills add cerredz/Vidbyte-Skills --skill dewey-act-of-thought
+```
+
+The public skills source is the `skills/` directory. Each skill is a folder containing a `SKILL.md` file with `name` and `description` frontmatter.
 
 ## Repository Map
 
