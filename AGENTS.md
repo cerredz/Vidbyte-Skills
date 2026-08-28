@@ -85,3 +85,64 @@ Validation, smoke testing, packaging, and catalog generation — the gate this r
 ### `skills/`
 
 The source of truth for every installable skill, and 87% of the tracked files in this repository. Each skill is a folder holding a `SKILL.md` and its supporting files; `skills/README.md` documents the catalog categories, authoring rules, and validation expectations. The catalog is dominated by reasoning methods published in graduated depths — most `<method>-trace` skills also ship `-small`, `-medium`, and `-large` variants — alongside learning routines (`sq3r`, `pq4r`, `reap`, `gtd`, `para`), reflection frameworks (`gibbs-reflective-cycle`, `kolb-learning-cycle-trace`), and Vidbyte-specific skills (`vidbyte-auth`, `vidbyte-tutor`, `retain`, `research`). Per the Map's own rule, this folder is listed but **not** expanded: skill files are agent instructions, not repository structure, and enumerating them here would bury the routing information this file exists to carry.
+
+## Command Deck
+
+This section is the development and debugging reference for this repository's Node.js installer and Python CLI. It is deliberately **not** part of the Map's topology contract above: use it to choose a local check or debugger when changing repository code. Run commands from the repository root.
+
+### Repository gates
+
+- `npm test`
+  Runs the complete local gate: skill validation, installer smoke tests, both CLI smoke/security suites, and the agent-facing CLI skills check.
+  Params: none; use a targeted command below when iterating on one surface.
+- `npm run validate`
+  Runs the fast structural check for skill frontmatter, the catalog, and version manifests.
+  Params: none.
+- `node ./scripts/smoke-test.js`
+  Exercises the Node installer against temporary home and project directories.
+  Params: none.
+- `node ./scripts/cli-smoke-test.js`
+  Runs the Node-driven end-to-end checks for the Python CLI installation surface.
+  Params: none.
+- `node ./scripts/cli-security-test.js`
+  Checks the CLI authentication boundary, including credentials, headers, signatures, and redaction.
+  Params: none.
+- `python ./scripts/test-agent-facing-cli-skills.py`
+  Verifies the agent-facing CLI help, skill listing, retrieval, path resolution, and dry-run surfaces.
+  Params: none.
+
+### Node.js development and debugging
+
+- `node ./scripts/build-packages.js`
+  Regenerates the category package manifests and installer shims after package metadata or catalog changes.
+  Params: none.
+- `node ./scripts/generate-all-roleplays.js`
+  Regenerates the roleplay scenario and rubric files from the reviewed scenario definitions.
+  Params: none.
+- `node ./scripts/test-roleplay-scenarios-expansion.js`
+  Verifies the generated roleplay directories, headings, registry entries, and installer filtering.
+  Params: none.
+- `node --check <path-to-file.js>`
+  Checks one JavaScript file for syntax errors without executing it.
+  Params: `<path-to-file.js>` the file being edited.
+- `node --inspect-brk ./scripts/<script>.js`
+  Starts a Node inspector session and pauses before running a script so a debugger can attach.
+  Params: replace `<script>.js` with the script under investigation.
+
+### Python CLI development and debugging
+
+- `python -m compileall cli scripts`
+  Compiles the Python CLI and script modules to catch syntax errors without making network requests.
+  Params: paths to the Python packages or modules being changed.
+- `python -m cli --help`
+  Prints the top-level CLI usage while exercising the Python module entry point.
+  Params: none.
+- `python -m cli agents list`
+  Exercises the local agent-facing command route and lists available agent skills.
+  Params: none.
+- `python -m cli feedback submit --file <path> --domain <domain> --conversation-id <id> --dry-run`
+  Builds and validates a feedback request locally without sending it to the backend.
+  Params: `<path>` for the input artifact, `<domain>` for its domain, and `<id>` for the local conversation identifier.
+- `python -m pdb -m cli <command> <action>`
+  Opens the standard-library Python debugger for a CLI route and pauses at the entry point.
+  Params: replace `<command> <action>` with the route under investigation, such as `agents list`.
