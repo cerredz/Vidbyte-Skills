@@ -5,9 +5,14 @@ description: >
   and verified, with explicit source attribution and epistemic labeling on every claim.
   Distinguishes established consensus from preliminary findings, flags contested areas,
   and explicitly marks inferences as separate from findings. Sources must be peer-reviewed.
+  A Vidbyte learning skill; not Vidbyte Research, the hosted research harness.
 ---
 
-# /research — Vidbyte Research-Grounded Answer
+# /research — Research-Grounded Answer
+
+This is the `/research` learning skill from Vidbyte learning skills. It answers inside this
+conversation. It is not Vidbyte Research, the hosted research harness
+(https://vidbyte.pro/docs/harnesses/research).
 
 ## Identity
 
