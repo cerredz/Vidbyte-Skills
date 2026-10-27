@@ -1,16 +1,18 @@
-﻿# Vidbyte Skills and CLI
+﻿# Vidbyte learning skills (vidbyte-skills) and the vidbyte command
 
 Source repository: https://github.com/cerredz/Vidbyte-Skills
 
+Not the Vidbyte agent skills or vidbyte-cli: the agent skills, which hand engineering jobs to Vidbyte's agents through vidbyte-cli, are at https://vidbyte.pro/agents/skills
+
 Primary README references:
 
-- [Vidbyte Skills README](https://github.com/cerredz/Vidbyte-Skills/blob/main/README.md)
+- [Vidbyte learning skills README](https://github.com/cerredz/Vidbyte-Skills/blob/main/README.md)
 - [CLI commands README](https://github.com/cerredz/Vidbyte-Skills/blob/main/cli/commands/README.md)
 - [Skills catalog README](https://github.com/cerredz/Vidbyte-Skills/blob/main/skills/README.md)
 
 ## Overview
 
-Vidbyte Skills packages reusable agent workflows, learning routines, reasoning methods, roleplay scenarios, and utility behaviors as portable local skills. A Vidbyte skill is a folder with a `SKILL.md` file and optional supporting assets. The installer copies or links those skills into local coding harnesses so agents can use precise, versioned instructions instead of relying only on a general prompt.
+Vidbyte learning skills, the npm package `vidbyte-skills`, packages learning and retention routines, reasoning methods, roleplay scenarios, and utility behaviors as portable local skills. A Vidbyte skill is a folder with a `SKILL.md` file and optional supporting assets. The installer copies or links those skills into local coding harnesses so agents can use precise, versioned instructions instead of relying only on a general prompt.
 
 The same package ships the `vidbyte` command used by skills to submit authenticated artifacts back to Vidbyte. This is important: the prompt generates content or structured arguments, but code owns authentication, request signing, endpoint selection, input sanitization, and backend transport.
 
@@ -409,7 +411,7 @@ Runs Read, Encode, Annotate, and Ponder for argumentative or author-framed sourc
 
 ### `research` (`/research`)
 
-Answers using verified knowledge with explicit source attribution and epistemic labeling on every claim. It is designed for research-grounded answers where evidence quality matters.
+Answers using verified knowledge with explicit source attribution and epistemic labeling on every claim. It is designed for research-grounded answers where evidence quality matters. It is a learning skill that answers inside your own chat; it is not Vidbyte Research, the hosted research harness (https://vidbyte.pro/docs/harnesses/research).
 
 ### `retain` (`/retain`)
 

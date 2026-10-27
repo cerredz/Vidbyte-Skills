@@ -1,15 +1,20 @@
-# Vidbyte Skills
+# Vidbyte learning skills
 
 [![skills.sh](https://skills.sh/b/cerredz/Vidbyte-Skills)](https://skills.sh/cerredz/Vidbyte-Skills)
 
-Vidbyte helps developers package reusable agent workflows, learning routines, and
-reasoning methods as portable skills. Vidbyte Skills is the repository and npm
-package that installs those skills into local coding harnesses and also ships
-the `vidbyte` command used by skills to submit authenticated artifacts back to
-Vidbyte. Coding agents need local, versioned instructions that are more precise
-than a general prompt — Vidbyte Skills packages those instructions as auditable
-Markdown folders, installs them into the harnesses developers already use, and
-keeps the authenticated network boundary in code rather than prompt text.
+Vidbyte learning skills are open-source skills that turn Claude Code, Codex, and
+other coding-agent sessions into learning and retrieval practice (`/retain`,
+`/question`, `/explain`), alongside study routines and reasoning methods. This
+repository and its npm package, `vidbyte-skills`, install them into local coding
+harnesses and also ship the `vidbyte` command that skills use to submit
+authenticated artifacts back to Vidbyte. Coding agents need local, versioned
+instructions that are more precise than a general prompt — this package keeps
+those instructions as auditable Markdown folders, installs them into the
+harnesses developers already use, and keeps the authenticated network boundary
+in code rather than prompt text.
+
+Looking for the Vidbyte agent skills, which hand engineering jobs to Vidbyte's
+agents through `vidbyte-cli`? They are a separate set: https://vidbyte.pro/agents/skills
 
 The repository owns the skill source files under `skills/`; the installer copies
 or links those skills into native skill directories and writes generated rule
@@ -86,9 +91,9 @@ The update command:
 4. Runs `npm install --global vidbyte-skills@latest` if a newer version exists.
 5. Reinstalls all skills into your harnesses using the installer defaults (user scope, all platforms, version 1).
 
-## Vidbyte CLI
+## The `vidbyte` command
 
-This package also exposes a `vidbyte` command for skill-to-backend submissions. Skills should call the CLI instead of constructing backend requests directly in prompt text.
+This package also exposes a `vidbyte` command for skill-to-backend submissions. Skills should call the CLI instead of constructing backend requests directly in prompt text. It is not `vidbyte-cli`, the separate Vidbyte CLI that runs Vidbyte's agents.
 
 ```bash
 vidbyte feedback submit --file feedback-log-2026-05-11-example.md --domain software-engineering --conversation-id example
@@ -171,7 +176,7 @@ Skills for active learning, comprehension, retention, and research.
 | question-builder | `/question-builder` | Background tracker that logs retention and future-direction questions throughout the session; export as a JSON artifact |
 | read-paper | `/read-paper` | Reads a research paper (arXiv, DOI, PDF, Semantic Scholar, PubMed), strips noise, extracts a 6-field core signal, and runs a learning gate check |
 | reap | `/reap` | Guides Read, Encode, Annotate, and Ponder for sources where accurately representing the author's argument matters more than fact extraction |
-| research | `/research` | Answers grounded in verified knowledge with explicit source attribution and epistemic labeling on every claim; peer-reviewed sources only |
+| research | `/research` | Answers grounded in verified knowledge with explicit source attribution and epistemic labeling on every claim; peer-reviewed sources only. Not [Vidbyte Research](https://vidbyte.pro/docs/harnesses/research), the hosted research harness |
 | retain | `/retain` | Pauses the conversation, generates a 15-minute retention exercise from the session, and submits it to Vidbyte |
 | scope | `/scope` | Defines the boundaries of broad domains, highlighting core, adjacent, and commonly misattributed fields |
 | solo | `/solo` | Classifies an unaided explanation from Pre-structural through Extended Abstract with evidence and a next study action |
